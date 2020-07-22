@@ -109,8 +109,8 @@ const command = args.shift().toLowerCase();
   } else if (command === 'restart') {
   client.commands.get('restart').run(client, message, args);
   }
-  if (command === 'createrole') {
-  client.commands.get('createrole').run(client, message, args);
+  if (command === 'role') {
+  client.commands.get('role').run(client, message, args);
   }
 });
 

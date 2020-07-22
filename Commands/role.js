@@ -3,8 +3,8 @@ module.exports = {
     name: "createrole",
     description: "Create roles in your Server",
     run: async(client, message, args) => {
-        if(args[0].toLowerCase()){
-            let Rname= message.content.split(`${client.prefix}createrole `).join("")
+        if(args[0].toLowerCase()=='create'){
+            let Rname= message.content.split(`${client.prefix}role create `).join("")
             let rColor;
             args.forEach(arg=>{
                 if(args.startWith("#")){
