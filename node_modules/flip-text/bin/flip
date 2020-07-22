@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var flip = require('..')
+
+var str = process.argv.slice(2).join(' ')
+console.log(flip(str))
