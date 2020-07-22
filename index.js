@@ -106,8 +106,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'shutdown') {
   client.commands.get('shutdown').run(client, message, args);
-  } else if (command === 'restart') {
-  client.commands.get('restart').run(client, message, args);
+  } else if (command === 'invite') {
+  client.commands.get('invite').run(client, message, args);
   }
 });
 
