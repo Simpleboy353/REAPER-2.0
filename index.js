@@ -109,6 +109,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'restart') {
   client.commands.get('restart').run(client, message, args);
   }
+  if (command === 'invite') {
+  client.commands.get('invite').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
