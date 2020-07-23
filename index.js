@@ -109,6 +109,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'invite') {
   client.commands.get('invite').run(client, message, args);
   }
+  if (command === 'announce') {
+  client.commands.get('announce').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
