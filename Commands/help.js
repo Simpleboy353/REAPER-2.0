@@ -21,6 +21,7 @@ module.exports = {
 .addField(`Info: `, "`helpinfo`")
 .addField(`Utility: `, "`helputility`")
 .addField(`Fun: `, "`helpfun`")
+.addField(`New`, "Available after Testing")
 .setColor("RANDOM");
 
 message.channel.send(embed);
