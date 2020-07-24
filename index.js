@@ -114,6 +114,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'cowsay') {
   client.commands.get('cowsay').run(client, message, args);
   }
+  if (command === 'roast') {
+  client.comands.get('roast').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
