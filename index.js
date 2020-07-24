@@ -35,7 +35,7 @@ const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
 
   if (command === 'ping') {
-	client.commands.get('ping').execute(message, args);
+	client.commands.get('ping').run(client, message, args);
   } else if(command === 'mute') {
   client.commands.get('mute').execute(message, args);
   }
