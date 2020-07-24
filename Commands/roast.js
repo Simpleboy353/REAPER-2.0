@@ -84,6 +84,6 @@ module.exports = {
         "Is it sad that your theme song might as well have a 0/0 signature?",
         "You're so fat, you make the galaxy look like it's on the molecular scale."
     ];  
-     await message.channel.send(`${target}, roasts[Math.floor(Math.random()*roasts.length)]`);
+     await message.channel.send(`${target}, ${roasts[Math.floor(Math.random()*roasts.length)]}`);
       },
 }
