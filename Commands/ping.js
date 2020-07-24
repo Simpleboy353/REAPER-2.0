@@ -1,33 +1,27 @@
-const Discord = require("discord.js")
-const { Client,MessageEmbed } = require("discord.js");
-const client = new Client();
+const discord = require("discord.js");
 
 module.exports = {
     name: "ping",
-    description: "PONG! Displays the api & latency",
-    usage: "!!ping",
-    category: "miscellaneous",
-    accessableby: "Members",
-    aliases: ["latency"],
-    execute(message, args) {
+    aliases: ["pong"],
+    category: "Utility",
+    usage: "ping",
+    description: "Get the bot's ping!",
+    run: async (client, message, args) => {
 
-        message.channel.send("Pinging...").then(m => {
-            let ping = m.createdTimestamp - message.createdTimestamp
-            let choices = ["**:ping_pong: Is this really my ping**", "**:ping_pong: Is it okay? I cant look**", "**:ping_pong: I hope it isnt bad**"]
-            let response = choices[Math.floor(Math.random() * choices.length)]
-                            let hrStart = process.hrtime()
-                    let hrDiff;
-                    hrDiff = process.hrtime(hrStart);
+     let start = Date.now();
+  
+  message.channel.send({embed: {description: "Looks like the bot is slow.", color: "RANDOM"}}).then(m => {
     
-            const embed = new MessageEmbed()
-            .setColor("RANDOM")
-            .setTitle("**Packet Internet Groper:**")
-            .addField("**DISCORD API:**", `\`\`\`${Math.round(client.ping)} MS\`\`\``, true)
-            .addField("**MESSAGE (RESPONS):**", `\`\`\`${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000} MS\`\`\``, true)
-            .addField("**SHARDS:**", `\`\`\`SHARD 1/1: ${Math.round(client.ping)} MS\`\`\``)
-            m.edit(embed)
-        })
-        
+    let end = Date.now();
+    
+    let embed = new discord.MessageEmbed()
+    .setAuthor("Ping!", message.author.avatarURL())
+    .addField("API Latency", Math.round(client.ws.ping) + "ms", true)
+    .addField("Message Latency", end - start + "ms", true)
+    .setColor("RANDOM");
+    m.edit(embed).catch(e => message.channel.send(e))
+    
+  })
+
     }
- 
-}
+};
