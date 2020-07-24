@@ -5,11 +5,11 @@ module.exports = {
     description: "Roasts a user",
     run: async (client, message, args) => {
         let target = message.mentions.members.first();
-        let isBotOwner = message.author.id == '661501985517862972';
+        let isBotOwner = '661501985517862972';
     if (args.length == 0) {
     return message.channel.send("Damn, You are trying to roast the air..??").then(msg => msg.delete(2300))
     }
-    if (target == isBotOwner) {
+    if (target.id == isBotOwner) {
     return message.channel.send("-_- I an not going to roast my master, you idiot !")
     }
     var roasts = [
