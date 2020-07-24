@@ -115,7 +115,7 @@ const command = args.shift().toLowerCase();
   client.commands.get('cowsay').run(client, message, args);
   }
   if (command === 'roast') {
-  client.comands.get('roast').run(client, message, args);
+  client.commands.get('roast').run(client, message, args);
   }
 });
 
