@@ -5,8 +5,13 @@ module.exports = {
     description: "Roasts a user",
     run: async (client, message, args) => {
         let target = message.mentions.members.first();
-    if (args.length == 0) return message.channel.send("Damn, You are trying to roast the air..??").then(msg => msg.delete(2300)); 
-
+        let isBotOwner = message.author.id == '661501985517862972';
+    if (args.length == 0) {
+    return message.channel.send("Damn, You are trying to roast the air..??").then(msg => msg.delete(2300))
+    }
+    if (target == isBotOwner) {
+    return message.channel.send("-_- I an not going to roast my master, you idiot !")
+    }
     var roasts = [
         "*Puts you in the oven.*",
         "You're so stupid.",
