@@ -111,6 +111,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'announce') {
   client.commands.get('announce').run(client, message, args);
+  } else if (command === 'cowsay') {
+  client.commands.get('cowsay').run(client, message, args);
   }
 });
 
