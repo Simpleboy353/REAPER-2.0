@@ -10,7 +10,7 @@ module.exports = {
     return message.channel.send("Damn, You are trying to roast the air..??").then(msg => msg.delete(2300))
     }
     if (target.id == isBotOwner) {
-    return message.channel.send("-_- I an not going to roast my master, you idiot !")
+    return message.channel.send("-_-   I am not going to roast my master, you idiot !")
     }
     var roasts = [
         "*Puts you in the oven.*",
