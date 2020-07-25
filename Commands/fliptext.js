@@ -7,6 +7,9 @@ module.exports = {
     usage: "fliptext <text>",
     type: "Fun",
     execute(message, args) {
+      if (args.length < 1) {
+        return message.channel.send("Please enter some text to flip")
+      }
   args.reverse();
   var flipped = [];
   
