@@ -5,7 +5,7 @@ module.exports = {
     description: "Kills a user",
     run: async (client, message, args) => {
         let target = message.mentions.members.first();
-        let author = message.author.username;
+        let author = message.member;
         let isBotOwner = "661501985517862972";
     if (args.length == 0) {
     return message.channel.send("Damn, You are trying to roast the air..??").then(msg => msg.delete(2300))
