@@ -8,7 +8,7 @@ module.exports = {
         let author = message.member;
         let isBotOwner = "661501985517862972";
     if (args.length == 0) {
-    return message.channel.send("Damn, You are trying to roast the air..??").then(msg => msg.delete(2300))
+    return message.channel.send("Damn, You are trying to kill the air..??").then(msg => msg.delete(2300))
     }
     if (target.id == isBotOwner) {
     return message.channel.send("-_-   I am not going to kill my master, you idiot !")
