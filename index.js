@@ -119,9 +119,6 @@ const command = args.shift().toLowerCase();
   } else if (command === 'kill') {
   client.commands.get('kill').run(client, message, args);
   }
-  if (command === 'fun') {
-  client.commands.get('fun').run(client , message, args);
-  }
 });
 
 client.login(process.env.token);
