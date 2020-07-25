@@ -116,7 +116,7 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'roast') {
   client.commands.get('roast').run(client, message, args);
-  } else if (commmand === 'kill') {
+  } else if (command === 'kill') {
   client.commands.get('kill').run(client, message, args);
   }
 });
