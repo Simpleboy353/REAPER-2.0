@@ -125,7 +125,7 @@ const command = args.shift().toLowerCase();
   client.commands.get("createrole").run(client, message, args);
   }
   if (command === 'helpconfig') {
-  client.commands.get('helpconfig').run(clients, message, args);
+  client.commands.get('helpconfig').run(client, message, args);
 }
 });
 
