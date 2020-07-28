@@ -38,7 +38,7 @@ module.exports = {
     .setThumbnail(target.avatarURL)
     .setFooter(`Unbanned by ${message.author.tag}`);
     
-    message.channel.send(embed)
+    await message.channel.send(embed)
     target.unban(args[1])
     
   }
