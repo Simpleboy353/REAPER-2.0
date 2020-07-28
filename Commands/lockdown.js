@@ -4,7 +4,7 @@ module.exports = {
     name: "lockdown",
     description: "Start or Stop Lockdown in any channel",
     run: async (client, message, args) => {
-        args: [{
+        [{
             key: 'type',
             prompt: 'Please enter either start or stop.',
             type: 'string',
