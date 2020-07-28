@@ -9,6 +9,7 @@
   "author": "Tester",
   "license": "ISC",
   "dependencies": {
+    "colornames": "^1.1.1",
     "config.json": "0.0.4",
     "dateformat": "^3.0.3",
     "discord.js": "^12.2.0",

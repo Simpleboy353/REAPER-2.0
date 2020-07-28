@@ -121,6 +121,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === "botinfo") {
   client.commands.get("botinfo").run(client, message, args);
+  } else if (command === "createrole") {
+  client.commands.get("createrole").run(client, messag, args);
   }
 });
 
