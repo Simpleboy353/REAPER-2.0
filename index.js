@@ -125,7 +125,7 @@ const command = args.shift().toLowerCase();
   client.commands.get("createrole").run(client, message, args);
   }
   if (command === 'unban') {
-  client.commands.get('unban').run(client, message, args);
+  client.commands.get('unban').execute(message, args);
   }
 });
 
