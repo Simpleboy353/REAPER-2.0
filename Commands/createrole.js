@@ -13,14 +13,14 @@ module.exports = {
         if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
         return message.channel.send("I don't have enough permissions to do this")
         }
-        if (!name) {
-        return message.channel.send("You need to specify a name for the role")
-        }
         if (!args[1]) {
         return message.channel.send("You need to specify a color for the role")
         }
         if (toHex(args[1]) === undefined) {
         return message.channel.send("That is not a valid role color")
+        }
+        if (!name) {
+        return message.channel.send("You need to specify a name for your Role")
         }
         if (regex === false) {
         return message.channel.send("That is not valid role name. It can contain only letters and numbers")
