@@ -12,7 +12,7 @@ module.exports = {
     }
     
     if(!message.guild.me.hasPermission("BAN_MEMBERS")) {
-      return message.channel.send(`**${message.author.username}**, I am do not have perms to ban someone`)
+      return message.channel.send(`**${message.author.username}**, I do not have perms to ban someone`)
     }
     
     const target = message.mentions.members.first();
