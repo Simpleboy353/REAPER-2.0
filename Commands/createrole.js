@@ -29,7 +29,7 @@ module.exports = {
         return message.channel.send("Your role can't be more than 100 characters long")
         }
         message.guild.roles.create({
-            data = {
+            data: {
                 name: name,
                 color: toHex(args[1])
             }
