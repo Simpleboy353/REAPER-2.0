@@ -2,7 +2,7 @@ module.exports = {
     name: "say",
     description: "Make the bot say your message",
     execute(message, args) {
-        if (args.join(" ")) {
+        if (!args.join(" ")) {
         message.channel.send("Please add some text for me to repeat")
         }
         message.channel.send(args.join(" "), { allowedMentions: { parse:["users"] } });
