@@ -4,6 +4,17 @@ module.exports = {
     name: "lockdown",
     description: "Start or Stop Lockdown in any channel",
     run: async (client, message, args) => {
+        args: [{
+            key: 'type',
+            prompt: 'Please enter either start or stop.',
+            type: 'string',
+            default: 'start',
+            validate: type => {
+                if (['start', 'stop'].includes(type.toLowerCase())) return true;
+                return 'Please enter either start or stop.';
+            },
+            parse: type => type.toLowerCase()
+        }]
     if (!message.member.hasPermission("MANAGE_CHANNELS", "MANAGE SERVER")) {
     return message.channel.send("You don't have enough Permissions to initiate a Lockdown")
     }
