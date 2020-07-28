@@ -124,6 +124,9 @@ const command = args.shift().toLowerCase();
   } else if (command === "createrole") {
   client.commands.get("createrole").run(client, message, args);
   }
+  if (command === 'helpconfig') {
+  client.commands.get('helpconfig').run(clients, message, args);
+}
 });
 
 client.login(process.env.token);
