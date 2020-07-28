@@ -6,6 +6,6 @@ module.exports = {
     run: async(client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .addField("Configuration Commands", "`prefix`");
-    message.chanel.send(embed);
+    message.channel.send(embed);
    }
 }
