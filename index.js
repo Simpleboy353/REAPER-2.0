@@ -126,7 +126,9 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'helpconfig') {
   client.commands.get('helpconfig').run(client, message, args);
-}
+  } else if (command === 'helpmisc') {
+  client.commands.get('helpmisc').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
