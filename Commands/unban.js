@@ -10,10 +10,10 @@ module.exports = {
     return message.channel.send("You don't have enough Permissions to use this command")
     }
     const id = args[0];
-    if (!rgx.test(id)) return this.sendErrorMessage(message, 'Invalid argument. Please Mention a user.');
+    if (!rgx.test(id)) return message.channel.send('Invalid argument. Please Mention a user.');
     const bannedUsers = await message.guild.fetchBans();
     const user = bannedUsers.get(id).user;
-    if (!user) return this.sendErrorMessage(message, 'Unable to find user. Please check the mentioned user or the provided user ID.');
+    if (!user) return message.channel.send('Unable to find user. Please check the mentioned user or the provided user ID.');
 
     let reason = args.slice(1).join(' ');
     if (!reason) reason = 'No reason provided';
