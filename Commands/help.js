@@ -16,7 +16,7 @@ module.exports = {
         let prefix = prefixes[message.guild.id].prefix; //Let prefix be prefixes[msg.guild.id].prefix
 
     const embed = new Discord.MessageEmbed()
-.setTitle('Welcome to the help section. Bot Prefix is: '+prefix)
+.setTitle('Welcome to the help section \nPrefix for your Server: '+prefix)
 .addField(`Moderation: `, "`helpmod`")
 .addField(`Info: `, "`helpinfo`")
 .addField(`Utility: `, "`helputility`")
