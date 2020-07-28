@@ -58,7 +58,7 @@ exports.conf = {
 };
   
 exports.help = {
-  name: "modlock",
+  name: "lockdown",
   description: "Locks or unlocks the channel.",
   usage: "[time:str] [reason:str]",
   usageDelim: " | "
