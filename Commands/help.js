@@ -22,6 +22,7 @@ module.exports = {
 .addField(`Utility: `, "`helputility`", true)
 .addField(`Fun: `, "`helpfun`", true)
 .addField(`Configuration: `, "`helpconfig`", true)
+.addField(`Misc: `, "`helpmisc`", true)
 .setColor("RANDOM");
 
 message.channel.send(embed);
