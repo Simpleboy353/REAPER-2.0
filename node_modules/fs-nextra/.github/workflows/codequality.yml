@@ -1,0 +1,113 @@
+name: Code Quality
+
+on:
+  push:
+    branches:
+      - master
+      - stable
+  pull_request:
+
+jobs:
+  ESLint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Project
+      uses: actions/checkout@v1
+    - name: Use Node.js 10
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    - name: Restore CI Cache
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-10-${{ hashFiles('**/yarn.lock') }}
+    - name: Install Dependencies
+      run: yarn
+    - name: Run ESLint
+      uses: discordjs/action-eslint@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        job-name: ESLint
+
+  Typescript:
+    name: Typescript
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Project
+      uses: actions/checkout@v1
+    - name: Use Node.js 10
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    - name: Restore CI Cache
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-10-${{ hashFiles('**/yarn.lock') }}
+    - name: Install Dependencies
+      run: yarn
+    - name: Run TSC
+      uses: icrawl/action-tsc@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        job-name: Typescript
+
+  TypeDocs:
+    name: TypeDocs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Project
+      uses: actions/checkout@v1
+    - name: Use Node.js 10
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    - name: Restore CI Cache
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-10-${{ hashFiles('**/yarn.lock') }}
+    - name: Install Dependencies
+      run: yarn
+    - name: Test Docs
+      if: github.event_name == 'pull_request'
+      run: yarn docs
+    - name: Publish Docs
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        #!/bin/bash
+        set -euxo pipefail
+
+        echo -e "\n# Initialise some useful variables"
+        REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        BRANCH_OR_TAG=`awk -F/ '{print $2}' <<< $GITHUB_REF`
+        CURRENT_BRANCH=`awk -F/ '{print $NF}' <<< $GITHUB_REF`
+
+        if [ "$BRANCH_OR_TAG" == "heads" ]; then
+          SOURCE_TYPE="branch"
+        else
+          SOURCE_TYPE="tag"
+        fi
+
+        echo -e "\n# Checkout the repo in the target branch"
+        TARGET_BRANCH="gh-pages"
+        git clone $REPO out -b $TARGET_BRANCH
+
+        yarn docs
+
+        echo -e "\n# Move the generated docs to the newly-checked-out repo, to be committed and pushed"
+        rsync -vau dist/ out/
+
+        echo -e "\n# Commit and push"
+        cd out
+        git add --all .
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git commit -m "Docs build: ${GITHUB_SHA}" || true
+        git push origin $TARGET_BRANCH
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
