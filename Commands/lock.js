@@ -11,6 +11,8 @@ module.exports = {
         SEND_MESSAGES: false
     }).then(() => {
         message.channel.send(`This channel has been Locked by ${message.member}`);
-    })
-    }
+    });
+    },catch(e){
+        return message.channel.send("Error occured")
+}
 }
