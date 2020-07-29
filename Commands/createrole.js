@@ -35,11 +35,11 @@ module.exports = {
         .setAuthor(`${message.author.username} - (${message.author.id})`, message.author.displayAvatarURL())
         .setColor("RANDOM")
         .setDescription(`
-**Role:** ${name}
-**Action:** New Role Created
-**Role Color:** ${args[0]} - ${toHex(args[1])}
-**Channel:** ${message.channel}
-**By:** ${message.member}
+**Role: ** ${name}
+**Action: ** New Role Created
+**Role Color: ** ${args[0]} - ${toHex(args[0])}
+**Channel: ** ${message.channel}
+**By: ** ${message.member}
       `)
    message.channel.send(embed);
     }
