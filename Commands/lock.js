@@ -4,15 +4,9 @@ module.exports = {
     name: "lock",
     description: "Locks a channel",
     run: async (client, message, args) => {
-    if (!message.member.hasPermission("MANAGE_CHANNELS", "MANAGE_SERVER")) {
-    return message.channel.send("You don't have enough Permissions to use this command")
-    }
-    message.channel.overwritePermissions(message.guild.id, {
-        SEND_MESSAGES: false
-    }).then(() => {
-        message.channel.send(`This channel has been Locked by ${message.member}`);
-    });
-    },catch(e){
-        return message.channel.send("Error occured")
-}
-}
+            const type = channel.type === 'text' ? 'SEND_MESSAGES' : 'CONNECT';
+            await channel.overwritePermissions(channel.guild.defaultRole, { [type]: false });
+            if (message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES') === false) return true;
+            return message.send('This channel is under lockdown.');
+          }
+        }
