@@ -37,7 +37,7 @@ module.exports = {
         .setDescription(`
 **Role: ** ${name}
 **Action: ** New Role Created
-**Role Color: ** ${args[0]} - ${toHex(args[0])}
+**Role Color: ** ${args[0]}
 **Channel: ** ${message.channel}
 **By: ** ${message.member}
       `)
