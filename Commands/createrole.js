@@ -28,7 +28,7 @@ module.exports = {
         message.guild.roles.create({
             data: {
                 name: name,
-                color: toHex(args[1])
+                color: toHex(args[0])
             }
         })
         let embed = new Discord.MessageEmbed()
