@@ -5,7 +5,7 @@ module.exports = {
     name: "createrole",
     description: "Creates A new role in the guild",
     run: async (client, message, args) => {
-        const name = args.slice(1).join(" ")
+        const name = args.slice(0).join(" ")
         const regex = !/[^a-zA-Z0-9]+/g.test(name)
         if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send("You don't have enough Permissions")
@@ -13,11 +13,11 @@ module.exports = {
         if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
         return message.channel.send("I don't have enough permissions to do this")
         }
-        if (!args[0]) {
-        return message.channel.send("You need to specify a color for the role")
-        }
         if (!name) {
         return message.channel.send("You need to specify a name for your Role")
+        }
+        if (!args[1]) {
+        return message.channel.send("You need to specify a color for the role")
         }
         if (regex === false) {
         return message.channel.send("That is not valid role name. It can contain only letters and numbers")
@@ -28,7 +28,7 @@ module.exports = {
         message.guild.roles.create({
             data: {
                 name: name,
-                color: toHex(args[0])
+                color: toHex(args[1])
             }
         })
         let embed = new Discord.MessageEmbed()
@@ -37,7 +37,7 @@ module.exports = {
         .setDescription(`
 **Role: ** ${name}
 **Action: ** New Role Created
-**Role Color: ** ${args[0]}
+**Role Color: ** ${args[1]}
 **Channel: ** ${message.channel}
 **By: ** ${message.member}
       `)
