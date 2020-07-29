@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "hack",
     description: "Hacking Prank",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         if (message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
