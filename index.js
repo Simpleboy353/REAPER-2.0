@@ -130,7 +130,7 @@ const command = args.shift().toLowerCase();
   client.commands.get('helpmisc').run(client, message, args);
   }
   if (command === 'lock') {
-  client.commands.get('lock').run(client, message, args, db);
+  client.commands.get('lock').run(client, message, args);
   } else if (command === 'unlock') {
   client.commands.get('unlock').run(client, message, args);
   }
