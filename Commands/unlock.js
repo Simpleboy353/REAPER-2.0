@@ -7,7 +7,7 @@ module.exports = {
     if(!message.member.hasPermission('ADMINISTRATOR')) {
         return message.channel.send(`You don't have enough Permission to Lock a Channel`);
     }
-        await message.channel.overwritePermissions(message.guild.id, {
+        message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: null
         }).then(() =>{
             message.channel.send('The Channel has been Unlocked Successfully!');
