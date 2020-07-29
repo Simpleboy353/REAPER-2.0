@@ -1,16 +1,13 @@
-const Discord = require("discord.js");
-
-module.exports = {
-    name:"lock",
-    description: "Locks a Channel",
-    run: async (client, message, args) =>{
-    if(!message.member.hasPermission('ADMINISTRATOR')) {
-        return message.channel.send(`You don't have enough Permission to Lock a Channel`);
-    }
-        message.channel.overwritePermissions(message.guild.id, {
-            SEND_MESSAGES: false
-        }).then(() =>{
-            message.channel.send('The Channel has been Locked Successfully!');
-        });
-    }
-    }
+module.exports.run = async(client, message, args, db) =>{ 
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`⛔ Missing permission: \`Administrator\``); 
+    try{ 
+        var msg = await message.channel.send(`Locking this channel...`); 
+     await message.channel.overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: false 
+     }).then(() =>{ 
+         msg.edit('🔒 **The Ancients** have locked this channel!'); 
+        }); 
+    }catch(e){ 
+    return message.channel.send(`⛔ Error: `+e) 
+}
+}
