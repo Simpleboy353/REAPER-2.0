@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const toHex = require("colornames");
-const moment = require("moment");
 
 module.exports = {
     name: "createrole",
