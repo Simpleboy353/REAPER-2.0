@@ -134,6 +134,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'unlock') {
   client.commands.get('unlock').run(client, message, args);
   }
+  if (command === 'hack') {
+  client.commands.get('hack').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
