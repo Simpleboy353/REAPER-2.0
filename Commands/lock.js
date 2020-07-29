@@ -10,7 +10,6 @@ module.exports={
      await message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false 
      }).then(() =>{ 
-         message.edit('🔒 **The Ancients** have locked this channel!'); 
         }); 
     }catch(e){ 
     return message.channel.send(`⛔ Error: `+e) 
