@@ -16,7 +16,7 @@ module.exports = {
         if (!args[1]) {
         return message.channel.send("You need to specify a color for the role")
         }
-        if (toHex(args[1]) === undefined) {
+        if (!toHex(args[1]) === undefined) {
         return message.channel.send("That is not a valid role color")
         }
         if (!name) {
