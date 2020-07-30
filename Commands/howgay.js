@@ -4,7 +4,7 @@ module.exports = {
     name: "howgay",
     description: "Just for fun command",
     run: async(client, message, args) => {
-        let target = message.mentions.member.first();
+        let target = message.mentions.members.first();
         var hga = [
             `${target} is not a gay!`
             `${target} is 10% gay. You're safe!`,
