@@ -5,6 +5,9 @@ module.exports = {
     description: "Just for fun command",
     run: async(client, message, args) => {
         let target = message.mentions.members.first();
+        if (!target) {
+        return message.channel.send("You need to mention someone")
+        }
         var hga = [
             `${target} is not a gay!`
             `${target} is 10% gay. You're safe!`,
