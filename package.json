@@ -18,6 +18,7 @@
     "fs": "0.0.1-security",
     "got": "^11.5.1",
     "ms": "^2.1.2",
+    "request-promise-native": "^1.0.9",
     "run": "^1.4.0",
     "snekfetch": "^4.0.4"
   }
