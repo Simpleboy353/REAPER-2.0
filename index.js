@@ -129,6 +129,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'helpmisc') {
   client.commands.get('helpmisc').run(client, message, args);
   }
+  if (command === 'poll') [
+  client.commands.get('poll').run(client, message, args);
+  ]
 });
 
 client.login(process.env.token);
