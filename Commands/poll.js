@@ -7,7 +7,7 @@ module.exports = {
     if (!message.member.hasPermission('MANAGE_SERVER')) {
     return message.channel.send("You don't have enough Permissions")
     }
-    if (args === 0) {
+    if (!args) {
     return message.channel.send("Enter some text for the Poll")
     }
     let embed = new Discord.MessageEmbed()
