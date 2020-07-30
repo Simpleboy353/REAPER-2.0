@@ -5,7 +5,7 @@ module.exports = {
     description: "Start a Poll",
     run: async (client, message, args) => {
 
-	if (!message.member.roles.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
+	if (!message.member.roles.cache.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
 		message.channel.send('Invalid permissions.');
 		return;
 	}
