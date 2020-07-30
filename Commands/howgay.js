@@ -38,6 +38,6 @@ module.exports = {
             `${target} is 99% gay. Stay away from us you gay!`,
             `${target} is 100% gay. Stay away from us you gay!`,  
         ];
-        message.channel.send(hga[Math.floor(Math.random()*hga.length)])
-    }
+       await message.channel.send(`${hga[Math.floor(Math.random()*hga.length)]}`)
+    },
 }
