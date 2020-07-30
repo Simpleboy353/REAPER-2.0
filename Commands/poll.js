@@ -4,6 +4,7 @@ module.exports = {
     name: "poll",
     description: "Start a Poll",
     run: async (client, message, args) => {
+    const args = args.join(" ");
     if (!message.member.hasPermission('MANAGE_SERVER')) {
     return message.channel.send("You don't have enough Permissions")
     }
