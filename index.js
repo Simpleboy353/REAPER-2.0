@@ -140,7 +140,7 @@ const command = args.shift().toLowerCase();
   client.commands.get('yomama').run(client, message, args);
   }
   if (command === 'rules') {
-  client.commands.get('rules'),run(client, message, args);
+  client.commands.get('rules').run(client, message, args);
   }
 });
 
