@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-
+const superagent = require("snekfetch");
 module.exports = {
     name: "anal",
     description: "NFSW Commands",

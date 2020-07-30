@@ -1,0 +1,41 @@
+import Snekfetch from './index.js';
+
+export default Snekfetch;
+
+export const { version } = Snekfetch;
+export const { METHODS } = Snekfetch;
+
+export const { acl } = Snekfetch;
+export const { bind } = Snekfetch;
+export const { checkout } = Snekfetch;
+export const { connect } = Snekfetch;
+export const { copy } = Snekfetch;
+const { delete: _delete } = Snekfetch;
+export { _delete as delete };
+export const { get } = Snekfetch;
+export const { head } = Snekfetch;
+export const { link } = Snekfetch;
+export const { lock } = Snekfetch;
+export const { merge } = Snekfetch;
+export const { mkactivity } = Snekfetch;
+export const { mkcalendar } = Snekfetch;
+export const { mkcol } = Snekfetch;
+export const { move } = Snekfetch;
+export const { notify } = Snekfetch;
+export const { options } = Snekfetch;
+export const { patch } = Snekfetch;
+export const { post } = Snekfetch;
+export const { propfind } = Snekfetch;
+export const { proppatch } = Snekfetch;
+export const { purge } = Snekfetch;
+export const { put } = Snekfetch;
+export const { rebind } = Snekfetch;
+export const { report } = Snekfetch;
+export const { search } = Snekfetch;
+export const { source } = Snekfetch;
+export const { subscribe } = Snekfetch;
+export const { trace } = Snekfetch;
+export const { unbind } = Snekfetch;
+export const { unlink } = Snekfetch;
+export const { unlock } = Snekfetch;
+export const { unsubscribe } = Snekfetch;
