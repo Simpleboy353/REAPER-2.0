@@ -139,6 +139,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'yomama') {
   client.commands.get('yomama').run(client, message, args);
   }
+  if (command === 'rules') {
+  client.commands.get('rules'),run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
