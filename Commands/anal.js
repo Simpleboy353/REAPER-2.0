@@ -11,7 +11,7 @@ module.exports = {
                 return message.channel.send({embed});
             }
             const anal = await this.client.nekoslife.nsfw.anal();
-            embed.setImage(anal.url);
+            embed.setImage(shutterstock.com/search/anal+sex);
             message.channel.send(embed);
         } catch(err) {
             return message.channel.send("APIError: ", +err);
