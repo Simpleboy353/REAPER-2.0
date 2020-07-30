@@ -1,6 +1,9 @@
-const Discord = require('discord.js');
+const Discord = module.require('discord.js');
 
-exports.run = async (client, message, args) => {
+module.exports = {
+    name: "poll",
+    description: "Start a Poll",
+    run: async (client, message, args) => {
 
 	if (!message.member.roles.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
 		message.channel.send('Invalid permissions.');
@@ -25,4 +28,4 @@ exports.run = async (client, message, args) => {
             }).catch(function(error) {
             console.log(error);
         });
-};
+}};
