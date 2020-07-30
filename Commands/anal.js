@@ -12,10 +12,7 @@ module.exports = {
             }
             const anal = await this.client.nekoslife.nsfw.anal();
             embed.setImage(anal.url);
-            message.channel.send({embed}).then(msg => { 
-                ror(message, msg, true);
-                msg.react("🗑");
-            });
+            message.channel.send(embed);
         } catch(err) {
             return message.channel.send("APIError: ", +err);
     }
