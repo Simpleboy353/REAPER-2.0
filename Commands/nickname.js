@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    namae: "nickname",
+    name: "nickname",
     description: "Change the Nickname of other Users",
     run: async(client, message, args) => {
         if(message.channel.type == 'DM') {
