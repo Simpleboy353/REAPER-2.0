@@ -134,7 +134,7 @@ const command = args.shift().toLowerCase();
   } else if (command === 'nickname') {
   client.commands.get('nickname').run(client, message, args);
   }
-  if (command = 'anal') {
+  if (command === 'anal') {
   client.commands.get('anal').run(client, message, args);
   }
 });
