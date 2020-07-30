@@ -131,6 +131,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'poll') {
   client.commands.get('poll').run(client, message, args);
+  } else if (command === 'nickname') {
+  client.commands.get('nickname').run(client, message, args);
   }
 });
 
