@@ -17,7 +17,7 @@ module.exports = {
                 msg.react("🗑");
             });
         } catch(err) {
-            return this.client.embed("APIError", message);
+            return message.channel.send("APIError: ", +err);
     }
 }
 }
