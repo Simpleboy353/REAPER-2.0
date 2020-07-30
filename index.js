@@ -136,6 +136,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'reverse') {
   client.commands.get('reverse').run(client, message, args);
+  } else if (command === 'yomama') {
+  client.commands.get('yomama').run(client, message, args);
   }
 });
 
