@@ -144,6 +144,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'clap') {
   client.commands.get('clap').run(client, message, args);
   }
+  if (command === 'piratespeak') {
+  client.commands.get('piratespeak').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
