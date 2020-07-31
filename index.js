@@ -151,6 +151,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'urban') {
   client.commands.get('urban').run(client, message, args);
+  } else if (command === 'illegal') {
+  client.commands.get('illegal').run(client, message, args);
   }
 });
 
