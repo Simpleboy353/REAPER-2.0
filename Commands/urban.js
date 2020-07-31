@@ -1,4 +1,5 @@
 const Discord = module.require('discord.js');
+const urban = require("urban");
 
 module.exports = {
     name: "urban",

@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var urban = require('../lib/urban'),
+    program = require('commander');
+
+program.usage('[words]').version(urban.version)
+.option('-p, --permalink', 'displays the permalink')
+.option('-r, --random', 'displays a random word')
+.parse(process.argv);
+
+var words = program.args.join(' ');
+
+if (words.trim().length === 0 && program.random != true) {
+  program.emit('help');
+}
+else {
+  process.stdin.resume();
+
+  var fn = urban;
+  if (program.random) {
+    fn = urban.random;
+  }
+
+  fn(words).first(function(res) {
+    var args = [' --- %s\n%s', words];
+    if (!res) {
+      args.push("No results");
+    } else {
+      if (program.random) {
+        var args = [' --- %s\n%s', res.word];
+      } else {
+        var args = [' --- %s\n%s', words];
+      }
+      args.push(res.definition);
+      if (program.permalink) {
+        args[0] += "\n * %s";
+        args.push(res.permalink);
+      }
+    }
+    console.log.apply(this, args);
+    process.stdin.pause();
+  });
+
+}
