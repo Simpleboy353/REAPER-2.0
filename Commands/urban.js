@@ -13,7 +13,7 @@ module.exports = {
     urban(str).first(json => {
     if (!json) return message.channel.send("No results found!")
       
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
     .setTitle(json.word)
     .setColor("3498db")
     .setDescription(json.definition || "No definition!")
