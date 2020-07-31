@@ -141,6 +141,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'howgay') {
   client.commands.get('howgay').run(client, message, args);
+  } else if (command === 'clap') {
+  client.commands.get('clap').run(client, message, args);
   }
 });
 
