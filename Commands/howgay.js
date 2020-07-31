@@ -9,7 +9,7 @@ module.exports = {
         return message.channel.send("You need to mention someone")
         }
         var hga = [
-            `${target} is not a gay!`
+            `${target} is not a gay!`,
             `${target} is 10% gay. You're safe!`,
             `${target} is 13% gay. You're safe!`,
             `${target} is 17% gay. You're safe!`,
@@ -38,6 +38,6 @@ module.exports = {
             `${target} is 99% gay. Stay away from us you gay!`,
             `${target} is 100% gay. Stay away from us you gay!`,  
         ];
-       await message.channel.send(`${hga[Math.floor(Math.random()*hga.length)]}`)
+       await message.channel.send(hga[Math.floor(Math.random()*hga.length)])
     },
 }
