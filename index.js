@@ -146,6 +146,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'vaportext') {
   client.commands.get('vaportext').run(client, message, args);
+  } else if (command === 'slap') {
+  client.commands.get('slap').run(client, message, args);
   }
 });
 
