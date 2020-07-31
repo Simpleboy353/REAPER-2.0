@@ -149,6 +149,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'slap') {
   client.commands.get('slap').run(client, message, args);
   }
+  if (command === 'urban') {
+  client.commands.get('urban').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
