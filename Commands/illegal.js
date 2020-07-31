@@ -1,5 +1,6 @@
 const Discord = module.require("discord.js");
 const Jimp = require("jimp");
+const cooldown = new Set();
 
 module.exports = {
     name: "illegal",
