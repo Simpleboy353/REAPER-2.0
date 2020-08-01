@@ -184,6 +184,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'jokeoverhead') {
   client.commands.get('jokeoverhead').run(client, message, args);
   }
+  if (command === 'bubblewrap') {
+  client.commands.get('bubblewrap').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
