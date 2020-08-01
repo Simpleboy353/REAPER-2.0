@@ -159,6 +159,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'facts') {
   client.commands.get('facts').run(client, message, args);
   }
+  if (command === 'pornhub') {
+  client.commands.get('pornhub').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
