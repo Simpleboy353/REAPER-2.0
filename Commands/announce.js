@@ -16,10 +16,10 @@ module.exports = {
         }
 
         let embed = new Discord.MessageEmbed()
-        .setTitle("New Server Annoncement")
+        .setTitle("Server Rules")
         .setDescription(`${ann}`)
         .setColor("RANDOM")
-        .setFooter(`Announcement By ${message.author.username}`);
+        .setFooter(`Server Rules are must to be followed`);
         message.channel.send(embed);
         message.delete();
     }
