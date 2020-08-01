@@ -156,6 +156,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'scroll') {
   client.commands.get('scroll').run(client, message, args);
+  } else if (command === 'facts') {
+  client.commands.get('facts').run(client, message, args);
   }
 });
 
