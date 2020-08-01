@@ -14,7 +14,7 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity('Beta Version 2.5.2' ,{ type: 'STREAMING'}).catch(console.error);
+  client.user.setActivity('Beta Version 3.6.4' ,{ type: 'STREAMING'}).catch(console.error);
 });
 
 client.on('message', message => {
