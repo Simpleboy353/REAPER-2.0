@@ -179,8 +179,8 @@ const command = args.shift().toLowerCase();
   } else if (command === 'bad') {
   client.commands.get('bad').run(client, message, args);
   }
-  if (command === 'salty') {
-  client.commands.get('salty').run(client, message, args);
+  if (command === 'penis') {
+  client.commands.get('penis').run(client, message, args);
   } else if (command === 'jokeoverhead') {
   client.commands.get('jokeoverhead').run(client, message, args);
   }
