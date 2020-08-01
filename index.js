@@ -154,8 +154,8 @@ const command = args.shift().toLowerCase();
   } else if (command === 'illegal') {
   client.commands.get('illegal').run(client, message, args);
   }
-  if (command === 'facts') {
-  client.commands.get('facts').run(client, message, args);
+  if (command === 'cats') {
+  client.commands.get('cats').run(client, message, args);
   }
 });
 
