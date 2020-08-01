@@ -5,7 +5,7 @@ module.exports = {
     description: "Get Fun Commands",
     run: async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
-        .addField("Fun Commands", "`8ball`, `amazeme`, `ascii`, `clap`, `cowsay`, `emojify`, `fliptext`, `howgay`, `illegal`, `kill`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`")
+        .addField("Fun Commands", "`8ball`, `amazeme`, `ascii`, `clap`, `cowsay`, `didyoumean`, `drake`, `emojify`, `facts`, `fliptext`, `howgay`, `illegal`, `kill`, `pornhub`, `reverse`, `roast`, `scroll`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`")
         .setColor("RANDOM");
 
         message.channel.send(embed);
