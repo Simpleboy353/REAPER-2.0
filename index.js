@@ -174,6 +174,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'textimage') {
   client.commands.get('textimage').run(client, message, args);
   }
+  if (command === 'amiajoke') {
+  client.commands.get('amiajoke').run(client, message, args);
+  } 
 });
 
 client.login(process.env.token);
