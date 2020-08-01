@@ -7,7 +7,7 @@ module.exports = {
     run: async(client, message, args) => {
         if (message.channel.type === "dm") return;
         let args1 = args.join(' ');
-        let facts = `https://api.alexflipnote.dev/facts?text=` + args1.toUpperCase();
+        let facts = `https://api.alexflipnote.dev/facts` + args1.toUpperCase();
         if (!args1) {
             return message.reply('Please Provide some text');
         }
