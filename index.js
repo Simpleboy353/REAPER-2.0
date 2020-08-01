@@ -176,7 +176,14 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'amiajoke') {
   client.commands.get('amiajoke').run(client, message, args);
-  } 
+  } else if (command === 'bad') {
+  client.command.get('bad').run(client, message, args);
+  }
+  if (command === 'salty') {
+  client.commands.get('salty').run(client, message, args);
+  } else if (command === 'jokeoverhead') {
+  client.commands.get('jokeoverhead').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
