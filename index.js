@@ -161,7 +161,7 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'pornhub') {
   client.commands.get('pornhub').run(client, message, args);
-  } else if (command === ' drake') {
+  } else if (command === 'drake') {
   client.commands.get('drake').run(client, message, args);
   }
   if (command === 'didyoumean') {
