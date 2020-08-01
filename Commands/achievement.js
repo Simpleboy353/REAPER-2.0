@@ -7,7 +7,7 @@ module.exports = {
     description: "Another Fun Command",
     run: async(client, message, args) => {
             if (message.channel.type === "dm") return;
-            let text = args.jin(" ");
+            let text = args.join(" ");
             if (!text) {
                 return message.reply('You need to provide some text!');
             }
