@@ -6,10 +6,10 @@ module.exports = {
     description: "Another fun command",
     run: async(client, message, args) => {
         if (message.channel.type === "dm") return;
-        let args1 = args.join(' ');
-        let facts = `https://api.alexflipnote.dev/facts?=` + args1.toUpperCase();
-        if (!args1) {
-            return message.reply('Please Provide some text');
+        let factline = args.join(" ");
+        let facts = `https://api.alexflipnote.dev/facts?text=` + factline.toUpperCase();
+        if (!factline) {
+            return message.channel.send('Please Provide some text');
         }
         const emb = new Discord.MessageEmbed();
         emb.setImage(facts);
