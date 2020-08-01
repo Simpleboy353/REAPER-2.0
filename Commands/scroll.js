@@ -3,8 +3,8 @@ const Jimp = require("jimp");
 const cooldown = new Set();
 
 module.exports = {
-    name: "illegal",
-    description: "Provide a text to Trump for making it illegal",
+    name: "scroll",
+    description: "Another Fun Command",
     run: async(client, message, args) => {
             if (message.channel.type === "dm") return;
             let text = args.join(' ');
