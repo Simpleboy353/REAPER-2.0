@@ -166,6 +166,13 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'didyoumean') {
   client.commands.get('didyoumean').run(client, message, args);
+  } else if (command === 'achievement') {
+  client.commands.get('achievement').run(client, message, args);
+  }
+  if (command === 'challenge') {
+  client.commands.get('challenge').run(client, message, args);
+  } else if (command === 'textimage') {
+  client.commands.get('textimage').run(client, message, args);
   }
 });
 
