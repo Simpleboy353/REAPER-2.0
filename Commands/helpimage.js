@@ -7,7 +7,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setTitle("Image Commands")
-    .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `challenge`, `didyoumean`, `drake`, `facts`, `jokeoverhead`, `pornhub`, `scroll`, `textimage`");
+    .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `challenge`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `pornhub`, `scroll`, `textimage`");
     message.channel.send(embed);
    }
 }
