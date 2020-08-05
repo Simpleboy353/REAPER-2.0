@@ -184,6 +184,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'jokeoverhead') {
   client.commands.get('jokeoverhead').run(client, message, args);
   }
+  if (command === 'dab') {
+  client.commands.get('dab').run(client,message, args);
+  }
 });
 
 client.login(process.env.token);
