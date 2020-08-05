@@ -21,7 +21,7 @@ module.exports = {
 .addField(`😆 Fun: `, "`helpfun`", true)
 .addField(`📷 Image: `, "`helpimage`", true)
 .addField(`ℹ Info: `, "`helpinfo`", true)
-.addField(`<a:ban:726095321880461343> Moderation: `, "`helpmod`", true)
+.addField(` <a:ban:726095321880461343> Moderation: `, "`helpmod`", true)
 .addField(`🛠 Utility: `, "`helputility`", true)
 .setColor("RANDOM");
 
