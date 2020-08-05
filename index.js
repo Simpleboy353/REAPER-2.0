@@ -126,8 +126,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'helpconfig') {
   client.commands.get('helpconfig').run(client, message, args);
-  } else if (command === 'helpmisc') {
-  client.commands.get('helpmisc').run(client, message, args);
+  } else if (command === 'helpimage') {
+  client.commands.get('helpimage').run(client, message, args);
   }
   if (command === 'poll') {
   client.commands.get('poll').run(client, message, args);
