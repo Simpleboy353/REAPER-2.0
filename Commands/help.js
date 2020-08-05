@@ -16,13 +16,13 @@ module.exports = {
         let prefix = prefixes[message.guild.id].prefix; //Let prefix be prefixes[msg.guild.id].prefix
 
     const embed = new Discord.MessageEmbed()
-.setTitle('Welcome to the help section \nPrefix for your Server: '+prefix)
-.addField(`Moderation: `, "`helpmod`", true)
-.addField(`Info: `, "`helpinfo`", true)
-.addField(`Utility: `, "`helputility`", true)
-.addField(`Fun: `, "`helpfun`", true)
+.setTitle('Welcome to the Help Section \nPrefix for your Server: '+prefix)
 .addField(`Configuration: `, "`helpconfig`", true)
+.addField(`Fun: `, "`helpfun`", true)
 .addField(`Image: `, "`helpimage`", true)
+.addField(`Info: `, "`helpinfo`", true)
+.addField(`Moderation: `, "`helpmod`", true)
+.addField(`Utility: `, "`helputility`", true)
 .setColor("RANDOM");
 
 message.channel.send(embed);
