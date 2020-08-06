@@ -189,6 +189,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'cat') {
   client.commands.get('cat').run(client, message, args);
   }
+  if (command === 'newtext') {
+  client.commands.get('newtext').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
