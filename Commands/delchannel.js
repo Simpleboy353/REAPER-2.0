@@ -4,7 +4,7 @@ module.exports = {
 	name: "delchannel",
 	description: "Delete Channels From your Server",
 	run: async(client, message, args) => {
-	if (!message.member.hasPermission("MANAGE_CHANNELS") {
+	if (!message.member.hasPermission("MANAGE_CHANNELS")) {
 	return message.channel.send("You don't have enough Permissions")
 	}
 	if (!args[0]) {
