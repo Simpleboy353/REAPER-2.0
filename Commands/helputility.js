@@ -5,7 +5,7 @@ module.exports = {
     description: "Get Utility Commands",
     run: async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
-        .addField("Utility Commands", "`avatar`, `announce`, `clear`, `createrole`, `giverole`, `newtext`, `nickname`, `poll`, `removerole`, `say`")
+        .addField("Utility Commands", "`avatar`, `announce`, `clear`, `createrole`, `delchannel`, `giverole`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`")
         .setColor("RANDOM");
 
         message.channel.send(embed);
