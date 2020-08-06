@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
 	name: "hack",
 	description: "Another Fun Command",
-	run: async(client, message, args) => {
+	run: async(client, message, args, Memer) => {
 		const hacked = message.mentions.members.first();
 		if (!hacked) {
 		return message.channel.send("Woah..... Slow down, Who are we hacking..?")
