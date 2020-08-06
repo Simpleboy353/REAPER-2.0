@@ -14,7 +14,7 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
     .setTitle("Channel Updates")
-    .setDescription("New Text Channel #${args[0]} has been created")
+    .setDescription(`New Text Channel `${args[0]}` has been created`)
     .setColor("RANDOM");
   message.channel.send(embed);
 }
