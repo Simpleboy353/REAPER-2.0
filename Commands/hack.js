@@ -9,7 +9,7 @@ module.exports = {
 		return message.channel.send("Woah..... Slow down, Who are we hacking..?")
 		}
 		const prompt = await message.channel.send(`Hacking ${hacked.displayName} now...`)
-    await Memer.sleep(1500)
+    await Memer.setInterval(1500)
     if (hacked) {
       await prompt.edit('Finding discord login...')
       await Memer.setInterval(1700)
