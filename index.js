@@ -191,6 +191,11 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'newtext') {
   client.commands.get('newtext').run(client, message, args);
+  } else if (command === 'newvoice') {
+  client.commands.get('newvoice').run(client, message, args);
+  }
+  if (command === 'delchannel') {
+  client.commands.get('delchannel').run(client, message, args);
   }
 });
 
