@@ -10,7 +10,7 @@ module.exports = {
 	if (!args[0]) {
 	return message.channel.send("Please type the channel name")
 	}
-	message.guild.channels.delete(args.slice(0).join(" "));
+	message.guild.channels.remove(args.slice(0).join(" "));
 	
 	const embed = new Discord.MessageEmbed()
 	.setTitle("Channel Updates")
