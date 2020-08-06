@@ -10,8 +10,9 @@ module.exports = {
 	if (!args[0]) {
 	return message.channel.send("Please type the channel name")
 	}
-	message.guild.channels.remove(args.slice(0).join(" "));
-	
+	let fetchedChannel = message.guild.channels.find(r => r.name === `${args[0]}`);
+	fetchedChannel.delete()
+
 	const embed = new Discord.MessageEmbed()
 	.setTitle("Channel Updates")
 	.setDescription ("Channel has been deleted")
