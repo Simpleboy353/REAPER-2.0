@@ -10,7 +10,7 @@ module.exports = {
 	if (!args[0]) {
 	return message.channel.send("Please type the channel name")
 	}
-	let fetchedChannel = message.guild.channels.find(r => r.name === `${args[0]}`);
+	let fetchedChannel = message.guild.channels.cache.find(r => r.name === `${args[0]}`);
 	fetchedChannel.delete()
 
 	const embed = new Discord.MessageEmbed()
