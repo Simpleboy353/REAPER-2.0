@@ -8,9 +8,9 @@ module.exports = {
 		if (!hacked) {
 		return message.channel.send("Woah..... Slow down, Who are we hacking..?")
 		}
-		const prompt = await msg.channel.createMessage(`Hacking ${user ? hacked.username : hacked} now...`)
+		const prompt = await message.channel.send(`Hacking ${user ? hacked.username : hacked} now...`)
     await Memer.sleep(1500)
-    if (user) {
+    if (hacked) {
       await prompt.edit('Finding discord login...')
       await Memer.sleep(1700)
       await prompt.edit(`Found:\n**Email**: \`${hacked.username}***@gmail.com\`\n**Password**: \`*******\``)
