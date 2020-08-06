@@ -4,8 +4,8 @@ module.exports = {
     name: "trash",
     description: "Another fun command",
     run: async(client, message, args) => {
-    let avatar = message.author.avatarURL({ format: 'png', dynamic: true, size: 2048 });
-    let target = message.mentions.users.first().avatarURL({ format: 'png', dynamic: true, size: 2048 });
+    let avatar = message.mentions.users.size ? message.author.avatarURL({ format: 'png', dynamic: true, size: 2048 });
+    let target = message.mentions.users.size ? message.mentions.users.first().avatarURL({ format: 'png', dynamic: true, size: 2048 });
     if (!target) {
     return message.channel.send("You need to mention someone")
     }
