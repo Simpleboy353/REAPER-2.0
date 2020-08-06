@@ -8,7 +8,7 @@ module.exports = {
 		if (!hacked) {
 		return message.channel.send("Woah..... Slow down, Who are we hacking..?")
 		}
-		const prompt = await message.channel.send(`Hacking ${user ? hacked.username : hacked} now...`)
+		const prompt = await message.channel.send(`Hacking ${hacked.displayName} now...`)
     await Memer.sleep(1500)
     if (hacked) {
       await prompt.edit('Finding discord login...')
@@ -30,7 +30,7 @@ module.exports = {
     await Memer.sleep(1000)
     await prompt.edit('Selling data to facebook...')
     await Memer.sleep(1000)
-    await prompt.edit(`Finished hacking ${user ? hacked.username : hacked}`)
+    await prompt.edit(`Finished hacking ${hacked.displayName}`)
     return 'The hack is complete.'
 		}
 	}
