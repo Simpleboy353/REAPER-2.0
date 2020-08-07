@@ -6,5 +6,6 @@ module.exports = {
         message.channel.send("Please add some text for me to repeat")
         }
         message.channel.send(args.join(" "), { allowedMentions: { parse:["users"] } });
+     message.delete();
     }
 }
