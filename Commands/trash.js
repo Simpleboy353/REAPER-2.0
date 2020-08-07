@@ -4,8 +4,8 @@ module.exports = {
     name: "trash",
     description: "Another fun command",
     run: async(client, message, args) => {
-    let face = message.author();
-    let trash = message.mentions.members.first();
+    let face = message.mentions.members.first()  message.guild.members.cache.get(args[0])  message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName === args[0].toLocaleLowerCase());
+    let trash = message.mentions.members.first(2)[1]  message.guild.members.cache.get(args[1])  message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[1].toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName === args[1].toLocaleLowerCase());
     if (!trash) {
     return message.channel.send("You need to mention Someone")
     }
