@@ -5,7 +5,7 @@ module.exports = {
     description: "Get Utility Commands",
     run: async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
-        .setTitle("Moderation Commands")
+        .setTitle("Utility Commands")
         .setDescription("`avatar`, `announce`, `clear`, `createrole`, `delchannel`, `giverole`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`")
         .setColor("RANDOM");
 
