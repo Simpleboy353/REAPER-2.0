@@ -4,6 +4,7 @@ module.exports = {
 	name: "time",
 	description: "Just for testing",
 	run: async(client, message, args) => {
+                let edit = message.edit()
                 const test = new Discord.MessageEmbed()
                 .setColor("RANDOM")
 		.setDescription("Starting Test");
