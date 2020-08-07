@@ -8,7 +8,7 @@ module.exports = {
     return message.channel.send("Woah.... Slow Down!! Who are we hacking..??")
     }
     const tohack = args.slice(0).join(" ") && args.shift().toLowerCase()
-    let msg = await message.channel.send("Hacking ${tohack}....")
+    let msg = await message.channel.send(`Hacking ${tohack}....`)
     let time = '3s'
     setTimeout(function(){
     msg.edit(`Finding ${tohack}'s Email and Password.....`)
@@ -45,7 +45,5 @@ module.exports = {
     setTimeout(function(){ 
     msg.edit("Finished Hacking ${tohack}")
   }, ms(time8))
-
-  await message.channel.send("Finished Hacking ${tohack}")
 }
 }
