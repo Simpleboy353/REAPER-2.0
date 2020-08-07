@@ -11,11 +11,11 @@ module.exports = {
     let msg = await message.channel.send("Hacking ${tohack}....")
     let time = '3s'
     setTimeout(function(){
-    msg.edit("Finding ${tohack}'s Email and Password.....")
+    msg.edit(`Finding ${tohack}'s Email and Password.....`)
   }, ms(time))
     let time1 = '4s'
     setTimeout(function(){
-    msg.edit("E-Mail: `${tohack}@gmail.com \nPassword: `********`")
+    msg.edit(`E-Mail: \`\${tohack}@gmail.com \nPassword: \`\********`\`)
   }, ms(time1))
     let time2 = '2s'
     setTimeout(function(){
@@ -46,6 +46,6 @@ module.exports = {
     msg.edit("Finished Hacking ${tohack}")
   }, ms(time8))
 
-  message.channel.send("Finished Hacking ${tohack}")
+  await message.channel.send("Finished Hacking ${tohack}")
 }
 }
