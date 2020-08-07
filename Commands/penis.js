@@ -10,6 +10,7 @@ module.exports = {
         }
         var penis = [
             `404 NOT FOUND. This error ocurred most probably because ${target} don't have a penis.`,
+            `403 Forbidden. Couldn't find Penis of ${target.displayName}. Please Make sure that ${target.displayName} is having a penis!`,
             `${target.displayName}'s Penis \n8D`,
             `${target.displayName}'s Penis \n8=D`,
             `${target.displayName}'s Penis \n8==D`,
