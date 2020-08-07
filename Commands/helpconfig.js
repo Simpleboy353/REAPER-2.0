@@ -6,7 +6,8 @@ module.exports = {
     run: async(client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .addField("Configuration Commands", "`prefix`");
+    .setTitle("Configuration Commands")
+    .setDescription("`prefix`");
     message.channel.send(embed);
    }
 }
