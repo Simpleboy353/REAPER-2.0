@@ -4,7 +4,7 @@ module.exports = {
     name: "trash",
     description: "Another fun command",
     run: async(client, message, args) => {
-    let face = message.member();
+    let face = message.author();
     let trash = message.mentions.members.first();
     if (!trash) {
     return message.channel.send("You need to mention Someone")
