@@ -196,8 +196,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'delchannel') {
   client.commands.get('delchannel').run(client, message, args);
-  } else if (command === 'trash') {
-  client.commands.get('trash').run(client, message, args);
+  } else if (command === 'emojiid') {
+  client.commands.get('emojiid').run(client, message, args);
   }
   if (command === 'hack') {
   client.commands.get('hack').run(client, message, args);
