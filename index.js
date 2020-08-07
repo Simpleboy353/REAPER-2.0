@@ -201,6 +201,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'hack') {
   client.commands.get('hack').run(client, message, args);
+  } else if (command === 'infinite') {
+  client.commands.get('infinite').run(client, message, args);
   }
 });
 
