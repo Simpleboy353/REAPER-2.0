@@ -17,12 +17,12 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
 .setTitle('Welcome to the Help Section \nPrefix for your Server: '+prefix)
-.addField(`⚙ __**Configuration**__: `, "`helpconfig`", true)
-.addField(`🎲 __**Fun**__: `, "`helpfun`", true)
-.addField(`📷 __**Image**__: `, "`helpimage`", true)
-.addField(`ℹ __**Info**__: `, "`helpinfo`", true)
-.addField(`🛡 __**Moderation**__: `, "`helpmod`", true)
-.addField(`🛠 __**Utility**__: `, "`helputility`", true)
+.addField(`⚙ __**Configuration**__: `, "`=helpconfig`", true)
+.addField(`🎲 __**Fun**__: `, "`=helpfun`", true)
+.addField(`📷 __**Image**__: `, "`=helpimage`", true)
+.addField(`ℹ __**Info**__: `, "`=helpinfo`", true)
+.addField(`🛡 __**Moderation**__: `, "`=helpmod`", true)
+.addField(`🛠 __**Utility**__: `, "`=helputility`", true)
 .setColor("RANDOM");
 
 message.channel.send(embed);
