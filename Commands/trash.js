@@ -4,11 +4,14 @@ module.exports = {
     name: "trash",
     description: "Another fun command",
     run: async(client, message, args) => {
-    let avatar = message.mentions.users.size ? message.mentions.users.first().avatarURL({ format: 'png', dynamic: true, size: 2048 }) : message.author.avatarURL({ format: 'png', dynamic: true, size: 2048 });
-    if (!avatar) {
+    let face = message.member();
+    let trash = message.mentions.members.first();
+    if (!trash) {
     return message.channel.send("You need to mention Someone")
     }
-    let link = `https://api.alexflipnote.dev/trash?face=${avatar}&trash=${avatar}`;
+    let avatar1 = face.user.displayAvatarURL({ format: 'png', dynamic: true, size: 512 });
+    let avatar2 = trash.user.displayAvatarURL({ format: 'png', dynamic: true, size: 512 });
+    let link = `https://api.alexflipnote.dev/trash?face=${avatar1}&trash=${avatar2}`;
     const embed = new Discord.MessageEmbed()
     .setColor("#800080")
     .setImage(link);
