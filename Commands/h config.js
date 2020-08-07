@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "helpconfig",
+    name: "h config",
     aliases: ["h config"],
     description: "Get list of Configuration commands",
     run: async(client, message, args) => {
