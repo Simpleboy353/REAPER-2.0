@@ -29,6 +29,6 @@ module.exports = {
         message.channel.send(`${msg}`)
         message.channel.send(`${msg}`)
         message.channel.send("Looks like an infinite loop has been created \nPlease wait untill I fix it!")
-	message.channel.send("Done!! Fixed!!"), 2000)
+	message.channel.send(("Done!! Fixed!!"), 2000)
 }
 }
