@@ -84,14 +84,14 @@ const command = args.shift().toLowerCase();
   } else if (command === 'userinfo') {
   client.commands.get('userinfo').run(client, message, args);
   }
-  if (command === 'helpmod') {
+  if (command === 'h mod') {
   client.commands.get('helpmod').run(client, message, args);
   } else if (command === 'helpfun') {
-  client.commands.get('helpfun').run(client, message, args);
+  client.commands.get('h fun').run(client, message, args);
   }
-  if (command === 'helpinfo') {
+  if (command === 'h info') {
   client.commands.get('helpinfo').run(client, message, args);
-  } else if (command === 'helputility') {
+  } else if (command === 'h utility') {
   client.commands.get('helputility').run(client, message, args);
   }
   if (command === 'userid') {
@@ -124,9 +124,9 @@ const command = args.shift().toLowerCase();
   } else if (command === "createrole") {
   client.commands.get("createrole").run(client, message, args);
   }
-  if (command === 'helpconfig') {
+  if (command === 'h config') {
   client.commands.get('helpconfig').run(client, message, args);
-  } else if (command === 'helpimage') {
+  } else if (command === 'h image') {
   client.commands.get('helpimage').run(client, message, args);
   }
   if (command === 'poll') {
