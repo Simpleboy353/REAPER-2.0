@@ -186,8 +186,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'dab') {
   client.commands.get('dab').run(client, message, args);
-  } else if (command === 'cat') {
-  client.commands.get('cat').run(client, message, args);
+  } else if (command === 'time') {
+  client.commands.get('time').run(client, message, args);
   }
   if (command === 'newtext') {
   client.commands.get('newtext').run(client, message, args);
