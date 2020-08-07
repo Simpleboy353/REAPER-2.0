@@ -15,44 +15,44 @@ module.exports = {
     msg.edit(`Finding ${tohack.displayName}'s Email and Password.....`);
   }, ms(time));
 
-    let time1 = '2s'
+    let time1 = '4s'
     setTimeout(function(){
     msg.edit(`E-Mail: ${tohack.displayName}@gmail.com \nPassword: ********`);
   }, ms(time1));
 
-    let time2 = '4s'
+    let time2 = '6s'
     setTimeout(function(){
     msg.edit("Finding Other Accounts.....");
   }, ms(time2));
 
-    let time3 = '6s'
+    let time3 = '8s'
     setTimeout(function(){
     msg.edit("Setting up Epic Games Account.....");
   }, ms(time3));
 
-    let time4 = '8s'
+    let time4 = '10s'
     setTimeout(function(){
     msg.edit("Hacking Epic Games Account......");
   }, ms(time4));
 
-    let time5 = '10s'
+    let time5 = '14s'
     setTimeout(function(){
     msg.edit("Hacked Epic Games Account!!");
   }, ms(time5));
 
-    let time6 = '13s'
+    let time6 = '16s'
     setTimeout(function(){
     msg.edit("Collecting Info.....");
   }, ms(time6));
 
-    let time7 = '16s'
+    let time7 = '20s'
     setTimeout(function(){
     msg.edit("Selling data to FBI....");
   }, ms(time7));
 
-    let time8 = '19s'
+    let time8 = '22s'
     setTimeout(function(){ 
-    msg.edit("Finished Hacking ${tohack}");
+    msg.edit(`Finished Hacking ${tohack}`);
   }, ms(time8));
 
   }
