@@ -6,10 +6,9 @@ module.exports = {
     run: async (client, message, args) => {
         const name = args.join(" ");
         const emoji = message.guild.emojis.cache.find(r => r.name === name);
-        const id = ${emoji.id};
         if (!emoji) {
         return message.channel.send("Please type the name of an emoji");
         }
-        message.channel.send(`<:${name}:${id}>`)
+        message.channel.send(`\```${emoji}```\`)
 }
 }
