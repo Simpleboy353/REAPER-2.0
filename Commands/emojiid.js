@@ -9,6 +9,6 @@ module.exports = {
         if (!emoji) {
         return message.channel.send("Please type the name of an emoji");
         }
-        message.channel.send(`<:args.join(" "):${emoji.id}`)
+        message.channel.send(`<:${name}:${emoji.id}>`)
 }
 }
