@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "helpimage",
+    name: "h image",
     description: "Get Image Manipulation commands",
     run: async(client, message, args) => {
     const embed = new Discord.MessageEmbed()
