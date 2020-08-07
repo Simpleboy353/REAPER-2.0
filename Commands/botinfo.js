@@ -7,7 +7,14 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
         .setTitle("Bot Info")
         .setColor("RANDOM")
-        .setDescription("Hello \nI am a multi-purpose Discord bot made by **_๖ۣۜℜⱥjͥƤuͣtͫ_#5915**. I am still under development and my developer is constantly adding new features to me. If you have any ques or wanna report any bug to dm my Developer.")
+        .setDescription("
+**Bot Name: **REAPER 2.0 (BETA)
+**Owner: **๖ۣۜℜⱥjͥƤuͣtͫ#5915
+**Total Categories: **6
+**Total Commands: **57
+**State :**Under Development
+**Online State: **Up 24/7 (Except during Maintenance)
+")
         .setFooter("Thanks, Reaper 2.0 Team");
         message.channel.send(embed);
     }
