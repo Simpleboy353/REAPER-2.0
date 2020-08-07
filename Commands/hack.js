@@ -15,7 +15,7 @@ module.exports = {
   }, ms(time))
     let time1 = '4s'
     setTimeout(function(){
-    msg.edit(`E-Mail: \`\${tohack}@gmail.com \nPassword: \`\********`\`)
+    msg.edit(`E-Mail: ${tohack}@gmail.com \nPassword: ********`)
   }, ms(time1))
     let time2 = '2s'
     setTimeout(function(){
