@@ -12,5 +12,6 @@ module.exports = {
                 return message.reply('You need to provide some text!');
             }
             message.channel.send({files : [{attachment: `https://api.alexflipnote.dev/supreme?text=${text}`, name: 'file.jpg'}]})
+       message.delete();
     }
 };
