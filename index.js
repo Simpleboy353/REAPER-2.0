@@ -206,6 +206,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'meme') {
   client.commands.get('meme').run(client, message, args);
+  } else if (command === 'hug') {
+  client.commands.get('hug').run(client, message, args);
   }
 });
 
