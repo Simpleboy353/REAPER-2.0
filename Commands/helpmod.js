@@ -6,7 +6,7 @@ module.exports = {
     run: async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
         .setTitle("Moderation Commands")
-        .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `warn`")
+        .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `voicekick`, `warn`")
         .setColor("RANDOM");
 
         message.channel.send(embed);
