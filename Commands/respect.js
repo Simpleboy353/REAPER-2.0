@@ -22,7 +22,7 @@ module.exports = {
     `https://media.tenor.com/images/d73aac94ff4e9b22a94a223ffd9ec651/tenor.gif`,
    ];
     const embed = new Discord.MessageEmbed()
-    .setTitle(`${message.author.username} respects ${user}`)
+    .setTitle(`${message.author.username} respects ${user.username}`)
     .setImage(`${gif[Math.floor(Math.random()*gif.length)]}`)
     .setColor("RANDOM");
 
