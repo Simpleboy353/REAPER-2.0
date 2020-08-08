@@ -21,7 +21,7 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
         .setTitle("New Server Announcement")
-        .setDescription(`${ann}`)
+        .setDescription(`${ann}, { allowedMentions: { parse:["users"] } }`)
         .setColor("RANDOM")
         .setFooter(`Announcement by ${message.author.username}`);
         anchannel.send(embed);
