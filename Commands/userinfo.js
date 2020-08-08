@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name:"userinfo",
   run: async (bot, message, args) => {
-  var mention = message.mentions.members.first() || message.member();
+  var mention = message.mentions.members.first() || message.author;
   if(!mention) return message.channel.send("Please mention someone to get their user info.")
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
