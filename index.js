@@ -216,6 +216,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'gif') {
   client.commands.get('gif').run(client, message, args);
+  } else if (command === 'respect') {
+  client.commands.get('respect').run(client, message, args);
   }
 });
 
