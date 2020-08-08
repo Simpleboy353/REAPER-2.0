@@ -12,7 +12,7 @@ module.exports = {
   .addField(`**Name: **`, `${mention.user.username}`)
   .addField(`**Tag: **`, `${mention.user.discriminator}`)
   .addField(`**ID: **`, `${mention.user.id}`)
-  .addField(`**Is Bot: **`, `${mention.user.isBot}`)
+  .addField(`**Is Bot: **`, `${mention.user.bot}`)
   .addField("**Account created at: **", `${mention.user.createdAt}`)
   .addField("**Joined This Server at: **", `${mention.joinedAt}`)
   message.channel.send(userlol)
