@@ -12,7 +12,6 @@ module.exports = {
   .addField(`Name: `, `**${mention.user.username}**`)
   .addField(`Tag: `, `**#${mention.user.discriminator}**`)
   .addField(`ID: `, `**${mention.user.id}**`)
-  .addField(`Verified: `, `**${mention.user.verified}**`)
   .addField(`Is Bot: `, `**${mention.user.bot}**`)
   .addField("Account created at: ", `**${mention.user.createdAt}**`)
   .addField("Joined This Server at: ", `**${mention.joinedAt}**`)
