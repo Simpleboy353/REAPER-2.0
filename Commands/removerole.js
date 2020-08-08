@@ -7,10 +7,8 @@ module.exports = {
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You don't have enough permissions");
         const user = message.mentions.members.first();
         if (!user) return message.channel.send("Please mention a user you want to take the role from");
-        const name = args.slice(1).join(" ");
-        if (!name) return message.channel.send("Please type the role name");
-        const role = message.guild.roles.cache.find(r => r.name === name);
+        const role = message.mentions.roles.first();
         if (!role) return message.channel.send("Please mention a role");
-        await user.roles.remove(role.id), message.channel.send(`${user}, ${role} role has been taken away from you`)   
+        await user.roles.remove(role), message.channel.send(`${user}, ${role} role has been taken away from you`)   
 }
 }
