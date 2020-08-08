@@ -9,7 +9,7 @@ module.exports = {
   .setTitle(`User Info`)
   .setThumbnail(mention.avatarURL)
   .setColor("RANDOM")
-  .addField(`**Name: **`, `${mention.user.username}`)
+  .addField(`**Name: **`, `${mention.user.displayName}`)
   .addField(`**Tag: **`, `${mention.user.discriminator}`)
   .addField(`**ID: **`, `${mention.user.id}`)
   .addField(`**Is Bot: **`, `${mention.user.bot}`)
