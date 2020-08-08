@@ -214,6 +214,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'greentext') {
   client.commands.get('greentext').run(client, message ,args);
   }
+  if (command === 'gif') {
+  client.commands.get('gif').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
