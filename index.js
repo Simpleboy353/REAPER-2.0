@@ -209,6 +209,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'hug') {
   client.commands.get('hug').run(client, message, args);
   }
+  if (command === 'voicekick') {
+  client.commands.get('voicekick').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
