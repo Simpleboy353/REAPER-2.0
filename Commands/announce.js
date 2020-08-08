@@ -14,7 +14,7 @@ module.exports = {
         if (!anchannel) {
         return message.channel.send("Mention a channel")
         }
-        const ann = args.join(" ");
+        const ann = args.slice(1).join(" ");
         if (!ann) {
         return message.channel.send("Please add some text to make an Announcement")
         }
