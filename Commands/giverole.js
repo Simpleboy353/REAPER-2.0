@@ -7,9 +7,9 @@ module.exports = {
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You don't have enough permissions");
         const user = message.mentions.members.first();
         if (!user) return message.channel.send("Please mention a user you want to give the role to");
-        const name = message.mentions.roles.first();
-        if (!name) return message.channel.send("Please mention a role");
-        const role = message.guild.roles.cache.find(r => r.id === name);
+        const name = args.join(" ");
+        if (!name) return message.channel.send("Please type the name of the role");
+        const role = message.guild.roles.cache.find(r => r.name === name);
         if (!role) return message.channel.send("Couldn't find the Provided Role");
         await user.roles.add(role), message.channel.send(`${user} now has the ${role} role`)   
 }
