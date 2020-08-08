@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-const { tenorAPI } = require("./config.json");
+const { tenorAPI } = "ZEEELJXAFQBN";
 
 module.exports = {
    name: "gif",
