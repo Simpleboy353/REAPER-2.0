@@ -204,6 +204,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'infinite') {
   client.commands.get('infinite').run(client, message, args);
   }
+  if (command === 'meme') {
+  client.commands.get('meme').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
