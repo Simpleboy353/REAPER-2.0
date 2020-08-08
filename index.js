@@ -211,6 +211,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'voicekick') {
   client.commands.get('voicekick').run(client, message, args);
+  } else if (command === 'greentext') {
+  client.commands.get('greentext').run(client, message ,args);
   }
 });
 
