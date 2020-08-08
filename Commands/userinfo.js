@@ -7,7 +7,7 @@ module.exports = {
   if(!mention) return message.channel.send("Please mention someone to get their user info.")
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
-  .setThumbnail(`${mention.user.AvatarURL}`)
+  .setThumbnail(`${mention.user.avatarURL}`)
   .setColor("RANDOM")
   .addField(`**Name: **`, `${mention.user.username}`)
   .addField(`**Tag: **`, `${mention.user.discriminator}`)
