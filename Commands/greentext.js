@@ -8,6 +8,6 @@ module.exports = {
     if (!text) {
     return message.channel.send("You need to enter some text")
     }
-    message.channel.send(`\`\`\`css \n${text} \n\`\`\``)
+    message.channel.send(`\```css \n${text} \n\```\`)
 }
 }
