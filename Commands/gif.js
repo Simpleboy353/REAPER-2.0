@@ -1,4 +1,5 @@
 const Discord = module.require("discord.js");
+const { tenorAPI } = require("./config.json");
 
 module.exports = {
    name: "gif",
@@ -8,7 +9,7 @@ module.exports = {
    if (!name) {
    return message.channel.send("Gif about What..??")
    }
-   let link = `https://giphy.com/search/${name}`;
+   let link = `https://api.tenor.com/v1/random?key=${tenorAPI}&q=${text}&limit=1`;
    
    const embed = new Discord.MessageEmbed()
    .setTitle(`First result for "${name}" on Giphy.com`)
