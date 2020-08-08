@@ -15,11 +15,11 @@ module.exports = {
           .setImage(String([images[image]]))
           .setColor(0xF000FF)
             if(member.id === message.author.id) return message.channel.send(HugEmbed);
-         let HugEmbed = new Discord.MessageEmbed()
+         let HugEmbed2 = new Discord.MessageEmbed()
           .setTitle(`${message.author.username} hugs ${member.user.username}, how cute`)
           .setImage(String([images[image]]))
           .setColor(0xF000FF)
-         return message.channel.send(HugEmbed);
+         return message.channel.send(HugEmbed2);
 
     },
 };
