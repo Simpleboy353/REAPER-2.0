@@ -14,14 +14,13 @@ module.exports = {
         if (!anchannel) {
         return message.channel.send("Mention a channel")
         }
-        const ann = args.slice(1).join(" ");
-        if (!ann) {
+        if (!args slice(1).join(" ")) {
         return message.channel.send("Please add some text to make an Announcement")
         }
 
         let embed = new Discord.MessageEmbed()
         .setTitle("New Server Announcement")
-        .setDescription(`${ann}, { allowedMentions: { parse:["users"] } }`)
+        .setDescription(args.slice(1).join(" "), { allowedMentions: { parse:["users"] } })
         .setColor("RANDOM")
         .setFooter(`Announcement by ${message.author.username}`);
         anchannel.send(embed);
