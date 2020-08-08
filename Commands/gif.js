@@ -9,7 +9,7 @@ module.exports = {
    if (!name) {
    return message.channel.send("Gif about What..??")
    }
-   let link = `https://api.tenor.com/v1/random?key=${tenorAPI}&q=${text}&limit=1`;
+   let link = `https://api.tenor.com/v1/random?key=${tenorAPI}&q=${name}&limit=1`;
    
    const embed = new Discord.MessageEmbed()
    .setTitle(`First result for "${name}" on Giphy.com`)
