@@ -26,7 +26,7 @@ module.exports = {
         .setFooter(`Announcement by ${message.author.username}`);
         anchannel.send(embed);
     
-        let anembed = new Discord.MessageEmbed))
+        let anembed = new Discord.MessageEmbed()
         .setTitle("Done!")
         .setDescription (`Announcement has been sent to ${anchannel}`)
         .setColor("RANDOM");
