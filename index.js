@@ -224,6 +224,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'orangetext') {
   client.commands.get('orangetext').run(client, message, args);
   }
+  if (command === 'weather') {
+  client.commands.get('weather').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
