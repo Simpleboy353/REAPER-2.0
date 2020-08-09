@@ -221,6 +221,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'sacrifice') {
   client.commands.get('sacrifice').run(client, message, args);
+  } else if (command === 'orangetext') {
+  client.commands.get('orangetext').run(client, message, args);
   }
 });
 
