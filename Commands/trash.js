@@ -8,7 +8,7 @@ module.exports = {
    const avatar1 = base.displayAvatarURL();
    const target = message.mentions.members.first();
    if (!target) {
-   return messagsle.channel.send("You need to mention Someone")
+   return message.channel.send("You need to mention Someone")
    }
    const avatar2 = target.displayAvatarURL();
 
