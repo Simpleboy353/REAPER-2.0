@@ -34,10 +34,10 @@ module.exports = {
     category: "fun",
     run: async (client, message, args) => {
         
-        const target = message.mentions.members.first() || args.join(" ")
+        const target = message.mentions.members.first();
         
          if (!target) {
-            return message.channel.send("Please send who or what to sacrifice")
+            return message.channel.send("Please mention the user whom you want to sacrifice")
         }
         if (target) {
             return message.channel.send(`${message.author.username} sacrificed **${target.displayName}** to **` + (sacrify[Math.floor(Math.random() * sacrify.length)]) + "**")
