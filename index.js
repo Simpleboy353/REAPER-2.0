@@ -219,6 +219,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'respect') {
   client.commands.get('respect').run(client, message, args);
   }
+  if (command === 'sacrifice') {
+  client.commands.get('sacrifice').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
