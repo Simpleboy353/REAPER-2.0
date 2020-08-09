@@ -226,6 +226,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'weather') {
   client.commands.get('weather').run(client, message, args);
+  } else if (command === 'trash') {
+  client.commands.get('trash').run(client, message, args);
   }
 });
 
