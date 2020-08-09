@@ -9,8 +9,8 @@ module.exports = {
    if (!target) {
    return message.channel.send("You need to mention Someone")
    }
-   const baseAvatarURL = base.user.displayAvatarURL({ format: 'png', size: 512 });
-   const targetAvatarURL = target.user.displayAvatarURL({ format: 'png', size: 512 });
+   const baseAvatarURL = base.avatarURL({ format: 'png', size: 512 });
+   const targetAvatarURL = target.avatarURL({ format: 'png', size: 512 });
 
    message.channel.send({files: [{attachment: `https://api.alexflipnote.dev/trash?face=${baseAvatarURL}&trash=${targetAvatarURL}`, name: 'file.jpg' }]});
 }
