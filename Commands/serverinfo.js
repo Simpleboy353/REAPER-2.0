@@ -8,7 +8,13 @@ usage: "[command]",
 run: async (client, message, args) => {
 //command
 let servericon = message.guild.iconURL;
-let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
+let verifLevels = {
+        "NONE": "None",
+        "LOW": "Low",
+        "MEDIUM": "Medium",
+        "HIGH": "(╯°□°）╯︵  ┻━┻",
+        "VERY_HIGH": "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"
+    };
 let region = {
         "brazil": "🇧🇷 Brazil",
         "eu-central": "🇪🇺 Central Europe",
@@ -34,12 +40,11 @@ const serverembed = new Discord.MessageEmbed()
 .addField("Server Name", message.guild.name)
 .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
 .addField("Region", region[message.guild.region], true)
-.addField("Channels", message.guild.channels.cache.size, true)
-.addField("Verification Level", message.guild.verificationLevel, true)
-.addField("Roles", message.guild.roles.cache.size, true)
-.addField("Created On", message.guild.createdAt)
-.addField("You Joined", message.member.joinedAt)
+.addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
+.addField("Total Channels", message.guild.channels.cache.size, true)
+.addField("Total Roles", message.guild.roles.cache.size, true)
 .addField("Total Members", message.guild.memberCount)
+.addField("Created On", message.guild.createdAt)
 .setThumbnail(message.guild.iconURL())
 .setTimestamp();
 message.channel.send(serverembed);
