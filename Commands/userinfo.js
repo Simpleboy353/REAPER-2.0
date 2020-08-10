@@ -1,8 +1,8 @@
-const Discord = require("discord.js");
+const Discord = module.require("discord.js");
 
 module.exports = {
     name:"userinfo",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
   var mention = message.mentions.members.first();
   if(!mention) return message.channel.send("Please mention someone to get their user info.")
   let usericon = mention.user.avatarURL;
