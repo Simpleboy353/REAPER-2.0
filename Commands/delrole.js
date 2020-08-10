@@ -11,7 +11,7 @@ module.exports = {
     if (!role) {
     return message.channel.send("You need to mention a role")
     }
-    message.guild.roles.delete(role);
+    role.delete();
     const embed = new Discord.MessageEmbed()
     .setTitle("Roles Update")
     .setDescription (`${role} role has been deleted`)
