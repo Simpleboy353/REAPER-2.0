@@ -8,7 +8,6 @@ usage: "[command]",
 run: async (client, message, args) => {
 //command
 let servericon = message.guild.iconURL;
-let serverembed = new Discord.MessageEmbed()
 let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
 let region = {
         "brazil": ":flag_br: Brazil",
@@ -28,6 +27,7 @@ let region = {
         "southafrica": ":flag_za:  South Africa",
         "india": "🇮🇳: India"
     };
+const serverembed = new Discord.MessageEmbed()
 .setTitle("Server Information")
 .setColor("RANDOM")
 .setThumbnail(servericon)
