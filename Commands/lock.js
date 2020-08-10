@@ -13,6 +13,11 @@ module.exports = {
         deny : ['SEND_MESSAGES'],
      },
     ],);
-   await message.channel.send("This Channel has been Locked");
+   const embed = new Discord.MessageEmbed()
+   .setTitle("Channel Updates")
+   .setDescription("🔒 This Channel has been Locked")
+   .setColor("RANDOM");
+   await message.channel.send(embed);
+   message.delete();
 }
 }
