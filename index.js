@@ -231,6 +231,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'lock') {
   client.commands.get('lock').run(client, message, args);
+  } else if (command === 'unlock') {
+  client.commands.get('unlock').run(client, message, args);
   }
 });
 
