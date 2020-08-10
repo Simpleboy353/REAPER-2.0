@@ -12,8 +12,8 @@ let verifLevels = {
         "NONE": "None",
         "LOW": "Low",
         "MEDIUM": "Medium",
-        "HIGH": "(╯°□°）╯︵  ┻━┻",
-        "VERY_HIGH": "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"
+        "HIGH": "(╯°□°）╯︵  ┻━┻ (High)",
+        "VERY_HIGH": "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻ (Very High)"
     };
 let region = {
         "brazil": "🇧🇷 Brazil",
