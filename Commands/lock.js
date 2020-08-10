@@ -9,7 +9,7 @@ module.exports = {
    }
    message.channel.overwritePermissions([
      {
-        id: message.author.id,
+        id: message.guild.id,
         deny : ['SEND_MESSAGES'],
      },
     ],);
