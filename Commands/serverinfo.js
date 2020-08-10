@@ -10,22 +10,22 @@ run: async (client, message, args) => {
 let servericon = message.guild.iconURL;
 let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
 let region = {
-        "brazil": ":flag_br: Brazil",
-        "eu-central": ":flag_eu: Central Europe",
-        "singapore": ":flag_sg: Singapore",
-        "us-central": ":flag_us: U.S. Central",
-        "sydney": ":flag_au: Sydney",
-        "us-east": ":flag_us: U.S. East",
-        "us-south": ":flag_us: U.S. South",
-        "us-west": ":flag_us: U.S. West",
-        "eu-west": ":flag_eu: Western Europe",
-        "vip-us-east": ":flag_us: VIP U.S. East",
-        "london": ":flag_gb: London",
-        "amsterdam": ":flag_nl: Amsterdam",
-        "hongkong": ":flag_hk: Hong Kong",
-        "russia": ":flag_ru: Russia",
-        "southafrica": ":flag_za:  South Africa",
-        "india": "🇮🇳: India"
+        "brazil": "🇧🇷 Brazil",
+        "eu-central": "🇪🇺 Central Europe",
+        "singapore": "🇸🇬 Singapore",
+        "us-central": "🇺🇸 U.S. Central",
+        "sydney": "🇦🇺 Sydney",
+        "us-east": "🇺🇸 U.S. East",
+        "us-south": "🇺🇸 U.S. South",
+        "us-west": "🇺🇸 U.S. West",
+        "eu-west": "🇪🇺 Western Europe",
+        "vip-us-east": "🇺🇸 VIP U.S. East",
+        "london": "🇬🇧 London",
+        "amsterdam": "🇳🇱 Amsterdam",
+        "hongkong": "🇭🇰 Hong Kong",
+        "russia": "🇷🇺 Russia",
+        "southafrica": "🇿🇦  South Africa",
+        "india": "🇮🇳 India"
     };
 const serverembed = new Discord.MessageEmbed()
 .setTitle("Server Information")
@@ -35,7 +35,7 @@ const serverembed = new Discord.MessageEmbed()
 .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
 .addField("Region", region[message.guild.region], true)
 .addField("Channels", message.guild.channels.cache.size, true)
-.addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
+.addField("Verification Level", message.guild.verificationLevel, true)
 .addField("Roles", message.guild.roles.cache.size, true)
 .addField("Created On", message.guild.createdAt)
 .addField("You Joined", message.member.joinedAt)
