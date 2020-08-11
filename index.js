@@ -14,7 +14,7 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity('Beta Version: 4.2.2' ,{ type: 'STREAMING'}).catch(console.error);
+  client.user.setActivity('Beta Version: 4.6.4' ,{ type: 'STREAMING'}).catch(console.error);
 });
 
 client.on('message', message => {
@@ -201,8 +201,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'hack') {
   client.commands.get('hack').run(client, message, args);
-  } else if (command === 'infinite') {
-  client.commands.get('infinite').run(client, message, args);
+  } else if (command === 'spam') {
+  client.commands.get('spam').run(client, message, args);
   }
   if (command === 'meme') {
   client.commands.get('meme').run(client, message, args);
