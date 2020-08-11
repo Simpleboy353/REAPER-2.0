@@ -13,5 +13,7 @@ module.exports = {
         return message.channel.send("Couldn't find the Emojis with the provided name. Please make sure the Emoji name is correct");
         }
         message.channel.send(`${emoji}`)
+
+  message.delete();
 }
 }
