@@ -3,21 +3,21 @@ const Discord = module.require("discord.js");
 module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
-  var mention = message.mentions.members.first();
+  var member = message.mentions.members.first() || message.author;
   if(!mention) return message.channel.send("Please mention someone to get their user info.")
   let usericon = mention.user.avatarURL;
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
   .setThumbnail(usericon)
   .setColor("RANDOM")
-  .addField(`Name: `, `**${mention.user.username}**`)
-  .addField(`Tag: `, `**#${mention.user.discriminator}**`)
-  .addField(`ID: `, `**${mention.user.id}**`)
-  .addField(`Is Bot: `, `**${mention.user.bot}**`)
-  .addField(`Roles: `,  user.roles ? user.roles.map(r => `${r}`).join(' | '))
-  .addField("Account created at: ", `**${mention.user.createdAt}**`)
-  .addField("Joined This Server at: ", `**${mention.joinedAt}**`)
-  .setThumbnail(mention.user.avatarURL())
+  .addField(`Name: `, `**${member.user.username}**`)
+  .addField(`Tag: `, `**#${member.user.discriminator}**`)
+  .addField(`ID: `, `**${member.user.id}**`)
+  .addField(`Is Bot: `, `**${member.user.bot}**`)
+  .addField(`Roles: `,  member.roles.map(roles =>${roles}).join(', '))
+  .addField("Account created at: ", `**${member.user.createdAt}**`)
+  .addField("Joined This Server at: ", `**${member.joinedAt}**`)
+  .setThumbnail(member.user.avatarURL())
   message.channel.send(userlol)
 }
 }
