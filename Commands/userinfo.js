@@ -8,7 +8,7 @@ module.exports = {
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
   .setColor("RANDOM")
-  .addField(`Name: `, `**${member.user.displayName}**`)
+  .addField(`Name: `, `**${member.username}**`)
   .addField(`Tag: `, `**#${member.user.discriminator}**`)
   .addField(`ID: `, `**${member.user.id}**`)
   .addField(`Is Bot: `, `**${member.user.bot}**`)
