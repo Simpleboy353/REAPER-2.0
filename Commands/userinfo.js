@@ -4,8 +4,8 @@ module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
   var member = message.mentions.members.first() || message.author;
-  if(!mention) return message.channel.send("Please mention someone to get their user info.")
-  let usericon = mention.user.avatarURL;
+  if(!member) return message.channel.send("Please mention someone to get their user info.")
+  let usericon = member.user.avatarURL;
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
   .setThumbnail(usericon)
