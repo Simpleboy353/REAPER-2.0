@@ -10,7 +10,7 @@ module.exports = {
   .setTitle(`User Info`)
   .setColor("RANDOM")
   .setThumbnail(usericon)
-  .addField(`Name: `, `**${mention.user.displayName}**`)
+  .addField(`Name: `, `**${mention.user.username}**`)
   .addField(`Tag: `, `**#${mention.user.discriminator}**`)
   .addField(`ID: `, `**${mention.user.id}**`)
   .addField(`Is Bot: `, `**${mention.user.bot}**`)
