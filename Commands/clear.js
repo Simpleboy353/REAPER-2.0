@@ -1,6 +1,7 @@
 const discord = require("discord.js");
-const { Client, MessageEmbed } = require('discord.js');
+const { Client } = require('discord.js');
 const client = new Client();
+const ms = require("ms');
 
 module. exports = {
     name:'clear',
@@ -23,16 +24,13 @@ if (isNaN(amount)) {
 }
 
 message.channel.bulkDelete(amount, true)
-const embed = new MessageEmbed()
+   message.channel.bulkDelete(amount);
+   var msg = await message.channel.send(`Cleared ${amount} messages`);
 
-    .setAuthor(`Bulk Moderation`, message.author.avatarURL({ dynamic: true, format: 'png' }))
-    .setColor('RANDOM')
-    .addField("Cleared by:", `${message.author}`)
-    .addField("Cleared in:", message.channel)
-    .addField("Total Message/s Deleted:", amount)
-    .setTimestamp()
+let time = '2s'
+setTimeout(function(){
+msg.delete();
+}, ms(time));
 
-message.channel.bulkDelete(amount);
-message.channel.send(embed)
-    }
+}
 }
