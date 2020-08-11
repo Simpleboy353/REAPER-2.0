@@ -10,12 +10,12 @@ module.exports = {
    message.channel.overwritePermissions([
      {
         id: message.guild.id,
-        allow : ['SEND_MESSAGES'],
+        null : ['SEND_MESSAGES'],
      },
     ],);
    const embed = new Discord.MessageEmbed()
    .setTitle("Channel Updates")
-   .setDescription("🔓 This Channel has been Unlocked")
+   .setDescription(`🔓 ${message.channel}  has been Unlocked`)
    .setColor("RANDOM");
    await message.channel.send(embed);
    message.delete();
