@@ -13,5 +13,6 @@ module.exports = {
                 return message.reply('You need to provide some text!');
             }
             message.channel.send({files : [{attachment: `https://api.alexflipnote.dev/pornhub?text=${text}&text2=${text2}`, name: 'file.jpg'}]})
+    message.delete();
     }
 };
