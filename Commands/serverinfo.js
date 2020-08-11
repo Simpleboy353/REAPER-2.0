@@ -34,10 +34,9 @@ let region = {
         "india": "🇮🇳 India"
     };
 const serverembed = new Discord.MessageEmbed()
-.setTitle("Server Information")
+.setTitle(message.guild.name)
 .setColor("RANDOM")
 .setThumbnail(servericon)
-.addField("Server Name", message.guild.name)
 .addField("Owner", `${message.guild.owner}`, true)
 .addField("Region", region[message.guild.region], true)
 .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
