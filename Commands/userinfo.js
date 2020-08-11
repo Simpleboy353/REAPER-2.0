@@ -14,7 +14,7 @@ module.exports = {
   .addField(`Tag: `, `**#${mention.user.discriminator}**`)
   .addField(`ID: `, `**${mention.user.id}**`)
   .addField(`Is Bot: `, `**${mention.user.bot}**`)
-  .addField(`Roles: `,  <@&${message.guild.member(mention.user)._roles.join('> <@&')}>)
+  .addField(`Roles: `,  user.roles ? user.roles.map(r => `${r}`).join(' | '))
   .addField("Account created at: ", `**${mention.user.createdAt}**`)
   .addField("Joined This Server at: ", `**${mention.joinedAt}**`)
   .setThumbnail(mention.user.avatarURL())
