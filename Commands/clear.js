@@ -1,7 +1,6 @@
 const discord = require("discord.js");
 const { Client } = require('discord.js');
 const client = new Client();
-const ms = require("ms");
 
 module. exports = {
     name:'clear',
@@ -25,12 +24,6 @@ if (isNaN(amount)) {
 
 message.channel.bulkDelete(amount, true)
    message.channel.bulkDelete(amount);
-   var msg = message.channel.send(`Cleared ${amount} messages`);
-
-let time = '2s'
-setTimeout(function(){
-msg.delete();
-}, ms(time));
 
 }
 }
