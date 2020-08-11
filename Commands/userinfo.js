@@ -13,7 +13,7 @@ module.exports = {
   .addField(`Tag: `, `**#${member.user.discriminator}**`)
   .addField(`ID: `, `**${member.user.id}**`)
   .addField(`Is Bot: `, `**${member.user.bot}**`)
-  .addField(`Roles: `,  user.roles ? user.roles.map(roles => `${roles}`).join(', '))
+  .addField(`Roles: `, user.roles.map(roles => `${roles}`).join(' | '))
   .addField("Account created at: ", `**${member.user.createdAt}**`)
   .addField("Joined This Server at: ", `**${member.joinedAt}**`)
 
