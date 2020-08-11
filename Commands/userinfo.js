@@ -14,6 +14,7 @@ module.exports = {
   .addField(`Tag: `, `**#${mention.user.discriminator}**`)
   .addField(`ID: `, `**${mention.user.id}**`)
   .addField(`Is Bot: `, `**${mention.user.bot}**`)
+  .addField(`Roles: `, `${mention.roles.cache.get}`)
   .addField("Account created at: ", `**${mention.user.createdAt}**`)
   .addField("Joined This Server at: ", `**${mention.joinedAt}**`)
   .setThumbnail(mention.user.avatarURL())
