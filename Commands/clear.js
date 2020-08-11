@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 const { Client } = require('discord.js');
 const client = new Client();
-const ms = require("ms');
+const ms = require("ms");
 
 module. exports = {
     name:'clear',
