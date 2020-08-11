@@ -25,7 +25,7 @@ if (isNaN(amount)) {
 
 message.channel.bulkDelete(amount, true)
    message.channel.bulkDelete(amount);
-   var msg = await message.channel.send(`Cleared ${amount} messages`);
+   var msg = message.channel.send(`Cleared ${amount} messages`);
 
 let time = '2s'
 setTimeout(function(){
