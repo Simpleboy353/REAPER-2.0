@@ -38,14 +38,14 @@ const serverembed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setThumbnail(servericon)
 .addField("Server Name", message.guild.name)
-.addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
+.addField("Owner", `${message.guild.owner}`, true)
 .addField("Region", region[message.guild.region], true)
 .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
 .addField("Total Channels", message.guild.channels.cache.size, true)
 .addField("Total Roles", message.guild.roles.cache.size, true)
-.addField("Total Members", message.guild.memberCount)
-.addField("Created On", message.guild.createdAt)
-.setThumbnail(message.guild.iconURL())
+.addField("Total Members", message.guild.memberCount, true)
+.addField("Created On", message.guild.createdAt, true)
+.setThumbnail(message.guild.iconURL(), true)
 .setTimestamp();
 message.channel.send(serverembed);
 }
