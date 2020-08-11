@@ -239,6 +239,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'joke') {
   client.commands.get('joke').run(client, message, args);
   }
+  if (command === 'emoji') {
+  client.commands.get('emoji').run(client, messae, args);
+  }
 });
 
 client.login(process.env.token);
