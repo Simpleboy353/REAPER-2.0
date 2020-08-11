@@ -6,7 +6,7 @@ module.exports = {
     run: async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
         .setTitle("Utility Commands")
-        .setDescription("`avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `giverole`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `unlock`")
+        .setDescription("`avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `emoji`, `giverole`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `unlock`")
         .setColor("RANDOM");
 
         message.channel.send(embed);
