@@ -45,7 +45,7 @@ const serverembed = new Discord.MessageEmbed()
 .addField("Total Members", message.guild.memberCount, true)
 .addField("Created On", message.guild.createdAt, true)
 .setThumbnail(message.guild.iconURL(), true)
-.setFooter(`ID: ${message.guild.id}`)
+.setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
 .setTimestamp();
 message.channel.send(serverembed);
 }
