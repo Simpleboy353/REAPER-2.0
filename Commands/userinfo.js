@@ -4,18 +4,19 @@ module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
   var mention = message.mentions.members.first() || message.author;
-  const usericon = mention.user.displayAvatarURL;
+  const usericon = mention.avatarURL;
   if(!mention) return message.channel.send("Please mention someone to get their user info.")
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
   .setColor("RANDOM")
+  .setThumbnail(usericon)
   .addField(`Name: `, `**${mention.user.displayName}**`)
   .addField(`Tag: `, `**#${mention.user.discriminator}**`)
   .addField(`ID: `, `**${mention.user.id}**`)
   .addField(`Is Bot: `, `**${mention.user.bot}**`)
   .addField("Account created On: ", `**${mention.user.createdAt}**`)
   .addField("Joined This Server On: ", `**${mention.joinedAt}**`)
-  .setThumbnail(mention.user.displayAvatarURL())
+  .setThumbnail(mention.user.avatarURL())
   message.channel.send(userlol)
 }
 }
