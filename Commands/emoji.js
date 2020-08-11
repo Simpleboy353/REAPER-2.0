@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "emojiid",
+    name: "emoji",
     description: "Get ID of emojis",
     run: async (client, message, args) => {
         const name = args.join(" ");
