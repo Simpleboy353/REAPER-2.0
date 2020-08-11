@@ -2,12 +2,12 @@ const Discord = module.require("discord.js");
 const ms = require("ms");
 
 module.exports = {
-	name: "infinite",
+	name: "spam",
 	description: "Another fun command",
 	run: async(client, message, args) => {
 	let msg = args.join(" ");
 	if (!msg) {
-        return message.channel.send("Error : No Text Found")
+        return message.channel.send("Error : No Text Found to Spam")
         }     
         let time = '1s'
         setTimeout(function(){
