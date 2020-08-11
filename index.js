@@ -236,6 +236,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'delrole') {
   client.commands.get('delrole').run(client, message, args);
+  } else if (command === 'joke')
+  client.commands.get('joke').run(client, message, args);
   }
 });
 
