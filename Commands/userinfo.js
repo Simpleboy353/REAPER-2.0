@@ -4,6 +4,9 @@ module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
   const mention = message.mentions.members.first();
+  if (!mention) {
+  return message.channel.send("Please Mention Someone")
+  }
   const usericon = mention.user.displayAvatarURL({dynamic: true, size: 512});
   var bot = {
      "true": "Yes, The User is a Bot",
