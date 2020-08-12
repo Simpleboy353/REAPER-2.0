@@ -11,7 +11,7 @@ module.exports = {
   const perms = mention.permissions;
   const usericon = mention.user.avatarURL;
   var flags = {
-   "undefined": "None",
+   "": "None",
    "DISCORD_EMPLOYEE": "Discord Employee",
    "DISCORD_PARTNER": "Discord Partner",
    "BUGHUNTER_LEVEL_1": "Bug Hunter (Level 1)",
@@ -33,7 +33,7 @@ module.exports = {
   .setTitle(`**${mention.user.tag}**`)
   .setColor("RANDOM")
   .setThumbnail(usericon)
-  .addField(`Flags: `, `${mention.user.flags.toArray()}`)
+  .addField(`Flags: `, flags[mention.user.flags.toArray()])
   .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Roles: `, `<@&${mention._roles.join('> <@&')}>`)
   .addField("Account created On: ", `${mention.user.createdAt}`)
