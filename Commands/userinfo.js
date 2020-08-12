@@ -6,7 +6,9 @@ module.exports = {
   const mention = message.mentions.members.first();
   if (!mention) {
   return message.channel.send("Please Mention Someone")
-  }
+  } else if (!mention) {
+  const mention = message.author
+  user = message.mention;
   const roles = mention.roles.cache.get;
   const perms = mention.permissions;
   const usericon = mention.user.avatarURL;
@@ -36,7 +38,7 @@ module.exports = {
   .setDescription (`${mention}`)
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
   .addField(`Is Bot: `, bot[mention.user.bot])
-  .addField(`Roles: `, `<@&${mention._roles.join('>  <@&')}> : None`)
+  .addField(`Roles: `, `<@&${mention._roles.join('>  <@&')}>`)
   .addField("Account created On: ", `${mention.user.createdAt}`)
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
   .setThumbnail(mention.user.avatarURL())
