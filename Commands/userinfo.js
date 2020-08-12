@@ -29,18 +29,16 @@ module.exports = {
      "false": "No, The User is a Human"
         };
   const userlol = new Discord.MessageEmbed()
-  .setTitle(`User Info`)
+  .setTitle(`${mention.user.tag}`)
   .setColor("RANDOM")
   .setThumbnail(usericon)
-  .addField(`Name: `, `${mention.user.username}`)
-  .addField(`Tag: `, `#${mention.user.discriminator}`)
-  .addField(`ID: `, `${mention.user.id}`)
-  .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
+  .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Roles: [${roles.length}]`, `<@&${mention._roles.join('> <@&')}>`)
   .addField("Account created On: ", `${mention.user.createdAt}`)
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
   .setThumbnail(mention.user.displayAvatarURL({dynamic: true, size: 512}))
-  message.channel.send(userlol)
+  .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
+ message.channel.send(userlol)
 }
 }
