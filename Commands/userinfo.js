@@ -8,7 +8,7 @@ module.exports = {
   return message.channel.send("Please Mention Someone")
   }
   const roles = mention.roles.cache.get;
-  const usericon = mention.user.displayAvatarURL({dynamic: true, size: 512});
+  const usericon = mention.user.avatarURL;
   var flags = {
    "undefined": "None",
    "DISCORD_EMPLOYEE": "Discord Employee",
@@ -37,7 +37,7 @@ module.exports = {
   .addField(`Roles: [${roles.length}]`, `<@&${mention._roles.join('> <@&')}>`)
   .addField("Account created On: ", `${mention.user.createdAt}`)
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
-  .setThumbnail(mention.user.displayAvatarURL({dynamic: true, size: 512}))
+  .setThumbnail(mention.user.avatarURL())
   .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
  message.channel.send(userlol)
 }
