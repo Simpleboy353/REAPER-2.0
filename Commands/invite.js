@@ -6,10 +6,10 @@ module.exports = {
     run: async (client, message, args) => {
 
         let embed = new Discord.MessageEmbed()
-        .setTitle("Get Bot's Invite Link")
+        .setTitle("Invite Me")
         .setColor("RANDOM")
-        .addField(`Here you go: `, "[Click Me to invite](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)")
-        .setFooter("Thanks for Inviting");
+        .setDescription("Get Inifinity's Invite Link [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)")
+        .setTimestamp();
         message.channel.send(embed);
     }
 }
