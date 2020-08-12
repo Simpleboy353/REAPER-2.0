@@ -5,10 +5,9 @@ module.exports = {
   run: async (client, message, args) => {
   const mention = message.mentions.members.first();
   if (!mention) {
-  const mention = message.author;
+  return message.channel.send("Please Mention Someone")
   }
   const roles = mention.roles.cache.get;
-  const perms = mention.permissions;
   const usericon = mention.user.avatarURL;
   var flags = {
    "": "None",
@@ -43,7 +42,5 @@ module.exports = {
   .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
   .setTimestamp()
  message.channel.send(userlol)
-}catch(e) {
-message.channel.send(`Error :`+e)
 }
 }
