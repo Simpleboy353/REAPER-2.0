@@ -9,6 +9,7 @@ module.exports = {
   } else if (!mention) {
   const mention = message.author
   user = message.mention;
+  }
   const roles = mention.roles.cache.get;
   const perms = mention.permissions;
   const usericon = mention.user.avatarURL;
