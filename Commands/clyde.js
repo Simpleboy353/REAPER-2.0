@@ -7,11 +7,7 @@ module.exports = {
     return message.channel.send('What do you want clyde to say?')
     }
     let clydeMessage = args.slice(0).join(' ');
-    let encodedLink = encodeURI(`https://ctk-api.herokuapp.com/clyde/${clydeMessage}`);
-    const clydeEmbed = new Discord.MessageEmbed()
-      .setTitle('Clyde!')
-      .setImage(encodedLink);
 
-    message.channel.send(clydeEmbed)
+    message.channel.send({files : [{attachment: `https://ctk-api.herokuapp.com/clyde/${clydeMessage}`, name: 'file.jpg'}]});
   }
 }
