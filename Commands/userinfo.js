@@ -11,17 +11,17 @@ module.exports = {
   const perms = mention.permissions;
   const usericon = mention.user.avatarURL;
   var permss = {
-  "KICK_MEMBERS": "Kick Members": true,
-  "BAN_MEMBERS": "Ban Members": true,
-  "ADMINISTRATOR": "Administrator": true,
-  "MANAGE_CHANNELS": "Manage Channels": true,
-  "MANAGE_GUILD": "Manage Server": true,
-  "MANAGE_MESSAGES": "Manage Messages": true,
-  "MENTION_EVERYONE": "Mention Everyone": true,
-  "MANAGE_NICKNAMES": "Manage Nicknames": true,
-  "MANAGE_ROLES_OR_PERMISSIONS": "Manange Roles": true,
-  "MANAGE_WEBHOOKS": "Manage Webhooks": true,
-  "MANAGE_EMOJIS": "Manage Emojis": true
+  "KICK_MEMBERS": "Kick Members",
+  "BAN_MEMBERS": "Ban Members",
+  "ADMINISTRATOR": "Administrator",
+  "MANAGE_CHANNELS": "Manage Channels",
+  "MANAGE_GUILD": "Manage Server",
+  "MANAGE_MESSAGES": "Manage Messages",
+  "MENTION_EVERYONE": "Mention Everyone",
+  "MANAGE_NICKNAMES": "Manage Nicknames",
+  "MANAGE_ROLES_OR_PERMISSIONS": "Manange Roles",
+  "MANAGE_WEBHOOKS": "Manage Webhooks",
+  "MANAGE_EMOJIS": "Manage Emojis"
    };
   var flags = {
    "undefined": "None",
