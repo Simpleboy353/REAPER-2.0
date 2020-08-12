@@ -42,7 +42,6 @@ module.exports = {
      "true": "Yes, The User is a Bot",
      "false": "No, The User is a Human"
         };
-  const key = mention.has(`${permss}`);
   const userlol = new Discord.MessageEmbed()
   .setTitle(`${mention.user.tag}`)
   .setColor("RANDOM")
