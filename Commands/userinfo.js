@@ -15,7 +15,7 @@ module.exports = {
   .addField(`Is Bot: `, `**${mention.user.bot}**`)
   .addField("Account created On: ", `**${mention.user.createdAt}**`)
   .addField("Joined This Server On: ", `**${mention.joinedAt}**`)
-  .setThumbnail(`mention.user.displayAvatarURL({dynamic: true, size: 512})
+  .setThumbnail(mention.user.displayAvatarURL({dynamic: true, size: 512})
   message.channel.send(userlol)
 }
 }
