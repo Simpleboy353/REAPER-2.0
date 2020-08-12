@@ -40,6 +40,7 @@ module.exports = {
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
   .setThumbnail(mention.user.avatarURL())
   .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
+  .setTimestamp()
  message.channel.send(userlol)
 }
 }
