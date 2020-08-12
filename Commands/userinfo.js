@@ -5,8 +5,6 @@ module.exports = {
   run: async (client, message, args) => {
   const mention = message.mentions.members.first();
   if (!mention) {
-  return message.channel.send("Please Mention Someone")
-  } else if (!mention) {
   const mention = message.author
   user = message.mention;
   }
