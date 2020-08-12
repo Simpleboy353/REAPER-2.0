@@ -37,7 +37,7 @@ module.exports = {
   .addField(`ID: `, `${mention.user.id}`)
   .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
-  .addField(`Roles: [${roles.length}]`, `${roles.length < 10 ? roles.toArray(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : None}`)
+  .addField(`Roles: [${roles.length}]`, `${roles.length < 10 ? this.client.utils.trimArray(roles) : None}`)
   .addField("Account created On: ", `${mention.user.createdAt}`)
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
   .setThumbnail(mention.user.displayAvatarURL({dynamic: true, size: 512}))
