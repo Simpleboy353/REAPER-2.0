@@ -5,10 +5,10 @@ module.exports = {
   run: async (client, message, args) => {
   const mention = message.mentions.members.first();
   const usericon = mention.user.displayAvatarURL({dynamic: true, size: 512});
-  var bot = [
+  var bot = {
      "true": "Yes, The User is a Bot",
      "false": "No, The User is a Human"
-        ];
+        };
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
   .setColor("RANDOM")
