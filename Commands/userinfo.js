@@ -30,9 +30,10 @@ module.exports = {
      "false": "No, The User is a Human"
         };
   const userlol = new Discord.MessageEmbed()
-  .setTitle(`**${mention.user.tag}** \n${mention}`)
+  .setTitle(`**${mention.user.tag}**`, mention.user.avatarURL())
   .setColor("RANDOM")
   .setThumbnail(usericon)
+  .setDescription (`${mention}`)
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
   .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Roles: `, `<@&${mention._roles.join('>  <@&')}>`)
