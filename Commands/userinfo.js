@@ -3,7 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
-  const mention = message.mentions.members.first();
+  const mention = message.mentions.members.first() || message.mention;
+  const user = mention.member;
   if (!mention) {
   return message.channel.send("Please Mention Someone")
   }
