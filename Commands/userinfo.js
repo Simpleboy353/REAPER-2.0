@@ -7,6 +7,7 @@ module.exports = {
   if (!mention) {
   return message.channel.send("Please Mention Someone")
   }
+  const roles = mention.roles.cache.get;
   const usericon = mention.user.displayAvatarURL({dynamic: true, size: 512});
   var flags = {
    "undefined": "None",
