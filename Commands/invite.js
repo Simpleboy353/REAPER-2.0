@@ -8,8 +8,8 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
         .setTitle("Invite Me")
         .setColor("RANDOM")
-        .setDescription("Get Inifinity's Invite Link [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)")
-        .setTimestamp();
+        .setDescription("**Thanks for Inviting Infinity**\n**Get Inifinity's Invite Link [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)**")
+        .setFooter(`Requested By: ${message.author}`);
         message.channel.send(embed);
     }
 }
