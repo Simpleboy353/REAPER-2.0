@@ -241,6 +241,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'emoji') {
   client.commands.get('emoji').run(client, message, args);
+  } else if (command === 'clyde') {
+  client.commands.get('clyde').run(client, message, args);
   }
 });
 
