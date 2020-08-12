@@ -5,8 +5,7 @@ module.exports = {
   run: async (client, message, args) => {
   const mention = message.mentions.members.first();
   if (!mention) {
-  const mention = message.author
-  user = message.mention;
+  const mention = message.author;
   }
   const roles = mention.roles.cache.get;
   const perms = mention.permissions;
