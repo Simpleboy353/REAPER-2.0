@@ -214,8 +214,8 @@ const command = args.shift().toLowerCase();
   } else if (command === 'greentext') {
   client.commands.get('greentext').run(client, message ,args);
   }
-  if (command === 'gif') {
-  client.commands.get('gif').run(client, message, args);
+  if (command === 'memberinfo') {
+  client.commands.get('memberinfo').run(client, message, args);
   } else if (command === 'respect') {
   client.commands.get('respect').run(client, message, args);
   }
