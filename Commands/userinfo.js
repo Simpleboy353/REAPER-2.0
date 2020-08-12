@@ -8,7 +8,21 @@ module.exports = {
   return message.channel.send("Please Mention Someone")
   }
   const roles = mention.roles.cache.get;
+  const perms = mention.permissions;
   const usericon = mention.user.avatarURL;
+  var permss = {
+  "KICK_MEMBERS": "Kick Members": true,
+  "BAN_MEMBERS": "Ban Members": true,
+  "ADMINISTRATOR": "Administrator": true,
+  "MANAGE_CHANNELS": "Manage Channels": true,
+  "MANAGE_GUILD": "Manage Server": true,
+  "MANAGE_MESSAGES": "Manage Messages": true,
+  "MENTION_EVERYONE": "Mention Everyone": true,
+  "MANAGE_NICKNAMES": "Manage Nicknames": true,
+  "MANAGE_ROLES_OR_PERMISSIONS": "Manange Roles": true,
+  "MANAGE_WEBHOOKS": "Manage Webhooks": true,
+  "MANAGE_EMOJIS": "Manage Emojis": true
+   };
   var flags = {
    "undefined": "None",
    "DISCORD_EMPLOYEE": "Discord Employee",
@@ -35,6 +49,7 @@ module.exports = {
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
   .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Roles: [${roles.length}]`, `<@&${mention._roles.join('> <@&')}>`)
+  .addField(`Key Permissions: `, permss[mention._perms.join(', ')])
   .addField("Account created On: ", `${mention.user.createdAt}`)
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
   .setThumbnail(mention.user.avatarURL())
