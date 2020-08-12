@@ -9,6 +9,7 @@ module.exports = {
   }
   const usericon = mention.user.displayAvatarURL({dynamic: true, size: 512});
   var flags = {
+   "NONE": "None",
    "DISCORD_EMPLOYEE": "Discord Employee",
    "DISCORD_PARTNER": "Discord Partner",
    "BUGHUNTER_LEVEL_1": "Bug Hunter (Level 1)",
