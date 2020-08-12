@@ -42,6 +42,7 @@ module.exports = {
      "true": "Yes, The User is a Bot",
      "false": "No, The User is a Human"
         };
+  const key = mention.has(`${permss}`);
   const userlol = new Discord.MessageEmbed()
   .setTitle(`${mention.user.tag}`)
   .setColor("RANDOM")
@@ -49,7 +50,7 @@ module.exports = {
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
   .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Roles: [${roles.length}]`, `<@&${mention._roles.join('> <@&')}>`)
-  .addField(`Key Permissions: `, permss[mention.user.permissions])
+  .addField(`Key Permissions: `, permss[mention.permissions])
   .addField("Account created On: ", `${mention.user.createdAt}`)
   .addField("Joined This Server On: ", `${mention.joinedAt}`)
   .setThumbnail(mention.user.avatarURL())
