@@ -5,7 +5,7 @@ module.exports = {
    description: "Just for testing",
    run: async(client, message, args) => {
    const user = message.mentions.members.first() || message.author;
-   const roles = user.roles.cache.get;
+   const roles = user.roles.get;
    const usericon = user.avatarURL;
    const userlol = new Discord.MessageEmbed()
    .setAuthor(`${user.tag}`, user.avatarURL())
