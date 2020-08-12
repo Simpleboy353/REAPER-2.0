@@ -30,7 +30,7 @@ module.exports = {
      "false": "No, The User is a Human"
         };
   const userlol = new Discord.MessageEmbed()
-  .setTitle(`**${mention.user.tag}**`)
+  .setTitle(`**${mention.user.tag}** \n${mention.user}`)
   .setColor("RANDOM")
   .setThumbnail(usericon)
   .addField(`Flags: `, flags[mention.user.flags.toArray()])
