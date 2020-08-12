@@ -4,7 +4,7 @@ module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
   const mention = message.mentions.members.last() || message.mention;
-  const roles = member.roles.cache
+  const roles = mention.roles.cache
   .sort((a, b) => b.postion - a.position)
   .map(role => role.toString())
   .slice(0, -1);
