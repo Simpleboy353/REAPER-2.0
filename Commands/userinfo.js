@@ -5,7 +5,7 @@ module.exports = {
   run: async (client, message, args) => {
   const mention = message.mentions.members.last() || message.mention;
   const roles = mention.roles.cache
-  const usericon = mention.user.displayAvatarURL();
+  const usericon = mention.user.avatarURL();
   const userlol = new Discord.MessageEmbed()
   .setTitle(`User Info`)
   .setColor("RANDOM")
