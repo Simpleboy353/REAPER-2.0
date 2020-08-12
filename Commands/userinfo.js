@@ -2,8 +2,8 @@ const Discord = module.require("discord.js");
 
 module.exports = {
     name:"userinfo",
-  run: async (client, message, [target]) => {
-  const mention = message.mentions.members.last() || message.guild.cache.get(target) || message.member;
+  run: async (client, message, args) => {
+  const mention = message.mentions.members.last() || message.member;
   const roles = member.roles.cache
   .sort((a, b) => b.postion - a.position)
   .map(role => role.toString())
