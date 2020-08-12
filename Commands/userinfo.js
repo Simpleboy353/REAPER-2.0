@@ -30,7 +30,7 @@ module.exports = {
      "false": "No, The User is a Human"
         };
   const userlol = new Discord.MessageEmbed()
-  .setTitle(`**${mention.user.tag}**`, mention.user.avatarURL())
+  .setAuthor(`**${mention.user.tag}**`, mention.user.avatarURL())
   .setColor("RANDOM")
   .setThumbnail(usericon)
   .setDescription (`${mention}`)
