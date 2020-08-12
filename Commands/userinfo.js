@@ -43,5 +43,7 @@ module.exports = {
   .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
   .setTimestamp()
  message.channel.send(userlol)
+}.catch(e) {
+message.channel.send(`Error :`+e)
 }
 }
