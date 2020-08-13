@@ -7,7 +7,7 @@ module.exports = {
     const text1 = args.join(' ');
     const text2 = args.join('+');
     const google = `https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg`;
-    if (!text) {
+    if (!text2) {
     return message.channel.send("Enter some to search for")
     }
     const embed = new Discord.MessageEmbed()
