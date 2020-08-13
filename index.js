@@ -33,7 +33,7 @@ let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read Fi
 
 const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (message.content === `${client.user.id}`) {
+  if (command === `${client}`) {
   client.commands.get('help').run(client, message, args);
   }
   if (command === 'ping') {
