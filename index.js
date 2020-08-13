@@ -14,7 +14,18 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity('Beta Version: 4.6.4' ,{ type: 'STREAMING'}).catch(console.error);
+   client.user.setPresence({ status: 'online' });
+  const activities_list = [
+   "=help", 
+   "Infinity Rocks",
+   "Running 24/7", 
+   "Helping You make your Server Better"
+    ]; // creates an arraylist containing phrases you want your bot to switch through.
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
+        client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
+    }, 10000); // Runs this every 10 seconds.});
+})
 });
 
 client.on('message', message => {
