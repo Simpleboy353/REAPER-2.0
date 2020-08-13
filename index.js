@@ -244,6 +244,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'clyde') {
   client.commands.get('clyde').run(client, message, args);
   }
+  if (command === 'google') {
+  client.commands.get('google').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
