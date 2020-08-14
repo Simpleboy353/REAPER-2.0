@@ -22,15 +22,15 @@ client.on('ready', () => {
    "Helping You make your Server Better"
     ];// creates an arraylist containing phrases you want your bot to switch through.
   const status_list = [
-   '{type:"STREAMING"}',
-   '{type:"WATCHING"}',
-   '{type:"LISTENING"}',
-   '{type:"PLAYING"}'
+   "'STREAMING'",
+   "'WATCHING'",
+   "'LISTENING'",
+   "'PLAYING'"
     ];
    setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
         const acindex = Math.floor(Math.random() * (status_list.length - 1) + 1);  
-        client.user.setActivity(activities_list[index], status_list[acindex]); // sets bot's activities to one of the phrases in the arraylist.
+        client.user.setActivity(activities_list[index], {type:status_list[acindex]}); // sets bot's activities to one of the phrases in the arraylist.
     }, 10000); // Runs this every 10 seconds.});
 });
 
