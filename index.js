@@ -43,9 +43,6 @@ let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read Fi
 
 const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command === `<@${client.user.id}>`) {
-  client.commands.get('help').run(client, message, args);
-  }
   if (command === 'ping') {
   client.commands.get('ping').run(client, message, args);
   } else if(command === 'mute') {
@@ -258,6 +255,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'google') {
   client.commands.get('google').run(client, message, args);
+  } else if (command === 'gstart') {
+  client.commands.get('gstart').run(client, message, args);
   }
 });
 
