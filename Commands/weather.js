@@ -7,14 +7,7 @@ module.exports = {
    const place = args.join(" ");
    if (!place) {
    return message.channel.send("Please enter the name of a Country/City/Town")
-   }
-   const link = `https://wttr.in/${place}.png?m`;
-   
-  const embed = new Discord.MessageEmbed()
-  .setTitle(`Weather of ${place} today`)
-  .setImage(link)
-  .setColor("RANDOM");
-
-  message.channel.send(embed);
+   }  
+  message.channel.send({files : [{attachment : `https://wttr.in/${place}.png`, name: 'weather.png' }]});
 }
 }
