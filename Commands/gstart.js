@@ -7,7 +7,7 @@ module.exports={
     category: 'fun',
     run: async(client ,message ,args) => {
         if(!args[0]) return message.channel.send(`You did not specify your time!`)
-        if(!args[0].endsWith("d")&&!args[0].endsWith("h")&&!args[0].endsWith("m")) return message.channel.send("Example for Correct formatting for the time: `1d` `00h` `00m`")")
+        if(!args[0].endsWith("d")&&!args[0].endsWith("h")&&!args[0].endsWith("m")) return message.channel.send("Example for Correct formatting for the time: `1d` `00h` `00m`")
         if(isNaN(args[0][0])) return message.channel.send(`That is not a number!`)
         let channel = message.mentions.channels.first()
         if(!channel) return message.channel.send(`I could not find that channel in the guild!`)
