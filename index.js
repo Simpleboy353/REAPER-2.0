@@ -259,7 +259,7 @@ const command = args.shift().toLowerCase();
   client.commands.get('gstart').run(client, message, args);
   }
   if (command === 'servericon') {
-  client.command.get('servericon').run(client, message, args);
+  client.commands.get('servericon').run(client, message, args);
   }
 });
 
