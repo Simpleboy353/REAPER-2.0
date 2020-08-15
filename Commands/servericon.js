@@ -7,7 +7,7 @@ module.exports = {
     const server = message.guild;
     const embed = new Discord.MessageEmbed()
     .setTitle(`${message.guild.name}'s Icon`)
-    .setDescription(`[Icon Link](${server.iconURL({size: 2048, dynamic: true, format: "png"}))`)
+    .setDescription(`[Icon Link](${server.iconURL({size: 2048, dynamic: true, format: "png"})})`)
     .setImage(server.iconURL({size: 2048, dynamic: true, format: "png"}))
     .setColor("RANDOM");
  message.channel.send(embed);
