@@ -9,7 +9,5 @@ module.exports = {
     .setImage(message.guild.displayIconURL({size: 2048, dynamic: true, format: "png"}))
     .setColor("RANDOM");
  message.channel.send(embed);
-} catch(e) {
-message.channel.send("Error on Server Icon Command. \nError: "+e);
 }
 }
