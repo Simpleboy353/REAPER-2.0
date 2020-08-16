@@ -260,6 +260,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'servericon') {
   client.commands.get('servericon').run(client, message, args);
+  } else if (command === 'anti-invite') {
+  client.commands.get('anti-invite').run(client, message ,args);
   }
 });
 
