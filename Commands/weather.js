@@ -9,11 +9,12 @@ module.exports = {
    if (!place) {
    return message.channel.send("Please enter the name of a Country/City/Town")
    }
-   const link = `https://wttr.in/${place}.png?m`
+   const link = `https://wttr.in/${place}.png?m`;
+   const weblink = `https://wttr.in/${place}`;
    const embed = new Discord.MessageEmbed()
    .setTitle(`${name}'s Weather for Next 3 days`)
    .setImage(link)
-   .setFooter(`Credits to wttr.in`)
+   .setFooter(`Credits to [wttr.in](`${weblink}`))
    .setColor("RANDOM");
 message.channel.send(embed);
 }
