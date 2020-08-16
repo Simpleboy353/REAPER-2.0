@@ -9,7 +9,7 @@ module.exports = {
    return message.channel.send("Please enter the name of a Country/City/Town")
    }
    const link = `https://wttr.in/${place}`
-   const embed = Discord.MessageEmbed()
+   const embed = new Discord.MessageEmbed()
    .setTitle(`${place}'s Weather for Next 3 days`)
    .setImage(link)
    .setFooter(`Credits to wttr.in`)
