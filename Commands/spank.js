@@ -1,4 +1,4 @@
-const Discord = module.exports("discord.js");
+const Discord = module.require("discord.js");
 const superagent = require("snekfecth");
 
 module.exorts = {
