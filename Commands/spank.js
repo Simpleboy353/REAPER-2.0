@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const superagent = require("snekfetch");
 
-module.exorts = {
+module.exports = {
     name: "spank",
     description: "Another Fun Command",
     run: async(client, message, args) => {
@@ -21,4 +21,4 @@ module.exorts = {
         message.channel.send(lewdembed);
     }) 
     }
-}
+};
