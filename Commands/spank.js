@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-const superagent = require("snekfecth");
+const superagent = require("snekfetch");
 
 module.exorts = {
     name: "spank",
