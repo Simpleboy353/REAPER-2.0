@@ -7,8 +7,8 @@ module.exports = {
     const { text } = args;
     const m = args.message;
 
-    for (const c of text.toLowerCase(text)) {
-    if (c in map) {
+    for (const c of text) {
+        if (c in map) {
         try {
             await m.react(map[c])
         } catch (err) {}
