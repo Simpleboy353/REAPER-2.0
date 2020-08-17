@@ -263,6 +263,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'react') {
   client.commands.get('react').run(client, message ,args);
   }
+  if (command === 'spank') {
+  client.commands.get('spank').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
