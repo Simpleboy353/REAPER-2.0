@@ -263,6 +263,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'youtube') {
   client.commands.get('youtube').run(client, message ,args);
   }
+  if (command === 'partnerships') {
+  client.commands.get('partnerships').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
