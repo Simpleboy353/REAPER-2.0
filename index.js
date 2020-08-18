@@ -260,11 +260,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'servericon') {
   client.commands.get('servericon').run(client, message, args);
-  } else if (command === 'react') {
-  client.commands.get('react').run(client, message ,args);
-  }
-  if (command === 'spank') {
-  client.commands.get('spank').run(client, message, args);
+  } else if (command === 'youtube') {
+  client.commands.get('youtube').run(client, message ,args);
   }
 });
 
