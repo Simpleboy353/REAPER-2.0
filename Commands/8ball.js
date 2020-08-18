@@ -4,7 +4,7 @@ module.exports = {
     name: "8ball",
     description: "Tells you a fortune",
     run: async (client, message, args) => {
-    if (args.length == 0) return message.channel.send("Finding out a fortune for nothing, great.").then(msg => msg.delete(2300)); 
+    if (args.length == 0) return message.channel.send("`Usage: =8ball <msg>`").then(msg => msg.delete(2300)); 
 
     var fortunes = [
       "Yes.",

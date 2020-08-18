@@ -12,7 +12,7 @@ module.exports = {
         return message.channel.send("I don't have enough Permissions")
         }
         if (!anchannel) {
-        return message.channel.send("Mention a channel")
+        return message.channel.send("`Usage: =announce <channel> <msg>`")
         }
         if (!args.slice(1).join(" ")) {
         return message.channel.send("Please add some text to make an Announcement")

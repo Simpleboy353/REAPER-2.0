@@ -5,7 +5,7 @@ module.exports = {
     description: "Add clap emoji between each word",
     run: async(client, message, args) => {
         if (!args.length) {
-        return message.channel.send("You need to enter some text")
+        return message.channel.send("`Usage: =clap <msg>`")
         }
         message.channel.send(args.join(' ').replace(/ /g, ' 👏 '));
     }

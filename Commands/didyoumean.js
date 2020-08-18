@@ -10,7 +10,7 @@ module.exports = {
             let text = args[0];
             let text2 = args[1];
             if (!text) {
-                return message.reply('You need to provide some text!');
+                return message.reply('`Usage: =didyoumean <msg1> <msg2>`');
             }
             message.channel.send({files : [{attachment: `https://api.alexflipnote.dev/didyoumean?top=${text}&bottom=${text2}`, name: 'file.jpg'}]})
     }

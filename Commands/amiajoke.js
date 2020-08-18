@@ -8,7 +8,7 @@ module.exports = {
     let link = `https://api.alexflipnote.dev/amiajoke?image=${avatar}`;
 
     if (!avatar) {
-        return message.channel.send("You need to mention someone")
+        return message.channel.send("`Usage: =amaiajoke <user>`")
         }
     const embed = new Discord.MessageEmbed()
     .setColor("#800080")

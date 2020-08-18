@@ -9,7 +9,7 @@ module.exports = {
     return message.channel.send("You don't have enough Permissions")
     }
     if (!role) {
-    return message.channel.send("You need to mention a role")
+    return message.channel.send("`Usage: =delrole <role>`")
     }
     role.delete();
     const embed = new Discord.MessageEmbed()

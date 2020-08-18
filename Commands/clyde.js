@@ -4,7 +4,7 @@ module.exports = {
   description: 'Get a custom clyde message!',
   run: async(client, message, args) => {
     if (!args[0]) {
-    return message.channel.send('What do you want clyde to say?')
+    return message.channel.send('`Usage: =clyde <msg>`')
     }
     let clydeMessage = args.slice(0).join(' ');
 

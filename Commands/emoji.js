@@ -7,7 +7,7 @@ module.exports = {
         const name = args.join(" ");
         const emoji = message.guild.emojis.cache.find(r => r.name === name);
         if (!name) {
-        return message.channel.send("Please type the emoji name")
+        return message.channel.send("`Usage: =emoji <EmojiName>`")
         }
         if (!emoji) {
         return message.channel.send("Couldn't find the Emojis with the provided name. Please make sure the Emoji name is correct");

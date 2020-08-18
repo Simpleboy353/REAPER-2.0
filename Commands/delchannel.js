@@ -9,7 +9,7 @@ module.exports = {
 	}
         const fetchedChannel = message.mentions.channels.first();
 	if (!fetchedChannel) {
-	return message.channel.send("Please type the channel name")
+	return message.channel.send("`Usage: =delchannel <channel>`")
         }
 	fetchedChannel.delete()
 

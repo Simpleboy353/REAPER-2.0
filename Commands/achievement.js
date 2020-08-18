@@ -9,7 +9,7 @@ module.exports = {
             if (message.channel.type === "dm") return;
             let text = args.join(" ");
             if (!text) {
-                return message.reply('You need to provide some text!');
+                return message.reply('`Usage: =achievement <txt>`');
             }
             message.channel.send({files : [{attachment: `https://api.alexflipnote.dev/achievement?text=${text}`, name: 'file.jpg'}]})
     }

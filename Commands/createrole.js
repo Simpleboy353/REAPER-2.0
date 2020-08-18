@@ -14,7 +14,7 @@ module.exports = {
         return message.channel.send("I don't have enough permissions to do this")
         }
         if (!args[0]) {
-        return message.channel.send("Usage: `createrole <color> <name>`. If your color name contains multiple words, dont use space between them and also avoid the use of Caps. e.g Spring Green, Correct Usage: `springgreen`")
+        return message.channel.send("`Usage: =createrole <colorname> <Name>`")
         }
         if (!name) {
         return message.channel.send("You need to specify a name for your Role")
