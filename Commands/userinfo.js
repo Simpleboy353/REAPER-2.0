@@ -33,7 +33,7 @@ module.exports = {
   .setColor("RANDOM")
   .setThumbnail(usericon)
   .setDescription (`${mention}`)
-  .addField(`Flags: `, flags[mention.user.flags.toArray()])
+  .addField(`Flags: `, flags[mention.user.flags.toArray().join(', ')])
   .addField(`Is Bot: `, bot[mention.user.bot])
   .addField(`Roles: `, `<@&${mention._roles.join('>  <@&')}>`)
   .addField("Account created On: ", `${mention.user.createdAt}`)
