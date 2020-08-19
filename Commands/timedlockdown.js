@@ -20,7 +20,7 @@ module.exports = {
            ],);
            const embed = new Discord.MessageEmbed()
            .setTitle("Channel Updates")
-           .setDescription(`${message.channel} has been placed under lockdown`)
+           .setDescription(`${message.channel} has been placed under lockdown for \`${time}\``)
            .setColor("RANDOM");
            message.channel.send(embed)
 
