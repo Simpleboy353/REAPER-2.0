@@ -26,7 +26,7 @@ module.exports = {
 
            let time1 = (`${time}`)
            setTimeout(function(){
-           message.channel.overwritePermssions([
+           message.channel.overwritePermissions([
                {
                id: message.guild.id,
                null: ['SEND_MESSAGES'],
