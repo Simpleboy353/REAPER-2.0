@@ -12,6 +12,7 @@
     "colornames": "^1.1.1",
     "config.json": "0.0.4",
     "dateformat": "^3.0.3",
+    "discord-emoji": "^1.1.1",
     "discord.js": "^12.2.0",
     "figlet": "^1.5.0",
     "flip-text": "^1.1.0",
