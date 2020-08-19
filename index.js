@@ -271,7 +271,7 @@ const command = args.shift().toLowerCase();
   client.commands.get('timedlockdown').run(client, message, args);
   }
   if (command === 'hello') {
-  client.commands.get('hello').run(cloent, message, args);
+  client.commands.get('hello').run(client, message, args);
   }
 });
 
