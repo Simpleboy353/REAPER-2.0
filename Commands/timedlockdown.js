@@ -32,11 +32,11 @@ module.exports = {
                null: ['SEND_MESSAGES'],
                },
             ],);
-           }, ms(time1));
            const embed2 = new Discord.MessageEmbed()
            .setTitle("Channel Updates")
            .setDescription(`Locked has been lifted in ${message.channel}`)
            .setColor("RANDOM");
            message.channel.send(embed2);
+        }, ms(time1));
     }
 }
