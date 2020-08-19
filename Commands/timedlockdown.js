@@ -38,5 +38,6 @@ module.exports = {
            .setColor("RANDOM");
            message.channel.send(embed2);
         }, ms(time1));
+        message.delete();
     }
 }
