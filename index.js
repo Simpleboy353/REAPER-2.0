@@ -270,6 +270,9 @@ const command = args.shift().toLowerCase();
   } else if (command === 'timedlockdown') {
   client.commands.get('timedlockdown').run(client, message, args);
   }
+  if (command === 'hello') {
+  client.commands.get('hello').run(cloent, message, args);
+  }
 });
 
 client.login(process.env.token);
