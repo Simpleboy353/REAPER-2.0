@@ -267,6 +267,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'partnerships') {
   client.commands.get('partnerships').run(client, message, args);
+  } else if (command === 'timedlockdown') {
+  client.commands.get('timedlockdown').run(client, message, args);
   }
 });
 
