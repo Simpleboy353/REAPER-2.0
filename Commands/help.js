@@ -17,13 +17,13 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
 .setTitle('Commands List')
-.setDescription("Available Categories")
+.setDescription("Available Categories: ")
 .addField(`⚙ __**Configuration**__: `, "`=helpconfig`\nConfigure the bot as per your Server")
 .addField(`🎲 __**Fun**__: `, "`=helpfun`\nUse these commands to have some fun in your Server")
-.addField(`📷 __**Image**__: `, "`=helpimage`\nManipulate Images wuth thses commands")
+.addField(`📷 __**Image**__: `, "`=helpimage`\nManipulate Images with these commands")
 .addField(`ℹ __**Info**__: `, "`=helpinfo`\nHave some info relating the Server, Users or Our Bot")
-.addField(`🛡 __**Moderation**__: `, "`=helpmod`\nHaving some issues relating some users? Use thses Commands")
-.addField(`🛠 __**Utility**__: `, "`=helputility`\nSome simple Utility Commands")
+.addField(`🛡 __**Moderation**__: `, "`=helpmod`\nHaving some issues relating some users? Use these Commands")
+.addField(`🛠 __**Utility**__: `, "`=helputility`\nSome Simple Utility Commands")
 .setColor("RANDOM");
 
 message.channel.send(embed);
