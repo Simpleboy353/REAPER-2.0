@@ -24,6 +24,7 @@ module.exports = {
 .addField(`ℹ __**Info**__: `, "`=helpinfo`\nHave some info relating the Server, Users or Our Bot")
 .addField(`🛡 __**Moderation**__: `, "`=helpmod`\nIssues relating some users? Use these Commands")
 .addField(`🛠 __**Utility**__: `, "`=helputility`\nSome Simple Utility Commands")
+.setFooter("Bot made by _๖ۣۜℜⱥjͥƤuͣtͫ_#5915")
 .setColor("RANDOM");
 
 message.channel.send(embed);
