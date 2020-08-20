@@ -3,6 +3,9 @@
     "OWNER_ID":"661501985517862972",
     "BOT_TOKEN":"NzMzNjcwMjk0MDg2MjIxODY1.XxGhtQ.XnJxjKEOqI8xpRJ-lDYqO79-F_8",
     "tenorAPI":"ZEEELJXAFQBN",
-    "DEFAULT_PREFIX":"="
-    
+    "YOUTUBE_API_KEY": "AIzaSyAwFq-mPIhZYALKVu2BF-lqk3FCZllzjPc",
+    "SOUNDCLOUD_CLIENT_ID": "95f22ed54a5c297b1c41f72d713623ef",
+    "MAX_PLAYLIST_SIZE": 10,
+    "DEFAULT_PREFIX":"=",
+    "PRUNING": false
     }
