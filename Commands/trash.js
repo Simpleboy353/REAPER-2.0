@@ -12,6 +12,6 @@ module.exports = {
         const avatar1 = user1.displayAvatarURL({size: 512, format: "png"});
         const avatar2 = mention.user.displayAvatarURL({size: 512, format: "png"});
 
-        message.channel.send({files: [{attachment: `https://api.alexflipnote.dev/trash?face=${avatar1}&trash=${avatar2}`, name: 'file.jpg'}]})
+        await message.channel.send({files : [{attachment: `https://api.alexflipnote.dev/trash?face=${avatar1}&trash=${avatar2}`, name: 'file.jpg'}]})
     }
 }
