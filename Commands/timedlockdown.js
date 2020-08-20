@@ -7,7 +7,7 @@ module.exports = {
     run: async(client, message, args) => {
         const time = args.join(" ");
         if (!time) {
-        return message.channel.send("Enter a valid time period like `5m or `1h`. The time entered must be of single type only like Seconds, Minutes or Hours only. Don't use time like `1d 2h` or `2h 30m`")
+        return message.channel.send("Enter a valid time period like `5m` or `1h`. The time entered must be of single type only like Seconds, Minutes or Hours only. Don't use time like `1d 2h` or `2h 30m`")
         }
         if (!message.member.hasPermission("MANAGE_SERVER", "MANAGE_CHANNELS")) {
             return message.channel.send(`You don't have enough Permisions`)
@@ -20,7 +20,7 @@ module.exports = {
            ],);
            const embed = new Discord.MessageEmbed()
            .setTitle("Channel Updates")
-           .setDescription(`${message.channel} has been placed under lockdown`)
+           .setDescription(`${message.channel} has been placed under lockdown for \`${time}\``)
            .setColor("RANDOM");
            message.channel.send(embed)
 
