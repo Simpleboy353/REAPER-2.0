@@ -1,0 +1,57 @@
+name: Build
+on:
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "*.*"
+  pull_request:
+    branches:
+      - "**"
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node: [12, 13, 14]
+      fail-fast: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node v${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install --build-from-source
+
+      - name: Package prebuild
+        run: npm run build
+
+  build_musl:
+    name: Build (musl)
+    runs-on: ubuntu-latest
+    container:
+      image: node:${{ matrix.node }}-alpine
+    strategy:
+      matrix:
+        node: [12, 13, 14]
+      fail-fast: true
+    steps:
+      - name: Setup env with Node v${{ matrix.node }}
+        run: |
+          apk add --update
+          apk add --no-cache ca-certificates git curl build-base python g++ make
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install --unsafe-perm --build-from-source
+
+      - name: Package prebuild
+        run: npm run build

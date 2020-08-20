@@ -1,0 +1,11 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "accept-ranges": "bytes",
+    "etag": "W/\"446-1714b3e10aa\"",
+    "date": "Sun, 05 Apr 2020 16:59:48 GMT",
+    "connection": "close"
+  },
+  "requestHeaders": {},
+  "requestTimestamp": 1586105988827
+}

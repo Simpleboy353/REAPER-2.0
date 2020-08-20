@@ -1,0 +1,13 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "accept-ranges": "bytes",
+    "cache-control": "public, max-age=5",
+    "content-type": "application/javascript; charset=UTF-8",
+    "content-length": "1094",
+    "date": "Sun, 05 Apr 2020 16:59:47 GMT",
+    "connection": "close"
+  },
+  "requestHeaders": {},
+  "requestTimestamp": 1586105987787
+}

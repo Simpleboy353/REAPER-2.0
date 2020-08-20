@@ -9,10 +9,13 @@
   "author": "Tester",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
     "colornames": "^1.1.1",
     "config.json": "0.0.4",
     "dateformat": "^3.0.3",
     "discord.js": "^12.2.0",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.7",
     "figlet": "^1.5.0",
     "flip-text": "^1.1.0",
     "fs": "0.0.1-security",
@@ -24,6 +27,7 @@
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "urban": "^0.3.2",
-    "ytdl-core": "^3.2.0"
+    "ytdl-core": "^3.2.0",
+    "ytdl-core-discord": "^1.2.1"
   }
 }
