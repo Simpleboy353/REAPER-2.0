@@ -272,6 +272,8 @@ const command = args.shift().toLowerCase();
   }
   if (command === 'trash') {
   client.commands.get('trash').run(client, message, args);
+  } else if (command === 'hello')  {
+  client.commands.get('hello').run(message);
   }
 });
 
