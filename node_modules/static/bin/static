@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+var transform = require('../index.js').transform,
+    fs = require('fs'),
+    args = args = process.argv.slice(2);
+if (!args[0] || !args[1]) {
+  throw new Error("usage: static src.html target.html");
+}
+
+transform(args[0], function(buffer) {
+  fs.writeFile(args[1], buffer, function() {
+    console.log('static wrote: ' + args[1]);
+  });
+});

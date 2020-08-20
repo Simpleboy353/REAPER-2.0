@@ -1,0 +1,21 @@
+let sckey;
+console.log(`| Testing scraper...`);
+try {
+    sckey = require('soundcloud-key-fetch')
+} catch(err) { return console.log(`| Failed! ${err}`) };
+
+sckey.fetchKey().then(key => {
+    console.log(`| Fetched key! [${key}]`);
+    console.log(`| Testing key validity`);
+    sckey.testKey(key).then(result => {
+        if(result) {
+            return console.log(`| Key successfully fetched and is valid!`)
+        } else {
+            return console.log(`| Key fetched; unable to validate it.`)
+        }
+    }).catch(e => {
+        return console.log(`| Failed to test key validity!`, e)
+    })
+}).catch(e => {
+    return console.log(`| Failed to fetch a key!`, e)
+})
