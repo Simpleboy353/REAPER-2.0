@@ -22,7 +22,7 @@ module.exports = {
 .addField(`🎲 __**Fun**__: `, "`=helpfun`\nUse these commands to have some fun in your Server")
 .addField(`📷 __**Image**__: `, "`=helpimage`\nManipulate Images with these commands")
 .addField(`ℹ __**Info**__: `, "`=helpinfo`\nHave some info relating the Server, Users or Our Bot")
-.addField(`🛡 __**Moderation**__: `, "`=helpmod`\nHaving some issues relating some users? Use these Commands")
+.addField(`🛡 __**Moderation**__: `, "`=helpmod`\nIssues relating some users? Use these Commands")
 .addField(`🛠 __**Utility**__: `, "`=helputility`\nSome Simple Utility Commands")
 .setColor("RANDOM");
 
