@@ -9,11 +9,14 @@ module.exports = {
   if (!time) {
   return message.channel.send("You didn't enter the time");
   }
-  const msg = args.slice(0).join(" ");
+  const msg = args.slice(1).join(" ");
+  if (!msg) {
+  return message.channel.send("Reminder for what..??")
+  }
   const user = message.author;
   const embed = new Discord.MessageEmbed()
   .setTitle("Success")
-  .setDescription(`Remider Set:}\n${msg}\nI will DM you after ${time}`)
+  .setDescription(`Remider Set:\n${msg}\nI will DM you after ${time}`)
   .setColor("RANDOM");
   message.channel.send(embed);
 
@@ -21,7 +24,7 @@ module.exports = {
   setTimeout(function(){
   const dm = new Discord.MessageEmbed()
   .setTitle("Reminder")
-  .setTitle(`Its time for ${msg}`)
+  .setDescription(`You had set the reminder for ${msg}`)
   .setColor("RANDOM");
   user.send(dm);
  }, ms(dmtime));
