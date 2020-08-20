@@ -16,13 +16,14 @@ module.exports = {
         let prefix = prefixes[message.guild.id].prefix; //Let prefix be prefixes[msg.guild.id].prefix
 
     const embed = new Discord.MessageEmbed()
-.setTitle('Welcome to the Help Section \nPrefix for your Server: '+prefix)
-.addField(`⚙ __**Configuration**__: `, "`=helpconfig`", true)
-.addField(`🎲 __**Fun**__: `, "`=helpfun`", true)
-.addField(`📷 __**Image**__: `, "`=helpimage`", true)
-.addField(`ℹ __**Info**__: `, "`=helpinfo`", true)
-.addField(`🛡 __**Moderation**__: `, "`=helpmod`", true)
-.addField(`🛠 __**Utility**__: `, "`=helputility`", true)
+.setTitle('Commands List')
+.setDescription("Available Categories")
+.addField(`⚙ __**Configuration**__: `, "`=helpconfig`\nConfigure the bot as per your Server")
+.addField(`🎲 __**Fun**__: `, "`=helpfun`\nUse these commands to have some fun in your Server")
+.addField(`📷 __**Image**__: `, "`=helpimage`\nManipulate Images wuth thses commands")
+.addField(`ℹ __**Info**__: `, "`=helpinfo`\nHave some info relating the Server, Users or Our Bot")
+.addField(`🛡 __**Moderation**__: `, "`=helpmod`\nHaving some issues relating some users? Use thses Commands")
+.addField(`🛠 __**Utility**__: `, "`=helputility`\nSome simple Utility Commands")
 .setColor("RANDOM");
 
 message.channel.send(embed);
