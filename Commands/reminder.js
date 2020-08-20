@@ -17,13 +17,13 @@ module.exports = {
   .setColor("RANDOM");
   message.channel.send(embed);
 
-  let time = `${time}`
+  let dmtime = `${time}`
   setTimeout(function(){
   const dm = new Discord.MessageEmbed()
   .setTitle("Reminder")
   .setTitle(`Its time for ${msg}`)
   .setColor("RANDOM");
   user.send(dm);
- }, ms(time));
+ }, ms(dmtime));
 }
 }
