@@ -22,13 +22,17 @@
     "got": "^11.5.1",
     "install": "^0.13.0",
     "jimp": "^0.14.0",
+    "lyrics-finder": "^21.3.2",
     "ms": "^2.1.2",
+    "node-pre-gyp": "^0.15.0",
     "request-promise-native": "^1.0.9",
     "run": "^1.4.0",
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
+    "soundcloud-downloader": "^0.1.4",
     "static": "^2.0.0",
     "urban": "^0.3.2",
-    "ytdl-core": "^3.2.0"
+    "ytdl-core": "^3.2.0",
+    "ytdl-core-discord": "^1.2.1"
   }
 }
