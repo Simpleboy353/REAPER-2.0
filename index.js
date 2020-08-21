@@ -273,7 +273,7 @@ const command = args.shift().toLowerCase();
   client.commands.get('timedlockdown').run(client, message, args);
   }
   if (command === 'play') {
-  client.commands.get('play').run(client, message, args);
+  client.commands.get('play').execute(client, message, args);
   }
 });
 
