@@ -1,10 +1,10 @@
-const { canModifyQueue } = require("../util/EvobotUtil");
+const { canModifyQueue } = module.require("../util/EvobotUtil");
 
 module.exports = {
   name: "skipto",
   aliases: ["st"],
   description: "Skip to the selected queue number",
-  execute(message, args) {
+  run: async(message, args) => {
     if (!args.length)
       return message
         .reply(`Usage: $${module.exports.name} <Queue Number>`)

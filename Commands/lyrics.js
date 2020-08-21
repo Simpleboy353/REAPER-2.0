@@ -1,11 +1,11 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = module.require("discord.js");
 const lyricsFinder = require("lyrics-finder");
 
 module.exports = {
   name: "lyrics",
   aliases: ["ly"],
   description: "Get lyrics for the currently playing song",
-  async execute(message) {
+  run: async(message) => {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.channel.send("There is nothing playing.").catch(console.error);
 

@@ -1,9 +1,9 @@
-const { canModifyQueue } = require("../util/EvobotUtil");
+const { canModifyQueue } = module.require("../util/EvobotUtil");
 
 module.exports = {
   name: "remove",
   description: "Remove song from the queue",
-  execute(message, args) {
+  run: async(message, args) => {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.channel.send("There is no queue.").catch(console.error);
     if (!canModifyQueue(message.member)) return;

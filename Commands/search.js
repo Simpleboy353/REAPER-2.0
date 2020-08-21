@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = module.require("discord.js");
 const { YOUTUBE_API_KEY } = require("../config.json");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
@@ -6,7 +6,7 @@ const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 module.exports = {
   name: "search",
   description: "Search and select videos to play",
-  async execute(message, args) {
+  run: async(message, args) => {
     if (!args.length)
       return message.reply(`Usage: $${module.exports.name} <Video Name>`).catch(console.error);
     if (message.channel.activeCollector)

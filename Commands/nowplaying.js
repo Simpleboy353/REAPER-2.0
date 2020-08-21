@@ -1,9 +1,9 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = module.require("discord.js");
 
 module.exports = {
   name: "np",
   description: "Show now playing song",
-  execute(message) {
+  run: async(message) => {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.reply("There is nothing playing.").catch(console.error);
     const song = queue.songs[0];

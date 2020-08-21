@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = module.require("discord.js");
 const { play } = require("../include/play");
 const { YOUTUBE_API_KEY, MAX_PLAYLIST_SIZE } = require("../config.json");
 const YouTubeAPI = require("simple-youtube-api");
@@ -9,7 +9,7 @@ module.exports = {
   cooldown: 3,
   aliases: ["pl"],
   description: "Play a playlist from youtube",
-  async execute(message, args) {
+  run: async (message, args) => {
     const { PRUNING } = require("../server.json");
     const { channel } = message.member.voice;
 
