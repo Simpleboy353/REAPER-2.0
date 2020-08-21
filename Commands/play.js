@@ -10,7 +10,7 @@ module.exports = {
   cooldown: 3,
   aliases: ["p"],
   description: "Plays audio from YouTube or Soundcloud",
-   execute(message, args) {
+   async execute(message, args) {
     const { channel } = message.member.voice;
 
     const serverQueue = message.client.queue.get(message.guild.id);
