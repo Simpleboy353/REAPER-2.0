@@ -1,5 +1,5 @@
 const fs = require("fs");
-const config = require("../server.json");
+const config = require("../config.json");
 
 module.exports = {
   name: "pruning",
