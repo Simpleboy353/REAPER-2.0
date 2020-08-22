@@ -12,7 +12,7 @@ module.exports = {
         .setDescription(`${msg}`)
         .setColor("RANDOM");
 
-        message.channnel.send(embed);
+        message.channel.send(embed);
         message.delete();
     }
 }
