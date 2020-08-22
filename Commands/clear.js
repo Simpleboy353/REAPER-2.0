@@ -12,6 +12,7 @@ module. exports = {
 if (!message.member.hasPermission("MANAGE_MESSAGES")) {
     return message.channel.send("You need the `MANAGE MESSAGES` permission to execute this command.")
 }
+const fetched = message.channel || message.mentions.members.first();
 let messageArray = message.content.split(" ");
 const amount = parseInt(args[0]) + 1;
 
@@ -22,8 +23,8 @@ if (isNaN(amount)) {
     return message.channel.send(`${message.author.username}, you can only clear messages from 1-99`)
 }
 
-message.channel.bulkDelete(amount, true)
-   message.channel.bulkDelete(amount);
+fetched.bulkDelete(amount, true)
+   fetched.bulkDelete(amount);
 
 }
 }
