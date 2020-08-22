@@ -272,8 +272,8 @@ const command = args.shift().toLowerCase();
   } else if (command === 'timedlockdown') {
   client.commands.get('timedlockdown').run(client, message, args);
   }
-  if (command === 'play') {
-  client.commands.get('play').execute(client, message, args);
+  if (command === 'esay') {
+  client.commands.get('esay').run(client, message, args);
   }
 });
 
