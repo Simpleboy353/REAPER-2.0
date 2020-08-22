@@ -1,4 +1,4 @@
-const Discord = module.requiire("disocrd.js");
+const Discord = module.require("discord.js");
 
 module.exports = {
     name: "esay",
