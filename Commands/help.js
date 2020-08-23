@@ -1,10 +1,10 @@
-const Discord = require("discord.js");
+const Discord = module.require("discord.js");
 const fs = require("fs");
 
 module.exports = {
     name: 'help',
     description: 'Shows Command List',
-    execute(message, args) {
+    run: async(message, args) => {
 
     const embed = new Discord.MessageEmbed()
 .setTitle('Commands List')
