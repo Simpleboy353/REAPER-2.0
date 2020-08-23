@@ -6,15 +6,6 @@ module.exports = {
     description: 'Shows Command List',
     execute(message, args) {
 
-        let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read File
-        if(!prefixes[message.guild.id]){  //If there is no string that is startwith prefixes[msg.guild.id]
-           prefixes[message.guild.id] = { //Let prefixes[msg.guild.id] be
-            prefix: '=' //Prefix = Default Prefix Which is on confiฌ.json
-           }
-        }
-
-        let prefix = prefixes[message.guild.id].prefix; //Let prefix be prefixes[msg.guild.id].prefix
-
     const embed = new Discord.MessageEmbed()
 .setTitle('Commands List')
 .setDescription("Available Categories: ")
