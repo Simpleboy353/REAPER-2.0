@@ -51,7 +51,7 @@ const command = args.shift().toLowerCase();
 if (!client.commands.has(command)) return;
 
 try{
-  client.commands.get(command).run(client, message, args);
+  client.commands.get(command).execute(client, message, args);
 } catch (error) {
   console.error(error);
   message.channel.send("An Error has occured during the execution of the command: \nError: "+error)
