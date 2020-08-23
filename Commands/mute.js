@@ -19,6 +19,10 @@ module.exports= {
 	if (!user) {
 		return message.channel.send(`**${message.author.username}**, Please mention the member who you want to mute`)
 	}
+
+	if(user.id === message.guild.owner.id) {
+	    return message.channel.send("You cannot mute the Server Owner")
+	}
 	 
 	if (user.id === message.author.id) {
 		return message.channel.send(`**${message.author.username}**, You can't mute yourself`)

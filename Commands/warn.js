@@ -22,6 +22,10 @@ module.exports = {
       return message.channel.send(`**${message.author.username}**, Please mention the person who you want to warn`)
     }
     
+    if (target.id === message.guild.owner.id) {
+      return message.channel.send("You cannot warn the Server Owner")
+    }
+    
     if(target.id === message.author.id) {
      return message.channel.send(`**${message.author.username}**, You can not warn yourself`)
     }

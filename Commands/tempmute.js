@@ -27,6 +27,9 @@ module.exports = {
 		if(!user) {
 			return message.channel.send("you need to specify the user");
 		}
+		if (user.id === message.owner.id) {
+			return message.channel.send("You can use any Mod Command against the Server Owner")
+		}
 		const time = args[1];
 		if(!time) {
 			return message.channel.send("How many are you going to mute that person ()");

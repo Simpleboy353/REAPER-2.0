@@ -7,7 +7,7 @@ module.exports = {
   description: "Kick anyone with one shot xD",
   usage: "kick <@user> <raeson>",
   run: async(message, args) => {
-    
+  
     if(!message.member.hasPermission("KICK_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
     }
@@ -21,7 +21,9 @@ module.exports = {
     if(!args[0]) {
       return message.channel.send(`**${message.author.username}**, Please mention the person who you want to kick`)
     }
-    
+    if (target.id === message.guild.owner.id) {
+      return message.channel.send("You cannot kick the Server Owner")
+    }
     if(target.id === message.author.id) {
      return message.channel.send(`**${message.author.username}**, You can not kick yourself`)
     }

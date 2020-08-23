@@ -21,6 +21,7 @@ if(!message.guild.me.hasPermission("BAN_MEMBERS")) {
 }
    let banMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) 
    if(!banMember) return message.channel.send("Please provide a user to ban!")
+   if(banMember.id === message.guild.owner.id) return message.channel.send("You cannot SoftBan the Server Owner");
 
    let reason = args.slice(1).join(" ");
    if(!reason) reason = "No reason given!"
