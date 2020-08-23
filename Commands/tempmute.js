@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = module.require("discord.js");
 const ms = require("ms");
 const discord = require("discord.js");
 
@@ -7,7 +7,7 @@ module.exports = {
 	name: "tempmute",
 	category: "info",
 	description: "Returns latency and API ping",
-    execute(message, args) {
+    run: async(message, args) => {
 		const user = message.mentions.members.first();
         if(!message.member.hasPermission("MANAGE_ROLES")) {
 			return message.channel.send("You dont have perms to use that commands");

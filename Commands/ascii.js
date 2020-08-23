@@ -1,4 +1,4 @@
-const discord = require("discord.js");
+const discord = module.require("discord.js");
 const figlet = require("figlet"); // MAKE SURE TO INSTALL FIGLET PACKAGE OR CODE WONT WORK
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
     category: "Fun",
     usage: "ascii <text>",
     description: "Returns provided text in ascii format.",
-    execute(message, args) {
+    run: async(message, args) => {
 
    let text = args.join(" ");
    if(!text) {

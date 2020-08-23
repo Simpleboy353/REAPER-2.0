@@ -1,11 +1,11 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = module.require("discord.js");
 
 module.exports= {
 	name: "mute",
 	description:"Mute members in one shot",
 	category:"moderation",
 	usage: "=mute <@user> <reason >",
-	execute(message, args) {
+	run: async(message, args) => {
 
     if(!message.member.hasPermission("MANAGE_ROLES")) {
 		return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)

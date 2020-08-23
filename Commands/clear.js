@@ -1,11 +1,11 @@
-const discord = require("discord.js");
+const discord = module.require("discord.js");
 const { Client } = require('discord.js');
 const client = new Client();
 
 module. exports = {
     name:'clear',
     description:'delete the given number of messages',
-    execute(message, args) {
+    run: async(message, args) => {
         if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) { 
             return message.channel.send("I don't have the permission to execute this command!")
         }

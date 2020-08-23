@@ -7,7 +7,7 @@ module.exports = {
     category: "Fun",
     usage: "amazeme",
     description: "Returns random amazing fact/image.",
-    execute(message, args) {
+    run: async(message, args) => {
 // AGAIN, MAKE SURE TO INSTALL 'GOT' PACKAGE!
 
   got('https://www.reddit.com/r/interestingasfuck/random.json').then(response => {

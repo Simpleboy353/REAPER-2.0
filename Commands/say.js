@@ -1,7 +1,7 @@
 module.exports = {
     name: "say",
     description: "Make the bot say your message",
-    execute(message, args) {
+    run: async(message, args) => {
         if (!args.join(" ")) {
         message.channel.send("Please add some text for me to repeat")
         }

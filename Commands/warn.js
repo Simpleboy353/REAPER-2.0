@@ -1,4 +1,4 @@
-const discord = require("discord.js");
+const discord = module.require("discord.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
   category: "moderation",
   description: "warn anyone in one shot xD",
   usage: "kick <@user> <raeson>",
-  execute(message, args) {
+  run: async(message, args) => {
     
     if(!message.member.hasPermission("MANAGE_SERVER")) {
       return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
