@@ -6,7 +6,7 @@ module.exports = {
     description: "Flip some text",
     usage: "fliptext <text>",
     type: "Fun",
-    execute(message, args) {
+    run: async(message, args) => {
       if (args.length < 1) {
         return message.channel.send("Please enter some text to flip")
       }
