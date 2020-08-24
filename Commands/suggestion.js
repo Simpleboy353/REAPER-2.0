@@ -19,7 +19,7 @@ module.exports = {
     .setColor("RANDOM");
 
     suggestionchannel.send(embed);
-    message.react(`<:yes:747387883123376181>`);
-    message.react(`<:no:747388029202595881>`);
+    message.react(`:yes:747387883123376181`);
+    message.react(`:no:747388029202595881`);
     }
 }
