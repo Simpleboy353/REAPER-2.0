@@ -18,8 +18,10 @@ module.exports = {
     .setFooter(`Suggested by ${message.author.tag}`)
     .setColor("RANDOM");
 
-    suggestionchannel.send(embed);
-    message.react(`:yes:747387883123376181`);
-    message.react(`:no:747388029202595881`);
+    suggestionchannel.send(embed)
+    .then(function (message, str) {
+        message.react(":yes:747387883123376181")
+        message.react(":no:747388029202595881")
+      }).catch(function () {});
     }
 }
