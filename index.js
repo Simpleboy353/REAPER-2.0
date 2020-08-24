@@ -278,6 +278,9 @@ if (command === 'ping') {
   } else if (command === 'suggestion') {
   client.commands.get('suggestion').run(client, message, args);
   }
+  if (command === 'wiki') {
+  client.commands.get('wiki').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
