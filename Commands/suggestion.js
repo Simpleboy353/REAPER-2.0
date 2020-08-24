@@ -5,6 +5,7 @@ module.exports = {
     description: "Anything",
     run: async(client, message, args) => {
     const msg = args.join(" ");
+    message.delete();
     if (!msg) {
         return message.channel.send("Add a suggestion please");
     }
@@ -12,8 +13,8 @@ module.exports = {
     if (!suggestionchannel) {
         return message.channel.send('This Server has no channel named "suggestions", if the channel exists with some other name, I recommend you to change the channel name to `suggestions`')
     }
-    message.channel.send(`${message.author.username}, Your Sggetion has Successfully Submitted!`);
-    
+    await message.channel.send(`${message.author}, Your Suggestion has been submitted!`);
+
     const embed = new Discord.MessageEmbed()
     .setTitle("New Suggestion")
     .setDescription(`${msg}`)
