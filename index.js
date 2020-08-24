@@ -275,6 +275,8 @@ if (command === 'ping') {
   }
   if (command === 'esay') {
   client.commands.get('esay').run(client, message, args);
+  } else if (command === 'suggsetion') {
+  client.commands.get('suggestion').run(client, message, args);
   }
 });
 
