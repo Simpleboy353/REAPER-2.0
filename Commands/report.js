@@ -10,7 +10,7 @@ module.exports = {
             return message.channel.send("Enter the Description of the bug you encountered!");
         }
         message.channel.send(`${message.author}, Your Report has been Successfully Submitted. Our Mod Team will reply to you as soon as possible`)
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
         .setTitle("New Bug Report")
         .setDescription(`${report} \n\nBy: ${message.author.tag}`)
         .setFooter(`User ID: ${message.author.id}`)
