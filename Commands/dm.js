@@ -4,15 +4,16 @@ module.exports = {
     name: "dm",
     description: "Send DM message to a user",
     run: async(client, message, args) => {
-    const id = args[0];
-    if (!id) {
+    message.delete();
+    const userid = args[0];
+    if (!userid) {
     return message.channel.send("Enter an ID")
     }
     const msg = args.slice(1).join(" ");
     if (!msg) {
     return message.channel.send("Enter the message")
     }
-    const user = client.users.cache.get(`${id}`);
+    const user = client.users.cache.get(`${userid}`);
     const embed = new Discord.MessageEmbed()
     .setTitle("Support Reply!")
     .setDescription(`${msg}`)
