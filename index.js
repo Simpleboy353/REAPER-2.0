@@ -32,16 +32,16 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-
+const Server = message.guild.id;
 let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read File
-    if(!prefixes[message.guild.id]){  //If there is no string that is startwith prefixes[msg.guild.id]
-       prefixes[message.guild.id] = { //Let prefixes[msg.guild.id] be
+    if(!prefixes[`${Server}`]){  //If there is no string that is startwith prefixes[msg.guild.id]
+       prefixes[`${Server}`] = { //Let prefixes[msg.guild.id] be
         prefix: config.DEFAULT_PREFIX //Prefix = Default Prefix Which is on confiฌ.json
        }
     }
 
 
-    let prefix = prefixes[message.guild.id].prefix; //Let prefix be prefixes[msg.guild.id].prefix
+    let prefix = prefixes[`${Server}`].prefix; //Let prefix be prefixes[msg.guild.id].prefix
 
       if (!message.content.startsWith(prefix) || message.author.bot) return;
 
