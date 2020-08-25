@@ -19,7 +19,8 @@ module.exports = {
     .setFooter("Regards, Infinity Mod Team")
     .setColor("RANDOM");
 
-    user.send(embed)
+    user.send(embed);
+    message.channel.send(`Successfully Sent the Message to <@!${id}>`);
     }, catch (error) {
         const errorlogs = client.channels.cache.get("747750993583669258");
     message.channel.send("Looks like an error has occured");
