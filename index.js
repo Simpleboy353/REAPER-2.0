@@ -280,6 +280,8 @@ if (command === 'ping') {
   }
   if (command === 'wiki') {
   client.commands.get('wiki').run(client, message, args);
+  } else if (command === 'report') {
+  client.commands.get('report').run(client, message, args);
   }
 });
 
