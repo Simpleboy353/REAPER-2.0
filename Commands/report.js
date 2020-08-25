@@ -4,7 +4,7 @@ module.exports = {
     name: "report",
     description: "Report a bug",
     run: async(client, message, args) => {
-        const reportchannel = client.channels.get("747699213814464522")
+        const reportchannel = client.channels.cache.get("747699213814464522")
         const report = args.join(" ");
         if (!report) {
             return message.channel.send("Enter the Description of the bug you encountered!");
@@ -13,7 +13,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setTitle("New Bug Report")
         .setDescription(`${report} \n\nBy: ${message.author.tag}`)
-        .setFooter(`User ID: ${message.author.id}`)
+        .setFooter(User ID: ${message.author.id})
         .setColor("RANDOM");
 
         reportchannel.send(embed);
