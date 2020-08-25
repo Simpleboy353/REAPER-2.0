@@ -14,7 +14,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
         .setAuthor(`New Suggestion!`, avatar)
         .setDescription(`${suggestion} \n\nSuggestion By:\n ${message.author.tag}`)
-        .setFooter(`ID: ${messge.author.id}`)
+        .setFooter(`ID: ${message.author.id}`)
         .setColor("RANDOM");
 
         suggestchannel.send(embed);
