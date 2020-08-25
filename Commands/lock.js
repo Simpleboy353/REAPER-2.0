@@ -4,7 +4,7 @@ module.exports = {
    name: "lock",
    description: "Locks a Channel",
    run: async(client, message, args) => {
-   if (!message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
+   if (!message.member.hasPermission('MANAGE_CHANNELS')) {
    return message.channel.send("You don't have enough Permissions")
    }
    message.channel.overwritePermissions([
