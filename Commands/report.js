@@ -4,7 +4,7 @@ module.exports = {
     name: "report",
     description: "Report a bug",
     run: async(client, message, args) => {
-        const reportchannel = client.channels.cache.get("747699213814464522")
+        const reportchannel = client.channels.get("747699213814464522")
         const report = args.join(" ");
         if (!report) {
             return message.channel.send("Enter the Description of the bug you encountered!");
@@ -17,5 +17,9 @@ module.exports = {
         .setColor("RANDOM");
 
         reportchannel.send(embed);
+    }, catch (error) {
+        const errorlogs = client.channels.cache.get("747750993583669258");
+        message.channel.send("Looks Like an Error has Ocurred. The Error has been reported to the Report Section!")
+        errorlogs.send("Error on Report Command \nError: \n"+error)
     }
 }
