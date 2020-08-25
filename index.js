@@ -283,6 +283,9 @@ if (command === 'ping') {
   } else if (command === 'report') {
   client.commands.get('report').run(client, message, args);
   }
+  if (command === 'suggest') {
+  client.commands.get('suggest').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
