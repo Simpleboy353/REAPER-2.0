@@ -9,11 +9,11 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
 .setTitle('Commands List')
 .setDescription("Available Categories: ")
-.addField(`⚙ __**Configuration**__: `, "`=helpconfig`\nConfigure the bot as per your Server")
-.addField(`🎲 __**Fun**__: `, "`=helpfun`\nUse these commands to have some fun in your Server")
-.addField(`📷 __**Image**__: `, "`=helpimage`\nManipulate Images with these commands")
-.addField(`ℹ __**Info**__: `, "`=helpinfo`\nHave some info relating the Server, Users or Our Bot")
-.addField(`🛡 __**Moderation**__: `, "`=helpmod`\nIssues relating some users? Use these Commands")
+.addField(`<:conf:748544324978999448> __**Configuration**__: `, "`=helpconfig`\nConfigure the bot as per your Server")
+.addField(`<a:ColorDino:726964382009131099> __**Fun**__: `, "`=helpfun`\nUse these commands to have some fun in your Server")
+.addField(`<:cam:748544442478100511> __**Image**__: `, "`=helpimage`\nManipulate Images with these commands")
+.addField(`<:inf:748544269798866964> __**Info**__: `, "`=helpinfo`\nHave some info relating the Server, Users or Our Bot")
+.addField(`<:mod:748544387499294841> __**Moderation**__: `, "`=helpmod`\nIssues relating some users? Use these Commands")
 .addField(`<:utility:748177830134808597> __**Utility**__: `, "`=helputility`\nSome Simple Utility Commands")
 .setColor("RANDOM");
 
