@@ -40,6 +40,11 @@ let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read Fi
        }
     }
 let wcs = JSON.parse(fs.readFileSync("./wc.json", "utf8"));
+   if(!wcs[`${Server}`]){
+     wcs[`${Server}`] = {
+       wc: message.guild.channels.cache.find(c => c.name === "general")
+     }
+   }
 
    client.on('guildMemberAdd', (member) => {
      if(!wcs) return;
@@ -292,6 +297,9 @@ if (command === 'ping') {
   client.commands.get('suggest').run(client, message, args);
   } else if (command === 'dm') {
   client.commands.get('dm').run(client, message, args);
+  }
+  if (command === 'welcomechannel') {
+  client.commands.get('welcomechannel').run(client, message, args);
   }
 });
 
