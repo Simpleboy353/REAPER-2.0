@@ -39,7 +39,12 @@ let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read Fi
         prefix: config.DEFAULT_PREFIX //Prefix = Default Prefix Which is on confiฌ.json
        }
     }
+let wcs = JSON.parse(fs.readFileSync("./wc.json", "utf8"));
 
+   client.on('guildMemberAdd', (member) => {
+     if(!wcs) return;
+       wcs.send(`Welcome to the server <@!${member.id}>`);
+   });
 
     let prefix = prefixes[`${Server}`].prefix; //Let prefix be prefixes[msg.guild.id].prefix
 
