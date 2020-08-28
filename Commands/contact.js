@@ -22,8 +22,8 @@ module.exports = {
         if (channel) {
         channel.send(embed)
         } else if (!channel) {
-        const channel1 = guild.channels.create(`${message.author.tag}`, {type: "text"});
-        channel1.send(embed)
+        guild.channels.create(`${message.author.tag}`, {type: "text"});
+        channel.send(embed)
         }
 }
 }
