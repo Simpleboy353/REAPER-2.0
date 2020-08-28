@@ -11,7 +11,10 @@ module.exports = {
     }
         const guild = client.guilds.cache.get("725273882625572895");
         message.channel.send("Thanks for contacting. Our Mod Team will reply to you shortly");
-        const channel = guild.channels.cache.find(c => c.name === `${message.author.tag}`)
+        const channel = guild.channels.cache.find(c => c.name === `${message.author.tag}`);
+        if (!channel) {
+        guild.channels.create(`${message.author.tag}`, {type: "text"});
+        }
         const embed = new Discord.MessageEmbed()
         .setTitle("User Contact")
         .setDescription(`${msg}`)
@@ -19,11 +22,6 @@ module.exports = {
         .setTimestamp()
         .setColor("RANDOM");
 
-        if (channel) {
-        channel.send(embed)
-        } else if (!channel) {
-        guild.channels.create(`${message.author.tag}`, {type: "text"});
-        channel.send(embed)
-        }
+    channel.send(embed);
 }
 }
