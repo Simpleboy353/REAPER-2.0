@@ -11,7 +11,7 @@ module.exports = {
     }
         const guild = client.guilds.cache.get("725273882625572895");
         message.channel.send("Thanks for contacting. Our Mod Team will reply to you shortly");
-        const channel = guild.channels.cache.find(`${message.author.tag}`)
+        const channel = guild.channels.cache.find(c => c.name === `${message.author.tag}`)
         const embed = new Discord.MessageEmbed()
         .setTitle("User Contact")
         .setDescription(`${msg}`)
