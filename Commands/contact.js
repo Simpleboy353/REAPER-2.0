@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "contact.js",
+    name: "contact",
     description: "Contact the Mod Team For Inifinity Bot",
     run: async(client, message, args) => {
     message.delete();
