@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: "announce",
     description: "Make an Announcemnet in your Server",
-    run: async (clinet, message, args) => {
+    run: async (client, message, args) => {
         const anchannel = message.mentions.channels.first();
         if(!message.member.hasPermission("MANAGE_MESSAGES")) {
         return message.channel.send("You don't have enogh Permissions")
@@ -19,7 +19,7 @@ module.exports = {
         }
 
         let embed = new Discord.MessageEmbed()
-        .setTitle("New Server Announcement")
+        .setTitle(`<:ann:748176925792665721> New Server Announcement`)
         .setDescription(args.slice(1).join(" "), { allowedMentions: { parse:["users"] } })
         .setColor("RANDOM")
         .setFooter(`Announcement by ${message.author.username}`);
