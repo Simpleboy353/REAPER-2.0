@@ -5,6 +5,10 @@ module.exports = {
     description: "Send DM message to a user",
     run: async(client, message, args) => {
     message.delete();
+    const state = "disabled";
+    if (state === "disabled") {
+    return message.channel.send("the Command has been disabled because of facing crash issues");
+    }
     const userid = args[0];
     if (!userid) {
     return message.channel.send("Enter an ID")

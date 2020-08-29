@@ -4,7 +4,7 @@ module.exports = {
     name: "cat",
     description: "Get Random cat images",
     run: async(client, message, args) => {
-    const state = "enabled";
+    const state = "disabled";
     if (state === "disabled") {
     return message.channel.send("The command has been disabled for now!")
     }
