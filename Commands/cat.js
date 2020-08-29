@@ -6,7 +6,7 @@ module.exports = {
     run: async(client, message, args) => {
     const state = "disabled";
     if (state === "disabled") {
-    message.channel.send("The command has been disabled for now!")
+    return message.channel.send("The command has been disabled for now!")
     }
     const ino = Math.random(1,122);
 
