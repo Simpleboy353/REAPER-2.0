@@ -286,8 +286,8 @@ if (command === 'ping') {
   } else if (command === 'dm') {
   client.commands.get('dm').run(client, message, args);
   }
-  if (command === 'contact') {
-  client.commands.get('contact').run(client, message, args);
+  if (command === 'delete') {
+  client.commands.get('delete').run(client, message, args);
   }
 });
 
