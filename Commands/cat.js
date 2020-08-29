@@ -11,6 +11,6 @@ module.exports = {
     .setImage(link)
     .setTimestamp();
 
-    message.chanel.send(embed);
+    message.channel.send(embed);
     }
 }
