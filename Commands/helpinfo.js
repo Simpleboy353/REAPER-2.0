@@ -6,7 +6,7 @@ module.exports = {
     run: async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
         .setTitle("Info Commands")
-        .setDescription("`botinfo`, `emojiid`, `help`, `invite`, `ping`, `report`, `userinfo`, `userid`, `serverinfo`")
+        .setDescription("`botinfo`, `emojiid`, `help`, `invite`, `ping`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`")
         .setColor("RANDOM");
 
         message.channel.send(embed);
