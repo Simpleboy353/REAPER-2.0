@@ -288,6 +288,8 @@ if (command === 'ping') {
   }
   if (command === 'pokeimg') {
   client.commands.get('pokeimg').run(client, message, args);
+  } else if (command === 'catsay') {
+  client.commands.get('catsay').run(client, message, args);
   }
 });
 
