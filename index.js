@@ -291,6 +291,9 @@ if (command === 'ping') {
   } else if (command === 'catsay') {
   client.commands.get('catsay').run(client, message, args);
   }
+  if (command === 'stats') {
+  client.commands.get('stats').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);

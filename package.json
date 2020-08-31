@@ -1,4 +1,4 @@
- {
+{
   "name": "tut-bot",
   "version": "1.0.0",
   "description": "",
@@ -11,6 +11,7 @@
   "dependencies": {
     "colornames": "^1.1.1",
     "config.json": "0.0.4",
+    "cpu-stat": "^2.0.1",
     "dateformat": "^3.0.3",
     "discord.js": "^12.2.0",
     "figlet": "^1.5.0",
@@ -18,12 +19,18 @@
     "fs": "0.0.1-security",
     "got": "^11.5.1",
     "jimp": "^0.14.0",
+    "moment": "^2.27.0",
+    "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
+    "os": "^0.1.1",
+    "os-utils": "0.0.14",
+    "pretty-ms": "^7.0.0",
     "request-promise-native": "^1.0.9",
     "run": "^1.4.0",
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "urban": "^0.3.2",
+    "util": "^0.12.3",
     "ytdl-core": "^3.2.0"
   }
 }
