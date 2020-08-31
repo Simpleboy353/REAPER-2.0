@@ -17,7 +17,7 @@ module.exports = {
 
         let customemoji = Discord.Util.parseEmoji(emoji);
 
-        if(customemoji.size > 256) {
+        if(customemoji.data.size > 256) {
             return message.channel.send("Emoji Size Can't be larger than 256kb!");
         }
 
@@ -29,7 +29,7 @@ module.exports = {
                 `${Link}`,
                 `${name || `${customemoji.name}`}`
             );
-            return message.channel.send(`Added ${customemoji} with ${customemoji.name} name!`);
+            return message.channel.send(`Added ${customemoji} with \`${customemoji.name}\` name!`);
         } else {
             let CheckEmoji = parse(emoji, { assetType: "png" });
             if (!CheckEmoji[0])
