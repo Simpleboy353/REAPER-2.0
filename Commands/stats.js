@@ -12,7 +12,7 @@ const readdir = promisify(require("fs").readdir);
 module.exports ={
     name: "stats",
     descriptiom: "Get Inifnity's Stats",
-    run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
+    run: async (client, message, args, level) => { // eslint-disable-line no-unused-vars
     try {
         const cmdFiles = await readdir("./commands/");
         let cpuLol;
