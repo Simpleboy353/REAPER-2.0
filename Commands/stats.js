@@ -14,7 +14,7 @@ module.exports ={
     descriptiom: "Get Inifnity's Stats",
     run: async (client, message, args, level) => { // eslint-disable-line no-unused-vars
     try {
-        const cmdFiles = await readdir("./commands/");
+        const cmdFiles = await readdir("./Commands/");
         let cpuLol;
         cpuStat.usagePercent(function (err, percent, seconds) {
             if (err) {
