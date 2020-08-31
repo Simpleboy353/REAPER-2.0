@@ -41,7 +41,7 @@ module.exports ={
                 .addField("Library", `\`Discord.js\``, true)
                 .addField("Library Version", `v${version}`, true)
                 .addField(":book: Node Version", `${process.version}`, true)
-                .addField(":stopwatch: Uptime & Ping", `${duration} / ${Math.round(client.ping)}ms`, true)
+                .addField(":stopwatch: Uptime & Ping", `${duration} / ${Math.round(client.ws.ping)}ms`, true)
                 //.addField(":stopwatch: Server uptime", `${prettyMs(oss.sysUptime())}`, true)
                 .addField(":calendar_spiral: Created On", client.user.createdAt, true)
             message.channel.send(RynEmb)
