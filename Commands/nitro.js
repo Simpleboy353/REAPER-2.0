@@ -25,7 +25,6 @@ module.exports = {
 }, catch (error) {
         const errorlogs = client.channels.cache.get("747750993583669258")
     message.channel.send("Looks like an error has occured")
-    errorlogs.send("Error on DM command\n\nError:\n"+error)
+    errorlogs.send("Error on DM command\n\nError:\n"+error);
     }
-}
 }
