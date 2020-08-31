@@ -25,13 +25,7 @@ module.exports = {
                 `${Link}`,
                 `${name || `${customemoji.name}`}`
             );
-            const Added = new MessageEmbed()
-                .setTitle(`Emoji Added`)
-                .setColor(`${Color}`)
-                .setDescription(
-                    `Emoji Has Been Added! | Name : ${name || `${customemoji.name}`} | Preview : [Click Me](${Link})`
-                );
-            return message.channel.send(Added);
+            return message.channel.send(`Added ${customemoji} with ${customemoji.name} name!`);
         } else {
             let CheckEmoji = parse(emoji, { assetType: "png" });
             if (!CheckEmoji[0])
