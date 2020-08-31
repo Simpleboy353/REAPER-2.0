@@ -29,6 +29,7 @@
     "run": "^1.4.0",
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
+    "twemoji-parser": "^13.0.0",
     "urban": "^0.3.2",
     "util": "^0.12.3",
     "ytdl-core": "^3.2.0"

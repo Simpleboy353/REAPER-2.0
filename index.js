@@ -293,6 +293,8 @@ if (command === 'ping') {
   }
   if (command === 'stats') {
   client.commands.get('stats').run(client, message, args);
+  } else if (command === 'addemoji') {
+  client.commands.get('addemoji').run(client, message, args);
   }
 });
 
