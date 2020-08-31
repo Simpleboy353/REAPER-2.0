@@ -17,10 +17,6 @@ module.exports = {
 
         let customemoji = Discord.Util.parseEmoji(emoji);
 
-        if(customemoji.data.size > 256) {
-            return message.channel.send("Emoji Size Can't be larger than 256kb!");
-        }
-
         if (customemoji.id) {
             const Link = `https://cdn.discordapp.com/emojis/${customemoji.id}.${customemoji.animated ? "gif" : "png"
                 }`;
