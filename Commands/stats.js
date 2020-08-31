@@ -22,7 +22,7 @@ module.exports ={
             }
             const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
             let bicon = client.user.displayAvatarURL;
-            const RynEmb = new Discord.RichEmbed()
+            const RynEmb = new Discord.MessageEmbed()
                 .setAuthor(client.user.username, client.user.displayAvatarURL)
                 .setDescription("Infinity Bot's Stats:")
                 .setTimestamp()
