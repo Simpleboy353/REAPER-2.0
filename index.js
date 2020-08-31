@@ -296,6 +296,9 @@ if (command === 'ping') {
   } else if (command === 'addemoji') {
   client.commands.get('addemoji').run(client, message, args);
   }
+  if (command === 'enlargemoji') {
+  client.commands.get('enlargemoji').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
