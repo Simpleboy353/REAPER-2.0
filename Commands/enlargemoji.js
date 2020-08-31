@@ -10,7 +10,7 @@ module.exports = {
     run: async(client, message, args) => {
 
 
-
+        const authoravatar = message.author.avatarURL();
         const emoji = args[0];
         if (!emoji) return message.channel.send(`Please Give Me A Emoji!`);
 
@@ -21,7 +21,7 @@ module.exports = {
                 }`;
 
             const Added = new MessageEmbed()
-                .setTitle(`Enlarged Emoji`)
+                .setAuthor(`Enlarged Emoji`, authoravatar)
                 .setColor(`${Color}`)
                 .setDescription(`\`${customemoji.name}\` \`${customemoji.id}\``)
                 .setImage(Link
