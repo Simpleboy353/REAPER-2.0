@@ -21,7 +21,7 @@ module.exports = {
    .setDescription(`https://discord.gg/${makeid(10)}`)
    .setImage(images[Math.floor(Math.random()*images.length)])
    .setColor("RANDOM");
- return message.channel.send(embed);
+  message.channel.send(embed);
 }, catch (error) {
         const errorlogs = client.channels.cache.get("747750993583669258")
     message.channel.send("Looks like an error has occured")
