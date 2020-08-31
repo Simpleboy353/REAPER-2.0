@@ -47,7 +47,7 @@ module.exports ={
             message.channel.send(RynEmb)
         });
     } catch (err) {
-        const errorlogs = client.channels.get('724540469530329108')
+        const errorlogs = client.channels.get('747750993583669258')
         message.channel.send(`Whoops, We got a error right now! This error has been reported to Support center!`)
         errorlogs.send(`Error on stats commands!\n\nError:\n\n ${err}`)
     }
