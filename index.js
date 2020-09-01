@@ -20,6 +20,7 @@ client.on('ready', () => {
    { msg: "Infinity Rocks", type:"STREAMING"},
    { msg: "Over Your Server 24/7", type:"WATCHING"},
    { msg: "=help", type:"LISTENING"},
+   { msg: "Mention me for help!", type:"PLAYING"},
    { msg: "Helping You make your Server Better", type:"PLAYING"},
    { msg: `in ${client.guilds.cache.size} Servers`, type:"PLAYING"},
     ];// creates an arraylist containing phrases you want your bot to switch through.
@@ -57,7 +58,7 @@ const command = args.shift().toLowerCase();
     .addField(`<:utility:748177830134808597> __**Utility**__: `, "`=helputility`\nSome Simple Utility Commands")
     .setColor("RANDOM");
 
-const pinged = message.mentions.members.first();
+const pinged = message.mentions.users.first();
   if (pinged.id === "733670294086221865") {
     message.channel.send(embed);
   } else {
