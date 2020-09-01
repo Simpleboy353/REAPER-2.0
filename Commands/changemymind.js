@@ -5,7 +5,7 @@ const Discord = module.require("discord.js");
 module.exports = {
     name: "changemymind",
     description: "Image Manipulation Command",
-    run: async(client, mesage, args) => {
+    run: async(client, message, args) => {
     const text = args.join("+");
     if (!text) {
         return message.channel.send("Enter some text!")
