@@ -1,6 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 let config = require('./config.json');
+const { createInterface } = require("readline");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -303,6 +304,8 @@ if (command === 'ping') {
   }
   if (command === 'changemymind') {
   client.commands.get('changemymind').run(client, message, args);
+  } else if (command === 'tableflip') {
+  client.commands.get('tableflip').run(client, message, args);
   }
 });
 
