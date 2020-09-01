@@ -58,7 +58,7 @@ const command = args.shift().toLowerCase();
     .addField(`<:utility:748177830134808597> __**Utility**__: `, "`=helputility`\nSome Simple Utility Commands")
     .setColor("RANDOM");
 
-const pinged = message.mentions.users.first();
+const pinged = message.mentions.members.first();
   if (pinged.id === "733670294086221865") {
     message.channel.send(embed);
   } else {
