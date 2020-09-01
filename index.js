@@ -316,6 +316,8 @@ if (command === 'ping') {
   }
   if (command === 'enlargemoji') {
   client.commands.get('enlargemoji').run(client, message, args);
+  } else if (command === 'nitro') {
+  client.commands.get('nitro').run(client, message, args);
   }
 });
 
