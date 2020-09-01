@@ -4,7 +4,7 @@ module.exports = {
     name: "partnerships",
     description: "Shows Info Relating Partner Servers and Bots",
     run: async(client, message, args) => {
-        const avatar = client.user.displayAvatarURL();
+        const avatar = client.user.avatarURL();
         const embed = new Discord.MessageEmbed()
         .setThumbnail(avatar)
         .setTitle("Infinity Partners")
@@ -13,7 +13,7 @@ module.exports = {
         .setFooter(`Contact ๖ۣۜℜⱥjͥƤuͣtͫ#5915 to become a partner`)
         .setThumbnail(client.user.avatarURL())
         .setColor("RANDOM");
-    message.channel.send(embed)
+    message.channel.send(embed);
     }, catch(error) {
         const errorlogs = client.channels.cache.get("747750993583669258")
         message.channel.send("Looks Like an Error has Ocurred. The Error has been reported to the Report Section!")
