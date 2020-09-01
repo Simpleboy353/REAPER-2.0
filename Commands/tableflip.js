@@ -1,4 +1,4 @@
-const Discord = module.require("discod.js");
+const Discord = module.require("discord.js");
 
 module.exports = {
     name: "tableflip",
