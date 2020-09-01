@@ -301,6 +301,9 @@ if (command === 'ping') {
   } else if (command === 'nitro') {
   client.commands.get('nitro').run(client, message, args);
   }
+  if (command === 'changemymind') {
+  client.commands.get('changemymind').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
