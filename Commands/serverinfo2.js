@@ -43,7 +43,7 @@ module.exports = {
     const serverembed = new Discord.MessageEmbed()
     .setTitle(`${message.guild.name}`, `${message.guild.iconURL()}`)
     .setThumbnail(servericon)
-    .addField(`General Info`, `Owner: ${message.guild.owner} \nRegion: **${region[message.guild.region]}** \nVerification Lvl: **${verify[message.guild.verificationLevel]}**`)
+    .addField(`General Info`, `Owner: ${message.guild.owner} \nRegion: **${region[message.guild.region]}** \nVerification Lvl: **${verifLevels[message.guild.verificationLevel]}**`)
     .addField(`Overview`, `Total Channels: **${message.guild.cache.channels.size}** \nAFK Channel: ${message.guild.afkChannel} \nAFK Timeout: **${message.guild.afkTimeout}** \nTotal Roles: **${message.guild.cache.roles.size}**`)
     .addField(`Member Info`, `Total Members: **${message.guild.memberCount}** \n Humans: **${message.guild.members.cache.filter(member => !member.user.bot).size}** \nBots: ${message.guild.members.cache.filter(member => member.user.bot).size}**`)
     .addField(`Misc. Info`, `You Joined on: ${message.member.joinedAt} \nCreated On: ${message.guild.createdAt}`)
@@ -52,5 +52,5 @@ module.exports = {
     .setTimestamp;
 
     message.channel.send(serverembed);
-    }
-}
+    },
+};
