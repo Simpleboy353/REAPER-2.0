@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
 module.exports = {
-    name: "serverinfo2",
+    name: "serverinfo",
     category: "utility",
     description: "Shows info about a server",
     usage: "[command]",
