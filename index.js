@@ -312,6 +312,9 @@ if (command === 'ping') {
   } else if (command === 'wideavatar') {
   client.commands.get('wideavatar').run(client, message, args);
   }
+  if (command === 'serverinfo2') {
+  client.commands.get('serverinfo2').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
