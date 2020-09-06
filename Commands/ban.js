@@ -1,4 +1,4 @@
-const discord = require("discord.js");
+const discord = module.require("discord.js");
 
 module.exports = {
   name: "ban",
