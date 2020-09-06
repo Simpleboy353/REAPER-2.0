@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "serverinfo",
+    name: "serverinfo2",
     category: "utility",
     description: "Shows info about a server",
     usage: "[command]",
