@@ -8,12 +8,10 @@ module.exports = {
     usage: "[command]",
     run: async (client, message, args) => {
         //command
-        const join = moment.duration(message.guild.joinedAt).format(" D [days], H [hrs], m [mins], s [secs]");
-        const create = moment.duration(message.guild.createdAt).format(" D [days], H [hrs], m [mins], s [secs]");
         const afk = message.guild.afkChannel;
-        let achannel = "";
+        let achannel = "None";
         if (afk) {
-            achannel = `${afk}`;
+            achannel = message.guild.afkChannel;
         } else if (!afk) {
             achannel = "None";
         }
@@ -47,7 +45,7 @@ module.exports = {
     .setTitle(`${message.guild.name}`, `${message.guild.iconURL()}`)
     .setThumbnail(servericon)
     .addField(`General Info`, `Owner: ${message.guild.owner} \nRegion: \`${region[message.guild.region]}\` \nVerification Lvl: \`${verifLevels[message.guild.verificationLevel]}\``)
-    .addField(`Overview`, `Total Channels: \`${message.guild.channels.cache.size}\` \nAFK Channel: ${achannel[message.guild.afkChannel]} \nAFK Timeout: \`${message.guild.afkTimeout} sec\` \nTotal Roles: \`${message.guild.roles.cache.size}\``)
+    .addField(`Overview`, `Total Channels: \`${message.guild.channels.cache.size}\` \nAFK Channel: ${achannel[afk]} \nAFK Timeout: \`${message.guild.afkTimeout} sec\` \nTotal Roles: \`${message.guild.roles.cache.size}\``)
     .addField(`Member Info`, `Total Members: \`${message.guild.memberCount}\` \nHumans: \`${message.guild.members.cache.filter(member => !member.user.bot).size}\` \nBots: \`${message.guild.members.cache.filter(member => member.user.bot).size}\``)
     .addField(`Misc. Info`, `You Joined on: \n\`${message.member.joinedAt}\` \nCreated On: \n\`${message.guild.createdAt}\``)
     .setThumbnail(message.guild.iconURL())
