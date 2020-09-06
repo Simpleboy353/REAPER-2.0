@@ -11,7 +11,7 @@ let afk = message.guild.afkChannel;
 if (afk) {
 const achannel = message.guild.afkChannel;
 } else if (!afk) {
-const achannel = None;
+const achannel = "None";
 }
 let servericon = message.guild.iconURL;
 let verifLevels = {
