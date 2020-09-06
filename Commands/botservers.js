@@ -22,7 +22,7 @@ module.exports = {
         }
     } catch (err) {
 
-        const errorlogs = client.channels.get('747750993583669258')
+        const errorlogs = client.channels.cache.get('747750993583669258')
 
         message.channel.send(`Whoops, We got a error right now! This error has been reported to Support center!`)
 
