@@ -49,7 +49,7 @@ module.exports = {
     .addField(`Misc. Info`, `You Joined on: ${message.member.joinedAt} \nCreated On: ${message.guild.createdAt}`)
     .setThumbnail(message.guild.iconURL())
     .setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
-    .setTimestamp;
+    .setTimestamp();
 
     message.channel.send(serverembed);
     },
