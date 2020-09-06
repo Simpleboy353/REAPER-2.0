@@ -8,7 +8,7 @@ usage: "[command]",
 run: async (client, message, args) => {
 //command
 let afk = message.guild.afkChannel;
-const achannel;
+let achannel = "";
 if (afk) {
 achannel = message.guild.afkChannel;
 } else if (!afk) {
