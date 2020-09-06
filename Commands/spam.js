@@ -5,6 +5,7 @@ module.exports = {
 	name: "spam",
 	description: "Another fun command",
 	run: async(client, message, args) => {
+        message.delete();
 	let msg = args.join(" ");
 	if (!msg) {
         return message.channel.send("Error : No Text Found to Spam")
@@ -81,17 +82,17 @@ module.exports = {
 
         let time14 = '9s'
         setTimeout(function(){
-        message.channel.send(`Looks like an Infinite Loop has been created!`);
+        message.channel.send(`${msg}`);
       }, ms(time14));
 
         let time15 = '9.5s'
         setTimeout(function(){
-        message.channel.send(`Trying to fix it!`);
+        message.channel.send(`${msg}`);
       }, ms(time15));
 
         let time16 = '10s'
         setTimeout(function(){
-        message.channel.send(`Done.... Fixed!!`);
+        message.channel.send(`${msg}`);
       }, ms(time16));
     }
 }
