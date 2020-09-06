@@ -7,6 +7,12 @@ description: "Shows info about a server",
 usage: "[command]",
 run: async (client, message, args) => {
 //command
+let afk = message.guild.afkChannel;
+if (afk) {
+const achannel = message.guild.afkChannel;
+} else if (!afk) {
+const achannel = None;
+}
 let servericon = message.guild.iconURL;
 let verifLevels = {
         "NONE": "None",
@@ -41,7 +47,7 @@ const serverembed = new Discord.MessageEmbed()
 .addField("Region", region[message.guild.region], true)
 .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
 .addField("Total Channels", message.guild.channels.cache.size, true)
-.addField("AFK Channel", message.guild.afkChannel, true)
+.addField("AFK Channel", `${achannel}`, true)
 .addField("AFK Timeout", message.guild.afkTimeout, true)
 .addField("Total Roles", message.guild.roles.cache.size, true)
 .addField("Total Members", message.guild.memberCount, true)
