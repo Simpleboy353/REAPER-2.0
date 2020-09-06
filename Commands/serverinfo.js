@@ -8,7 +8,7 @@ module.exports = {
     usage: "[command]",
     run: async (client, message, args) => {
         //command
-        const afk = message.guild.afkChannel === null ? "None" : message.guild.afkChannel;
+        const afk = message.guild.afkChannel === null ? "\`None\`" : message.guild.afkChannel;
         let servericon = message.guild.iconURL;
         let verifLevels = {
             "NONE": "None",
