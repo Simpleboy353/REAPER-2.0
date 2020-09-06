@@ -5,7 +5,7 @@ module.exports = {
   category: "moderation",
   description: "Ban anyone with one shot whithout knowing anyone xD",
   usage: "ban <@user> <reason>",
-  execute(message, args) {
+  run: async(message, args) => {
     
     if(!message.member.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, You do not have perms to ban someone`)
