@@ -9,7 +9,7 @@ module.exports = {
     try {
         if (message.author.id != "661501985517862972") return message.channel.send(`<a:_cross:725303285015117844> Developer Only <a:_cross:725303285015117844>`);
         let data = [];
-        client.guilds.forEach(x => {
+        client.guilds.cache.forEach(x => {
             message.channel.send(`🔹**${x.name}** | \`${x.memberCount}\` members (ID: ${x.id})\n............................`);
         });
 
