@@ -47,7 +47,7 @@ module.exports = {
     .addField(`Overview`, `Total Channels: **${message.guild.channels.cache.size}** \nAFK Channel: ${message.guild.afkChannel} \nAFK Timeout: **${message.guild.afkTimeout}** \nTotal Roles: **${message.guild.roles.cache.size}**`)
     .addField(`Member Info`, `Total Members: **${message.guild.memberCount}** \n Humans: **${message.guild.members.cache.filter(member => !member.user.bot).size}** \nBots: ${message.guild.members.cache.filter(member => member.user.bot).size}**`)
     .addField(`Misc. Info`, `You Joined on: ${message.member.joinedAt} \nCreated On: ${message.guild.createdAt}`)
-    .setThumbnail(message.guild.IconURL())
+    .setThumbnail(message.guild.iconURL())
     .setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
     .setTimestamp;
 
