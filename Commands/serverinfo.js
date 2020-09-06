@@ -10,10 +10,10 @@ module.exports = {
         //command
         const join = moment.duration(message.guild.joinedAt).format(" D [days], H [hrs], m [mins], s [secs]");
         const create = moment.duration(message.guild.createdAt).format(" D [days], H [hrs], m [mins], s [secs]");
-        let afk = message.guild.afkChannel;
+        const afk = message.guild.afkChannel;
         let achannel = "";
         if (afk) {
-            achannel = message.guild.afkChannel;
+            achannel = `${afk}`;
         } else if (!afk) {
             achannel = "None";
         }
