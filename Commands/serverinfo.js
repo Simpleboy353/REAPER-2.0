@@ -8,10 +8,11 @@ usage: "[command]",
 run: async (client, message, args) => {
 //command
 let afk = message.guild.afkChannel;
+const achannel;
 if (afk) {
-const achannel = message.guild.afkChannel;
+achannel = message.guild.afkChannel;
 } else if (!afk) {
-const achannel = "None";
+achannel = "None";
 }
 let servericon = message.guild.iconURL;
 let verifLevels = {
