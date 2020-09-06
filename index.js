@@ -307,6 +307,9 @@ if (command === 'ping') {
   } else if (command === 'tableflip') {
   client.commands.get('tableflip').run(client, message, args);
   }
+  if (command === 'botservers') {
+  client.commands.get('botservers').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
