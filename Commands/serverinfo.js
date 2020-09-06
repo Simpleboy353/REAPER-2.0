@@ -36,7 +36,7 @@ module.exports = {
             "india": "India"
         };
     const serverembed = new Discord.MessageEmbed()
-    .setTitle(`${message.guild.name}`, `${message.guild.iconURL()}`)
+    .setAuthor(`${message.guild.name}`, message.guild.iconURL())
     .setThumbnail(servericon)
     .addField(`General Info`, `Owner: ${message.guild.owner} \nRegion: \`${region[message.guild.region]}\` \nVerification Lvl: \`${verifLevels[message.guild.verificationLevel]}\``)
     .addField(`Overview`, `Total Channels: \`${message.guild.channels.cache.size}\` \nAFK Channel: ${afk} \nAFK Timeout: \`${message.guild.afkTimeout} sec\` \nTotal Roles: \`${message.guild.roles.cache.size}\``)
