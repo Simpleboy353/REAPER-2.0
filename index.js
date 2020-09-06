@@ -309,6 +309,8 @@ if (command === 'ping') {
   }
   if (command === 'botservers') {
   client.commands.get('botservers').run(client, message, args);
+  } else if (command === 'wideavatar') {
+  client.commands.get('wideavatar').run(client, message, args);
   }
 });
 
