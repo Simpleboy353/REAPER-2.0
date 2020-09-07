@@ -8,6 +8,7 @@ module.exports = {
     usage: "[command]",
     run: async (client, message, args) => {
         //command
+        const mention = message.member;
         const afk = message.guild.afkChannel === null ? "\`None\`" : message.guild.afkChannel;
         let servericon = message.guild.iconURL;
         let verifLevels = {
@@ -41,7 +42,7 @@ module.exports = {
     .addField(`General Info`, `Owner: ${message.guild.owner} \nRegion: \`${region[message.guild.region]}\` \nVerification Lvl: \`${verifLevels[message.guild.verificationLevel]}\``)
     .addField(`Overview`, `Total Channels: \`${message.guild.channels.cache.size}\` \nAFK Channel: ${afk} \nAFK Timeout: \`${message.guild.afkTimeout} sec\` \nTotal Roles: \`${message.guild.roles.cache.size}\``)
     .addField(`Member Info`, `Total Members: \`${message.guild.memberCount}\` \nHumans: \`${message.guild.members.cache.filter(member => !member.user.bot).size}\` \nBots: \`${message.guild.members.cache.filter(member => member.user.bot).size}\``)
-    .addField(`Misc. Info`, `You Joined on: \n\`${message.member.joinedAt}\` \nCreated On: \n\`${message.guild.createdAt}\``)
+    .addField(`Misc. Info`, `You Joined on: \n\`${mention.joinedAt}\` \nCreated On: \n\`${message.guild.createdAt}\``)
     .setThumbnail(message.guild.iconURL())
     .setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
     .setColor("RANDOM")
