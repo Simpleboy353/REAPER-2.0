@@ -32,7 +32,7 @@ module.exports = {
         .setThumbnail(usericon)
         .addField(`General Info`, `Name: ${mention.user.username} (${mention.user}) \nTag: ${mention.user.discriminator} \nNickname: ${mention.user.nickname}`)
         .addField(`Overview`, `Badges:\n${flags[mention.user.flags.toArray().join(", ")]} \nStatus: ${act} \nActivity: ${game} \nIs Bot: ${bot[mention.user.bot]}`)
-        .addField(`Misc Info`, `Roles:\n${roles[mention._roles.join(">  <@&")]} \nAcc Created on: \n${mention.user.createdAt} \nJoined This Server on: \n${mntion.user.joinedAt}`)
+        .addField(`Misc Info`, `Roles:\n${roles[mention._roles.join(">  <@&")]} \nAcc Created on: \n${mention.user.createdAt} \nJoined This Server on: \n${mention.user.joinedAt}`)
         .setThumbnail(usericon)
         .setFooter(`${mention.user.id}`, mention.user.avatarURL())
         .setColor("RANDOM");
