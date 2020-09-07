@@ -36,7 +36,7 @@ module.exports = {
         .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
-        .addTimestamp()
+        .setTimestamp()
         .setColor("RANDOM");
         message.channel.send(userlol)
     }
