@@ -5,7 +5,7 @@ module.exports = {
     run: async (client, message, args) => {
         const mention = message.mentions.members.first() || message.member;
         const nick = mention.nickname === undefined || null ? "None" : mention.nickname;
-        const roles = mention.roles.cache.get === ">  <@&" ? "None" : mention.roles.cache.get;
+        const roles = mention.roles.cache.get === "<@&>" ? "None" : mention.roles.cache.get;
         const usericon = mention.user.avatarURL;
         const act = mention.user.presence.status.toUpperCase();
         const game = mention.user.presence.game || "None";
