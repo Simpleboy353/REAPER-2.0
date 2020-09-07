@@ -4,6 +4,7 @@ module.exports = {
     name: "userinfo2",
     run: async (client, message, args) => {
         const mention = message.mentions.members.first() || message.member;
+        const nick = mention.nickname === null ? "None" : mention.nickname;
         const roles = mention.roles.cache.get === null ? "None" : mention.roles.cache.get;
         const usericon = mention.user.avatarURL;
         const act = mention.user.presence.status.toUpperCase();
@@ -30,9 +31,9 @@ module.exports = {
         const userlol = new Discord.MessageEmbed()
         .setAuthor(`User Info`, mention.user.avatarURL())
         .setThumbnail(usericon)
-        .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${mention.user.nickname}\``)
+        .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``)
         .addField(`Overview`, `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\` \nStatus: \`${act}\` \nActivity: \`${game}\` \nIs Bot: \`${bot[mention.user.bot]}\``)
-        .addField(`Misc Info`, `Roles: ${mention._roles.join(">  <@&")} \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.user.joinedAt}\``)
+        .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`${mention.user.id}`, mention.user.avatarURL())
         .setColor("RANDOM");
