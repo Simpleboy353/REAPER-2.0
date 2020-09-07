@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "userinfo2",
+    name: "userinfo",
     run: async (client, message, args) => {
         const mention = message.mentions.members.first() || message.member;
         const nick = mention.nickname === null ? "None" : mention.nickname;
