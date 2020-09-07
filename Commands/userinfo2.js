@@ -35,7 +35,8 @@ module.exports = {
         .addField(`Overview`, `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\` \nStatus: \`${act}\` \nActivity: \`${game}\` \nIs Bot: \`${bot[mention.user.bot]}\``)
         .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
         .setThumbnail(mention.user.avatarURL())
-        .setFooter(`${mention.user.id}`, mention.user.avatarURL())
+        .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
+        .addTimestamp()
         .setColor("RANDOM");
         message.channel.send(userlol)
     }
