@@ -4,7 +4,6 @@ module.exports = {
     name:"userinfo",
   run: async (client, message, args) => {
   const mention = message.mentions.members.first() || message.member;
-  const perms = mention.permissions.cache.toArray === null ? "None" : mention.permissions.cache.get;
   const roles = mention.roles.cache.get === null ? "None" : mention.roles.cache.get;
   const usericon = mention.user.avatarURL;
   var flags = {
