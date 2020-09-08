@@ -312,8 +312,8 @@ if (command === 'ping') {
   } else if (command === 'wideavatar') {
   client.commands.get('wideavatar').run(client, message, args);
   }
-  if (command === 'userinfo2') {
-  client.commands.get('userinfo2').run(client, message, args);
+  if (command === 'rip') {
+  client.commands.get('rip').run(client, message, args);
   }
 });
 
