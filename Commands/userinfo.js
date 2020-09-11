@@ -49,7 +49,7 @@ module.exports = {
             "true": "Yes, The User is a Bot",
             "false": "No, The User is a Human"
         };
-        const ack = "";
+        var ack = "";
         if (mention.id === message.guild.owner.id) {
             ack = "Server Owner";
         } else if (mention.user.hasPermission("ADMINISTRATOR")) {
