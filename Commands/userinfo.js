@@ -43,7 +43,7 @@ module.exports = {
         const usericon = mention.user.avatarURL;
         const act = mention.user.presence.status.toUpperCase();
         const game = mention.user.presence.game || "None";
-        const memberPermissions = member.permissions.toArray();
+        const mentionPermissions = mention.permissions.toArray();
         const finalPermissions = [];
         for (const permission in permissions) {
             if (mentionPermissions.includes(permission)) finalPermissions.push(`+ ${permissions[permission]}`);
