@@ -46,7 +46,7 @@ module.exports = {
         const memberPermissions = member.permissions.toArray();
         const finalPermissions = [];
         for (const permission in permissions) {
-            if (memberPermissions.includes(permission)) finalPermissions.push(`+ ${permissions[permission]}`);
+            if (mentionPermissions.includes(permission)) finalPermissions.push(`+ ${permissions[permission]}`);
             else finalPermissions.push(`- ${permissions[permission]}`);
         }
         var flags = {
