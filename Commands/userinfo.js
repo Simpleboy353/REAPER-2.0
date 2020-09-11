@@ -49,22 +49,12 @@ module.exports = {
             "true": "Yes, The User is a Bot",
             "false": "No, The User is a Human"
         };
-        var ack = "";
-        if (mention.id === message.guild.owner.id) {
-            ack = "Server Owner";
-        } else if (mention.member.hasPermission("ADMINISTRATOR")) {
-            ack = "Server Administrator";
-        } else if (mention.member.hasPermissions("Manage Server")) {
-            ack = "Server Manager";
-        } else {
-            ack = "None";
-        }
         const userlol = new Discord.MessageEmbed()
         .setAuthor(`User Info`, mention.user.avatarURL())
         .setThumbnail(usericon)
         .addField(`General Info`, `**Name**: \`${mention.user.username}\` (${mention}) \n**Tag**: \`${mention.user.discriminator}\` \n**Nickname**: \`${nick}\``)
         .addField(`Overview`, `**Badges**: \`${flags[mention.user.flags.toArray().join(", ")]}\` \n**Status**: \`${act}\` \n**Activity**: \`${game}\` \n**Is Bot**: \`${bot[mention.user.bot]}\``)
-        .addField(`Server Relating Info`, `**Roles**: <@&${mention._roles.join(">  <@&")}> \n**Key Permissions**: \`${finalPermissions.join(', ')}\` \n**Position**: \`${ack}\``)
+        .addField(`Server Relating Info`, `**Roles**: <@&${mention._roles.join(">  <@&")}> \n**Key Permissions**: \`${finalPermissions.join(', ')}\``)
         .addField(`Misc Info`, `**Acc Created on**: \n\`${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\` \n**Joined This Server on**: \n\`${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\``)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
