@@ -1,4 +1,6 @@
 const Discord = module.require("discord.js");
+const permissions = require('./permissions.json');
+const { oneLine } = require("common-tags");
 
 module.exports = {
     name: "userinfo",
@@ -9,6 +11,12 @@ module.exports = {
         const usericon = mention.user.avatarURL;
         const act = mention.user.presence.status.toUpperCase();
         const game = mention.user.presence.game || "None";
+        const memberPermissions = member.permissions.toArray();
+        const finalPermissions = [];
+        for (const permission in permissions) {
+            if (memberPermissions.includes(permission)) finalPermissions.push(`+ ${permissions[permission]}`);
+            else finalPermissions.push(`- ${permissions[permission]}`);
+        }
         var flags = {
             "": "None",
             "DISCORD_EMPLOYEE": "Discord Employee",
@@ -33,7 +41,7 @@ module.exports = {
         .setThumbnail(usericon)
         .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``)
         .addField(`Overview`, `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\` \nStatus: \`${act}\` \nActivity: \`${game}\` \nIs Bot: \`${bot[mention.user.bot]}\``)
-        .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
+            .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: ${finalPermissions.join(', ')} \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
         .setTimestamp()
