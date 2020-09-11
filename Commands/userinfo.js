@@ -52,9 +52,9 @@ module.exports = {
         var ack = "";
         if (mention.id === message.guild.owner.id) {
             ack = "Server Owner";
-        } else if (mention.user.hasPermission("ADMINISTRATOR")) {
+        } else if (mention.hasPermission("ADMINISTRATOR")) {
             ack = "Server Administrator";
-        } else if (mention.user.hasPermissions("Manage Server")) {
+        } else if (mention.hasPermissions("Manage Server")) {
             ack = "Server Manager";
         } else {
             ack = "None";
