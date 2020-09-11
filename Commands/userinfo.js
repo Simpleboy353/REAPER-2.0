@@ -49,14 +49,15 @@ module.exports = {
             "true": "Yes, The User is a Bot",
             "false": "No, The User is a Human"
         };
+        const ack = "";
         if (mention.id === message.guild.owner.id) {
-            const ack = "Server Owner";
+            ack = "Server Owner";
         } else if (mention.user.hasPermission("ADMINISTRATOR")) {
-            const ack = "Server Administrator";
+            ack = "Server Administrator";
         } else if (mention.user.hasPermissions("Manage Server")) {
-            const ack = "Server Manager";
+            ack = "Server Manager";
         } else {
-            const ack = "None";
+            ack = "None";
         }
         const userlol = new Discord.MessageEmbed()
         .setAuthor(`User Info`, mention.user.avatarURL())
