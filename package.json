@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "colornames": "^1.1.1",
+    "common-tags": "^1.8.0",
     "config.json": "0.0.4",
     "cpu-stat": "^2.0.1",
     "dateformat": "^3.0.3",
