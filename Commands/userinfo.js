@@ -1,4 +1,5 @@
 const Discord = module.require("discord.js");
+const moment = require("moment");
 const { oneLine } = require("common-tags");
 
 module.exports = {
@@ -11,16 +12,11 @@ module.exports = {
             "MANAGE_CHANNELS": "Manage Channels",
             "KICK_MEMBERS": "Kick Members",
             "BAN_MEMBERS": "Ban Members",
-            "CHANGE_NICKNAME": "Change Nickname",
             "MANAGE_NICKNAMES": "Manage Nicknames",
             "MANAGE_EMOJIS": "Manage Emojis",
             "MANAGE_WEBHOOKS": "Manage Webhooks",
-            "SEND_MESSAGES": "Send Messages",
             "MANAGE_MESSAGES": "Manage Messages",
-            "READ_MESSAGE_HISTORY": "Read Message History",
-            "MENTION_EVERYONE": "Mention @everyone, @here, and All Roles",
-            "USE_EXTERNAL_EMOJIS": "Use External Emojis",
-            "MUTE_MEMBERS": "Mute Members"
+            "MENTION_EVERYONE": "Mention Everyone"
         }
         const mention = message.mentions.members.first() || message.member;
         const nick = mention.nickname === null ? "None" : mention.nickname;
@@ -58,7 +54,7 @@ module.exports = {
         .setThumbnail(usericon)
         .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``)
         .addField(`Overview`, `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\` \nStatus: \`${act}\` \nActivity: \`${game}\` \nIs Bot: \`${bot[mention.user.bot]}\``)
-        .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: \`${finalPermissions.join(', ')}\` \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
+        .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: \`${finalPermissions.join(', ')}\` \nAcc Created on: \n\`${moment(mention.user.createdAt).format("MMM DD YYYY")}\` \nJoined This Server on: \n\`${moment(mention.joinedAt).format("MMM DD YYYY")}\``)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
         .setTimestamp()
