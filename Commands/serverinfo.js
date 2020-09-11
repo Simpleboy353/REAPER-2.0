@@ -42,7 +42,7 @@ module.exports = {
     .addField(`General Info`, `Owner: ${message.guild.owner} \nRegion: \`${region[message.guild.region]}\` \nVerification Lvl: \`${verifLevels[message.guild.verificationLevel]}\``)
     .addField(`Overview`, `Total Channels: \`${message.guild.channels.cache.size}\` \nAFK Channel: ${afk} \nAFK Timeout: \`${message.guild.afkTimeout} sec\` \nTotal Roles: \`${message.guild.roles.cache.size}\``)
     .addField(`Member Info`, `Total Members: \`${message.guild.memberCount}\` \nHumans: \`${message.guild.members.cache.filter(member => !member.user.bot).size}\` \nBots: \`${message.guild.members.cache.filter(member => member.user.bot).size}\``)
-    .addField(`Misc. Info`, `You Joined on: \n\`${mention.joinedAt}\` \nCreated On: \n\`${message.guild.createdAt}\``)
+    .addField(`Misc. Info`, `You Joined on: \n\`${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\` \nCreated On: \n\`${moment(message.guild.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\``)
     .setThumbnail(message.guild.iconURL())
     .setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
     .setColor("RANDOM")
