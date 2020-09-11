@@ -46,8 +46,8 @@ module.exports = {
         const mentionPermissions = mention.permissions.toArray();
         const finalPermissions = [];
         for (const permission in permissions) {
-            if (mentionPermissions.includes(permission)) finalPermissions.push(`+ ${permissions[permission]}`);
-            else finalPermissions.push(`- ${permissions[permission]}`);
+            if (mentionPermissions.includes(permission)) finalPermissions.push(`${permissions[permission]}`);
+            else;
         }
         var flags = {
             "": "None",
@@ -73,7 +73,7 @@ module.exports = {
         .setThumbnail(usericon)
         .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``)
         .addField(`Overview`, `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\` \nStatus: \`${act}\` \nActivity: \`${game}\` \nIs Bot: \`${bot[mention.user.bot]}\``)
-            .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: ${finalPermissions.join(', ')} \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
+        .addField(`Misc Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: \`${finalPermissions.join(', ')}\` \nAcc Created on: \n\`${mention.user.createdAt}\` \nJoined This Server on: \n\`${mention.joinedAt}\``)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
         .setTimestamp()
