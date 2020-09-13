@@ -7,11 +7,11 @@ module.exports = {
             usage: 'trumptweet <message>',
             description: 'Display\'s a custom tweet from Donald Trump with the message provided.',
             run: async(client, message, args) => {
-                var state = "disabled";
+                var state = "";
                 if (state = "disabled") {
                     return message.channel.send("The Command has been Disabled. Contact Bot Owner for more info!");
                 }
-        const tweet = args.slice(0).join(" ");
+        const tweet = args.join(" ");
         if (!tweet) {
             return message.channel.send("Mr. President Says: \`What to tweet ?\`")
         }
