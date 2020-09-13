@@ -9,8 +9,10 @@ module.exports = {
             run: async(message, args) => {
 
         // Get message
-        if (!args[0]) return message.channel.send('Please provide a message to tweet');
         let tweet = args.join(" ");
+        if (!tweet) {
+            return message.channel.send("Mr. President Says: \`What to tweet ?\`")
+        }
         if (tweet.length > 68) tweet = tweet.slice(0, 65) + '...';
 
         try {
