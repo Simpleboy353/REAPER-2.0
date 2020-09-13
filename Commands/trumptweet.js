@@ -16,12 +16,8 @@ module.exports = {
         try {
             const res = await fetch('https://nekobot.xyz/api/imagegen?type=trumptweet&text=' + tweet);
             const img = (await res.json()).message;
-            const embed = new MessageEmbed()
-                .setTitle(':flag_us:  Trump Tweet  :flag_us: ')
-                .setImage(img)
-                .setTimestamp()
-                .setColor("RANDOM");
-            message.channel.send(embed);
+            const result = `${img}`;
+            message.channel.send({fies: [{attachment: result, name: "trumptweet.png"}]});
         } catch (err) {
             console.log(err);
             message.channel.send(err);
