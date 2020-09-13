@@ -314,6 +314,8 @@ if (command === 'ping') {
   }
   if (command === 'rip') {
   client.commands.get('rip').run(client, message, args);
+  } else if (command === 'jail') {
+  client.commands.get('jail').run(client, message, args);
   }
 });
 
