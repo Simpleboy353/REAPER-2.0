@@ -16,8 +16,7 @@ module.exports = {
         try {
             const res = await fetch('https://nekobot.xyz/api/imagegen?type=trumptweet&text=' + tweet);
             const img = (await res.json()).message;
-            const result = `${img}`;
-            message.channel.send({fies: [{attachment: result, name: "trumptweet.png"}]});
+            message.channel.send({fies: [{attachment: img, name: "trumptweet.png"}]});
         } catch (err) {
             console.log(err);
             message.channel.send(err);
