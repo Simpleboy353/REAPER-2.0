@@ -6,7 +6,7 @@ module.exports = {
             aliases: ['trump'],
             usage: 'trumptweet <message>',
             description: 'Display\'s a custom tweet from Donald Trump with the message provided.',
-            run: async(message, args) => {
+            run: async(client, message, args) => {
                 var state = "disabled";
                 if (state = "disabled") {
                     return message.channel.send("The Command has been Disabled. Contact Bot Owner for more info!");
