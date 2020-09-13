@@ -317,6 +317,9 @@ if (command === 'ping') {
   } else if (command === 'jail') {
   client.commands.get('jail').run(client, message, args);
   }
+  if (command === 'trumptweet') {
+  client.commands.get('trumptweet').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
