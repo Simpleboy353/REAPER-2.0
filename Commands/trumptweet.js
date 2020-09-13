@@ -7,7 +7,7 @@ module.exports = {
             usage: 'trumptweet <message>',
             description: 'Display\'s a custom tweet from Donald Trump with the message provided.',
             run: async(message, args) => {
-        const tweet = args.join(" ");
+        const tweet = args.slice(0).join(" ");
         if (!tweet) {
             return message.channel.send("Mr. President Says: \`What to tweet ?\`")
         }
