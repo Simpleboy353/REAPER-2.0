@@ -27,6 +27,7 @@
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
+    "node-fetch": "^2.6.1",
     "os": "^0.1.1",
     "os-utils": "0.0.14",
     "pretty-ms": "^7.0.0",
