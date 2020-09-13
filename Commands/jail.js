@@ -6,7 +6,7 @@ module.exports = {
     name: "jail",
     description: "Image Manipulation Command",
     run: async (client, message, args) => {
-    const state = "disabled";
+    var state = "disabled";
     if (state === "disabled") {
     return message.channel.send("The Command has been disabled. Contact Bot Owner for More Info!")
     }
