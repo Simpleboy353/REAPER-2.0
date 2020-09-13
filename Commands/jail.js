@@ -6,6 +6,10 @@ module.exports = {
     name: "jail",
     description: "Image Manipulation Command",
     run: async (client, message, args) => {
+    const state = "disabled";
+    if (state = "disabled") {
+    return message.channel.send("The Command has been disabled. Contact Bot Owner for More Info!")
+    }
     if (!message.guild.member(client.user).hasPermission('ATTACH_FILES')) return message.reply('Sorry, i dont have the perms to do this cmd i need ATTACH_FILES. :x:')
     const { Canvas } = require('canvas-constructor');
     if (message.mentions.users.size < 1) return message.channel.send("You didn't mention a user to put them behind bars");
