@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const bot = new Discord.Client();
 const snek = require('snekfetch');
-const fsn = require('fs-nextra');
+const fs = require('fs');
 module.exports = {
     name: "jail",
     description: "Another Image Manipulation Command",
@@ -10,7 +10,7 @@ module.exports = {
     const { Canvas } = require('canvas-constructor');
     if (message.mentions.users.size < 1) return message.channel.send("You didn't mention a user to put them behind bars");
     const getSlapped = async (person) => {
-        const plate = await fsn.readFile('./assets/plate_jail.png');
+        const plate = fs.readdirSync('./assets/plate_jail.png')
         const png = person.replace('.gif', '.png');
         const { body } = await snek.get(png);
         return new Canvas(250, 250)
