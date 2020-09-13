@@ -6,7 +6,7 @@ module.exports = {
     name: "jail",
     description: "Image Manipulation Command",
     run: async (client, message, args) => {
-    var state = "disabled";
+    var state = "enabled";
     if (state === "disabled") {
     return message.channel.send("The Command has been disabled. Contact Bot Owner for More Info!")
     }
@@ -15,7 +15,7 @@ module.exports = {
     if (message.mentions.users.size < 1) return message.channel.send("You didn't mention a user to put them behind bars");
     const getSlapped = async (person) => {
         var plate = "/assets/plate_jail.png";
-        fsn.readFile(plate, function (err, obj) {
+        await fsn.readFile(plate, function (err, obj) {
             console.dir(obj)
         })
         const png = person.replace('.gif', '.png');
