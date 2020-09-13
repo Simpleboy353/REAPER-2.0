@@ -14,10 +14,7 @@ module.exports = {
     const { Canvas } = require('canvas-constructor');
     if (message.mentions.users.size < 1) return message.channel.send("You didn't mention a user to put them behind bars");
     const getSlapped = async (person) => {
-        var plate = "/assets/plate_jail.png";
-        await fsn.readFile(plate, function (err, obj) {
-            console.dir(obj)
-        })
+    const plate = await fsn.readFile('./assets/plate_jail.png');
         const png = person.replace('.gif', '.png');
         const { body } = await snek.get(png);
         return new Canvas(250, 250)
