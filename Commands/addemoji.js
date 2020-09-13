@@ -25,7 +25,7 @@ module.exports = {
                 `${Link}`,
                 `${name || `${customemoji.name}`}`
             );
-            return message.channel.send(`Added ${checkemoji} with \`${customemoji.name}\` name!`);
+            return message.channel.send(`Emoji added withtye name \`${customemoji.name}\`!`);
         } else {
             let CheckEmoji = parse(emoji, { assetType: "png" });
             if (!CheckEmoji[0])
