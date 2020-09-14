@@ -9,7 +9,7 @@ module.exports = {
         superagent.get('https://nekobot.xyz/api/image')
             .query({ type: '4k' })
             .end((err, response) => {
-                message.channel.send({ file: response.body.message });
+                message.channel.send({ file: [{ attachment: `https://nekobot.xyz/api/image/4k`, name: "4k.png" }]});
             });
     } else {
         message.channel.send("This isn't NSFW channel!")
