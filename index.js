@@ -319,6 +319,8 @@ if (command === 'ping') {
   }
   if (command === 'trumptweet') {
   client.commands.get('trumptweet').run(client, message, args);
+  } else if (command === '4k') {
+  client.commands.get('4k').run(client, message, args);
   }
 });
 
