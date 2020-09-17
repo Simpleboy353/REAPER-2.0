@@ -24,6 +24,25 @@ module.exports = {
         const usericon = mention.user.avatarURL;
         const act = mention.user.presence.status.toUpperCase();
         const game = mention.user.presence.game || "None";
+        var ack = "";
+        if (mention.user.id === message.member.id) {
+        if (message.member.hasPermissions("ADMINISTRATOR")) {
+         ack = "Server Admin";
+        } else if (message.member.id === message.guild.owner.id) {
+        ack = "Server Owner";
+        } else if (message.member.hasPermissions("MANAGE_GUILD")) {
+        ack = "Server Manager";
+        }
+        }
+        if (mention.user.id === message.mentions.members.first().id) {
+        if (mention.member.hasPermissions("ADMINISTRATOR") || mention.member.hasPermissions("ADMINISTRATOR")) {
+         ack = "Server Admin";
+        } else if (mention.user.id === message.guild.owner.id || mention.user.id === message.guild.owner.id) {
+        ack = "Server Owner";
+        } else if (mention.member.hasPermissions("MANAGE_GUILD")) {
+        ack = "Server Manager";
+        }
+        }
         const mentionPermissions = mention.permissions.toArray() === null ? "None" : mention.permissions.toArray();
         const finalPermissions = [];
         for (const permission in permissions) {
@@ -52,10 +71,10 @@ module.exports = {
         const userlol = new Discord.MessageEmbed()
         .setAuthor(`User Info`, mention.user.avatarURL())
         .setThumbnail(usericon)
-        .addField(`General Info`, `**Name**: \`${mention.user.username}\` (${mention}) \n**Tag**: \`${mention.user.discriminator}\` \n**Nickname**: \`${nick}\``)
-        .addField(`Overview`, `**Badges**: \`${flags[mention.user.flags.toArray().join(", ")]}\` \n**Status**: \`${act}\` \n**Activity**: \`${game}\` \n**Is Bot**: \`${bot[mention.user.bot]}\``)
-        .addField(`Server Relating Info`, `**Roles**: <@&${mention._roles.join(">  <@&")}> \n**Key Permissions**: \`${finalPermissions.join(', ')}\``)
-        .addField(`Misc Info`, `**Acc Created on**: \n\`${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\` \n**Joined This Server on**: \n\`${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\``)
+        .addField(`General Info`, `**\`Name\`**: ${mention.user.username} (${mention}) \n**`\Tag`\**: ${mention.user.discriminator} \n**`\Nickname\`**: ${nick}`)
+        .addField(`Overview`, `**`\Badges\`**: ${flags[mention.user.flags.toArray().join(", ")]} \n**\`Status\`**: ${act} \n**\`Activity\`**: ${game} \n**\`Is Bot\`**: ${bot[mention.user.bot]}`)
+        .addField(`Server Relating Info`, `**`\Position\`**: ${ack} \n**\`Roles\`**: <@&${mention._roles.join(">  <@&")}> \n**\`Key Permissions\`**: ${finalPermissions.join(', ')}`)
+        .addField(`Misc Info`, `**\`Acc Created on\`**: \n${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")} \n**\`Joined This Server on\`**: \n${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}`)
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
         .setTimestamp()
