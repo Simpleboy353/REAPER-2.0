@@ -100,7 +100,7 @@ if (command === 'ping') {
   if (command === 'helpmod') {
   client.commands.get('helpmod').run(client, message, args);
   } else if (command === 'helpfun') {
-  client.commands.get('helpfun').run(client, message, args);
+  client.commands.get('help fun').run(client, message, args);
   }
   if (command === 'helpinfo') {
   client.commands.get('helpinfo').run(client, message, args);
