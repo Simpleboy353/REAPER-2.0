@@ -7,7 +7,7 @@ module.exports = {
         message.delete();
         const memetemplate = args[0];
         if (!memetemplate) {
-            return message.channel.send("To see the available meme templates, type `=memetemplates`");
+            return message.channel.send("You didn't mention the template!. To see the available meme templates, type `=memetemplates`");
         }
         const memetext1 = args[1];
         if (!memetext1) {
