@@ -322,6 +322,11 @@ if (command === 'ping') {
   } else if (command === '4k') {
   client.commands.get('4k').run(client, message, args);
   }
+  if (command === 'creatememe') {
+  client.commands.get('creatememe').run(client, message, args);
+  } else if (command === 'memetemplates') {
+  client.commands.get('memetemplates').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
