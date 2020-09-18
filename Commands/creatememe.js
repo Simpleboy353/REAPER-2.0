@@ -9,6 +9,9 @@ module.exports = {
         if (!memetemplate) {
             return message.channel.send("You didn't mention the template!. To see the available meme templates, type `=memetemplates`");
         }
+        if (memetemplate !== "sohappy" || "tenguy" || "afraid" || "apcr" || "older" || "aag" || "atis" || "alyt" || "biw" || "stew" || "blb" || "bihw" || "kermit" || "bd" || "ch" || "cb" || "wonka" || "cb" || "gandalf" || "keanu" || "cryingfloor" || "dsm" || "disastergirl" || "live" || "ants" || "dog" || "trump" || "drake" || "ermg" || "facepalm" || "feelsgood" || "firsttry" || "fwp" || "fa" || "fbf" || "fmr" || "fry" || "ggg" || "grumpycat" || "harold" || "hipster" || "icanhas" || "crazypills") {
+            return message.channel.send("The mentioned template is not valid! Use `=memetemplates` to see all the available templates!");
+        }
         const memetext1 = args[1];
         if (!memetext1) {
             return message.channel.send("Enter the text to be placed at the top!");
