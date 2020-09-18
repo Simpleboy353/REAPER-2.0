@@ -4,6 +4,7 @@ module.exports = {
     name: "creatememe",
     description: "Create Custom Memes",
     run: async(client, message, args) => {
+        message.delete();
         const memetemplate = args[0];
         if (!memetemplate) {
             return message.channel.send("To see the available meme templates, type `=memetemplates`");
