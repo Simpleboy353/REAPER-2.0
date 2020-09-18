@@ -16,7 +16,7 @@ module.exports = {
         if (!memetext2) {
             return message.channel.send("Enter the text to be placed at the bottom!");
         }
-        message.channel.send({ files: [{ attachments: `https://api.memegen.link/images/${memetemplate}/${memetext1}/${memetext2}`, name: "custommeme.js"}]});
+        message.channel.send({ files: [{ attachments: `https://api.memegen.link/images/${memetemplate}/${memetext1}/${memetext2}`, name: "custommeme.png"}]});
     }, catch (error) {
         const errorlogs = client.channels.cache.get("747750993583669258")
         message.channel.send("Seems like an error has occured!. Please try again in a few hours!")
