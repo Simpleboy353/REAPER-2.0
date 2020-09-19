@@ -53,7 +53,7 @@ module.exports = {
         .setAuthor(`User Info`, mention.user.avatarURL())
         .setThumbnail(usericon)
         .addField(`General Info`, `**\`Name\`**: ${mention.user.username} \n**\`Tag\`**: ${mention.user.discriminator} \n**\`Nickname\`**: ${nick}`)
-            .addField(`Overview`, `**\`Badges\`**: ${flags[mention.user.flags.toArray().join(", ")]} \n**\`Status\`**: ${act} \n**\`Activity\`**: ${mention.user.presence.game ? `🎮 ${mention.user.presence.game.name}` : "<:no:425632070036094986> Not playing"} \n**\`Is Bot\`**: ${bot[mention.user.bot]}`)
+            .addField(`Overview`, `**\`Badges\`**: ${flags[mention.user.flags.toArray().join(", ")]} \n**\`Status\`**: ${act} \n**\`Activity\`**: ${game} \n**\`Is Bot\`**: ${bot[mention.user.bot]}`)
         .addField(`Server Relating Info`, `**\`Roles\`**: <@&${mention._roles.join(">  <@&")}> \n**\`Key Permissions\`**: ${finalPermissions.join(', ')}`)
         .addField(`Misc Info`, `**\`Acc Created on\`**: \n${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")} \n**\`Joined This Server on\`**: \n${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}`)
         .setThumbnail(mention.user.avatarURL())
