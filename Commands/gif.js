@@ -18,30 +18,13 @@ module.exports = {
         // Res contains gif data!
         let id = res.data[0].id
         let msgurl = `https://media.giphy.com/media/${id}/giphy.gif`
-        const embed = {
-            "color": 3066993,
-            "timestamp": new Date(),
-            "footer": {
-                "icon_url": "https://raw.githubusercontent.com/Giphy/GiphyAPI/f68a8f1663f29dd9e8e4ea728421eb2977e42d83/api_giphy_logo_sparkle_clear.gif",
-                "text": "Powered by Giphy"
-            },
-            "image": {
-                "url": msgurl
-            },
-            "fields": [
-                {
-                    "name": "Search Term",
-                    "value": "`" + term + "`",
-                    "inline": true
-                },
-                {
-                    "name": "Page URL",
-                    "value": "[Giphy](" + res.data[0].url + ")",
-                    "inline": true
-                }
-            ]
-        };
-        message.channel.send({ embed });
+        
+        const embed = new Discord.MessageEmbed()
+        .setDescription(`First result for ${term} on GIPHY`)
+        .setImage(msgurl)
+        .setFooter(`Powered by GIPHY`, `https://raw.githubusercontent.com/Giphy/GiphyAPI/f68a8f1663f29dd9e8e4ea728421eb2977e42d83/api_giphy_logo_sparkle_clear.gif`)
+        .setColor("RANDOM");
+        message.channel.send(embed);
 
     });
 
