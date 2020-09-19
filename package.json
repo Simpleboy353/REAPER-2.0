@@ -11,6 +11,7 @@
   "dependencies": {
     "canvas": "^2.6.1",
     "canvas-constructor": "^4.1.0",
+    "chalk": "^4.1.0",
     "colornames": "^1.1.1",
     "common-tags": "^1.8.0",
     "config.json": "0.0.4",
@@ -24,6 +25,7 @@
     "fs-nextra": "^0.5.1",
     "giphy-api": "^2.0.1",
     "got": "^11.5.1",
+    "imdb-api": "^4.2.0",
     "jimp": "^0.14.0",
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
@@ -37,6 +39,7 @@
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "superagent": "^6.1.0",
+    "sylphy": "^0.4.5",
     "twemoji-parser": "^13.0.0",
     "urban": "^0.3.2",
     "util": "^0.12.3",

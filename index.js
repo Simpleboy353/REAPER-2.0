@@ -343,6 +343,8 @@ if (command === 'ping') {
   }
   if (command === 'gif') {
   client.commands.get('gif').run(client, message, args);
+  } else if (command === 'imdb') {
+  client.commands.get('imdb').run(client, message, args);
   }
 });
 
