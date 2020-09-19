@@ -22,6 +22,7 @@
     "flip-text": "^1.1.0",
     "fs": "0.0.1-security",
     "fs-nextra": "^0.5.1",
+    "giphy-api": "^2.0.1",
     "got": "^11.5.1",
     "jimp": "^0.14.0",
     "moment": "^2.27.0",

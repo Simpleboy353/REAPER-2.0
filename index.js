@@ -341,6 +341,9 @@ if (command === 'ping') {
   } else if (command === 'memetemplates') {
   client.commands.get('memetemplates').run(client, message, args);
   }
+  if (command === 'gif') {
+  client.commands.get('gif').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
