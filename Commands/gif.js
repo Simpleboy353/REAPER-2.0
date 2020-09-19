@@ -20,7 +20,7 @@ module.exports = {
         let msgurl = `https://media.giphy.com/media/${id}/giphy.gif`
         
         const embed = new Discord.MessageEmbed()
-        .setDescription(`First result for ${term} on GIPHY`)
+        .setTitle(`First result for \`${term}\` on GIPHY`)
         .setImage(msgurl)
         .setFooter(`Powered by GIPHY`, `https://raw.githubusercontent.com/Giphy/GiphyAPI/f68a8f1663f29dd9e8e4ea728421eb2977e42d83/api_giphy_logo_sparkle_clear.gif`)
         .setColor("RANDOM");
