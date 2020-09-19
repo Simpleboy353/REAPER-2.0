@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = module.require("discord.js");
 const chalk = require('chalk');
 const { Command } = require('sylphy');
 const imdb = require('imdb-api');
@@ -6,7 +6,11 @@ const imdb = require('imdb-api');
 module.exports = {
     name: "imdb",
     description: "Get the IMDB Stats for the provided movie",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
+    var state = "disabled";
+    if (state === "disabled") {
+        return message.channel.send("The Command has been disabled! Contact Bot Owner for more Info!")
+    }
     if (!args.join(` `)) return message.channel.send('Oh no, you didn\'t give a movie or serie to search for.');
     let movie;
     try {
