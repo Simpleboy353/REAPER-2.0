@@ -351,6 +351,9 @@ if (command === 'ping') {
   } else if (command === 'ass') {
   client.commands.get('ass').run(client, message, args);
   }
+  if (command === 'blowjob') {
+  client.commands.get('blowjob').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
