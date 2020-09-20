@@ -146,7 +146,7 @@ module.exports = {
             const allowedMappings = clone(mappings);
 
             // Remove current reactions from allowed emojis
-            target.reactions.forEach(reaction => {
+            Array.from(target.reactions).forEach(reaction => {
                 const emoji = reaction.toString();
                 for (const key in allowedMappings) {
                     const index = allowedMappings[key].indexOf(emoji);
