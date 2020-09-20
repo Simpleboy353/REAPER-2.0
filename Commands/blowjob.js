@@ -22,7 +22,7 @@ module.exports = {
         }
 
         async function work() {
-            let owo = (await neko.nsfw.blowjob());
+            let owo = (await nekos.nsfw.blowjob());
 
             const blowjob = new Discord.MessageEmbed()
                 .setTitle("Blowjob")

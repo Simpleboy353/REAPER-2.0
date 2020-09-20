@@ -353,6 +353,11 @@ if (command === 'ping') {
   }
   if (command === 'blowjob') {
   client.commands.get('blowjob').run(client, message, args);
+  } else if (command === 'boobs') {
+  client.commands.get('boobs').run(client, message, args);
+  }
+  if (command === 'danbooru') {
+  client.commands.get('danbooru').run(client, message, args);
   }
 });
 

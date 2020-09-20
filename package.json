@@ -9,6 +9,7 @@
   "author": "Tester",
   "license": "ISC",
   "dependencies": {
+    "booru": "^2.3.2",
     "canvas": "^2.6.1",
     "canvas-constructor": "^4.1.0",
     "chalk": "^4.1.0",
@@ -36,6 +37,7 @@
     "os": "^0.1.1",
     "os-utils": "0.0.14",
     "pretty-ms": "^7.0.0",
+    "random-puppy": "^1.1.0",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.9",
     "run": "^1.4.0",
