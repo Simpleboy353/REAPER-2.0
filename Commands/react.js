@@ -137,7 +137,7 @@ module.exports = {
             fetchOptions.before = message.id;
         }
 
-        message.channel.fetchMessages(fetchOptions).then(messages => {
+        message.channel.messages.fetch(fetchOptions).then(messages => {
             if (messages.length < 1) {
                 return message.error('Failed to find the message.');
             }
