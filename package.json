@@ -17,6 +17,7 @@
     "config.json": "0.0.4",
     "cpu-stat": "^2.0.1",
     "dateformat": "^3.0.3",
+    "discord-emoji": "^1.1.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "figlet": "^1.5.0",

@@ -346,6 +346,9 @@ if (command === 'ping') {
   } else if (command === 'imdb') {
   client.commands.get('imdb').run(client, message, args);
   }
+  if (command === 'react') {
+  client.commands.get('react').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
