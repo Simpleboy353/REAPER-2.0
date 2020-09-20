@@ -358,6 +358,8 @@ if (command === 'ping') {
   }
   if (command === 'danbooru') {
   client.commands.get('danbooru').run(client, message, args);
+  } else if (command === 'anal') {
+  client.commands.get('anal').run(client, message, args);
   }
 });
 
