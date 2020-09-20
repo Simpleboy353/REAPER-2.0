@@ -348,6 +348,8 @@ if (command === 'ping') {
   }
   if (command === 'react') {
   client.commands.get('react').run(client, message, args);
+  } else if (command === 'ass') {
+  client.commands.get('ass').run(client, message, args);
   }
 });
 
