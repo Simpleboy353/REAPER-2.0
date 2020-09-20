@@ -9,7 +9,7 @@ module.exports = {
         superagent.get('https://nekobot.xyz/api/image')
             .query({ type: 'anal' })
             .end((err, response) => {
-                msg.channel.send({ file: response.body.message });
+                msg.channel.send({ file: [{attachment: response.body.message }]});
             });
     } else {
         msg.channel.send("This isn't NSFW channel!")
