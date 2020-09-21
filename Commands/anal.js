@@ -1,18 +1,17 @@
-const discord = module.require('discord.js');
-const superagent = require('superagent')
+const { MessageEmbed } = module.require('discord.js');
+const fetch = require('node-fetch');
 
 module.exports = {
-    name: "anal",
-    description: "Anal Pics for you!",
-    run: async (client, msg, args) => {
-    if (msg.channel.nsfw === true) {
-        superagent.get('https://nekobot.xyz/api/image')
-            .query({ type: 'anal' })
-            .end((err, response) => {
-                msg.channel.send({ file: [{attachment: response.body.message }]});
-            });
-    } else {
-        msg.channel.send("This isn't NSFW channel!")
+            name: 'anal',
+            description: 'Some anal Pics for you!',
+            run: async(client, message, args) => {
+        try {
+            const res = await fetch(`https://nekobot.xyz/api/imagegen?type=anal`);
+            const img = (await res.json()).message;
+            message.channel.send({files: [{attachment: img, name: "trumptweet.png"}]});
+        } catch (err) {
+            console.log(err);
+            message.channel.send(err);
+        }
     }
-}
 };
