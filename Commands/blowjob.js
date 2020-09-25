@@ -1,38 +1,17 @@
-const client = require('nekos.life');
-const Discord = require('discord.js')
-const neko = new client();
+const { MessageEmbed } = module.require('discord.js');
+const fetch = require('node-fetch');
 
 module.exports = {
-    name: "blowjob",
-    category: "NSFW",
-    usage: "[command]",
-    run: async (client, message, args) => {
-        //command
-
-        //Checks channel for nsfw
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    msg.delete({ timeout: 3000 })
-                })
-
+            name: 'blowjob',
+            description: 'Some Blowjob Pics for you!',
+            run: async(client, message, args) => {
+        try {
+            const res = await fetch(`https://nekos.life/api/v2/blowjob`);
+            const img = (await res.json()).message;
+            message.channel.send({files: [{attachment: img, name: "trumptweet.png"}]});
+        } catch (err) {
+            console.log(err);
+            message.channel.send(err);
         }
-
-        async function work() {
-            let owo = (await nekos.nsfw.blowjob());
-
-            const blowjob = new Discord.MessageEmbed()
-                .setTitle("Blowjob")
-                .setImage(owo.url)
-                .setColor(`#FF0000`)
-                .setURL(owo.url);
-            message.channel.send(blowjob);
-
-        }
-
-        work();
     }
 };

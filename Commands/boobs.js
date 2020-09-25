@@ -1,41 +1,17 @@
-const superagent = require("node-fetch");
-const Discord = require('discord.js')
-
-const rp = require('request-promise-native');
+const { MessageEmbed } = module.require('discord.js');
+const fetch = require('node-fetch');
 
 module.exports = {
-    name: "boobs",
-    category: "NSFW",
-    description: "Sends boobs",
-    run: async (client, message, args, level) => {
-        //command
-
-        //Checks channel for nsfw
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    msg.delete({ timeout: 3000 })
-                })
-
+            name: 'boobs',
+            description: 'Some Boob Pics for you!',
+            run: async(client, message, args) => {
+        try {
+            const res = await fetch(`https://nekobot.xyz/api/image?type=boobs`);
+            const img = (await res.json()).message;
+            message.channel.send({files: [{attachment: img, name: "trumptweet.png"}]});
+        } catch (err) {
+            console.log(err);
+            message.channel.send(err);
         }
-
-        return rp.get('http://api.oboobs.ru/boobs/0/1/random').then(JSON.parse).then(function (res) {
-            return rp.get({
-                url: 'http://media.oboobs.ru/' + res[0].preview,
-                encoding: null
-            });
-        }).then(function (res) {
-
-            const boobs = new Discord.MessageEmbed()
-                .setTitle("Boobs")
-                .setColor(`#FF0000`)
-                .setImage("attachment://file.png").attachFiles([{ attachment: res, name: "file.png" }])
-
-
-            message.channel.send(boobs);
-        });
     }
 };

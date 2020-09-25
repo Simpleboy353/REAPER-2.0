@@ -21,9 +21,6 @@ module.exports = {
         if(!newNickname) {
         return message.reply("Input the new nickname for the user you mentioned");
         }
-        if(!mentionMember.kickable) {
-        return message.reply("Can't change nickname of this user, does he have a higher role? Is the server creator? Have I got the permission to change his nickname?");
-        }
         try {
             mentionMember.setNickname(newNickname);
         } catch (error) {
