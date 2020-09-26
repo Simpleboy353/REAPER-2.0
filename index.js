@@ -57,7 +57,7 @@ let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read Fi
     let prefix = prefixes[`${Server}`].prefix; //Let prefix be prefixes[msg.guild.id].prefix
 
       if (!message.content.startsWith(prefix) || message.author.bot && message.author.id !== "724143399573127178") return;
-      if (message.author.id === "724143399573127178" || message.guild.id !== "755080681272639608") return;
+      if (message.author.id === "724143399573127178" && message.guild.id !== "755080681272639608") return;
 const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
 
