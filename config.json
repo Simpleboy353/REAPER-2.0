@@ -7,5 +7,6 @@
     "SOUNDCLOUD_CLIENT_ID": "95f22ed54a5c297b1c41f72d713623ef",
     "MAX_PLAYLIST_SIZE": 10,
     "DEFAULT_PREFIX":"=",
-    "PRUNING": false
+    "PRUNING": false,
+    "mongoPass":"mongodb+srv://Simpleboy353:rhtking123@cluster0.hcxzx.mongodb.net/Clustor0?retryWrites=true&w=majority"
     }
