@@ -7,8 +7,8 @@ mongoose.connect(config.mongoPass, {
     useUnifiedTopology: true,
 })
 
-const Data = require("./models/data.js")
-const { model } = require("./models/data.js")
+const Data = require("../models/data.js")
+const { model } = require("../models/data.js")
 
 module.exports = {
     name: "bal",
