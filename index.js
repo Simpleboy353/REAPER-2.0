@@ -356,6 +356,8 @@ if (command === 'ping') {
   client.commands.get('anal').run(client, message, args);
   } else if (command === 'bal') {
   client.commands.get('bal').run(client, message, args);
+  } else if (command === 'devteam') {
+  client.commands.get('devteam').run(client, message, args);
   }
 });
 
