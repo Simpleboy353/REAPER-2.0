@@ -47,14 +47,7 @@ client.on('message', message => {
 if (message.content === "<@!733670294086221865>"){
 message.channel.send(embed);
 }
-const Server = message.guild.id;
-let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read File
-    if(!prefixes[`${Server}`]){  //If there is no string that is startwith prefixes[msg.guild.id]
-       prefixes[`${Server}`] = { //Let prefixes[msg.guild.id] be
-        prefix: config.DEFAULT_PREFIX //Prefix = Default Prefix Which is on confiฌ.json
-       }
-    }
-    let prefix = prefixes[`${Server}`].prefix; //Let prefix be prefixes[msg.guild.id].prefix
+    let prefix = config.DEFAULT_PREFIX; //Let prefix be prefixes[msg.guild.id].prefix
 
       if (!message.content.startsWith(prefix) || message.author.bot && message.author.id !== "724143399573127178") return;
       if (message.author.id === "724143399573127178" && message.guild.id !== "755080681272639608" && message.guild.id !== "678160636320022528") return;
