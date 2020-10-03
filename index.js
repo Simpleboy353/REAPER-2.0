@@ -17,8 +17,9 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
    client.user.setPresence({ status: 'online' });
   const activities_list = [ 
-   { msg: `in ${client.guilds.cache.size} Servers`, type:"PLAYING"},
+   { msg: `with ${client.users.cache.size} users!`, type:"PLAYING"},
    { msg: "Infinity Rocks", type:"STREAMING"},
+   { msg: "music for your server!", type:"PLAYING"},
    { msg: "Over Your Server 24/7", type:"WATCHING"},
    { msg: "=help", type:"LISTENING"},
    { msg: "Helping You make your Server Better", type:"PLAYING"},
