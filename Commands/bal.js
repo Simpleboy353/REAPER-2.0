@@ -20,9 +20,9 @@ module.exports = {
             if(!data){
                 const newD = new Data ({
                     id: message.author.id,
-                    Money: 100,
-                    daily: 0,
-                    Bank: 0,
+                    Money:100,
+                    daily:0,
+                    Bank:0,
                 })
                 newD.save().catch(err => console.log(err));
                 let user = message.mentions.users.first() || message.author;
