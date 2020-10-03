@@ -8,7 +8,7 @@ mongoose.connect(config.mongoPass, {
 })
 
 const Data = require("../models/data.js")
-const { model } = require("../models/data.js")
+const data = require("../models/data.js")
 
 module.exports = {
     name: "prefix",
@@ -20,7 +20,7 @@ module.exports = {
             if(!data){
                 const newD = new Data ({
                     guildID: message.guild.id,
-                    prefix: "=",
+                    prefix: config.DEFAULT_PREFIX,
                 })
                 newD.save().catch(err => console.log(err));
                 let server = message.guild.id;
