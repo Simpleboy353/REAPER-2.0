@@ -1,23 +1,38 @@
+const mongoose = module.require("mongoose");
+const config = module.require('../config.json');
 const Discord = require("discord.js");
-const fs = require("fs");
+
+mongoose.connect(config.mongoPass, {
+    useNewUrlParser:true,
+    useUnifiedTopology: true,
+})
+
+const Data = require("../models/data.js")
+const { model } = require("../models/data.js")
 
 module.exports = {
     name: "prefix",
-    description: "Change the bot prefix",
-    run: async (client, message, args) => {
-        if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have permissions to set prefix!"); //If The Author Doesnt Have Manage guild permission return a message
-      if(!args[0]) return message.channel.send("Please specify a prefix!"); //If there isn't a prefix then return a message
-      
-      let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8")); //Read File
-      prefixes[message.guild.id] = { //Let The config be
-      prefix: args[0] //Let prefix = arguement 1
-      }
-      
-      fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => { //Write File
-        if(err) console.log(err); //If error log error to the console
-      })
-      
-      message.channel.send(`Prefix has been set to **${args[0]}**!`); //send message to that channel
-      return; //return
+    description: "Bruh Just for testing!",
+    run: async(client, message, args) => {
+        Data.findOne({
+          id: message.author.id  
+        },(err,data)=>{
+            if(!data){
+                const newD = new Data ({
+                    guildID: message.guild.id,
+                    prefix: "=",
+                })
+                newD.save().catch(err => console.log(err));
+                let server = message.guild.id;
+                const msg = new Discord.MessageEmbed()
+                .setDescription ("Server added to DataBase, you can use the commands in this server!")
+                .setColor("RANDOM");
+                return message.channel.send(msg);
+            }else{
+                data.prefix = args[0];
+                data.save().catch(err => console.log(err));
+                message.channel.send(`Updated the prefix to ${args[0]}!`)
+            }
+        })
     }
-    }
+}
