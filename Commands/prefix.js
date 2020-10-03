@@ -15,7 +15,7 @@ module.exports = {
     description: "Bruh Just for testing!",
     run: async(client, message, args) => {
         Data.findOne({
-          id: message.author.id  
+          id: message.guild.id  
         },(err,data)=>{
             if(!data){
                 const newD = new Data ({
