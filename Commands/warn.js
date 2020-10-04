@@ -1,5 +1,15 @@
 const discord = module.require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const config = require("../config.json");
+const mongoose = require("mongoose"); 
+
+mongoose.connect(config.mongoPass, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+
+const Data = require("../models/data.js")
+const { model } = require("../models/data.js")
 
 module.exports = {
   name: "warn",
@@ -29,20 +39,21 @@ module.exports = {
     if(target.id === message.author.id) {
      return message.channel.send(`**${message.author.username}**, You can not warn yourself`)
     }
-    
-let reason = args.slice(1).join(" ");
-    if (!reason) reason = "-";
-    
-    const embed = new MessageEmbed()
-      .setTitle("WARN MEMBER")
-      .setColor("RANDOM")
-      .setThumbnail(target.user.displayAvatarURL)
-      .setDescription(
-        `Action : Warn \nReason: ${reason} \nUser: ${target } \nModerator: ${message.member}`
-      )
-      .setTimestamp();
-    
-    message.channel.send(embed)
-     
-  }
+    Data.findOne({
+      id: target.id
+    }), (err, data) => {
+      if (!data) {
+        const newD = new Data({
+          id: target.id,
+          warns: 1,
+        })
+        newD.save().catch(err => console.log(err));
+        return message.channel.send(`**${target.displayName}** was warned by **${message.author.username}**. **${target.displayName}** now has **${data.warns}** warning(s)!`)
+      }else{
+        data.warns += 1
+        data.save().catch(err => console.log(err));
+        message.channel.send(`**${target.displayName}** was warned by **${message.author.username}**. **${target.displayName}** now has **${data.warns}** warning(s)!`);
+          }
+       }  
+    }
 }
