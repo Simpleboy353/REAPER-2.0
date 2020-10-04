@@ -358,6 +358,8 @@ if (command === 'ping') {
   client.commands.get('bal').run(client, message, args);
   } else if (command === 'devteam') {
   client.commands.get('devteam').run(client, message, args);
+  } else if (command === 'checkwarnings') {
+  client.commands.get('checkwarnings').run(client, message, args);
   }
 });
 
