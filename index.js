@@ -23,7 +23,7 @@ client.on('ready', () => {
    { msg: "Over Your Server 24/7", type:"WATCHING"},
    { msg: "=help", type:"LISTENING"},
    { msg: "Helping You make your Server Better", type:"PLAYING"},
-   { msg: `in ${client.guilds.cache.size} Servers`, type:"PLAYING"},
+   { msg: `in ${client.guilds.cache.size} Servers and with ${client.users.cache.size} users!`, type:"PLAYING"},
     ];// creates an arraylist containing phrases you want your bot to switch through.
    setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5). 
