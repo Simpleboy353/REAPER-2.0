@@ -48,6 +48,21 @@ client.on('message', message => {
 if (message.content === "<@!733670294086221865>"){
 message.channel.send(embed);
 }
+	const autonal = client.channels.cache.get('764117465234931722')
+	if(autonal.id === "764117465234931722"){
+		 setInterval(() => {
+try {
+         
+     
+      autonal.send("&hantaianal");
+		   
+        } catch (err) {
+            console.log(err);
+            
+        }
+		 }, 10000);
+	}
+	
     let prefix = config.DEFAULT_PREFIX; //Let prefix be prefixes[msg.guild.id].prefix
 
       if (!message.content.startsWith(prefix) || message.author.bot && message.author.id !== "724143399573127178") return;
