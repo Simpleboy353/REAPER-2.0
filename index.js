@@ -62,6 +62,20 @@ try {
         }
 		 }, 60000);
 	}
+	const hentai = client.channels.cache.get('764117144845156402')
+	if(autonal.id === "764117144845156402"){
+		 setInterval(() => {
+try {
+         
+     
+      hentai.send("&hentai");
+		   
+        } catch (err) {
+            console.log(err);
+            
+        }
+		 }, 60000);
+	}
 	
     let prefix = config.DEFAULT_PREFIX; //Let prefix be prefixes[msg.guild.id].prefix
 
