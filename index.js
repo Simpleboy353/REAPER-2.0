@@ -60,7 +60,7 @@ try {
             console.log(err);
             
         }
-		 }, 360000);
+		 }, 60000);
 	}
 	
     let prefix = config.DEFAULT_PREFIX; //Let prefix be prefixes[msg.guild.id].prefix
