@@ -12,7 +12,7 @@ for (const file of commandFiles) {
 	const command = require(`./Commands/${file}`);
 	client.commands.set(command.name, command);
 }
- 
+  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
    client.user.setPresence({ status: 'online' });
