@@ -63,7 +63,7 @@ try {
 		 }, 60000);
 	}
 	const hentai = client.channels.cache.get('764117144845156402')
-	if(autonal.id === "764117144845156402"){
+	if(hentai.id === "764117144845156402"){
 		 setInterval(() => {
 try {
          
