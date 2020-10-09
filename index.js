@@ -48,13 +48,13 @@ client.on('message', message => {
 if (message.content === "<@!733670294086221865>"){
 message.channel.send(embed);
 }
-	const autonal = client.channels.cache.get('764117465234931722')
-	if(autonal.id === "764117465234931722"){
+	const autonal = client.channels.cache.get('764133631329173514')
+	if(autonal.id === "764133631329173514"){
 		 setInterval(() => {
 try {
          
      
-      autonal.send("&hantaianal");
+      autonal.send("&4k");
 		   
         } catch (err) {
             console.log(err);
