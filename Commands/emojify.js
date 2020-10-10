@@ -27,7 +27,7 @@ module.exports = {
     category: "Fun",
     usage: "emojify <text>",
     description: "Returns provided text in emojify (emotes) form.",
-    execute(message, args) {
+    run: async(message, args) => {
 
     if(args.length < 1) {
     message.channel.send('You must provide some text to emojify!');
