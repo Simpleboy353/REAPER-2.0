@@ -16,16 +16,20 @@ module.exports = {
         if (!emoji) return message.channel.send(`Please Give Me A Emoji!`);
          
         let customemoji = Discord.Util.parseEmoji(emoji);
+
        
         if (customemoji.id) {
             const Link = `https://cdn.discordapp.com/emojis/${customemoji.id}.${customemoji.animated ? "gif" : "png"
                 }`;
-            const name = args.slice(1).join(" ");
+            const name = args.slice(0).join(" ");
+            if (!name) {
+                return message.channel.send("Enter a name for the emoji!")
+            }
             message.guild.emojis.create(
                 `${Link}`,
                 `${name || `${customemoji.name}`}`
             );
-            return message.channel.send(`Emoji added with the name \`${customemoji.name}\`!`);
+            return message.channel.send(`Added ${emoji} with the name \`${customemoji.name}\`!`);
         } else {
             let CheckEmoji = parse(emoji, { assetType: "png" });
             if (!CheckEmoji[0])
