@@ -12,7 +12,7 @@ for (const file of commandFiles) {
 	const command = require(`./Commands/${file}`);
 	client.commands.set(command.name, command);
 }
-
+  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
    client.user.setPresence({ status: 'online' });
@@ -23,7 +23,7 @@ client.on('ready', () => {
    { msg: "Over Your Server 24/7", type:"WATCHING"},
    { msg: "=help", type:"LISTENING"},
    { msg: "Helping You make your Server Better", type:"PLAYING"},
-   { msg: `in ${client.guilds.cache.size} Servers`, type:"PLAYING"},
+   { msg: `in ${client.guilds.cache.size} Servers and with ${client.users.cache.size} users!`, type:"PLAYING"},
     ];// creates an arraylist containing phrases you want your bot to switch through.
    setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5). 
@@ -48,6 +48,8 @@ client.on('message', message => {
 if (message.content === "<@!733670294086221865>"){
 message.channel.send(embed);
 }
+
+	
     let prefix = config.DEFAULT_PREFIX; //Let prefix be prefixes[msg.guild.id].prefix
 
       if (!message.content.startsWith(prefix) || message.author.bot && message.author.id !== "724143399573127178") return;
