@@ -5,7 +5,8 @@ module.exports = {
     name: "imdb",
     description: "Get the information about series and movies",
     run: async(client, message, args) => {
-        if (!args) {
+        const name = args.join(" ");
+        if (!name) {
             return message.channel.send("Please Give the name of a movie or series!")
         }
 

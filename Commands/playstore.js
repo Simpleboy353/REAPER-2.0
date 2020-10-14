@@ -5,7 +5,8 @@ module.exports = {
     name: "playstore",
     description: "Get any game's info available on Google Play Store",
     run: async(client, message, args) => {
-        if (!args) {
+        const name = args.join(" ");
+        if (!name) {
             return message.channel.send("Enter an application's name!")
         }
 
