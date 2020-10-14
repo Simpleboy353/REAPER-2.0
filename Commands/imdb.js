@@ -1,4 +1,4 @@
-const Dicord = module.require("discord.js");
+const Discord = module.require("discord.js");
 const imdb = require("imdb-api");
 
 module.exports = {
