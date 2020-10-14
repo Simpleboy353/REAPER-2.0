@@ -5,6 +5,10 @@ module.exports = {
     name: "imdb",
     description: "Get the information about series and movies",
     run: async(client, message, args) => {
+        var state = "Disabled";
+        if (state === "Disabled") {
+            return message.channel.send("Command has been disabled! Contact Bot Owner for more info!")
+        }
         const name = args.join(" ");
         if (!name) {
             return message.channel.send("Please Give the name of a movie or series!")
