@@ -28,12 +28,7 @@ module.exports = {
             .setColor("RANDOM")
             .setURL(App.url)
             .setTitle(`${App.title}`)
-            .setDescription(
-            `Description: \`${App.summary}\`
-             Price: \`${App.priceText}\`
-             Developer: \`${App.developer}\`
-             Ratings: \`${App.scoreText}\``
-                )
+            .setDescription(`Description: \`${App.summary}\`\nPrice: \`${App.priceText}\`\nDeveloper: \`${App.developer}\`\nRatings: \`${App.scoreText}\``)
             .setFooter(`Requested by: ${message.author.username}`)
             .setThumbnail();
         

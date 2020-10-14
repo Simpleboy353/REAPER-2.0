@@ -18,14 +18,7 @@ module.exports = {
         .setTitle(movie.Title)
         .setColor("RANDOM")
         .setThumbnail(movie.poster)
-        .SetDescription(
-        `Description: \`${movie.plot}\`
-         Ratings: \`${movie.ratings}\`
-         Country: \`${movie.country}\`
-         Languages: \`${movie.languages}\`
-         Type: \`${movie.type}\``
-            );
-
-            message.chanel.send(embed);
+        .SetDescription(`Description: \`${movie.plot}\`\nRatings: \`${movie.ratings}\`\nCountry: \`${movie.country}\`\nLanguages: \`${movie.languages}\`\nType: \`${movie.type}\``);
+     message.chanel.send(embed);
     }
 }
