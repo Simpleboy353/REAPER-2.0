@@ -26,6 +26,7 @@
     "fs": "0.0.1-security",
     "fs-nextra": "^0.5.1",
     "giphy-api": "^2.0.1",
+    "google-play-scraper": "^8.0.2",
     "got": "^11.5.1",
     "imdb-api": "^4.2.0",
     "jimp": "^0.14.0",

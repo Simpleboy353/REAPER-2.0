@@ -363,6 +363,9 @@ if (command === 'ping') {
   } else if (command === 'checkwarnings') {
   client.commands.get('checkwarnings').run(client, message, args);
   }
+  if (command === 'playstore') {
+  client.commands.get('playstore').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
