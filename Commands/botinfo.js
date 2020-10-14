@@ -11,7 +11,7 @@ module.exports = {
         .setAuthor("Infinity#4967's Info", client.user.avatarURL())
         .setColor("RANDOM")
             .setDescription(`**Bot Name: **Infinity \n**Owner: **๖ۣۜℜⱥjͥƤuͣtͫ#5915 \n**Total Categories: **6 \n**Total Commands: **108 \n**Uptime and Ping: **${duration} / ${Math.round(client.ws.ping)}ms \n**State: **Under Development \n**Online Status: **Up 24/7 (Except during Maintenance)`)
-        .addField("Some Useful Links", "**Get Infinity's Invite Link** **[Here](https://discord.com/api/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)** \n**Need Help? Join Infinity's** **[Support Server](https://discord.gg/mqWprFc)** **for assistance** \n**Looking for a Music Bot? Try Our** **[Beats](https://discord.com/api/oauth2/authorize?client_id=730683152720199700&permissions=37223745&scope=bot) Bot**")
+        .addField("Some Useful Links", "**Get Infinity's Invite Link** **[Here](https://discord.com/api/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)** \n**Need Help? Join Infinity's** **[Support Server](https://discord.gg/mqWprFc)** **for assistance**")
         .setFooter("Regards, Infinity Bot Team");
     message.channel.send(embed);
     }
