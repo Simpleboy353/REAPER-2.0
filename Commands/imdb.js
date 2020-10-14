@@ -10,9 +10,9 @@ module.exports = {
             return message.channel.send("Please Give the name of a movie or series!")
         }
 
-        const imdb = new imdb.Client({apiKey: "5e36f0db"})
+        const imob = new imdb.Client({apiKey: "5e36f0db"})
 
-        let movie = await imdb.get({'name': args.join(" ")})
+        let movie = await imob.get({'name': args.join(" ")})
 
         const embed = new Discord.MessageEmbed()
         .setTitle(movie.Title)
