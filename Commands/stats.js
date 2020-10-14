@@ -37,7 +37,7 @@ module.exports ={
                 .addField("👥 Users", `${client.users.cache.size}`, true)
                 .addField("Servers", `${client.guilds.cache.size}`, true)
                 .addField("Channels", `${client.channels.cache.size}`, true)
-                .addField("Commands Count", "`\`108`\`", true)
+                .addField("Commands Count", "`\`143`\`", true)
                 .addField("Library", `\`Discord.js\``, true)
                 .addField("Library Version", `v${version}`, true)
                 .addField(":book: Node Version", `${process.version}`, true)
