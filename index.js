@@ -33,7 +33,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-if (message.content === "<@!733670294086221865>"){
+  if (message.content === "<@!733670294086221865>" || "<@733670294086221865>"){
 
   const embed = new Discord.MessageEmbed()
     .setTitle('Thanks For the Ping!')
