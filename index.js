@@ -37,7 +37,7 @@ if (message.content === "<@!733670294086221865>"){
 
   const embed = new Discord.MessageEmbed()
     .setTitle('Thanks For the Ping!')
-    .setDescription(`Hello **${message.author.username}**!\n\nMy Prefix is \`=\`\n\nYou can get my command list by typing \`=help\`\n\nWanna Invite Me? If Yes then [Click Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)\n\nNeed Support? Join my [Suport Server](https://discord.gg/mqWprFc) for assisatnce\n\nHave any query or want to report any bug? Use the \`=report\` Command and to suggest any features for our bot, you can use the \`=suggest\` Command!`)
+    .setDescription(`Hello **${message.author.username}**!\n\nMy Prefix is \`=\`\n\nYou can get my command list by typing \`=help\`\n\nWanna Invite Me? If Yes then [Click Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)\n\nNeed Support? Join my [Support Server](https://discord.gg/mqWprFc) for assisatnce\n\nHave any query or want to report any bug? Use the \`=report\` Command and to suggest any features for our bot, you can use the \`=suggest\` Command!`)
     .setFooter(`Bot made by _๖ۣۜℜⱥjͥƤuͣtͫ_#0001`)
     .setColor("RANDOM");
 
