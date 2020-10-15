@@ -30,16 +30,16 @@ client.on('ready', () => {
         }); // sets bot's activities to one of the phrases in the arraylist.
     }, 10000); // Runs this every 10 seconds.});
 });
-const embed = new Discord.MessageEmbed()
-  .setTitle('Thanks For the Ping!')
-  .setDescription(`Hello **${message.author.username}**!\n\nMy Prefix is \`=\`\n\nYou can get my command list by typing \`=help\``)
-  .addField("Invite Me", "[Click Here to Invite Me](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)")
-  .addField("Need Support?", "[Join my Suport Server for assistance!](https://discord.gg/mqWprFc)\n\nHave any query or want to report any bug? Use the `=report` command and to suggest any features, you can use the `=suggest` command!")
-  .setColor("RANDOM");
 
 
 client.on('message', message => {
 if (message.content === "<@!733670294086221865>"){
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Thanks For the Ping!')
+    .setDescription(`Hello **${message.author.username}**!\n\nMy Prefix is \`=\`\n\nYou can get my command list by typing \`=help\`\n\nWanna Invite Me? If Yes then [Click Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)\n\nNeed Support? [Join my Suport Server for assistance!](https://discord.gg/mqWprFc)\n\nHave any query or want to report any bug? Use the \`=report\` command and to suggest any features, you can use the \`=suggest\` command!`)
+    .setColor("RANDOM");
+
 message.channel.send(embed);
 }
 
