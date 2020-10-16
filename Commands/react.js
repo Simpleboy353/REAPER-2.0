@@ -1,7 +1,6 @@
 const discordEmoji = require('discord-emoji');
 const emoji = {};
 const cooldown = new Set();
-const text = args.join(" ")
 Object.values(discordEmoji).forEach(value => {
     Object.keys(value).forEach(key => {
         emoji[key] = value[key];
