@@ -363,6 +363,24 @@ if (command === 'ping') {
   } else if (command === 'voicemute') {
   client.commands.get('voicemute').run(client, message, args);
   }
+  if (command === 'deafen') {
+  client.commands.get('deafen').run(client, message, args);
+  } else if (command === 'undeafen') {
+  client.commands.get('undeafen').run(client, message, args);
+  }
+  if (command === 'voiceunmute') {
+  client.commands.get('voiceunmute').run(client, message, args);
+  } else if (command === 'deafenall') {
+  client.commands.get('deafenall').run(client, message, args);
+  }
+  if (command === 'undeafenall') {
+  client.commands.get('undeafenall').run(client, message, args);
+  } else if (command === 'voicemuteall') {
+  client.commande.get('voicemuteall').run(client, message, args);
+  }
+  if (command === 'voiceunmuteall') {
+  client.commands.get('voiceunmuteall').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
