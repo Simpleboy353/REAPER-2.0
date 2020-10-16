@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "voicemutes",
+    name: "voicemute",
     description: "mute a user from a voice channel",
     run: async (client, message, args) => {
         if (!message.guild.me.hasPermission(["ADMINISTRATOR"])) {
