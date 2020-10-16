@@ -7,7 +7,7 @@ const discord = require("discord.js");
 module.exports = {
     name: "voiceunmuteall",
     description: "Unmutes all the users in a voice channel",
-    run = async (bot, message, args) => {
+    run: async (bot, message, args) => {
     var a = message.id;
     let b;
     if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply("You do not have the permission to do that!");
