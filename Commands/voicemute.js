@@ -15,7 +15,7 @@ module.exports = {
         if (!channel) {
             return message.channel.send(`User Is Not In Any Voice Channel!`);
         }
-        message.mentions.members.first().voice.mute();
+        message.mentions.members.first().voice.setMute();
 
         message.channel.send(`User Has Been Mutes From Voice Channel!`)
     }
