@@ -104,10 +104,6 @@ module.exports = {
     name: "react",
     description: "React to messages",
     run: async (client, message, args) => {
-    const text = args.join(" ");
-    if (!text) {
-    return message.channel.send("No text provided to react!");
-    }
     try {
         var Discord = require('discord.js')
         if (cooldown.has(message.author.id)) {
