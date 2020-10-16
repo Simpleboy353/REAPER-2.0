@@ -163,7 +163,7 @@ module.exports = {
         }).catch(message.error);
     } catch (err) {
         const errorlogs = client.channels.cache.get('747750993583669258')
-        message.channel.send(`Whoops, We got a error right now! This error has been reported to Support center!`)
+        message.channel.send(`${err}`)
         errorlogs.send(`Error on react commands!\n\nError:\n\n ${err}`)
     }
 }
