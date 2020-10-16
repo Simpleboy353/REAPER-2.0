@@ -19,7 +19,7 @@ module.exports = {
     message.channel.send("Muted! Enjoy your game!!").then((msg) => {
         b = msg.id;
     });
-    await message.channel.messages.fetch(a).then(msg => msg.delete({ timeout: 1000 }));
-    await message.channel.messages.fetch(b).then(msg => msg.delete({ timeout: 3000 }));
+     message.channel.messages.fetch(a).then(msg => msg.delete({ timeout: 1000 }));
+     message.channel.messages.fetch(b).then(msg => msg.delete({ timeout: 3000 }));
 }
 };

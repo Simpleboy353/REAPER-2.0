@@ -8,7 +8,7 @@ module.exports = {
     name: "deafenall",
     description: "Deafen all the users in a voice channel",
     
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
 
 
     if (!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send("You do not have the permission to do that!");
@@ -19,9 +19,9 @@ module.exports = {
     }
     message.channel.send("Deafened all!").then((msg) => {
         //DELETE ALL MESSAGES WITH THE MESSAGE ID IN 3 SECONDS
-        await message.channel.messages.fetch(msg.id).then(msg => msg.delete({ timeout: 3000 }));
+        message.channel.messages.fetch(msg.id).then(msg => msg.delete({ timeout: 3000 }));
     });
     //DELETE ALL MESSAGES WITH THE MESSAGE ID IN 1 SECONDS
-    await message.channel.messages.fetch(message.id).then(msg => msg.delete({ timeout: 1000 }));
+    message.channel.messages.fetch(message.id).then(msg => msg.delete({ timeout: 1000 }));
     }
 };
