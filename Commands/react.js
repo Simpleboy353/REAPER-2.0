@@ -1,6 +1,7 @@
 const discordEmoji = require('discord-emoji');
 const emoji = {};
 const cooldown = new Set();
+const text = args.join(" ")
 Object.values(discordEmoji).forEach(value => {
     Object.keys(value).forEach(key => {
         emoji[key] = value[key];
@@ -103,6 +104,10 @@ module.exports = {
     name: "react",
     description: "React to messages",
     run: async (client, message, args) => {
+    const text = args.join(" ");
+    if (!text) {
+    return message.channel.send("No text provided to react!");
+    }
     try {
         var Discord = require('discord.js')
         if (cooldown.has(message.author.id)) {
