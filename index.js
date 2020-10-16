@@ -360,6 +360,8 @@ if (command === 'ping') {
   }
   if (command === 'playstore') {
   client.commands.get('playstore').run(client, message, args);
+  } else if (command === 'voicemute') {
+  client.commands.get('voicemute').run(client, message, args);
   }
 });
 
