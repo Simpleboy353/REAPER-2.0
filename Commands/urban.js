@@ -5,6 +5,9 @@ module.exports = {
     name: "urban",
     description: "Find meanings from the urban dictionary",
     run: async(client, message, args) => {
+    if (!message.channel.type === "NSFW") {
+      return message.channel.send("This Command can only be used in an NSFW Channel!")
+    }
     let str = args.join("");
     if (!str) {
     return message.channel.send("Enter a word")

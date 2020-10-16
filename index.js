@@ -376,7 +376,7 @@ if (command === 'ping') {
   if (command === 'undeafenall') {
   client.commands.get('undeafenall').run(client, message, args);
   } else if (command === 'voicemuteall') {
-  client.commande.get('voicemuteall').run(client, message, args);
+  client.commands.get('voicemuteall').run(client, message, args);
   }
   if (command === 'voiceunmuteall') {
   client.commands.get('voiceunmuteall').run(client, message, args);
