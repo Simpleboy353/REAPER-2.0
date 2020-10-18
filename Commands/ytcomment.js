@@ -8,6 +8,7 @@ module.exports = {
         if (!text) {
             return message.channel.send("Nothing to comment...");
         }
+        const user = message.author;
         const username = message.author.username;
         const avatar = user.user.displayAvatarURL({ size: 144, format: "png" });
 
