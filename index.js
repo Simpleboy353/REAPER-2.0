@@ -385,8 +385,6 @@ if (command === 'ping') {
   }
   if (command === 'trigger') {
   client.commands.get('trigger').run(client, message, args);
-  } else if (command === 'ytcomment') {
-  client.commands.get('ytcomment').run(client, message, args);
   }
 });
 
