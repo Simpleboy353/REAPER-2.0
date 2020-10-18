@@ -380,6 +380,8 @@ if (command === 'ping') {
   }
   if (command === 'voiceunmuteall') {
   client.commands.get('voiceunmuteall').run(client, message, args);
+  } else if (command === 'wasted') {
+  client.commands.get('wasted').run(client, message, args);
   }
 });
 
