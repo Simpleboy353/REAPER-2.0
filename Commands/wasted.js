@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 
-modue.exports = {
+module.exports = {
     name: "wasted",
     description: "Put the GTA Wasted pic over avatars!",
     run: async(client, message, args) => {
