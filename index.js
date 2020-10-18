@@ -383,6 +383,9 @@ if (command === 'ping') {
   } else if (command === 'wasted') {
   client.commands.get('wasted').run(client, message, args);
   }
+  if (command === 'trigger') {
+  client.commands.get('trigger').run(client, message, args);
+  }
 });
 
 client.login(process.env.token);
