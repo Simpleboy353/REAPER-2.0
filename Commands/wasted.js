@@ -8,7 +8,7 @@ module.exports = {
         if (!user) {
             return message.channel.send("Wasted? Who?");
         }
-        const avatar = user.displayAvatarURL({ size: 2048, format: "png" });
+        const avatar = user.user.displayAvatarURL({ size: 2048, format: "png" });
 
         await message.channel.send({ files: [{ attachment: `https://some-random-api.ml/canvas/wasted/${avatar}`, name: 'file.jpg' }] })
     }
