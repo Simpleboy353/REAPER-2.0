@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "ycomment",
+    name: "ytcomment",
     description: "Do a fake yt comment",
     run: async (client, message, args) => {
         const text = args.join(" ");
