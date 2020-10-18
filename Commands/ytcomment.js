@@ -10,7 +10,7 @@ module.exports = {
         }
         const user = message.author;
         const username = message.author.username;
-        const avatar = user.user.displayAvatarURL({ size: 144, format: "png" });
+        const avatar = user.displayAvatarURL({ size: 144, format: "png" });
 
         await message.channel.send({ files: [{ attachment: `https://some-random-api.ml/canvas/youtube-comment?avatar=${avatar}&comment=${text}&username=${username}`, name: 'file.jpg' }] })
     }
