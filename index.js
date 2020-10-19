@@ -18,7 +18,6 @@ client.on("ready", () => {
 })
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
   client.user.setPresence({ status: 'online' });
   const activities_list = [
     { msg: "Infinity Rocks", type: "STREAMING" },
