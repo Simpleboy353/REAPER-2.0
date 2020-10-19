@@ -6,7 +6,7 @@ const client = new Client({
 });
 client.commands = new Collection();
 client.aliases = new Collection();
-client.categories = fs.readdirSync("./commands/")
+client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json") // enter your bot prefix in the config.json file
 const prefix = config.prefix;
 
@@ -14,7 +14,7 @@ const prefix = config.prefix;
   require(`./handler/${handler}`)(client);
 })
 client.on("ready", () => {
-  console.log("Tutorial Bot is online")
+  console.log(`Logged in as ${client.user.tag}`)
 })
 
 client.on("message", async message => {
