@@ -6,7 +6,7 @@ const dataScheama = mongoose.Schema({
     guildID: String,
     daily: String,
     prefix: String,
-    warns: Number,
+    warns: Array,
 })
 
 module.exports = mongoose.model("data",dataScheama)
