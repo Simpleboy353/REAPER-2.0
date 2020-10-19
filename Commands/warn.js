@@ -42,7 +42,8 @@ module.exports = {
     }
     var warns = 1;
     Data.findOne({
-      id: target.id
+      guildID: guild,
+      id: target.id,
     }), (err, data) => {
       if (!data) {
         const newD = new Data({
