@@ -1,4 +1,4 @@
-const prefixModel = require("../models/prefix")
+const prefixModel = require("../models/prefix.js")
 
 module.exports = {
     name: "prefix",
