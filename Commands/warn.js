@@ -17,6 +17,7 @@ module.exports = {
   description: "warn anyone in one shot xD",
   usage: "kick <@user> <raeson>",
   run: async(message, args) => {
+    const guild = message.guild.id;
     
     if(!message.member.hasPermission("MANAGE_SERVER")) {
       return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
@@ -39,18 +40,20 @@ module.exports = {
     if(target.id === message.author.id) {
      return message.channel.send(`**${message.author.username}**, You can not warn yourself`)
     }
+    var warns = 1;
     Data.findOne({
       id: target.id
     }), (err, data) => {
       if (!data) {
         const newD = new Data({
+          guildID: guild,
           id: target.id,
           warns: 1,
         })
         newD.save().catch(err => console.log(err));
         return message.channel.send(`**${target.displayName}** was warned by **${message.author.username}**. **${target.displayName}** now has **${data.warns}** warning(s)!`)
       }else{
-        data.warns += 1
+        data.warns += warns
         data.save().catch(err => console.log(err));
         message.channel.send(`**${target.displayName}** was warned by **${message.author.username}**. **${target.displayName}** now has **${data.warns}** warning(s)!`);
           }
