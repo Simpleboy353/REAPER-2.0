@@ -4,6 +4,7 @@ const { oneLine } = require("common-tags");
 
 module.exports = {
     name: "userinfo",
+    aliases: ["ui"],
     run: async (client, message, args) => {
         const permissions = {
             "ADMINISTRATOR": "Administrator",
