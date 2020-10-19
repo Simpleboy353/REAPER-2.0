@@ -42,32 +42,32 @@ client.on("message", async message => {
     message.channel.send(embed)
   }
 
-  const embed1 = new Discord.MessageEmbed()
+  const embed1 = new MessageEmbed()
     .setTitle("Fun Commands")
     .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `gif`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `penis`, `pokeimg`, `respect`, `reverse`, `roast`, `sacrifice`, `slap`, `spam`, `trivia`, `urban`, `vaportext`, `yomama`")
     .setColor("RANDOM");
 
-  const embed2 = new Discord.MessageEmbed()
+  const embed2 = new MessageEmbed()
     .setColor("RANDOM")
     .setTitle("Image Commands")
     .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `meme`, `pornhub`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`");
 
-  const embed3 = new Discord.MessageEmbed()
+  const embed3 = new MessageEmbed()
     .setTitle("Info Commands")
     .setDescription("`botinfo`, `devteam`, `emojiid`, `help`, `invite`, `ping`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`")
     .setColor("RANDOM");
 
-  const embed4 = new Discord.MessageEmbed()
+  const embed4 = new MessageEmbed()
     .setTitle("Moderation Commands")
     .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
     .setColor("RANDOM");
 
-  const embed5 = new Discord.MessageEmbed()
+  const embed5 = new MessageEmbed()
     .setTitle("Music Commands")
     .setDescription("`play [p]`, `pause`, `resume [r]`, `skip [s]`, `shuffle`, `skipto [st]`, `search`, `stop`, `queue [q]`, `np`, `playlist [pl]`, `volume`, `pruning`, `remove`, `lyrics [ly]`, `loop [l]`")
     .setColor("RANDOM")
 
-  const embed6 = new Discord.MessageEmbed()
+  const embed6 = new MessageEmbed()
     .setTitle("Utility Commands")
     .setDescription("`addemoji`, `avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `emoji`, `emojiid`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `playstore`, `poll`, `react`, `removerole`, `say`, `servericon`, `suggestion`, `timedlockdown`, `unlock`, `weather`, `wiki`, `youtube`")
     .setColor("RANDOM");
@@ -95,7 +95,7 @@ client.on("message", async message => {
   if (message.content === "=help utility") {
     message.channel.send(embed6)
   }
-  
+
   let command = client.commands.get(cmd);
   if (!command) command = client.commands.get(client.aliases.get(cmd));
   if (command)
