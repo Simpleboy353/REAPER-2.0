@@ -64,50 +64,51 @@ client.on("message", async message => {
     .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `gif`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `penis`, `pokeimg`, `respect`, `reverse`, `roast`, `sacrifice`, `slap`, `spam`, `trivia`, `urban`, `vaportext`, `yomama`")
     .setColor("RANDOM");
 
+  if (message.content === "=help fun") {
+    message.channel.send(embed1)
+  }
+
   const embed2 = new MessageEmbed()
     .setColor("RANDOM")
     .setTitle("Image Commands")
     .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `meme`, `pornhub`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`");
+
+  if (message.content === "=help image") {
+    message.channel.send(embed2)
+  }
+
 
   const embed3 = new MessageEmbed()
     .setTitle("Info Commands")
     .setDescription("`botinfo`, `devteam`, `emojiid`, `help`, `invite`, `ping`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`")
     .setColor("RANDOM");
 
+  if (message.content === "=help info") {
+    message.channel.send(embed3)
+  }
+
   const embed4 = new MessageEmbed()
     .setTitle("Moderation Commands")
     .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
     .setColor("RANDOM");
 
+  if (message.content === "=help mod") {
+    message.channel.send(embed4)
+  }
+
   const embed5 = new MessageEmbed()
     .setTitle("Music Commands")
     .setDescription("`play [p]`, `pause`, `resume [r]`, `skip [s]`, `shuffle`, `skipto [st]`, `search`, `stop`, `queue [q]`, `np`, `playlist [pl]`, `volume`, `pruning`, `remove`, `lyrics [ly]`, `loop [l]`")
-    .setColor("RANDOM")
+    .setColor("RANDOM");
+
+  if (message.content === "=help music") {
+    message.channel.send(embed5)
+  }
 
   const embed6 = new MessageEmbed()
     .setTitle("Utility Commands")
     .setDescription("`addemoji`, `avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `emoji`, `emojiid`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `playstore`, `poll`, `react`, `removerole`, `say`, `servericon`, `suggestion`, `timedlockdown`, `unlock`, `weather`, `wiki`, `youtube`")
     .setColor("RANDOM");
-
-  if (message.content === "=help fun") {
-    message.channel.send(embed1)
-  }
-
-  if (message.content === "=help image") {
-    message.channel.send(embed2)
-  }
-
-  if (message.content === "=help info") {
-    message.channel.send(embed3)
-  }
-
-  if (message.content === "=help mod") {
-    message.channel.send(embed4)
-  }
-
-  if (message.content === "=help music") {
-    message.channel.send(embed5)
-  }
 
   if (message.content === "=help utility") {
     message.channel.send(embed6)
