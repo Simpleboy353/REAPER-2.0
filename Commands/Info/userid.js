@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 
 module.exports = {
     name:"userid",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
     var mention = message.guild.member(message.mentions.users.first());
     if(!mention) return message.channel.send("Mention a user to get their ID")
     const lolicon = mention.user.avatarURL;

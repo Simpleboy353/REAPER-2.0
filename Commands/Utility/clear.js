@@ -5,7 +5,7 @@ const client = new Client();
 module. exports = {
     name:'clear',
     description:'delete the given number of messages',
-    run: async(message, args) => {
+    run: async(client, message, args) => {
         if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) { 
             return message.channel.send("I don't have the permission to execute this command!")
         }

@@ -5,7 +5,7 @@ module.exports= {
 	description:"Mute members in one shot",
 	category:"moderation",
 	usage: "=mute <@user> <reason >",
-	run: async(message, args) => {
+	run: async(client, message, args) => {
 
     if(!message.member.hasPermission("MANAGE_ROLES")) {
 		return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)

@@ -7,7 +7,7 @@ module.exports = {
     category: "Fun",
     usage: "ascii <text>",
     description: "Returns provided text in ascii format.",
-    run: async(message, args) => {
+    run: async(client, message, args) => {
 
    let text = args.join(" ");
    if(!text) {

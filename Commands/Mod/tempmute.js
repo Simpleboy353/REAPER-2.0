@@ -7,7 +7,7 @@ module.exports = {
 	name: "tempmute",
 	category: "info",
 	description: "Returns latency and API ping",
-    run: async(message, args) => {
+    run: async(client, message, args) => {
 		const user = message.mentions.members.first();
         if(!message.member.hasPermission("MANAGE_ROLES")) {
 			return message.channel.send("You dont have perms to use that commands");

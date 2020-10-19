@@ -7,7 +7,7 @@ const discord = require("discord.js");
 module.exports = {
     name: "deafen",
     description: "Deafen user in voice channels",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
     var a = message.id;
     if (!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send("You do not have the permission to do that!");
     if (!message.member.voice.channel) return message.channel.send("You are not in a voice channel!");

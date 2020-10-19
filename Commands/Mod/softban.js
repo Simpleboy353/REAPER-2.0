@@ -7,7 +7,7 @@ module.exports = {
     name: "softban",
     description: "Soft Ban a User",
 
-    run: async(message, args) => {
+    run: async(client, message, args) => {
 
 
 
