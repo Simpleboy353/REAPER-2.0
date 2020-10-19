@@ -15,46 +15,41 @@ module.exports = {
   name: "warn",
   category: "moderation",
   description: "warn anyone in one shot xD",
-  usage: "kick <@user> <raeson>",
+  usage: "warn <@user> <raeson>",
   run: async(message, args) => {
-    const guild = message.guild.id;
+
+    const target = message.mentions.members.first();
     
     if(!message.member.hasPermission("MANAGE_SERVER")) {
       return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
     }
     
-    if(!message.guild.me.hasPermission("MANAGE_SERVER")) {
-      return message.channel.send(`**${message.author.username}**, I do not have enough permission to use this command`)
-    }
-    
-    let target = message.mentions.members.first();
-    
-    if(!args[0]) {
+    if(!message.mentions.members.first()) {
       return message.channel.send(`**${message.author.username}**, Please mention the person who you want to warn`)
     }
     
-    if (target.id === message.guild.owner.id) {
+    if (message.mentions.members.first().id === message.guild.owner.id) {
       return message.channel.send("You cannot warn the Server Owner")
     }
     
-    if(target.id === message.author.id) {
+    if(message.mentions.members.first().id === message.author.id) {
      return message.channel.send(`**${message.author.username}**, You can not warn yourself`)
     }
-    var warns = 1;
+    var warn = 1;
     Data.findOne({
-      guildID: guild,
-      id: target.id,
+      guildID: message.guild.id,
+      id: message.mentions.members.first().id,
     }), (err, data) => {
       if (!data) {
         const newD = new Data({
-          guildID: guild,
-          id: target.id,
-          warns: 1,
+          guildID: message.guild.id,
+          id: message.mentions.members.first().id,
+          warns: warn,
         })
         newD.save().catch(err => console.log(err));
         return message.channel.send(`**${target.displayName}** was warned by **${message.author.username}**. **${target.displayName}** now has **${data.warns}** warning(s)!`)
       }else{
-        data.warns += warns
+        data.warns += warn
         data.save().catch(err => console.log(err));
         message.channel.send(`**${target.displayName}** was warned by **${message.author.username}**. **${target.displayName}** now has **${data.warns}** warning(s)!`);
           }
