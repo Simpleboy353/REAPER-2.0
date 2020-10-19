@@ -9,6 +9,7 @@
   "author": "Tester",
   "license": "ISC",
   "dependencies": {
+    "ascii-table": "0.0.9",
     "booru": "^2.3.2",
     "canvas": "^2.6.1",
     "canvas-constructor": "^4.1.0",
