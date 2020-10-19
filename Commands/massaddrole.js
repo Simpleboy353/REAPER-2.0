@@ -25,6 +25,6 @@ module.exports = {
 
         message.guild.members.cache.forEach(member => member.roles.add(role));
 
-        message.channel.send(`Succesfully gave the role to ${message.guild.members.cache.size} users!`)
+        message.channel.send(`Succesfully gave the role to **${message.guild.members.cache.size}** users!`)
     }
 }

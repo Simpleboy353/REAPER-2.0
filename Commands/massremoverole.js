@@ -25,6 +25,6 @@ module.exports = {
 
         message.guild.members.cache.forEach(member => member.roles.remove(role));
 
-        message.channel.send(`Succesfully gave the role to ${message.guild.members.cache.size} users!`)
+        message.channel.send(`Succesfully removed the role from **${message.guild.members.cache.size}** users!`)
     }
 }

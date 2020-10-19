@@ -4,7 +4,7 @@ module.exports = {
     name: "slowmode",
     description: "Start slowmode in a channel",
     run: async(client, message, args) => {
-        if(message.member.hasPermissions("MANAGE_CHANNELS")) {
+        if(message.member.hasPermission("MANAGE_CHANNELS")) {
             return message.channel.send("You don't have enough Permissions!")            
         }
         const amount = parseInt(args[0])
