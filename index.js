@@ -8,7 +8,7 @@ client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json") // enter your bot prefix in the config.json file
-const prefix = config.prefix;
+const prefix = config.DEFAULT_PREFIX;
 
 ['command'].forEach(handler => {
   require(`./handler/${handler}`)(client);
