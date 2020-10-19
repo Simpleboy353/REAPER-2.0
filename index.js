@@ -385,6 +385,13 @@ if (command === 'ping') {
   }
   if (command === 'trigger') {
   client.commands.get('trigger').run(client, message, args);
+  } else if (command === 'massaddrole') {
+  client.commands.get('massaddrole').run(client, message, args);
+  }
+  if (command === 'massremoverole') {
+  client.commands.get('massremoverole').run(client, message, args);
+  } else if (command === 'slowmode') {
+  client.commands.get('slowmode').run(client, message, args);
   }
 });
 
