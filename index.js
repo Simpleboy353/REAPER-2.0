@@ -1,4 +1,4 @@
-const { Client, Collection, Discord } = require("discord.js")
+const { Client, Collection, MessageEmbed } = require("discord.js")
 
 const fs = require("fs")
 const client = new Client({
@@ -33,7 +33,7 @@ client.on("message", async message => {
   if (command)
     command.run(client, message, args);
 })
-const embed = new Discord.MessageEmbed()
+const embed = new MessageEmbed()
   .setTitle('Commands List')
   .setDescription("Available Categories: ")
   .addField(`<a:ColorDino:726964382009131099> __**Fun**__: `, "`=helpfun`\nUse these commands to have some fun in your Server")
