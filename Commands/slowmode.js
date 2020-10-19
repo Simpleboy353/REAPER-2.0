@@ -14,27 +14,27 @@ module.exports = {
         if (args[0] === amount + "s") {
             message.channel.setRateLimitPerUser(amount)
         if (amount > 1 ) {
-            message.channel.send("Slowmode is set for" + amount + "seconds!")
+            message.channel.send("Slowmode is set for " + amount + " seconds!")
             return }
         } 
-        else {message.channel.send("Slowmode is set for" + amount + "second!");
+        else {message.channel.send("Slowmode is set for " + amount + " second!");
         return
         }
         if (args[0] === amount + "m") {
             message.channel.setRateLimitPerUser(amount * 60)
             if (amount > 1) {
-                message.channel.send("Slowmode is set for" + amount + "minutes!")
+                message.channel.send("Slowmode is set for " + amount + " minutes!")
                 return
             } else {
-                message.channel.send("Slowmode is set for" + amount + "minute!")
+                message.channel.send("Slowmode is set for " + amount + " minute!")
             return }
         } if (args[0] === amount + "h") {
             message.channel.setRateLimitPerUser(amount * 60 * 60)
             if (amount > 1 ) {
-                message.channel.send("Slowmode is set for" + amount + "hours!")
+                message.channel.send("Slowmode is set for " + amount + " hours!")
                 return
             } else {
-                message.channel.send("Slowmode is set for" + amount + "hour!")
+                message.channel.send("Slowmode is set for " + amount + " hour!")
             return }
         } else {
             message.channel.send("You can only set slowmode in `Seconds(s)`, `Minutes(m)` or `Hours(h)`!")
