@@ -61,7 +61,7 @@ client.on('message', async (message) => {
     commandfile.run(client, message, args);
   } else if (!data) {
     //set the default prefix here
-    const prefix = "!";
+    const prefix = config.DEFAULT_PREFIX;
 
     if (!message.content.startsWith(prefix)) return;
     const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
