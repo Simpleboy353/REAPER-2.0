@@ -90,7 +90,7 @@ if (data2) {
     .setTitle("Welcome!")
     .setDescription(`Welcome to **${member.guild.name}, ${member}! Have a great time here!`)
     .setColor("GREEN");
-     member.guild.channels.get(channel).send(embed);
+     member.guild.channels.cache.get(channel).send(embed);
    })
 })
 
