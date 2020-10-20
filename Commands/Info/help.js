@@ -7,14 +7,14 @@ mongoose.connect("mongodb+srv://Simpleboy353:rhtking123@cluster0.hcxzx.mongodb.n
   useUnifiedTopology: true,
 });
 
-const data = await prefix.findOne({
-  GuildID: message.guild.id
-});
-
 module.exports = {
   name: "help",
   description: "Get the Command List",
   run: async(client, message, args) => {
+    const data = await prefix.findOne({
+      GuildID: message.guild.id
+    });
+    
     if (data) {
      var prefix = data.Prefix;
     } else if (!data) {
