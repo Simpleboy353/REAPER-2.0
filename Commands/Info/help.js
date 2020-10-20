@@ -23,8 +23,8 @@ module.exports = {
     }
     const embed = new Discord.MessageEmbed()
       .setTitle('Commands List')
-      .setDescription(`Prefix for your Server: ${prefix} \nAvailable Categories: `)
-      .addField(`<:conf:748544324978999448> __**Configuration**__: `, `\`helpconfig\`\nConfigure the bot as per your server!`)
+      .setDescription(`Available Categories: `)
+      .addField(`<:conf:748544324978999448> __**Configuration**__: `, `\`${prefix}helpconfig\`\nConfigure the bot as per your server!`)
       .addField(`<a:ColorDino:726964382009131099> __**Fun**__: `, `\`${prefix}helpfun\`\nUse these commands to have some fun in your Server`)
       .addField(`<:cam:748544442478100511> __**Image**__: `, `\`${prefix}helpimage\`\nManipulate Images with these commands`)
       .addField(`<:inf:748544269798866964> __**Info**__: `, `\`${prefix}helpinfo\`\nHave some info relating the Server, Users or Our Bot`)
