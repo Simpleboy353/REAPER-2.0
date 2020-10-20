@@ -77,9 +77,9 @@ client.on('message', async (message) => {
 
 client.on("message", async(message) => {
 const welcome = require("./Commands/Owner/models/welcome");
-const data2 = welcome.findOne({
+const data2 = await welcome.findOne({
   GuildID: message.guild.id
-})
+});
 if (data2) {
   var channel = data2.Welcome
 } else if (!data2) {
