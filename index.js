@@ -72,6 +72,25 @@ client.on('message', async (message) => {
   if (command)
     command.run(client, message, args);
 }
+});
+
+
+const welcome = require("./Commands/Owner/models/welcome");
+const { MessageEmbed } = require("discord.js");
+
+const data2 = welcome.findOne({
+  GuildID: message.guild.id
+})
+if (data2) {
+  const channel = data2.Welcome
+}
+client.on(`GuildMemberAdd`, member => {
+  const embed = new MessageEmbed()
+    .setTitle("Welcome!")
+    .setDescription(`Welcome to **${message.guild.name}, ${member}! Have a great time here!`)
+    .setColor("GREEN");
+
+  channel.send(embed);
 })
 
 client.login(process.env.token)//Enter your bot token here
