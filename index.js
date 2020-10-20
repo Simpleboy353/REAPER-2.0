@@ -9,7 +9,7 @@ client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json") // enter your bot prefix in the config.json file
 const mongoose = require("mongoose")
-const prefix = require("./models/prefix");
+const prefix = require("./Commands/Owner/models/prefix");
 
 mongoose.connect(config.mongoPass, {
   useNewUrlParser: true,
@@ -56,7 +56,7 @@ client.on("message", async message => {
   } else if (!data) {
     //set the default prefix here
     const prefix = config.DEFAULT_PREFIX;
-    
+
   if (!message.guild) return;
   if (!message.content.startsWith(prefix)) return; // This line makes sure that the bot does not respond to other messages with the bots prefix
   if (!message.member) message.member = await message.guild.fetchMember(message);
