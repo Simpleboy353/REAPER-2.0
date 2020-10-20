@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const mongoose = require("mongoose")
-const prefix = require("../Owner/models/prefix");
+const prefixModel = require("../Owner/models/prefix");
 
 mongoose.connect("mongodb+srv://Simpleboy353:rhtking123@cluster0.hcxzx.mongodb.net/Clustor0?retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -11,10 +11,10 @@ module.exports = {
   name: "help",
   description: "Get the Command List",
   run: async(client, message, args) => {
-    const data = await prefix.findOne({
+    const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });
-    
+
     if (data) {
      var prefix = data.Prefix;
     } else if (!data) {
