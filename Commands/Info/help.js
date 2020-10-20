@@ -29,7 +29,7 @@ module.exports = {
       .addField(`<:cam:748544442478100511> __**Image**__: `, `\`${prefix}helpimage\`\nManipulate Images with these commands`)
       .addField(`<:inf:748544269798866964> __**Info**__: `, `\`${prefix}helpinfo\`\nHave some info relating the Server, Users or Our Bot`)
       .addField(`<:mod:748544387499294841> __**Moderation**__: `, `\`${prefix}helpmod\`\nIssues relating some users? Use these Commands`)
-      .addField(`<:music:761893108442071060> __**Music**__: `, `\`${prefix}helpmusic\`\nRelax and listen to some music!`)
+      .addField(`<:music:761893108442071060> __**Music**__: `, `\`${prefix}helpmusic\`\nRelax and listen to some music!\nNote: Custom Prefix doesn't work on music comamnds!`)
       .addField(`<:utility:748177830134808597> __**Utility**__: `, `\`${prefix}helputility\`\nSome Simple Utility Commands`)
       .setColor("RANDOM");
 
