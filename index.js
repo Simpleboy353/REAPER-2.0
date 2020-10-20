@@ -74,7 +74,7 @@ client.on('message', async (message) => {
 }
 });
 
-
+client.on("message", async(message) => {
 const welcome = require("./Commands/Owner/models/welcome");
 
 const data2 = welcome.findOne({
@@ -90,6 +90,9 @@ if (data2) {
 
   channel.send(embed);
 })
-} else return;
+} else if (!data2) {
+  return;
+}
+})
 
 client.login(process.env.token)//Enter your bot token here
