@@ -8,4 +8,4 @@ const PrefixSchema = new mongoose.Schema({
   UserId: String
 });
 
-const MessageModel = module.exports = mongoose.model('prefixes', PrefixSchema);
+const MessageModel = module.exports = mongoose.model('Warnings', PrefixSchema);
