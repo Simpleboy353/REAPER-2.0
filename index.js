@@ -9,8 +9,8 @@ client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json") // enter your bot prefix in the config.json file
 const mongoose = require("mongoose")
-const prefix = require("./Commands/Owner/models/prefix");
 
+const Data = require('./models/serverdata.js')
 mongoose.connect(config.mongoPass, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -41,37 +41,37 @@ client.on('ready', () => {
 });
 
 client.on('message', async (message) => {
-  if (message.author.bot) return;
-
+   if (message.author.bot) return;
+Data.findOne({
+            gid:message.guild.id
+        },(err,data)=>{
+            if(err) console.log(err);
+            if(!data){
+const newD = new Data({
+               gid:message.guild.id,
+          gname:message.guild.name,
+              gprefix:"="
+           })
+newD.save().catch(err => console.log(err));
+}else{
   //Getting the data from the model
-  const data = await prefix.findOne({
-    GuildID: message.guild.id
-  });
+  const Server = message.guild.id;
 
-  const messageArray = message.content.split(' ');
-  const cmd = messageArray[0];
-  const args = messageArray.slice(1);
+    let prefix = data.gprefix; //Let prefix be prefixes[msg.guild.id].prefix
 
-  //If there was a data, use the database prefix BUT if there is no data, use the default prefix which you have to set!
-  if (data) {
-    const prefix = data.Prefix;
+      if (!message.content.startsWith(prefix) || message.author.bot) return;
+    
 
-    if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
-    commandfile.run(client, message, args);
-  } else if (!data) {
-    //set the default prefix here
-    const prefix = config.DEFAULT_PREFIX;
+   const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+    if(cmd.length ===0) return;
 
-    if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
-    commandfile.run(client, message, args);
-
-  let command = client.commands.get(cmd);
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
-  if (command)
-    command.run(client, message, args);
+    let command = client.commands.get(cmd);
+    if(!command) command = client.commands.get(client.aliases.get(cmd));
+    if(command)
+    command.run(client,message,args);
 }
+})
 })
 
 client.login(process.env.token)//Enter your bot token here
