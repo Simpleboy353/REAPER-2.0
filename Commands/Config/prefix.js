@@ -5,7 +5,7 @@ module.exports = {
   name: "prefix",
   description: "Change the prefix per server!",
   run: async(client, message, args) => {
-  const data = await findOne({
+  const data = await prefixModel.findOne({
     GuildID: message.guild.id
   });
 
@@ -16,7 +16,7 @@ module.exports = {
     return message.channel.send('Your new prefix must be under \`5\` characters!');
 
   if (data) {
-    await findOneAndRemove({
+    await prefixModel.findOneAndRemove({
       GuildID: message.guild.id
     });
 
