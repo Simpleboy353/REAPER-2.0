@@ -74,8 +74,9 @@ client.on('message', async (message) => {
 }
 });
 
-const welcome = require("./Commands/Owner/models/welcome");
 
+client.on("message", async(message) => {
+const welcome = require("./Commands/Owner/models/welcome");
 const data2 = welcome.findOne({
   GuildID: message.guild.id
 })
@@ -91,6 +92,7 @@ if (data2) {
     .setColor("GREEN");
 
   channel.send(embed);
+})
 })
 
 
