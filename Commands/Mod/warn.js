@@ -14,17 +14,17 @@ module.exports = {
     }
     const data = await prefixModel.findOne({
       UserID: target.id,
-      GuildID: message.guild.id
+      GuildID: message.guild.id,
     });
 
     if (data) {
-      prefixModel.Warns += 1
+      data.Warns +=1
       message.channel.send(`**${target.user.username}** has been warned! Total warnings: ${data.Warns}`);
     } else if (!data) {
       let newData = new prefixModel({
         Warns: 1,
         UserID: target.id,
-        GuildID: message.guild.id
+        GuildID: message.guild.id,
       });
       newData.save();
       message.channel.send(`**${target.user.username}** has been warned! Total warnings: ${data.Warns}`)
