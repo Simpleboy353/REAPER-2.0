@@ -19,7 +19,7 @@ module.exports = {
 
     if (data) {
       data.Warns +=1
-      message.channel.send(`**${target.user.username}** has been warned! Total warnings: ${data.Warns}`);
+      message.channel.send(`**${target.user.username}** has been warned! Total Warnings: ${data.Warns}`);
     } else if (!data) {
       let newData = new prefixModel({
         Warns: 1,
@@ -27,7 +27,7 @@ module.exports = {
         GuildID: message.guild.id,
       });
       newData.save();
-      message.channel.send(`**${target.user.username}** has been warned! Total warnings: ${data.Warns}`)
+      message.channel.send(`**${target.user.username}** has been warned!`)
     }
   }
 }
