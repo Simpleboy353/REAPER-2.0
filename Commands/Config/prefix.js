@@ -2,7 +2,8 @@ const Discord = module.require("discord.js")
 const prefixModel = require("../Owner/models/prefix");
 
 module.exports = {
-  name = "prefix",
+  name: "prefix",
+  description: "Change the prefix per server!",
   run: async(client, message, args) => {
   const data = await findOne({
     GuildID: message.guild.id
