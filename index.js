@@ -8,7 +8,13 @@ client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json") // enter your bot prefix in the config.json file
-const prefix = config.DEFAULT_PREFIX;
+const mongoose = require("mongoose")
+const prefix = require("./models/prefix");
+
+mongoose.connect(config.mongoPass, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 ['command'].forEach(handler => {
   require(`./handler/${handler}`)(client);
@@ -37,6 +43,20 @@ client.on('ready', () => {
 client.on("message", async message => {
   client.prefix = prefix;
   if (message.author.bot) return; // This line makes sure that the bot does not respond to other bots
+
+  const data = await prefix.findOne({
+    GuildID: message.guild.id
+  });
+  if (data) {
+    const prefix = data.Prefix;
+
+    if (!message.content.startsWith(prefix)) return;
+    const commandfile = client.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+    commandfile.run(client, message, args);
+  } else if (!data) {
+    //set the default prefix here
+    const prefix = config.DEFAULT_PREFIX;
+    
   if (!message.guild) return;
   if (!message.content.startsWith(prefix)) return; // This line makes sure that the bot does not respond to other messages with the bots prefix
   if (!message.member) message.member = await message.guild.fetchMember(message);
@@ -118,6 +138,7 @@ client.on("message", async message => {
   if (!command) command = client.commands.get(client.aliases.get(cmd));
   if (command)
     command.run(client, message, args);
+}
 })
 
 client.login(process.env.token)//Enter your bot token here
