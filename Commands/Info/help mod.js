@@ -4,7 +4,7 @@ module.exports = {
   name: "help mod",
   description: "Get Mod Commands",
   run: async (client, message, args) => {
-    const embed = new MessageEmbed()
+    const embed = new Discord.MessageEmbed()
       .setTitle("Moderation Commands")
       .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
       .setColor("RANDOM");

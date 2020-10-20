@@ -4,7 +4,7 @@ module.exports = {
   name: "help",
   description: "Get the Command List",
   run: async(client, message, args) => {
-    const embed = new MessageEmbed()
+    const embed = new Discord.MessageEmbed()
       .setTitle('Commands List')
       .setDescription("Available Categories: ")
       .addField(`<a:ColorDino:726964382009131099> __**Fun**__: `, "`=help fun`\nUse these commands to have some fun in your Server")
