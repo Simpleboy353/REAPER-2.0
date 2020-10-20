@@ -5,6 +5,9 @@ module.exports = {
   name: "prefix",
   description: "Change the prefix per server!",
   run: async(client, message, args) => {
+  if (!message.member.hasPermission("ADMINISTRATOR")) {
+   return message.channel.send("You don't have enough Permissions!")
+  }
   const data = await prefixModel.findOne({
     GuildID: message.guild.id
   });
