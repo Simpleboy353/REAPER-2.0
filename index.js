@@ -74,7 +74,6 @@ client.on('message', async (message) => {
 }
 });
 
-client.on("message", async(message) => {
 const welcome = require("./Commands/Owner/models/welcome");
 
 const data2 = welcome.findOne({
@@ -82,17 +81,17 @@ const data2 = welcome.findOne({
 })
 if (data2) {
   var channel = data2.Welcome
-   client.on(`GuildMemberAdd`, member => {
+} else if (!data2) {
+  return ;
+}
+   client.on(`guildMemberAdd`, member => {
   const embed = new MessageEmbed()
     .setTitle("Welcome!")
-    .setDescription(`Welcome to **${message.guild.name}, ${member}! Have a great time here!`)
+    .setDescription(`Welcome to **${member.guild.name}, ${member}! Have a great time here!`)
     .setColor("GREEN");
 
   channel.send(embed);
 })
-} else if (!data2) {
-  return;
-}
-})
+
 
 client.login(process.env.token)//Enter your bot token here
