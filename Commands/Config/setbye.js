@@ -2,8 +2,8 @@ const Discord = module.require("discord.js")
 const prefixModel = require("../Owner/models/bye");
 
 module.exports = {
-  name: "setwelcome",
-  description: "Change the welcome channel per server!",
+  name: "setbye",
+  description: "Change the goodbye channel per server!",
   run: async (client, message, args) => {
     const data = await prefixModel.findOne({
       GuildID: message.guild.id
