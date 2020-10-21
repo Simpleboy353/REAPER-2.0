@@ -72,10 +72,20 @@ client.on('message', async (message) => {
 });
 
 client.on(`guildMemberAdd`, async(member)=>{
-  require("./events/guildMemberAdd");
+  let embed = new MessageEmbed()
+    .setTitle("Welcome!")
+    .setDescription(`Welcome to the Server, ${member}! Hope you like our Server!`)
+    .setColor("GREEN");
+
+  member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
 })
 
 client.on(`guildMemberRemove`, async(member) => {
-  require("./events/guildMemberRemove");
+  let embed = new Discord.MessageEmbed()
+    .setTitle("Goodbye!")
+    .setDescription(`${member} Just left the Server! Hope they return soon!`)
+    .setColor("GREEN");
+
+  member.guild.channels.cache.find(ch => ch.name === "bye").send(embed);
 })
 client.login(process.env.token)//Enter your bot token here
