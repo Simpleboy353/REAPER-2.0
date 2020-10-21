@@ -105,7 +105,7 @@ client.on(`guildMemberRemove`, async(member) => {
 
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
-    .setDescription(`**${member.username}** just the Server! Hope they return back soon!\n\nWe are now left with **${member.guild.members.cache.size}** members!`)
+    .setDescription(`**${member.user.username}** just the Server! Hope they return back soon!\n\nWe are now left with **${member.guild.members.cache.size}** members!`)
     .setColor("GREEN");
 
    let channel = data.Bye
