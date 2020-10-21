@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const PrefixSchema = new mongoose.Schema({
   Bye: {
-    type: Number,
+    type: String,
+  },
+  ByeMsg: {
+    type: String
   },
   GuildID: String
 });

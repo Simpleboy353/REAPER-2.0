@@ -86,7 +86,7 @@ client.on(`guildMemberAdd`, async(member)=>{
 
     let channel = data.Welcome
 
-  member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
+  member.guild.channels.cache.find(channel).send(embed);
   } else if (!data) {
     return;
   }
@@ -102,11 +102,13 @@ client.on(`guildMemberRemove`, async(member) => {
   })
 
   if (data) {
-    let channel = data.Bye
+    
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
     .setDescription(`${member} Just left the Server! Hope they return soon!`)
     .setColor("GREEN");
+
+   let channel = data.Bye
 
   member.guild.channels.cache.get(channel).send(embed);
 } else if (!data) {
