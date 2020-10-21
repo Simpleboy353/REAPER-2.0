@@ -81,7 +81,7 @@ client.on(`guildMemberAdd`, async(member)=>{
 })
 
 client.on(`guildMemberRemove`, async(member) => {
-  let embed = new Discord.MessageEmbed()
+  let embed = new MessageEmbed()
     .setTitle("Goodbye!")
     .setDescription(`${member} Just left the Server! Hope they return soon!`)
     .setColor("GREEN");
