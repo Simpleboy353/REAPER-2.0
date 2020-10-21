@@ -86,7 +86,7 @@ client.on(`guildMemberAdd`, async(member)=>{
 
     let channel = data.Welcome
 
-  member.guild.channels.cache.find(channel).send(embed);
+  member.guild.channels.cache.get(channel).send(embed);
   } else if (!data) {
     return;
   }
