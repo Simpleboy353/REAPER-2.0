@@ -71,8 +71,11 @@ client.on('message', async (message) => {
 }
 });
 
-client.on(`guildMemberAdd`, async(member, message)=>{
+client.on(`guildMemberAdd`, async(member)=>{
   require("./events/guildMemberAdd");
 })
 
+client.on(`guildMemberRemove`, async(member) => {
+  require("./events/guildMemberRemove");
+})
 client.login(process.env.token)//Enter your bot token here
