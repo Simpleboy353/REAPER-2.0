@@ -5,10 +5,16 @@ module.exports = {
             name: 'boobs',
             description: 'Some Boob Pics for you!',
             run: async(client, message, args) => {
+        try{
+            var errMessage = "This is not an NSFW Channel";
             if (!message.channel.nsfw) {
-            return message.channe.send("This command can only be excuted in an NSFW Channel!")
-            }
-        try {
+                message.react('💢');
+
+                return message.reply(errMessage)
+                    .then(msg => {
+                        msg.delete({ timeout: 3000 })
+                    })
+                }
             const res = await fetch(`https://nekobot.xyz/api/image?type=boobs`);
             const img = (await res.json()).message;
             message.channel.send({files: [{attachment: img, name: "trumptweet.png"}]});
