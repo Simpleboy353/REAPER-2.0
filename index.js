@@ -70,41 +70,51 @@ client.on('message', async (message) => {
     commandfile.run(client, message, args);
 }
 });
-const welcomerData = require ("./Commands/Owner/models/welcome")
+const welcomerData = require("./Commands/Owner/models/welcome")
 
 client.on(`guildMemberAdd`, async(member)=>{
 
-const data = await welcomerData.findOne({
-   GuildID: member.guild.id
+  const data = await welcomerData.findOne({
+    GuildID: member.guild.id
   })
+  if (data) {
 
-if (data) {
-  
-let embed = new MessageEmbed()
+  let embed = new MessageEmbed()
     .setTitle("Welcome!")
     .setDescription(`Welcome to the Server, ${member}! Hope you like our Server!`)
     .setColor("GREEN");
- 
-let channel = data.Welcome
 
- member.guild.channels.cache.get(channel).send(embed);
+    let channel = data.Welcome
 
-} else if (!data) {
-  return;
- }
+  member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
+  } else if (!data) {
+    return;
+  }
 })
 
 
+const byeData = require("./Commands/Owner/models/bye")
+
 client.on(`guildMemberRemove`, async(member) => {
-  let embed = new MessageEmbed()
+
+  const data = await byeData.findOne({
+    GuildID: member.guild.id
+  })
+
+  if (data) {
+    let channel = data.byeData
+    let embed = new MessageEmbed()
     .setTitle("Goodbye!")
     .setDescription(`${member} Just left the Server! Hope they return soon!`)
     .setColor("GREEN");
 
-  member.guild.channels.cache.find(ch => ch.name === "bye").send(embed);
+  member.guild.channels.cache.get(channel).send(embed);
+} else if (!data) {
+  return;
+}
 })
 
-client.on(`guildCreate`, guild => {
+client.on(`guildCreate`, guild =>{
   let defaultChannel = "";
   guild.channels.cache.forEach((channel) => {
     if (channel.type == "text" && defaultChannel == "") {
