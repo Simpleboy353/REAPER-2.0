@@ -7,5 +7,5 @@ module.exports=async(member)=> {
   .setDescription(`Welcome to the Server, ${member}! Hope you like our Server!`)
   .setColor("GREEN");
 
-     member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
+  member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
   }

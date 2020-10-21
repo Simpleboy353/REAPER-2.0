@@ -77,7 +77,7 @@ client.on(`guildMemberAdd`, async(member)=>{
     .setDescription(`Welcome to the Server, ${member}! Hope you like our Server!`)
     .setColor("GREEN");
 
-  member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
+  member.guild.channels.cache.find(ch => ch.name === "welcome" || "╭✩┨welcome" || "🔅》welcome-to-server").send(embed);
 })
 
 client.on(`guildMemberRemove`, async(member) => {
@@ -86,6 +86,6 @@ client.on(`guildMemberRemove`, async(member) => {
     .setDescription(`${member} Just left the Server! Hope they return soon!`)
     .setColor("GREEN");
 
-  member.guild.channels.cache.find(ch => ch.name === "bye").send(embed);
+  member.guild.channels.cache.find(ch => ch.name === "bye" || "🔅》sayonara" || "╰✩┨bye").send(embed);
 })
 client.login(process.env.token)//Enter your bot token here
