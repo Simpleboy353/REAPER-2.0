@@ -102,7 +102,7 @@ client.on(`guildMemberRemove`, async(member) => {
   })
 
   if (data) {
-    let channel = data.byeData
+    let channel = data.Bye
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
     .setDescription(`${member} Just left the Server! Hope they return soon!`)
