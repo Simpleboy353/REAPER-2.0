@@ -1,17 +1,44 @@
-const { MessageEmbed } = module.require('discord.js');
-const fetch = require('node-fetch');
+const discord = require("discord.js");
+const got = require("got"); //MAKE SURE TO INSTALL THE PACKAGE "GOT" ELSE THE CODE WOULD NOT WORK
+
 
 module.exports = {
-            name: '4k',
-            description: 'Some 4k Pics for you!',
-            run: async(client, message, args) => {
-        try {
-            const res = await fetch(`https://nekobot.xyz/api/image?type=4k`);
-            const img = (await res.json()).message;
-            message.channel.send({files: [{attachment: img, name: "trumptweet.png"}]});
-        } catch (err) {
-            console.log(err);
-            message.channel.send(err);
-        }
+  name: "4k",
+  category: "NSFW",
+  description: "Sends 4k girl pics",
+  usage: "[command]",
+  run: async (client, message, args) => {
+      try{
+  //command
+  var errMessage = "This is not an NSFW Channel";
+  if (!message.channel.nsfw) {
+      message.react('💢');
+
+      return message.reply(errMessage)
+      .then(msg => {
+      msg.delete({ timeout: 3000 })
+      })
+      
+  }
+  got('https://www.reddit.com/r/RealGirls/random.json').then(response => {
+        let content = JSON.parse(response.body);
+        var title = content[0].data.children[0].data.title;
+        var amazeme = content[0].data.children[0].data.url;
+        let wow = new discord.MessageEmbed()
+        .setDescription(`**${title}**`)
+        .setImage(amazeme)
+        .setFooter(`Nice `)
+        .setColor("RANDOM")
+        message.channel.send(wow)
+    }).catch(console.error);
+} catch (err) {
+
+    const errorlogs = client.channels.cache.get('747423875956080801')
+  
+    message.channel.send(`Whoops, We got a error right now! This error has been reported to Support center!`)
+  
+    errorlogs.send(`Error in ${message.guild.name}  by ${message.author.username} on  4k commands!\n\nError:\n\n ${err}`)
+  
+  }
     }
 };

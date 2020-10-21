@@ -3,9 +3,9 @@ const got = require("got"); //MAKE SURE TO INSTALL THE PACKAGE "GOT" ELSE THE CO
 
 
 module.exports = {
-  name: "anal",
+  name: "pussy",
   category: "NSFW",
-  description: "Sends anal porn pics",
+  description: "Sends pussy pics",
   usage: "[command]",
   run: async (client, message, args) => {
       try{
@@ -20,14 +20,14 @@ module.exports = {
       })
       
   }
-  got('https://www.reddit.com/r/anal/random.json').then(response => {
+  got('https://www.reddit.com/r/pussy/random.json').then(response => {
         let content = JSON.parse(response.body);
         var title = content[0].data.children[0].data.title;
         var amazeme = content[0].data.children[0].data.url;
         let wow = new discord.MessageEmbed()
         .setDescription(`**` + title + `**`)
         .setImage(amazeme)
-        .setFooter(`Analator go brr brr...`)
+        .setFooter(`Where is My Pussy Cat?`)
         .setColor("RANDOM")
         message.channel.send(wow)
     }).catch(console.error);
@@ -37,7 +37,7 @@ module.exports = {
   
     message.channel.send(`Whoops, We got a error right now! This error has been reported to Support center!`)
   
-    errorlogs.send(`Error in ${message.guild.name}  by ${message.author.username} on  anal commands!\n\nError:\n\n ${err}`)
+    errorlogs.send(`Error in ${message.guild.name}  by ${message.author.username} on  pussy commands!\n\nError:\n\n ${err}`)
   
   }
     }
