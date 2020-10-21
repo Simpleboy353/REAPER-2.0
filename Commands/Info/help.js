@@ -32,7 +32,7 @@ module.exports = {
       .addField(`<:inf:748544269798866964> __**Info**__: `, `\`${prefix}help info\`\nHave some info relating the Server, Users or Our Bot`)
       .addField(`<:mod:748544387499294841> __**Moderation**__: `, `\`${prefix}help mod\`\nIssues relating some users? Use these Commands`)
       .addField(`<:music:761893108442071060> __**Music**__: `, `\`${prefix}help music\`\nRelax and listen to some music!\nNote: Music Commands work with the default prefix \`=\` only!`)
-      .addField(`<:nsfw:768346751576440852> __**NSFW**__: `, `\`${prefix}\`help nsfw\`\nSome NSFW Content for you!`)
+      .addField(`<:nsfw:768346751576440852> __**NSFW**__: `, `\`${prefix}help nsfw\`\nSome NSFW Content for you!`)
       .addField(`<:utility:748177830134808597> __**Utility**__: `, `\`${prefix}help utility\`\nSome Simple Utility Commands`)
       .setColor("RANDOM");
 
