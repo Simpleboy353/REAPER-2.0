@@ -58,19 +58,19 @@ client.on('message', async (message) => {
     const prefix = data.Prefix;
 
     if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
-    commandfile.run(client, message, args);
+    let command = client.commands.get(cmd);
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (command)
+      command.run(client, message, args);
+
   } else if (!data) {
     //set the default prefix here
     const prefix = config.DEFAULT_PREFIX;
 
     if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
-    commandfile.run(client, message, args);
-
-  let command = client.commands.get(cmd);
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
-  if (command)
+    let command = client.commands.get(cmd);
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (command)
     command.run(client, message, args);
 }
 });
