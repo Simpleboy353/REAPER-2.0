@@ -10,7 +10,9 @@ mongoose.connect("mongodb+srv://Simpleboy353:rhtking123@cluster0.hcxzx.mongodb.n
 module.exports = {
   name: "help",
   description: "Get the Command List",
+  aliases: ["commands", "cmd", "h"],
   run: async(client, message, args) => {
+    const avatar = client.user.avatarURL;
     const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });
@@ -24,16 +26,17 @@ module.exports = {
 
     if (!args[0]) {
     const embed = new Discord.MessageEmbed()
-      .setTitle('Commands List')
-      .setDescription(`Available Categories: `)
+      .setThumbnail(avatar)
+      .setTitle("Available Command Categories")
       .addField(`<:conf:748544324978999448> __**Configuration**__: `, `\`${prefix}help config\`\nConfigure the bot as per your server!`)
-      .addField(`<a:ColorDino:726964382009131099> __**Fun**__: `, `\`${prefix}help fun\`\nUse these commands to have some fun in your Server`)
+      .addField(`<a:ColorDino:726964382009131099> __**Fun**__: `, `\`${prefix}help fun\`\nHave some fun in your Server!`)
       .addField(`<:cam:748544442478100511> __**Image**__: `, `\`${prefix}help image\`\nManipulate Images with these commands`)
-      .addField(`<:inf:748544269798866964> __**Info**__: `, `\`${prefix}help info\`\nHave some info relating the Server, Users or Our Bot`)
+      .addField(`<:inf:748544269798866964> __**Info**__: `, `\`${prefix}help info\`\n Get some info relating the Server, users or our Bot`)
       .addField(`<:mod:748544387499294841> __**Moderation**__: `, `\`${prefix}help mod\`\nIssues relating some users? Use these Commands`)
       .addField(`<:music:761893108442071060> __**Music**__: `, `\`${prefix}help music\`\nRelax and listen to some music!\nNote: Music Commands work with the default prefix \`=\` only!`)
       .addField(`<:nsfw:768346751576440852> __**NSFW**__: `, `\`${prefix}help nsfw\`\nSome NSFW Content for you!`)
       .addField(`<:utility:748177830134808597> __**Utility**__: `, `\`${prefix}help utility\`\nSome Simple Utility Commands`)
+      .setThumbnail(client.user.avatarURL())
       .setColor("RANDOM");
 
      return message.channel.send(embed);
