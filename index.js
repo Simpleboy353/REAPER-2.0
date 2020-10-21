@@ -14,6 +14,7 @@ const prefix = require("./Commands/Owner/models/prefix");
 mongoose.connect(config.mongoPass, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 
 ['command'].forEach(handler => {
