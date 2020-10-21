@@ -91,7 +91,7 @@ client.on(`guildMemberRemove`, async(member) => {
 
 client.on(`guildCreate`, guild => {
   let defaultChannel = "";
-  guild.channels.forEach((channel) => {
+  guild.channels.cache.forEach((channel) => {
     if (channel.type == "text" && defaultChannel == "") {
       if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
         defaultChannel = channel;
