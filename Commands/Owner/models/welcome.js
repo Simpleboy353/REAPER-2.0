@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PrefixSchema = new mongoose.Schema({
   Welcome: {
-    type: Number,
+    type: String,
   },
   GuildID: String
 });
