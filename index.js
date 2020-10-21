@@ -79,9 +79,11 @@ client.on(`guildMemberAdd`, async(member)=>{
   })
   if (data) {
 
+   let greetmsg = data.WelcomeMsg
+
   let embed = new MessageEmbed()
     .setTitle("Welcome!")
-    .setDescription(`Welcome to the Server, ${member}! Hope you like our Server!`)
+    .setDescription(`${greetmsg}`)
     .setColor("GREEN");
 
     let channel = data.Welcome
@@ -103,9 +105,11 @@ client.on(`guildMemberRemove`, async(member) => {
 
   if (data) {
     
+    let byemsg = data.ByeMsg 
+
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
-    .setDescription(`${member} Just left the Server! Hope they return soon!`)
+    .setDescription(`${byemsg}`)
     .setColor("GREEN");
 
    let channel = data.Bye
