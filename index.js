@@ -70,15 +70,30 @@ client.on('message', async (message) => {
     commandfile.run(client, message, args);
 }
 });
+const welcomerData = require ("./Commands/Owner/models/welcome")
 
 client.on(`guildMemberAdd`, async(member)=>{
-  let embed = new MessageEmbed()
+
+const data = await welcomerData.findOne({
+   GuildID: member.guild.id
+  })
+
+if (data) {
+  
+let embed = new MessageEmbed()
     .setTitle("Welcome!")
     .setDescription(`Welcome to the Server, ${member}! Hope you like our Server!`)
     .setColor("GREEN");
+ 
+let channel = data.Welcome
 
-  member.guild.channels.cache.find(ch => ch.name === "welcome").send(embed);
+ member.guild.channels.cache.get(channel).send(embed);
+
+} else if (!data) {
+  return;
+ }
 })
+
 
 client.on(`guildMemberRemove`, async(member) => {
   let embed = new MessageEmbed()
