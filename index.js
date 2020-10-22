@@ -150,6 +150,10 @@ client.on(`messageDelete`, async(message)=> {
   })
 
   if (data) {
+
+    if (message.author.bot) {
+    return;
+    }
     let embed = new MessageEmbed()
     .setTitle("New Message Deleted")
     .setDescription(`${message.author} has deleted a message in <#${message.channel.id}>!`)
@@ -171,6 +175,11 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
   })
 
   if (data) {
+
+    if (newMessage.author.bot) {
+    return;
+    }
+
     let embed = new MessageEmbed()
     .setTitle("New Message Edited")
     .setDescription(`Message Edited in <#${newMessage.channel.id}> by ${newMessage.author}`)
