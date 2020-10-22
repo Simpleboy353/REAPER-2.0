@@ -80,10 +80,12 @@ client.on(`guildMemberAdd`, async(member)=>{
   })
   if (data) {
 
+  let greetmsg = data.WelcomeMsg
+
   let embed = new MessageEmbed()
     .setTitle("Welcome!")
     .setThumbnail(avatar)
-    .setDescription(`${member}, Welcome to **${member.guild.name}**! Hope you will like our Server!`)
+    .setDescription(`${greetmsg}`)
     .setFooter(`We are now ${member.guild.members.cache.size} members!`)
     .setThumbnail(member.user.avatarURL())
     .setColor("GREEN");
@@ -107,10 +109,13 @@ client.on(`guildMemberRemove`, async(member) => {
   })
 
   if (data) {
+
+    let byemsg = data.ByeMsg
+
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
     .setThumbnail(avatar)
-    .setDescription(`**${member.user.username}** just left the Server! Hope they return back soon!`)
+    .setDescription(`${byemsg}`)
     .setFooter(`We are now ${member.guild.members.cache.size} members left!`)
     .setThumbnail(member.user.avatarURL())
     .setColor("GREEN");
