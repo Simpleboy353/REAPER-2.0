@@ -12,20 +12,16 @@ module.exports = {
       GuildID: message.guild.id
     });
 
-    if (!message.mentions.channels.first())
-      return message.channel.send('Mention a channel!');
-
     if (data) {
-      await prefixModel.findOneAndRemove({
-        State: "Yes",
+      await prefixModel.findOneAndUpdate({
+        State: "No",
         GuildID: message.guild.id
       });
 
-      message.channel.send(`Goodbye Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Goodbye Logs have been Stopped!`);
 
       let newData = new prefixModel({
-        Bye: message.mentions.channels.first().id,
-        State: "Yes",
+        State: "No",
         GuildID: message.guild.id
       });
       newData.save();
@@ -33,8 +29,7 @@ module.exports = {
       message.channel.send(`Goodbye Channel set to ${message.mentions.channels.first()}`);
 
       let newData = new prefixModel({
-        Bye: message.mentions.channels.first().id,
-        State: "Yes",
+        State: "No",
         GuildID: message.guild.id
       });
       newData.save();

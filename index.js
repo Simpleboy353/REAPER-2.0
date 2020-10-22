@@ -77,7 +77,7 @@ client.on(`guildMemberAdd`, async(member)=>{
   const data = await welcomerData.findOne({
     GuildID: member.guild.id
   })
-  if (data) {
+  if (data && data.State === "Yes") {
 
   let embed = new MessageEmbed()
     .setTitle("Welcome!")
@@ -87,7 +87,7 @@ client.on(`guildMemberAdd`, async(member)=>{
     let channel = data.Welcome
 
   member.guild.channels.cache.get(channel).send(embed);
-  } else if (!data) {
+  } else if (!data && data.State === "No") {
     return;
   }
 })
@@ -101,7 +101,7 @@ client.on(`guildMemberRemove`, async(member) => {
     GuildID: member.guild.id
   })
 
-  if (data) {
+  if (data && data.State === "Yes") {
 
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
@@ -111,7 +111,7 @@ client.on(`guildMemberRemove`, async(member) => {
    let channel = data.Bye
 
   member.guild.channels.cache.get(channel).send(embed);
-} else if (!data) {
+} else if (!data && data.State === "No") {
   return;
 }
 })
