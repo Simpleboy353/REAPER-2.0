@@ -153,7 +153,7 @@ client.on(`messageDelete`, async(message)=> {
     let embed = new MessageEmbed()
     .setTitle("New Message Deleted")
     .setDescription(`${message.author} has deleted a message in <#${message.channel.id}>!`)
-    .addField(`Content`, message.content)
+    .addField(`Message Content`, message.content,true)
     .setTimestamp()
     .setColor("GREEN");
 

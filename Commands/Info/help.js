@@ -76,7 +76,7 @@ module.exports = {
   } else if (args[0] === "config") {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
-        .setDescription("`prefix`, `setwelcome`, `setbye`, `removewelcome`, `removebye`")
+        .setDescription("`prefix`, `setwelcome`, `setbye`, `setmessagelogs`, `removewelcome`, `removebye`, `removemessagelogs`")
         .setFooter("New Commands Coming Soon!")
         .setColor("RANDOM");
 
