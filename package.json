@@ -37,6 +37,7 @@
     "ms": "^2.1.2",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
+    "node-superfetch": "^0.1.10",
     "os": "^0.1.1",
     "os-utils": "0.0.14",
     "pretty-ms": "^7.0.0",

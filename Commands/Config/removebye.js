@@ -13,26 +13,13 @@ module.exports = {
     });
 
     if (data) {
-      await prefixModel.findOneAndUpdate({
-        State: "No",
+      await prefixModel.findOneAndRemove({
         GuildID: message.guild.id
       });
 
       message.channel.send(`Goodbye Logs have been Stopped!`);
-
-      let newData = new prefixModel({
-        State: "No",
-        GuildID: message.guild.id
-      });
-      newData.save();
     } else if (!data) {
-      message.channel.send(`Goodbye Channel set to ${message.mentions.channels.first()}`);
-
-      let newData = new prefixModel({
-        State: "No",
-        GuildID: message.guild.id
-      });
-      newData.save();
+      return message.channel.send(`Welcome Logs aern't setup!`)
     }
   }
 }

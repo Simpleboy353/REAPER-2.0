@@ -14,25 +14,13 @@ module.exports = {
 
     if (data) {
       await prefixModel.findOneAndUpdate({
-        State: "No",
         GuildID: message.guild.id
       });
 
-      message.channel.send(`Welcome logs have been stopped!`);
+      return message.channel.send(`Welcome logs have been stopped!`);
 
-      let newData = new prefixModel({
-        State: "No",
-        GuildID: message.guild.id
-      });
-      newData.save();
     } else if (!data) {
-      message.channel.send(`Welcome logs have been stopped!`);
-
-      let newData = new prefixModel({
-        State: "No",
-        GuildID: message.guild.id
-      });
-      newData.save();
+      return message.channel.send(`Goodbye Logs aren't setup!`)
     }
   }
 }
