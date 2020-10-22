@@ -167,13 +167,13 @@ client.on(`messageDelete`, async(message)=> {
 
 client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
   const data = await messageData.findOne({
-    GuildID: oldMessage.guild.id
+    GuildID: newMessage.guild.id
   })
 
   if (data) {
     let embed = new MessageEmbed()
     .setTitle("New Message Edited")
-    .setDescription(`Message Edited in <#${oldMessage.channel.id}> by ${oldMessage.author}`)
+    .setDescription(`Message Edited in <#${newMessage.channel.id}> by ${newMessage.author}`)
     .addField("Old Message", oldMessage.content, true)
     .addField("New Message", newMessage.content, true)
     .setTimestamp()
@@ -181,7 +181,7 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
 
     let channel = data.Message
 
-    oldMessage.guild.channels.cache.get(channel).send(embed);
+    newMessage.guild.channels.cache.get(channel).send(embed);
   } else if (!data) {
     return;
   }
