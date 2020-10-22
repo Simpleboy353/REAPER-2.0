@@ -4,12 +4,6 @@ const PrefixSchema = new mongoose.Schema({
   Welcome: {
     type: String,
   },
-  WelcomeMsg: {
-    type: String,
-  },
-  State: {
-    type: String,
-  },
   GuildID: String
 });
 

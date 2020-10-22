@@ -17,7 +17,6 @@ module.exports = {
 
     if (data) {
       await prefixModel.findOneAndRemove({
-        State: "Yes",
         GuildID: message.guild.id
       });
 
@@ -25,7 +24,6 @@ module.exports = {
 
       let newData = new prefixModel({
         Welcome: message.mentions.channels.first().id,
-        State: "Yes",
         GuildID: message.guild.id
       });
       newData.save();
@@ -34,7 +32,6 @@ module.exports = {
 
       let newData = new prefixModel({
         Welcome: message.mentions.channels.first().id,
-        State: "Yes",
         GuildID: message.guild.id
       });
       newData.save();
