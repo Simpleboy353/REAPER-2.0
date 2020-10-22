@@ -141,4 +141,49 @@ client.on(`guildCreate`, guild =>{
   .setColor("GREEN")
    defaultChannel.send(embed);
 })
+
+const messageData = require("./Commands/Owner/models/messages")
+
+client.on(`messageDelete`, async(message)=> {
+  const data = await messageData.findOne({
+    GuildID: message.guild.id
+  })
+
+  if (data) {
+    let embed = new MessageEmbed()
+    .setTitle("New Message Deleted")
+    .setDescription(`${message.author} has deleted a message in <#${message.channel.id}>!`)
+    .addField(`Content`, message.content)
+    .setTimestamp()
+    .setColor("GREEN");
+
+    let channel = data.Message
+
+    message.guild.channels.cache.get(channel).send(embed);
+  } else if (!data) {
+    return;
+  }
+})
+
+client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
+  const data = await messageData.findOne({
+    GuildID: oldMessage.guild.id
+  })
+
+  if (data) {
+    let embed = new MessageEmbed()
+    .setTitle("New Message Edited")
+    .setDescription(`Message Edited in <#${oldMessage.channel.id}> by ${oldMessage.author}`)
+    .addField("Old Message", oldMessage.content, true)
+    .addField("New Message", newMessage.content, true)
+    .setTimestamp()
+    .setColor("GREEN")
+
+    let channel = data.Message
+
+    oldMessage.guild.channels.cache.get(channel).send(embed);
+  } else if (!data) {
+    return;
+  }
+})
 client.login(process.env.token)//Enter your bot token here
