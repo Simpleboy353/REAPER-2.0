@@ -77,7 +77,7 @@ client.on(`guildMemberAdd`, async(member)=>{
   const data = await welcomerData.findOne({
     GuildID: member.guild.id
   })
-  if (data && data.State === "Yes") {
+  if (data.State === "Yes") {
 
   let embed = new MessageEmbed()
     .setTitle("Welcome!")
@@ -87,7 +87,7 @@ client.on(`guildMemberAdd`, async(member)=>{
     let channel = data.Welcome
 
   member.guild.channels.cache.get(channel).send(embed);
-  } else if (!data && data.State === "No") {
+  } else if (data.State === "No") {
     return;
   }
 })
@@ -101,8 +101,7 @@ client.on(`guildMemberRemove`, async(member) => {
     GuildID: member.guild.id
   })
 
-  if (data && data.State === "Yes") {
-
+  if (data.State === "Yes") {
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
     .setDescription(`**${member.user.username}** just the Server! Hope they return back soon!\n\nWe are now left with **${member.guild.members.cache.size}** members!`)
@@ -111,9 +110,9 @@ client.on(`guildMemberRemove`, async(member) => {
    let channel = data.Bye
 
   member.guild.channels.cache.get(channel).send(embed);
-} else if (!data && data.State === "No") {
-  return;
-}
+  } else if (data.State === "No") {
+    return;
+  }
 })
 
 client.on(`guildCreate`, guild =>{
