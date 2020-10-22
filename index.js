@@ -70,27 +70,28 @@ client.on('message', async (message) => {
     commandfile.run(client, message, args);
 }
 });
-const welcomerData = require("./Commands/Owner/models/welcome")
+const welcomeData = require("./Commands/Owner/models/welcome")
 
-client.on(`guildMemberAdd`, async(member)=>{
+client.on(`guildMemberAdd`, async (member) => {
   const avatar = member.user.avatarURL;
 
-  const data = await welcomerData.findOne({
+  const data = await welcomeData.findOne({
     GuildID: member.guild.id
   })
+
   if (data) {
 
-  let embed = new MessageEmbed()
-    .setTitle("Welcome!")
-    .setThumbnail(avatar)
-    .setDescription(`${member}, Welcome to **${member.guild.name}**! We hope you like our server! Enjoy your stay here!`)
-    .setFooter(`We are now ${member.guild.members.cache.size} members!`)
-    .setThumbnail(member.user.avatarURL())
-    .setColor("GREEN");
+    let embed = new MessageEmbed()
+      .setTitle("Welcome")
+      .setThumbnail(avatar)
+      .setDescription(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`)
+      .setFooter(`We are now ${member.guild.members.cache.size} members!`)
+      .setThumbnail(member.user.avatarURL())
+      .setColor("GREEN");
 
     let channel = data.Welcome
 
-  member.guild.channels.cache.get(channel).send(embed);
+    member.guild.channels.cache.get(channel).send(embed);
   } else if (data) {
     return;
   }
