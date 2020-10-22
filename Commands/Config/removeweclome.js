@@ -13,7 +13,7 @@ module.exports = {
     });
 
     if (data) {
-      await prefixModel.findOneAndUpdate({
+      await prefixModel.findOneAndRemove({
         GuildID: message.guild.id
       });
 
