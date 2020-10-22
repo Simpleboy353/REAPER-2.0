@@ -2,8 +2,8 @@ const Discord = module.require("discord.js")
 const prefixModel = require("../Owner/models/bye");
 
 module.exports = {
-  name: "setbye",
-  description: "Change the goodbye channel per server!",
+  name: "removebye",
+  description: "Remove the goodbye channel per server!",
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
       return message.channel.send("You don't have enough Permissions!")
