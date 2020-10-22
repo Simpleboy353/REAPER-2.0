@@ -19,7 +19,7 @@ module.exports = {
 
       message.channel.send(`Goodbye Logs have been Stopped!`);
     } else if (!data) {
-      return message.channel.send(`Welcome Logs aern't setup!`)
+      return message.channel.send(`Goodbye Logs aren't setup!`)
     }
   }
 }
