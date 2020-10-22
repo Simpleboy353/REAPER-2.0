@@ -73,6 +73,7 @@ client.on('message', async (message) => {
 const welcomerData = require("./Commands/Owner/models/welcome")
 
 client.on(`guildMemberAdd`, async(member)=>{
+  const avatar = member.user.avatarURL;
 
   const data = await welcomerData.findOne({
     GuildID: member.guild.id
@@ -81,8 +82,10 @@ client.on(`guildMemberAdd`, async(member)=>{
 
   let embed = new MessageEmbed()
     .setTitle("Welcome!")
+    .setThumbnail(avatar)
     .setDescription(`${member}, Welcome to **${member.guild.name}**! Hope you will like our Server!`)
-    .setFooter(`We are now **${member.guild.members.cache.size}** members!`)
+    .setFooter(`We are now ${member.guild.members.cache.size} members!`)
+    .setThumbnail(member.user.avatarURL())
     .setColor("GREEN");
 
     let channel = data.Welcome
@@ -97,6 +100,7 @@ client.on(`guildMemberAdd`, async(member)=>{
 const byeData = require("./Commands/Owner/models/bye")
 
 client.on(`guildMemberRemove`, async(member) => {
+  const avatar = member.user.avatarURL;
 
   const data = await byeData.findOne({
     GuildID: member.guild.id
@@ -105,8 +109,10 @@ client.on(`guildMemberRemove`, async(member) => {
   if (data) {
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
+    .setThumbnail(avatar)
     .setDescription(`**${member.user.username}** just the Server! Hope they return back soon!`)
-    .setFooter(`We are now **${member.guild.members.cache.size}** members left!`)
+    .setFooter(`We are now ${member.guild.members.cache.size} members left!`)
+    .setThumbnail(member.user.avatarURL())
     .setColor("GREEN");
 
    let channel = data.Bye
