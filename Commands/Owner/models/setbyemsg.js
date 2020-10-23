@@ -22,7 +22,7 @@ module.exports = {
         GuildID: message.guild.id
       });
 
-      message.channel.send(`Mod Logs Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Goodbye Message set to ${text}`);
 
       let newData = new prefixModel({
         ByeMsg: args.join(" "),
@@ -30,7 +30,7 @@ module.exports = {
       });
       newData.save();
     } else if (!data) {
-      message.channel.send(`Mod Logs Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Goodbye Message set to ${text}`);
 
       let newData = new prefixModel({
         ByeMsg: args.join(" "),
