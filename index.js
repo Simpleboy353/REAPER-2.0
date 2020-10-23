@@ -109,11 +109,9 @@ client.on(`guildMemberRemove`, async(member) => {
 
   if (data) {
 
-    let msg = data.ByeMsg
-
     let embed = new MessageEmbed()
     .setTitle("Goodbye!")
-    .setDescription(msg)
+    .setDescription(data.ByMsg)
     .setColor("GREEN");
 
    let channel = data.Bye
