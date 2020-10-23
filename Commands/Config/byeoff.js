@@ -1,9 +1,9 @@
 const Discord = module.require("discord.js")
-const prefixModel = require("../Owner/models/welcome");
+const prefixModel = require("../Owner/models/bye");
 
 module.exports = {
-  name: "removewelcome",
-  description: "Remove the welcome channel per server!",
+  name: "byeoff",
+  description: "Remove the goodbye channel per server!",
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
       return message.channel.send("You don't have enough Permissions!")
@@ -17,10 +17,9 @@ module.exports = {
         GuildID: message.guild.id
       });
 
-      return message.channel.send(`Welcome logs have been stopped!`);
-
+      message.channel.send(`Goodbye Logs have been Stopped!`);
     } else if (!data) {
-      return message.channel.send(`Welcome Logs aren't setup!`)
+      return message.channel.send(`Goodbye Logs aren't setup!`)
     }
   }
 }

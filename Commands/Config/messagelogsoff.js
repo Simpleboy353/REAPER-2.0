@@ -2,7 +2,7 @@ const Discord = module.require("discord.js")
 const prefixModel = require("../Owner/models/messages");
 
 module.exports = {
-  name: "removemessagelogs",
+  name: "messagelogsoff",
   description: "Remove the messagelogs channel per server!",
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
