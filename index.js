@@ -195,4 +195,27 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
     return;
   }
 })
+
+const modData = require("./Commands/Owner/models/modlogs")
+
+client.on(`guildBanAdd`, async(member)=>{
+  const data = await modData.findOne({
+    GuildID: member.guild.id
+  })
+
+  if (data) {
+    let embed = new MessageEmbed()
+    .setTitle("Ban Case")
+    .setDescription(`${member} was banned from the Server!`)
+    .setColor("RED")
+
+    let channel = data.model
+
+    member.guil.channels.cache.get(channel).send(embed);
+
+    if (!data) {
+      return;
+    }
+  }
+})
 client.login(process.env.token)//Enter your bot token here
