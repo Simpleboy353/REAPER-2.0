@@ -155,8 +155,8 @@ client.on(`messageDelete`, async(message)=> {
     return;
     }
     let embed = new MessageEmbed()
-    .setTitle("New Message Deleted")
-    .setDescription(`${message.author} has deleted a message in <#${message.channel.id}>!`)
+    .setTitle("🗑️ Message Deleted")
+    .setDescription(`Message deleted in <#${message.channel.id}> by ${message.author}`)
     .addField(`Message Content`, message.content,true)
     .setTimestamp()
     .setColor("GREEN");
@@ -181,7 +181,7 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
     }
 
     let embed = new MessageEmbed()
-    .setTitle("New Message Edited")
+    .setTitle("📝 Message Edited")
     .setDescription(`Message Edited in <#${newMessage.channel.id}> by ${newMessage.author}`)
     .addField("Old Message", oldMessage.content, true)
     .addField("New Message", newMessage.content, true)
