@@ -12,7 +12,7 @@ module.exports = {
       GuildID: message.guild.id
     });
 
-    let text = args.join (" ");
+    let text = args.join(" ");
     if (!text) {
       return message.channel.send('Enter a message!');
     }
@@ -23,7 +23,7 @@ module.exports = {
       });
 
       let newData = new prefixModel({
-        ByeMsg: args.join(" "),
+        ByeMsg: text,
         GuildID: message.guild.id
       });
       newData.save();
@@ -33,7 +33,7 @@ module.exports = {
     } else if (!data) {
 
       let newData = new prefixModel({
-        ByeMsg: args.join(" "),
+        ByeMsg: text,
         GuildID: message.guild.id
       });
       newData.save();
