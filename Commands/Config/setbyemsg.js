@@ -22,21 +22,24 @@ module.exports = {
         GuildID: message.guild.id
       });
 
-      message.channel.send(`Goodbye Message set to ${text}`);
-
       let newData = new prefixModel({
         ByeMsg: args.join(" "),
         GuildID: message.guild.id
       });
       newData.save();
+
+      message.channel.send(`Goodbye Message set to ${data.ByeMsg}`);
+
     } else if (!data) {
-      message.channel.send(`Goodbye Message set to ${text}`);
 
       let newData = new prefixModel({
         ByeMsg: args.join(" "),
         GuildID: message.guild.id
       });
       newData.save();
+
+      message.channel.send(`Goodbye Message set to ${data.ByeMsg}`);
+
     }
   }
 }
