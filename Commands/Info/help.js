@@ -29,14 +29,14 @@ module.exports = {
       .setThumbnail(avatar)
       .setTitle("Available Command Categories")
       .setDescription(`
-<:conf:748544324978999448> __**CONFIGURATION**__: `, `\`${prefix}help config\`\nConfigure the bot as per your server!
-<a:ColorDino:726964382009131099> __**FUN**__: `, `\`${prefix}help fun\`\nHave some fun in your Server!
-<:cam:748544442478100511> __**IMAGE**__: `, `\`${prefix}help image\`\nManipulate Images with these commands
-<:inf:748544269798866964> __**INFORMATION**__: `, `\`${prefix}help info\`\nGet some info relating the Server, users or our Bot
-<:mod:748544387499294841> __**MODERATION**__: `, `\`${prefix}help mod\`\nIssues relating some users? Use these Commands
-<:music:761893108442071060> __**MUSIC**__: `, `\`${prefix}help music\`\nRelax and listen to some music!\nNote: Music Commands work with the default prefix \`=\` only!
-<:nsfw:768346751576440852> __**NSFW**__: `, `\`${prefix}help nsfw\`\nSome NSFW Content for you!
-<:utility:748177830134808597> __**UTILITIES**__: `, `\`${prefix}help utility\`\nSome Simple Utility Commands`)
+<:conf:748544324978999448> __**CONFIGURATION**__\n\`${prefix}help config\`\nConfigure the bot as per your server!
+<a:ColorDino:726964382009131099> __**FUN**__\n\`${prefix}help fun\`\nHave some fun in your Server!
+<:cam:748544442478100511> __**IMAGE**__\n\`${prefix}help image\`\nManipulate Images with these commands
+<:inf:748544269798866964> __**INFORMATION**__\n\`${prefix}help info\`\nGet some info relating the Server, users or our Bot
+<:mod:748544387499294841> __**MODERATION**__\n\`${prefix}help mod\`\nIssues relating some users? Use these Commands
+<:music:761893108442071060> __**MUSIC**__\n\`${prefix}help music\`\nRelax and listen to some music!\nNote: Music Commands work with the default prefix \`=\` only!
+<:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you!
+<:utility:748177830134808597> __**UTILITIES**__\n\`${prefix}help utility\`\nSome Simple Utility Commands`)
       .setThumbnail(client.user.avatarURL())
       .setColor("GREEN");
 
