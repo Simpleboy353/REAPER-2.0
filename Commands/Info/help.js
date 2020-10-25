@@ -85,7 +85,7 @@ module.exports = {
   } else if (args[0] === "fun") {
       const embed6 = new Discord.MessageEmbed()
         .setTitle("Fun Commands")
-        .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `gif`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `sacrifice`, `slap`, `spam`, `trivia`, `urban`, `vaportext`, `yomama`")
+        .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `gif`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `spam`, `trivia`, `urban`, `vaportext`, `yomama`")
         .setColor("RANDOM");
 
       return message.channel.send(embed6);
