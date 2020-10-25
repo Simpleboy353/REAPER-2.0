@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 const Color = `RANDOM`;
 
 module.exports = {
-  name: "stealemoji",
+  name: "addemoji",
   category: "Administrators",
   run: async (client, message, args) => {
     
