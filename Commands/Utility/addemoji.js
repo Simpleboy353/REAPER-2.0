@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const { parse } = require("twemoji-parser");
 const { MessageEmbed } = require("discord.js");
-const Color = `RANDOM`;
+const Color = `GREEN`;
 
 module.exports = {
   name: "addemoji",
@@ -27,7 +27,6 @@ module.exports = {
         `${name || `${customemoji.name}`}`
       );
       const Added = new MessageEmbed()
-        .setTitle(`Emoji Added`)
         .setColor(`${Color}`)
         .setDescription(`Emoji added with the name \`${name || customemoji.name}\``);
       return message.channel.send(Added);
