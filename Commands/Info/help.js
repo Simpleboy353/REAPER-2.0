@@ -51,7 +51,7 @@ module.exports = {
   } else if (args[0] === "music") {
       const embed2 = new Discord.MessageEmbed()
         .setTitle("Music Commands")
-        .setDescription("`play [p]`, `pause`, `resume [r]`, `skip [s]`, `shuffle`, `skipto [st]`, `search`, `disconnect [dis]`, `queue [q]`, `np`, `playlist [pl]`, `volume`, `pruning`, `remove`, `lyrics [ly]`, `repeat [rep]`")
+        .setDescription("`play [p]`, `pause`, `resume [r]`, `skip [s]`, `shuffle`, `skipto [st]`, `search`, `stop`, `queue [q]`, `np`, `playlist [pl]`, `volume`, `pruning`, `remove`, `lyrics [ly]`, `repeat [rep]`")
         .setFooter("Use = before each command!")
         .setColor("RANDOM");
 
