@@ -14,7 +14,7 @@ module.exports = {
     .setElementsPerPage(4)
     .setPageIndicator(true)
     .formatField("Commands List", el => el.word)
-    FieldsEmbed.embed()
+    FieldsEmbed.embed
     .setColor("CYAN")
     .setTitle("Hi")
     .setTimestamp()
