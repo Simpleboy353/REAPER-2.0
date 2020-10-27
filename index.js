@@ -196,5 +196,22 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
     return;
   }
 })
+const modData = require("./Commands/Owner/Models/modlogs")
+
+client.on(`channelCreate`, async(channel) => {
+const data = await modData.findOne({
+  GuildID: channel.guild.id
+})
+if (data) {
+  let embed = new MessageEmbed()
+  .setTitle("Channel Created")
+  .setDescription(`New Channel Named **${channel.name}** has been Created!`)
+  .setColor("GREEN")
+
+  let modchannel = data.Mod
+
+ channel.guild.channels.get(modchannel).send(embed);
+}
+});
 
 client.login(process.env.token)//Enter your bot token here
