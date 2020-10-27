@@ -196,7 +196,7 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
     return;
   }
 })
-const modData = require("./Commands/Owner/Models/modlogs")
+const modData = require("./Commands/Owner/models/modlogs")
 
 client.on(`channelCreate`, async(channel) => {
 const data = await modData.findOne({
