@@ -6,7 +6,7 @@ module.exports = {
     description: "Get gifs based on your search",
     run: async (client, message, args) => {
     if (args.length === 0) {
-        message.channel.send('No Seacrh terms!')
+        message.channel.send('No Search terms!')
         return;
     }
     if (args.length === 1) {
