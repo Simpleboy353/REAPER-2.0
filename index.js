@@ -197,4 +197,38 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
   }
 });
 
+const modData = require("./Commands/Owner/models/modlogs")
+client.on("guildBanAdd", async(guild, user)=>{
+  const data = await modData.findOne({
+    GuildID: guild.id
+  })
+  if (data) {
+    let embed = new MessageEmbed()
+    .setTitle("Ban Case")
+    .setDescription(`${user.username} was banned from the server!`)
+    .setColor("RED")
+
+    let channel = data.Mod
+    guild.channels.cache.get(channel).send(embed)
+  } else if (!data) {
+    return;
+  }
+});
+client.on("guildBanRemove", async (guild, user) => {
+  const data = await modData.findOne({
+    GuildID: guild.id
+  })
+  if (data) {
+    let embed = new MessageEmbed()
+      .setTitle("Unban Case")
+      .setDescription(`${user.username} was unbanned from the server!`)
+      .setColor("GREEN")
+
+    let channel = data.Mod
+    guild.channels.cache.get(channel).send(embed)
+  } else if (!data) {
+    return;
+  }
+});
+
 client.login(process.env.token)//Enter your bot token here
