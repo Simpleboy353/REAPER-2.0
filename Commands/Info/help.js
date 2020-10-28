@@ -31,7 +31,7 @@ module.exports = {
       .setDescription(`
 <:conf:748544324978999448> __**CONFIGURATION**__\n\`${prefix}help config\`\nConfigure the bot as per your server!
 
-<a:ColorDino:726964382009131099> __**FUN**__\n\`${prefix}help fun\`\nHave some fun in your Server!
+<:nerdfun:770838517576237068> __**FUN**__\n\`${prefix}help fun\`\nHave some fun in your Server!
 
 <:cam:748544442478100511> __**IMAGE**__\n\`${prefix}help image\`\nManipulate Images with these commands
 
