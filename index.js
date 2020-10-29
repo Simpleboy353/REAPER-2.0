@@ -401,7 +401,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
     if (newRole.name != oldRole.name) {
       change = changes.name
     }
-    if (newRole.hoisted != oldRole.hoisted) {
+    if (newRole.hoist != oldRole.hoist) {
       change = changes.hoisted
     }
     if (newRole.hexColor != oldRole.hexColor) {
