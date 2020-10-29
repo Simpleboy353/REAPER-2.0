@@ -204,9 +204,10 @@ client.on("guildBanAdd", async(guild, user)=>{
   })
   if (data) {
     let embed = new MessageEmbed()
-    .setTitle("Ban Case")
-    .setDescription(`${user.username} was banned from the server!`)
-    .setColor("RED")
+    .setDescription(`${user} was banned from the server!`)
+      .setFooter(`ID: ${user.id}`)
+      .setColor("RED")
+      .setTimestamp()
 
     let channel = data.Mod
     guild.channels.cache.get(channel).send(embed)
@@ -220,9 +221,10 @@ client.on("guildBanRemove", async (guild, user) => {
   })
   if (data) {
     let embed = new MessageEmbed()
-      .setTitle("Unban Case")
-      .setDescription(`${user.username} was unbanned from the server!`)
+      .setDescription(`${user} was unbanned from the server!`)
+      .setFooter(`ID: ${user.id}`)
       .setColor("GREEN")
+      .setTimestamp()
 
     let channel = data.Mod
     guild.channels.cache.get(channel).send(embed)
@@ -230,5 +232,109 @@ client.on("guildBanRemove", async (guild, user) => {
     return;
   }
 });
+
+// sends message when important (externally editable) user statuses change (for example nickname)
+// user in a guild has been updated
+client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
+  const data = await modData.findOne({
+    GuildID: newMember.guild.id
+  })
+  const guild = newMember.guild;
+  // declare changes
+
+  if (data) {
+   const  modlogs = data.Mod
+  var Changes = {
+    unknown: 0,
+    addedRole: 1,
+    removedRole: 2,
+    username: 3,
+    nickname: 4,
+    avatar: 5
+  }
+  var change = Changes.unknown
+
+  // check if roles were removed
+  var removedRole = ''
+  oldMember.roles.cache.ForEach(function (value) {
+    if (newMember.roles.cache.find('id', value.id) == null) {
+      change = Changes.removedRole
+      removedRole = value.name
+    }
+  })
+
+  // check if roles were added
+  var addedRole = ''
+  newMember.roles.cache.ForEach(function (value) {
+    if (oldMember.roles.cache.find('id', value.id) == null) {
+      change = Changes.addedRole
+      addedRole = value.name
+    }
+  })
+
+  // check if username changed
+  if (newMember.user.username != oldMember.user.username) {
+    change = Changes.username
+  }
+  // check if nickname changed
+  if (newMember.nickname != oldMember.nickname) {
+    change = Changes.nickname
+  }
+  // check if avatar changed
+  if (newMember.user.avatarURL != oldMember.user.avatarURL) {
+    change = Changes.avatar
+  }
+  // post in the guild's log channel
+    switch (change) {
+      case Changes.addedRole:
+        let embed = new MessageEmbed()
+        .setTitle("User Updates")
+        .setDescription(`**User Role Added** ` + newMember + `: ` + addedRole)
+        .setColor("GREEN")
+        .setTimestamp();
+        newMember.guild.channels.cache.get(modlogs).send(embed)
+        break
+      case Changes.removedRole:
+        let embed1 = new MessageEmbed()
+          .setTitle("User Updates")
+          .setDescription('**[User Role Removed]** ' + newMember + ': ' + removedRole)
+          .setColor("RED")
+          .setTimestamp();
+        newMember.guild.channels.cache.get(modlogs).send(embed1)
+        break
+      case Changes.username:
+        let embed2 = new MessageEmbed()
+          .setTitle("User Updates")
+          .setDescription('**[User Username Changed]** ' + newMember + ': Username changed from ' +
+            oldMember.user.username + '#' + oldMember.user.discriminator + ' to ' +
+            newMember.user.username + '#' + newMember.user.discriminator)
+          .setColor("RED")
+          .setTimestamp();
+        newMember.guild.channels.cache.get(modlogs).send(embed2);
+        break
+      case Changes.nickname:
+        let embed3 = new MessageEmbed()
+          .setTitle("User Updates")
+          .setDescription('**[User Nickname Changed]** ' + newMember + ': ' +
+            (oldMember.nickname != null ? 'Changed nickname from ' + oldMember.nickname +
+              +newMember.nickname : 'Set nickname') + ' to ' +
+            (newMember.nickname != null ? newMember.nickname + '.' : 'original username.'))
+          .setColor("RED")
+          .setTimestamp();
+        newMember.guild.channels.cache.get(modlogs).send(embed3);
+        break
+      case Changes.avatar:
+        let embed4 = new MessageEmbed()
+          .setTitle("User Updates")
+          .setDescription('**[User Avatar Changed]** ' + newMember)
+          .setColor("RED")
+          .setTimestamp();
+        newMember.guild.channels.cache.get(modlogs).send(embed4);
+        break;
+    }
+  } else if (!data) {
+    return;
+  }
+})
 
 client.login(process.env.token)//Enter your bot token here
