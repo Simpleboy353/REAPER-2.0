@@ -240,6 +240,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
     GuildID: newMember.guild.id
   })
   const guild = newMember.guild;
+  const avatar = newMember.user.avatarURL;
   // declare changes
 
   if (data) {
@@ -288,46 +289,50 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
     switch (change) {
       case Changes.addedRole:
         let embed = new MessageEmbed()
-        .setTitle("User Updates")
-        .setDescription(`**User Role Added** ` + newMember + `: ` + addedRole)
+        .setTitle(oldMember.user.tag)
+        .setThumbnail(avatar)
+        .setDescription(`**User Role Added**\n\nRole Added:${addedRole}`)
         .setColor("GREEN")
+        .setThumbnail(newMember.user.avatarURL())
         .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed)
         break
       case Changes.removedRole:
         let embed1 = new MessageEmbed()
-          .setTitle("User Updates")
-          .setDescription('**[User Role Removed]** ' + newMember + ': ' + removedRole)
+        .setThumbnail(avatar)
+          .setTitle(oldMember.user.tag)
+          .setDescription(`**User Role Removed**\n\nRole Removed: ${removedRole}`)
           .setColor("RED")
+          .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed1)
         break
       case Changes.username:
         let embed2 = new MessageEmbed()
-          .setTitle("User Updates")
-          .setDescription('**[User Username Changed]** ' + newMember + ': Username changed from ' +
-            oldMember.user.username + '#' + oldMember.user.discriminator + ' to ' +
-            newMember.user.username + '#' + newMember.user.discriminator)
-          .setColor("RED")
+          .setTitle(oldMember.user.tag)
+          .setThumbnail(avatar)
+          .setDescription(`**User Username Changed**\n\nOld Username: ${oldMember.user.tag}\n\nNew Username: ${newMember.user.tag}`)
+          .setColor("GREEN")
+          .setThumbnail(newMmber.user.avatarURL())
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed2);
         break
       case Changes.nickname:
         let embed3 = new MessageEmbed()
-          .setTitle("User Updates")
-          .setDescription('**[User Nickname Changed]** ' + newMember + ': ' +
-            (oldMember.nickname != null ? 'Changed nickname from ' + oldMember.nickname +
-              +newMember.nickname : 'Set nickname') + ' to ' +
-            (newMember.nickname != null ? newMember.nickname + '.' : 'original username.'))
-          .setColor("RED")
+        .setThumbnail(avatar)
+          .setTitle(oldMember.user.tag)
+          .setDescription(`**User Nickname Changed**\n\nOld Username: ${oldMember.nickname}\n\nNew Username: ${newMember.nickname}`)
+          .setColor("GREEN")
+          .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed3);
         break
       case Changes.avatar:
         let embed4 = new MessageEmbed()
-          .setTitle("User Updates")
-          .setDescription('**[User Avatar Changed]** ' + newMember)
-          .setColor("RED")
+          .setTitle(oldMember.user.tag)
+          .setDescription(`**User Avatar Changed**  [Before](${oldMember.user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})\n\n[After](${user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})`)
+          .setColor("GREEN")
+          .setThumbnail(oldMember.user.avatarURL)
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed4);
         break;
