@@ -246,32 +246,16 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   if (data) {
    const  modlogs = data.Mod
   var Changes = {
-    unknown: 0,
-    addedRole: 1,
-    removedRole: 2,
-    username: 3,
-    nickname: 4,
-    avatar: 5
+    roles: 1,
+    username: 2,
+    nickname: 3,
+    avatar: 4
   }
   var change = Changes.unknown
 
   // check if roles were removed
-  var removedRole = ''
-  oldMember.roles.cache.get(function (value) {
-    if (newMember.roles.cache.find('id', value.id) == null) {
-      change = Changes.removedRole
-      removedRole = value.name
-    }
-  })
-
-  // check if roles were added
-  var addedRole = ''
-  newMember.roles.cache.get(function (value) {
-    if (oldMember.roles.cache.find('id', value.id) == null) {
-      change = Changes.addedRole
-      addedRole = value.name
-    }
-  })
+  if (oldMember.roles.cache.get != newMember.roles.cache.get)
+   change = changes.roles
 
   // check if username changed
   if (newMember.user.username != oldMember.user.username) {
@@ -291,21 +275,11 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         let embed = new MessageEmbed()
         .setTitle(oldMember.user.tag)
         .setThumbnail(avatar)
-        .setDescription(`**User Role Added**\n\nRole Added:${addedRole}`)
+          .setDescription(`**User Roles Updated**\n\nNew Roles:<@&${newMember._roles.join(">  <@&")}>`)
         .setColor("GREEN")
         .setThumbnail(newMember.user.avatarURL())
         .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed)
-        break
-      case Changes.removedRole:
-        let embed1 = new MessageEmbed()
-        .setThumbnail(avatar)
-          .setTitle(oldMember.user.tag)
-          .setDescription(`**User Role Removed**\n\nRole Removed: ${removedRole}`)
-          .setColor("RED")
-          .setThumbnail(newMember.user.avatarURL())
-          .setTimestamp();
-        newMember.guild.channels.cache.get(modlogs).send(embed1)
         break
       case Changes.username:
         let embed2 = new MessageEmbed()
@@ -348,7 +322,7 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
   })
 
   var icon = newGuild.iconURL;
-  
+
   if (data) {
     let modlogs = data.Mod
     var changes  = {
