@@ -71,11 +71,15 @@ client.on('message', async (message) => {
 }
 });
 const welcomeData = require("./Commands/Owner/models/welcome")
+const modData2 = require("./Commands/Owner/models/mod")
 
 client.on(`guildMemberAdd`, async (member) => {
   const avatar = member.user.avatarURL;
 
   const data = await welcomeData.findOne({
+    GuildID: member.guild.id
+  })
+  const data2 = await modData2.findOne({
     GuildID: member.guild.id
   })
 
@@ -95,6 +99,19 @@ client.on(`guildMemberAdd`, async (member) => {
   } else if (data) {
     return;
   }
+  if (data2) {
+   let modchannel = data2.Mod
+
+   let embed2 = new MessageEmbed()
+   .setTitle ("📥 Member Joined")
+   .setdescription(`User: ${member}\nID: ${member.user.id}`)
+   .setTimestamp()
+   .setColor("GREEN")
+
+member.guild.channels.cache.get(modchannel).send(embed2)
+ } else if (!data2) {
+   return;
+ }
 })
 
 
@@ -106,7 +123,9 @@ client.on(`guildMemberRemove`, async(member) => {
   const data = await byeData.findOne({
     GuildID: member.guild.id
   })
-
+  const data2 = await modData2.findOne({
+    GuildID: member.guild.id
+  })
   if (data) {
 
     const avatar = member.user.avatarURL;
@@ -124,6 +143,19 @@ client.on(`guildMemberRemove`, async(member) => {
   } else if (data) {
     return;
   }
+  if (data2) {
+   let modchannel = data2.Mod
+
+   let embed2 = new MessageEmbed()
+   .setTitle ("📤 Member Left")
+   .setdescription(`User: ${member}\nID: ${member.user.id}`)
+   .setTimestamp()
+   .setColor("RED")
+
+member.guild.channels.cache.get(modchannel).send(embed2)
+ } else if (!data2) {
+   return;
+ }
 })
 
 client.on(`guildCreate`, guild =>{
@@ -271,11 +303,13 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   }
   // post in the guild's log channel
     switch (change) {
-      case Changes.addedRole:
+      case Changes.roles:
         let embed = new MessageEmbed()
-        .setTitle(oldMember.user.tag)
+        .setTitle(newMember.user.tag)
         .setThumbnail(avatar)
-          .setDescription(`**User Roles Updated**\n\nNew Roles:<@&${newMember._roles.join(">  <@&")}>`)
+        .setDescription(`**📝 User Roles Updated**`)
+        .addField(`Old Roles`, `<@&${oldMember._roles.join(">  <@&")}>`, true)
+        .addField(`New Roles`, `<@&${newMember._roles.join(">  <@&")}>`, true)
         .setColor("GREEN")
         .setThumbnail(newMember.user.avatarURL())
         .setTimestamp();
@@ -285,9 +319,9 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         let embed2 = new MessageEmbed()
           .setTitle(oldMember.user.tag)
           .setThumbnail(avatar)
-          .setDescription(`**User Username Changed**\n\nNew Username: ${newMember.user.tag}`)
+          .addField(`📝 User Username Changed`, `${oldMember.user.tag} >> ${newMember.user.tag}`)
           .setColor("GREEN")
-          .setThumbnail(newMmber.user.avatarURL())
+          .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed2);
         break
@@ -295,7 +329,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         let embed3 = new MessageEmbed()
         .setThumbnail(avatar)
           .setTitle(oldMember.user.tag)
-          .setDescription(`**User Nickname Changed**\n\nNew Nickname: ${newMember.nickname}`)
+          .addField(`📝 User Nickname Changed`, `${oldMember.nickname} >> ${newMember.nickname}`)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
@@ -303,8 +337,8 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         break
       case Changes.avatar:
         let embed4 = new MessageEmbed()
-          .setTitle(oldMember.user.tag)
-          .setDescription(`**User Avatar Changed**  [Before](${oldMember.user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})\n\n[After](${user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})`)
+          .setTitle(newMember.user.tag)
+          .addField(`📷 User Avatar Changed`, `[Before](${oldMember.user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })}) >> [After](${user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})`)
           .setColor("GREEN")
           .setThumbnail(oldMember.user.avatarURL)
           .setTimestamp();
@@ -344,9 +378,9 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
  switch(change) {
    case changes.name:
      let embed = new MessageEmbed()
-     .setTitle("Server Updates")
+     .setTitle("📝 Server Updates")
      .setThumbnail(icon)
-     .setDescription(`Server Name Changed\n\nOld Name: **${oldGuild.name}**\n\nNew Name: **${newGuild.name}**`)
+     .addField(`Server Name Changed`,`${oldGuild.name} >> ${newGuild.name}`)
      .setTimestamp()
      .setThumbnail(newGuild.iconURL())
      .setColor("GREEN")
@@ -354,9 +388,9 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
     break
      case changes.veriflvl:
      let embed2 = new MessageEmbed()
-       .setTitle("Server Updates")
+       .setTitle("📝 Server Updates")
        .setThumbnail(icon)
-       .setDescription(`Server Verification Level Changed\n\nOld Verf. Level: ${oldGuild.verificationLevel}\n\nNew Vef. Level: **${newGuild.verificationLevel}**`)
+       .addField(`Server Verification Level Changed`, `${oldGuild.verificationLevel} >> ${newGuild.verificationLevel}`)
        .setTimestamp()
        .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
@@ -364,9 +398,9 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
      break
      case changes.icon:
      let embed3 = new MessageEmbed()
-       .setTitle("Server Updates")
+       .setTitle("📝 Server Updates")
        .setThumbnail(icon)
-       .setDescription(`Server Icon Changed\n\n[Old Icon](${oldGuild.iconURL({ size: 2048, dynamic: true, format: "png" })})\n\n[New Icon](${newGuild.iconURL({size: 2048, dynamic: true, format: "png"})})`)
+       .addField(`Server Icon Changed`, `[Old Icon](${oldGuild.iconURL({ size: 2048, dynamic: true, format: "png" })}) >> [New Icon](${newGuild.iconURL({size: 2048, dynamic: true, format: "png"})})`)
        .setTimestamp()
        .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
