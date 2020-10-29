@@ -342,4 +342,56 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   }
 })
 
+client.on(`guildUpdate`, async(oldGuild, newGuild) => {
+  const data = await modData.findOne({
+    GuildID: newGuild.id
+  })
+
+  if (data) {
+    let modlogs = data.Mod
+    var changes  = {
+      name: 1,
+      icon: 2,
+      veriflvl: 3,
+    }
+ var change = changes.unknown
+
+ if (oldGuild.name != newGuild.name)
+ change = changes.name
+
+ if (oldGuild.verificationLevel != newGuild.verificationLevel)
+ change = changes.veriflvl
+  
+ if (oldGuild.icon != newGuild.icon)
+ change = changes.icon
+
+ switch(change) {
+   case changes.name:
+     let embed = new MessageEmbed()
+     .setTitle("Server Updates")
+     .setDescription(`Server Name Changed\n\nOld Name: ${oldGuild.name}\n\nNew Name: ${newGuild.name}`)
+     .setTimestamp()
+     .setColor("GREEN")
+  newGuild.channels.cache.get(modlogs).send(embed)
+    break
+     case changes.veriflvl:
+     let embed2 = new MessageEmbed()
+       .setTitle("Server Updates")
+       .setDescription(`Server Verification Level Changed\n\nOld Verf. Level: ${oldGuild.verificationLevel}\n\nNew Name: ${newGuild.verificationLevel}`)
+       .setTimestamp()
+       .setColor("GREEN")
+     newGuild.channels.cache.get(modlogs).send(embed2)
+     break
+     case changes.icon:
+     let embed3 = new MessageEmbed()
+       .setTitle("Server Updates")
+       .setDescription(`Server Icon Changed\n\n[Old Icon](${oldGuild.iconURL({ size: 2048, dynamic: true, format: "png" })})\n\n[New Icon](${newGuild.iconURL({size: 2048, dynamic: true, format: "png"})})`)
+       .setTimestamp()
+       .setColor("GREEN")
+     newGuild.channels.cache.get(modlogs).send(embed3)
+
+   }
+  }
+})
+
 client.login(process.env.token)//Enter your bot token here
