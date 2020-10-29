@@ -96,7 +96,7 @@ client.on(`guildMemberAdd`, async (member) => {
     let channel = data.Welcome
 
     member.guild.channels.cache.get(channel).send(embed);
-  } else if (data) {
+  } else if (!data) {
     return;
   }
   if (data2) {
@@ -140,7 +140,7 @@ client.on(`guildMemberRemove`, async(member) => {
    let channel = data.Bye
 
   member.guild.channels.cache.get(channel).send(embed);
-  } else if (data) {
+  } else if (!data) {
     return;
   }
   if (data2) {
