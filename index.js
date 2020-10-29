@@ -1,4 +1,4 @@
-const { Client, Collection, MessageEmbed } = require("discord.js")
+const { Client, Collection, MessageEmbed, Guild } = require("discord.js")
 
 const fs = require("fs")
 const client = new Client({
@@ -347,6 +347,8 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
     GuildID: newGuild.id
   })
 
+  var icon = newGuild.iconURL;
+  
   if (data) {
     let modlogs = data.Mod
     var changes  = {
@@ -369,24 +371,30 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
    case changes.name:
      let embed = new MessageEmbed()
      .setTitle("Server Updates")
-     .setDescription(`Server Name Changed\n\nOld Name: ${oldGuild.name}\n\nNew Name: ${newGuild.name}`)
+     .setThumbnail(icon)
+     .setDescription(`Server Name Changed\n\nOld Name: **${oldGuild.name}**\n\nNew Name: **${newGuild.name}**`)
      .setTimestamp()
+     .setThumbnail(newGuild.iconURL())
      .setColor("GREEN")
   newGuild.channels.cache.get(modlogs).send(embed)
     break
      case changes.veriflvl:
      let embed2 = new MessageEmbed()
        .setTitle("Server Updates")
-       .setDescription(`Server Verification Level Changed\n\nOld Verf. Level: ${oldGuild.verificationLevel}\n\nNew Name: ${newGuild.verificationLevel}`)
+       .setThumbnail(icon)
+       .setDescription(`Server Verification Level Changed\n\nOld Verf. Level: ${oldGuild.verificationLevel}\n\nNew Vef. Level: **${newGuild.verificationLevel}**`)
        .setTimestamp()
+       .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
      newGuild.channels.cache.get(modlogs).send(embed2)
      break
      case changes.icon:
      let embed3 = new MessageEmbed()
        .setTitle("Server Updates")
+       .setThumbnail(icon)
        .setDescription(`Server Icon Changed\n\n[Old Icon](${oldGuild.iconURL({ size: 2048, dynamic: true, format: "png" })})\n\n[New Icon](${newGuild.iconURL({size: 2048, dynamic: true, format: "png"})})`)
        .setTimestamp()
+       .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
      newGuild.channels.cache.get(modlogs).send(embed3)
 
