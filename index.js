@@ -71,7 +71,7 @@ client.on('message', async (message) => {
 }
 });
 const welcomeData = require("./Commands/Owner/models/welcome")
-const modData2 = require("./Commands/Owner/models/mod")
+const modData2 = require("./Commands/Owner/models/modlogs")
 
 client.on(`guildMemberAdd`, async (member) => {
   const avatar = member.user.avatarURL;
