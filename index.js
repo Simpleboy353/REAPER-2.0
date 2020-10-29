@@ -99,19 +99,6 @@ client.on(`guildMemberAdd`, async (member) => {
   } else if (!data) {
     return;
   }
-  if (data2) {
-   let modchannel = data2.Mod
-
-   let embed2 = new MessageEmbed()
-   .setTitle("📥 Member Joined")
-   .setdescription(`User: ${member}\nID: ${member.user.id}`)
-   .setTimestamp()
-   .setColor("GREEN")
-
-member.guild.channels.cache.get(modchannel).send(embed2)
- } else if (!data2) {
-   return;
- }
 })
 
 
@@ -142,19 +129,6 @@ if (data) {
   } else if (!data) {
     return;
   }
-  if (data2) {
-   let modchannel = data2.Mod
-
-   let embed2 = new MessageEmbed()
-   .setTitle("📤 Member Left")
-   .setdescription(`User: ${member}\nID: ${member.user.id}`)
-   .setTimestamp()
-   .setColor("RED")
-
-member.guild.channels.cache.get(modchannel).send(embed2)
- } else if (!data2) {
-   return;
- }
 })
 
 client.on(`guildCreate`, guild =>{
@@ -285,8 +259,8 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   var change = Changes.unknown
 
   // check if roles were removed
-  if (oldMember.roles.cache.get != newMember.roles.cache.get)
-   change = changes.roles
+  if (newMember.roles.cache.get != oldMember.roles.cache.get)
+   change = Changes.roles
 
   // check if username changed
   if (newMember.user.username != oldMember.user.username) {
@@ -307,6 +281,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         .setTitle(newMember.user.tag)
         .setThumbnail(avatar)
         .setDescription(`**📝 User Roles Updated**`)
+          .addField(`Old Roles`, `<@&${oldMember._roles.join(">  <@&")}>`, true)
         .addField(`New Roles`, `<@&${newMember._roles.join(">  <@&")}>`, true)
         .setColor("GREEN")
         .setThumbnail(newMember.user.avatarURL())
@@ -405,6 +380,111 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
      newGuild.channels.cache.get(modlogs).send(embed3)
 
    }
+  }
+})
+client.on(`roleUpdate`, async(oldRole, newRole)=> {
+  const data = await modData.findOne({
+    GuildID: newRole.guild.id
+  })
+
+  if (data) {
+    let modlogs = data.Mod
+    var changes = {
+      name: 1,
+      hoisted: 2,
+      color: 3,
+      mention: 4
+    }
+     
+    var change = changes.unknown
+
+    if (newRole.name != oldRole.name) {
+      change = changes.name
+    }
+    if (newRole.hoisted != oldRole.hoisted) {
+      change = changes.hoisted
+    }
+    if (newRole.hexColor != oldRole.hexColor) {
+      change = changes.color
+    }
+    if (newRole.mentionable != oldRole.mentionable) {
+      change = changes.mention
+    }
+    switch (change) {
+      case changes.name:
+        let embed = new MessageEmbed()
+        .setTitle("Role Updates")
+        .setDescription(`Name changed for the ${oldRole} role`)
+        .addField(`Old Name`, `${oldRole.name}`)
+        .addField(`New Name`, `${newRole.name}`)
+        .setColor("GREEN")
+        .setTimestamp()
+
+        newRole.guild.channels.cache.get(modlogs).send(embed)
+        break
+        case changes.hoisted:
+          let embed2 = new MessageEmbed()
+          .setTitle("Role Updates")
+          .setDescription(`Updated ${oldRole.name} role\nHoisted\n\n${oldRole.hoist} >> ${newRole.hoist}`)
+          .setColor("GREEN")
+          .setTimestamp()
+          newRole.guild.channels.cache.get(modlogs).send(embed2)
+          break
+          case changes.color:
+        let embed3 = new MessageEmbed()
+          .setTitle("Role Updates")
+          .setDescription(`Name changed for ${oldRole.name}\n${oldRole.name} >> ${newRole.name}`)
+          .setColor("GREEN")
+          .setTimestamp()
+        newRole.guild.channels.cache.get(modlogs).send(embed3)
+        break
+        case changes.mention:
+        let embed4 = new MessageEmbed()
+          .setTitle("Role Updates")
+          .setDescription(`Updated ${oldRole.name} role\nMentionable\n${oldRole.mentionable} >> ${newRole.mentionable}`)
+          .setColor("GREEN")
+          .setTimestamp()
+        newRole.guild.channels.cache.get(modlogs).send(embed4)
+        break
+    }
+  } else if (!data) {
+    return;
+  }
+})
+client.on(`roleCreate`, async(role)=>{
+  const data = await modData.findOne({
+    GuildID: role.guild.id
+  })
+  if (data) {
+    let embed = new MessageEmbed()
+    .setTitle("Role Created")
+    .setDescription(`Name: ${role.name}\nColor: ${role.hexColor}\nHoisted: ${role.hoist}\nMentionable: ${role.mentionable}`)
+    .setColor("GREEN")
+    .setTimestamp()
+
+    let channel = data.Mod
+
+    role.guild.channels.cache.get(channel).send(embed)
+  } else if (!data) {
+    return;
+  }
+})
+client.on(`roleDelete`, async (role) => {
+  const data = await modData.findOne({
+    GuildID: role.guild.id
+  })
+  if (data) {
+    let embed = new MessageEmbed()
+      .setTitle("Role Deleted")
+      .setDescription(`Name: ${role.name}\nColor: ${role.hexColor}\nHoisted: ${role.hoist}\nMentionable: ${role.mentionable}`)
+      .setColor("RED")
+      .setTimestamp()
+
+    let channel = data.Mod
+
+    role.guild.channels.cache.get(channel).send(embed)
+  } else if (!data) {
+    return;
   }
 })
 
