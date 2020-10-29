@@ -285,7 +285,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         let embed2 = new MessageEmbed()
           .setTitle(oldMember.user.tag)
           .setThumbnail(avatar)
-          .setDescription(`**User Username Changed**\n\nOld Username: ${oldMember.user.tag}\n\nNew Username: ${newMember.user.tag}`)
+          .setDescription(`**User Username Changed**\n\nNew Username: ${newMember.user.tag}`)
           .setColor("GREEN")
           .setThumbnail(newMmber.user.avatarURL())
           .setTimestamp();
