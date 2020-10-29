@@ -126,20 +126,19 @@ client.on(`guildMemberRemove`, async(member) => {
   const data2 = await modData2.findOne({
     GuildID: member.guild.id
   })
-  if (data) {
+if (data) {
 
-    const avatar = member.user.avatarURL;
     let embed = new MessageEmbed()
-    .setTitle("Goodbye")
-    .setThumbnail(avatar)
-    .setDescription(`**${member.user.username}** just left the server! We hope they return back soon!`)
-    .setFooter(`We are now ${member.guild.members.cache.size} members left`)
-    .setThumbnail(member.user.avatarURL())
-    .setColor("GREEN");
+      .setTitle("Goodbye")
+      .setThumbnail(avatar)
+      .setDescription(`**${member.user.username}** just left the server! We hope they return back soon!`)
+      .setFooter(`We are now ${member.guild.members.cache.size} members!`)
+      .setThumbnail(member.user.avatarURL())
+      .setColor("GREEN");
 
-   let channel = data.Bye
+    let channel = data.Welcome
 
-  member.guild.channels.cache.get(channel).send(embed);
+    member.guild.channels.cache.get(channel).send(embed);
   } else if (!data) {
     return;
   }
