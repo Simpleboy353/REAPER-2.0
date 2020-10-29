@@ -256,7 +256,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
 
   // check if roles were removed
   var removedRole = ''
-  oldMember.roles.cache.ForEach(function (value) {
+  oldMember.roles.every(function (value) {
     if (newMember.roles.cache.find('id', value.id) == null) {
       change = Changes.removedRole
       removedRole = value.name
@@ -265,7 +265,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
 
   // check if roles were added
   var addedRole = ''
-  newMember.roles.cache.ForEach(function (value) {
+  newMember.roles.every(function (value) {
     if (oldMember.roles.cache.find('id', value.id) == null) {
       change = Changes.addedRole
       addedRole = value.name
