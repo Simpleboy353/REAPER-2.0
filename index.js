@@ -425,7 +425,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         case changes.hoisted:
           let embed2 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Updated ${oldRole.name} role\nHoisted\n\n${oldRole.hoist} >> ${newRole.hoist}`)
+          .setDescription(`Updated ${oldRole} role\nHoisted\n\n${oldRole.hoist} >> ${newRole.hoist}`)
           .setColor("GREEN")
           .setTimestamp()
           newRole.guild.channels.cache.get(modlogs).send(embed2)
@@ -433,7 +433,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           case changes.color:
         let embed3 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Color changed for ${oldRole.name} role\n${oldRole.hexColor} >> ${newRole.hexColor}`)
+          .setDescription(`Color changed for ${oldRole} role\n${oldRole.hexColor} >> ${newRole.hexColor}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed3)
@@ -441,7 +441,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         case changes.mention:
         let embed4 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Updated ${oldRole.name} role\nMentionable\n${oldRole.mentionable} >> ${newRole.mentionable}`)
+          .setDescription(`Updated ${oldRole} role\nMentionable\n${oldRole.mentionable} >> ${newRole.mentionable}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed4)
