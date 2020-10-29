@@ -422,7 +422,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           let embed2 = new MessageEmbed()
           .setTitle("Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Hoisted`, `${oldRole.hoist} >> ${newRole.Hoist}`)
+          .addField(`Hoisted`, `${oldRole.hoist} >> ${newRole.hoist}`)
           .setColor("GREEN")
           .setTimestamp()
           newRole.guild.channels.cache.get(modlogs).send(embed2)
