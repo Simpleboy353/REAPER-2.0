@@ -103,7 +103,7 @@ client.on(`guildMemberAdd`, async (member) => {
    let modchannel = data2.Mod
 
    let embed2 = new MessageEmbed()
-   .setTitle ("📥 Member Joined")
+   .setTitle("📥 Member Joined")
    .setdescription(`User: ${member}\nID: ${member.user.id}`)
    .setTimestamp()
    .setColor("GREEN")
@@ -147,7 +147,7 @@ client.on(`guildMemberRemove`, async(member) => {
    let modchannel = data2.Mod
 
    let embed2 = new MessageEmbed()
-   .setTitle ("📤 Member Left")
+   .setTitle("📤 Member Left")
    .setdescription(`User: ${member}\nID: ${member.user.id}`)
    .setTimestamp()
    .setColor("RED")
@@ -308,7 +308,6 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         .setTitle(newMember.user.tag)
         .setThumbnail(avatar)
         .setDescription(`**📝 User Roles Updated**`)
-        .addField(`Old Roles`, `<@&${oldMember._roles.join(">  <@&")}>`, true)
         .addField(`New Roles`, `<@&${newMember._roles.join(">  <@&")}>`, true)
         .setColor("GREEN")
         .setThumbnail(newMember.user.avatarURL())
