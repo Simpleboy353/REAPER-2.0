@@ -104,26 +104,23 @@ client.on(`guildMemberAdd`, async (member) => {
 
 const byeData = require("./Commands/Owner/models/bye")
 
-client.on(`guildMemberRemove`, async(member) => {
+client.on(`guildMemberRemove`, async (member) => {
   const avatar = member.user.avatarURL;
 
   const data = await byeData.findOne({
     GuildID: member.guild.id
   })
-  const data2 = await modData2.findOne({
-    GuildID: member.guild.id
-  })
-if (data) {
+  if (data) {
 
     let embed = new MessageEmbed()
       .setTitle("Goodbye")
       .setThumbnail(avatar)
-      .setDescription(`**${member.user.username}** just left the server! We hope they return back soon!`)
+      .setDescription(`${member.user.username} just left the server! We hope they return back soon!`)
       .setFooter(`We are now ${member.guild.members.cache.size} members!`)
       .setThumbnail(member.user.avatarURL())
       .setColor("GREEN");
 
-    let channel = data.Welcome
+    let channel = data.Bye
 
     member.guild.channels.cache.get(channel).send(embed);
   } else if (!data) {
@@ -414,9 +411,8 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
       case changes.name:
         let embed = new MessageEmbed()
         .setTitle("Role Updates")
-        .setDescription(`Name changed for the ${oldRole} role`)
-        .addField(`Old Name`, `${oldRole.name}`)
-        .addField(`New Name`, `${newRole.name}`)
+        .setDescription(`Updated ${oldRole} role`)
+        .addField(`Name`, `${oldRole.name} >> ${newRole.name}`)
         .setColor("GREEN")
         .setTimestamp()
 
@@ -425,7 +421,8 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         case changes.hoisted:
           let embed2 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Updated ${oldRole} role\nHoisted\n\n${oldRole.hoist} >> ${newRole.hoist}`)
+          .setDescription(`Updated ${oldRole} role`)
+          .addField(`Hoisted`, `${oldRole.hoist} >> ${newRole.Hoist}`)
           .setColor("GREEN")
           .setTimestamp()
           newRole.guild.channels.cache.get(modlogs).send(embed2)
@@ -433,7 +430,8 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           case changes.color:
         let embed3 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Color changed for ${oldRole} role\n${oldRole.hexColor} >> ${newRole.hexColor}`)
+          .setDescription(`Updated ${oldRole} role`)
+          .addField(`Color`,`${oldRole.hexColor} >> ${newRole.hexColor}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed3)
@@ -441,7 +439,8 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         case changes.mention:
         let embed4 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Updated ${oldRole} role\nMentionable\n${oldRole.mentionable} >> ${newRole.mentionable}`)
+          .setDescription(`Updated ${oldRole} role`)
+          .addField(`Mentionable`, `${oldRole.mentionable} >> ${newRole.mentionable}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed4)
