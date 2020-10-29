@@ -298,7 +298,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
     change = Changes.nickname
   }
   // check if avatar changed
-  if (newMember.user.avatarURL != oldMember.user.avatarURL) {
+  if (newMember.user.avatar != oldMember.user.avatar) {
     change = Changes.avatar
   }
   // post in the guild's log channel
