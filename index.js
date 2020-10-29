@@ -433,7 +433,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           case changes.color:
         let embed3 = new MessageEmbed()
           .setTitle("Role Updates")
-          .setDescription(`Name changed for ${oldRole.name}\n${oldRole.name} >> ${newRole.name}`)
+          .setDescription(`Color changed for ${oldRole.name} role\n${oldRole.hexColor} >> ${newRole.hexColor}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed3)
