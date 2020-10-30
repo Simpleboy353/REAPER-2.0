@@ -473,7 +473,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           .addField(`Permissions`, `New Permissions: ${newRole.permissions}`)
           .setColor("GREEN")
           .setTimestamp()
-        newRole.guild.channels.get(modlogs).send(embed5)
+        newRole.guild.channels.cache.get(modlogs).send(embed5)
     }
   } else if (!data) {
     return;
