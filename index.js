@@ -425,16 +425,6 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
     if (newRole.mentionable != oldRole.mentionable) {
       change = changes.mention
     }
-    if (newRole.permissions != oldRole.permissions) {
-      var permissions = require("./permissions.json")
-      const mentionPermissions = newRole.permissions.toArray() === null ? "None" : newRole.permissions.toArray();
-      var finalPermissions = [];
-      for (const permission in permissions) {
-        if (mentionPermissions.includes(permission)) finalPermissions.push(`${permissions[permission]}`);
-        else;
-      }
-      change = changes.permission
-    }
     switch (change) {
       case changes.name:
         let embed = new MessageEmbed()
@@ -473,15 +463,6 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed4)
         break
-        case changes.permission:
-          let embed5 = new MessageEmbed()
-          .setTitle("Role Updates")
-          .setDescription(`Updated ${oldRole} role`)
-          .addField(`New Permissions`, `${finalPermissions}`)
-          .setColor("GREEN")
-          .setTimestamp()
-        newRole.guild.channels.cache.get(modlogs).send(embed5)
-          break
     }
   } else if (!data) {
     return;
