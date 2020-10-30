@@ -533,24 +533,5 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     return;
   }
 })
-client.on(`presenceUpdate`, async(oldMember, newMember)=>{
-  let oldUser = oldMember.member;
-  let newUser = newMember.member;
-  const data = await modData.findOne({
-    GuildID: newUser.guild.id
-  })
-  if (data) {
-    let modlogs = data.Mod
-    let embed = new MessageEmbed()
-    .setTitle(newUser.user.tag)
-    .addField(`User Status Updated`, `${oldUser.user.presence.status} >> ${newUser.user.presence.status}`)
-    .setColor("GREEN")
-    .setTimestamp()
-
-    newUser.guild.channels.cache.get(modlogs).send(embed);
-  } else if (!data) {
-    return;
-  }
-})
 
 client.login(process.env.token)//Enter your bot token here
