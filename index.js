@@ -486,5 +486,91 @@ client.on(`roleDelete`, async (role) => {
     return;
   }
 })
+client.on(`presenceUpdate`, async(oldPresence, newPresence)=>{
+  const data = await modData.findOne({
+    GuildID: newPresence.guild.id
+  })
+  if (data) {
+    let modlogs = data.Mod
+    let embed = new MessageEmbed()
+    .setTitle(newPresence.user.tag)
+      .addField(`User Status Updated`, `${oldPresence.user.presence.status} >> ${newPresence.user.presence.status}`)
+      .setColor("GREEN")
+      .setTimestamp()
 
+      newPresence.guild.channels.cache.get(modlogs).send(embed)
+  }
+})
+client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
+  const data = await modData.findOne({
+    GuildID: newUser.guild.id
+  })
+  if (data) {
+    let modlogs = data.Mod
+    var changes = {
+      deafened: 1,
+      muted: 2,
+      voicechannel: 3,
+      kicked: 4
+    }
+
+    var change = changes.unknown
+
+    if (newUser.deaf != oldUser.deaf) {
+      change = changes.deafened
+    }
+    if (newUser.mute != oldUser.mute) {
+      change = changes.muted
+    }
+    if (newUser.connection != oldUser.connection) {
+      change = changes.voicechannel
+    }
+    if (newUser.kick != oldUser.kick) {
+      change = changes.kicked
+    }
+    switch (change) {
+      case changes.deafened:
+        let embed = new MessageEmbed()
+        .setTitle("Voice State Updates")
+        .setDescription(`Voice State Updated For ${newUser}`)
+        .addField(`Deafened`, `${oldUser.deaf} >> ${newUser.deaf}`)
+        .setColor("RED")
+        .setTimestamp()
+
+        newUser.guild.channels.cache.get(modlogs).send(embed)
+        break
+          case changes.muted:
+           let embed1 = new MessageEmbed()
+           .setTitle("Voice State Updates")
+           .setDescription(`Voice State Updated For ${newUser}`)
+           .addField(`Muted`, `${oldUser.mute} >> ${newUser.mute}`)
+           .setColor("RED")
+           .setTimestamp()
+
+        newUser.guild.channels.cache.get(modlogs).send(embed1)
+        break
+      case changes.voicechannel:
+        let embed3 = new MessageEmbed()
+          .setTitle("Voice State Updates")
+          .setDescription(`Voice State Updated For ${newUser}`)
+          .addField(`Voice Connection`, `${oldUser.connection} >> ${newUser.connection}`)
+          .setColor("RED")
+          .setTimestamp()
+
+        newUser.guild.channels.cache.get(modlogs).send(embed3)
+        break
+      case changes.kicked:
+        let embed4 = new MessageEmbed()
+          .setTitle("Voice State Updates")
+          .setDescription(`Voice State Updated For ${newUser}`)
+          .addField(`Kicked`, `${oldUser.kick} >> ${newUser.kick}`)
+          .setColor("RED")
+          .setTimestamp()
+
+        newUser.guild.channels.cache.get(modlogs).send(embed4)
+    }
+  } else if (!data) {
+    return;
+  }
+})
 client.login(process.env.token)//Enter your bot token here
