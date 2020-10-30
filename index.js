@@ -256,7 +256,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   var change = Changes.unknown
 
   // check if roles were removed
-  if (newMember.roles.cache.get != oldMember.roles.cache.get)
+  if (newMember.roles.cache.get() != oldMember.roles.cache.get())
    change = Changes.roles
 
   // check if username changed
@@ -278,7 +278,6 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         .setTitle(newMember.user.tag)
         .setThumbnail(avatar)
         .setDescription(`**📝 User Roles Updated**`)
-          .addField(`Old Roles`, `<@&${oldMember._roles.join(">  <@&")}>`, true)
         .addField(`New Roles`, `<@&${newMember._roles.join(">  <@&")}>`, true)
         .setColor("GREEN")
         .setThumbnail(newMember.user.avatarURL())
@@ -296,10 +295,12 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         newMember.guild.channels.cache.get(modlogs).send(embed2);
         break
       case Changes.nickname:
+        var oldnickname = oldMember.nickname === null ? "None" : oldMember.nickname;
+        var newnickname = newMember.nickname === null ? "None" : newMember.nickname;
         let embed3 = new MessageEmbed()
         .setThumbnail(avatar)
           .setTitle(oldMember.user.tag)
-          .addField(`📝 User Nickname Changed`, `${oldMember.nickname} >> ${newMember.nickname}`)
+          .addField(`📝 User Nickname Changed`, `${oldnickname} >> ${newnickname}`)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
@@ -310,7 +311,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
           .setTitle(newMember.user.tag)
           .addField(`📷 User Avatar Changed`, `[Before](${oldMember.user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })}) >> [After](${user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})`)
           .setColor("GREEN")
-          .setThumbnail(oldMember.user.avatarURL)
+          .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed4);
         break;
