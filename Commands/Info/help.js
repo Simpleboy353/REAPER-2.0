@@ -41,7 +41,7 @@ module.exports = {
 
 <:music:761893108442071060> __**MUSIC**__\n\`${prefix}help music\`\nRelax and listen to some music!\nNote: Music Commands work with the default prefix \`=\` only!
 
-<:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you!
+<:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!
 
 <:utility:748177830134808597> __**UTILITIES**__\n\`${prefix}help utility\`\nSome Simple Utility Commands`)
       .setThumbnail(client.user.avatarURL())
@@ -93,7 +93,7 @@ module.exports = {
   } else if (args[0] === "fun") {
       const embed6 = new Discord.MessageEmbed()
         .setTitle("Fun Commands")
-        .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `gif`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`")
+        .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`")
         .setColor("RANDOM");
 
       return message.channel.send(embed6);
