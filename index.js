@@ -486,21 +486,6 @@ client.on(`roleDelete`, async (role) => {
     return;
   }
 })
-client.on(`presenceUpdate`, async(oldPresence, newPresence)=>{
-  const data = await modData.findOne({
-    GuildID: newPresence.guild.id
-  })
-  if (data) {
-    let modlogs = data.Mod
-    let embed = new MessageEmbed()
-    .setTitle(newPresence.user.tag)
-      .addField(`User Status Updated`, `${oldPresence.user.presence.status} >> ${newPresence.user.presence.status}`)
-      .setColor("GREEN")
-      .setTimestamp()
-
-      newPresence.guild.channels.cache.get(modlogs).send(embed)
-  }
-})
 client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
   const data = await modData.findOne({
     GuildID: newUser.guild.id
