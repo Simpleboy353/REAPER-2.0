@@ -477,7 +477,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           let embed5 = new MessageEmbed()
           .setTitle("Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Permissions`, `New Permissions: ${finalPermissions}`)
+          .addField(`New Permissions`, `${finalPermissions}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed5)
