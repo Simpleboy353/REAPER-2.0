@@ -481,6 +481,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed5)
+          break
     }
   } else if (!data) {
     return;
