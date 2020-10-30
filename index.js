@@ -256,9 +256,9 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   var change = Changes.unknown
 
   // check if roles were removed
-  if (newMember.roles.cache.get() != oldMember.roles.cache.get())
+  if (newMember.roles.cache.size != oldMember.roles.cache.size) {
    change = Changes.roles
-
+  }
   // check if username changed
   if (newMember.user.username != oldMember.user.username) {
     change = Changes.username
@@ -334,6 +334,7 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
       name: 1,
       icon: 2,
       veriflvl: 3,
+      verify: 4
     }
  var change = changes.unknown
 
@@ -345,6 +346,10 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
   
  if (oldGuild.icon != newGuild.icon)
  change = changes.icon
+
+ if (oldGuild.verified != newGuild.verified) {
+  change = changes.verify
+ }
 
  switch(change) {
    case changes.name:
@@ -376,6 +381,17 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
        .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
      newGuild.channels.cache.get(modlogs).send(embed3)
+     break
+     case changes.verify:
+     let embed4 = new MessageEmbed()
+       .setTitle("📝 Server Updates")
+       .setThumbnail(icon)
+       .addField(`Verified`, `${oldGuild.verified} >> ${newGuild.verified}`)
+       .setTimestamp()
+       .setThumbnail(newGuild.iconURL())
+       .setColor("GREEN")
+     newGuild.channels.cache.get(modlogs).send(embed4)
+     break
 
    }
   }
@@ -391,7 +407,8 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
       name: 1,
       hoisted: 2,
       color: 3,
-      mention: 4
+      mention: 4,
+      permission: 5
     }
      
     var change = changes.unknown
@@ -407,6 +424,9 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
     }
     if (newRole.mentionable != oldRole.mentionable) {
       change = changes.mention
+    }
+    if (newRole.permissions != oldRole.permissions) {
+      change = changes.permission
     }
     switch (change) {
       case changes.name:
@@ -446,6 +466,14 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed4)
         break
+        case changes.permission:
+          let embed5 = new MessageEmbed()
+          .setTitle("Role Updates")
+          .setDescription(`Updated ${oldRole} role`)
+          .addField(`Permissions`, `New Permissions: ${newRole.permissions}`)
+          .setColor("GREEN")
+          .setTimestamp()
+        newRole.guild.channels.get(modlogs).send(embed5)
     }
   } else if (!data) {
     return;
