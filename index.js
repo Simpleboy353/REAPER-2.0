@@ -261,7 +261,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
    change = Changes.AddedRoles
   }
   if (newMember.roles.cache.size != oldMember.roles.cache.size) {
-    change = changes.RemovedRoles
+    change = Changes.RemovedRoles
   }
   // check if username changed
   if (newMember.user.username != oldMember.user.username) {
