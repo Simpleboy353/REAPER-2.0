@@ -251,13 +251,12 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
     AddedRoles: 1,
     username: 2,
     nickname: 3,
-    avatar: 4,
-    RemovedRole: 5
+    avatar: 4
   }
   var change = Changes.unknown
 
   // check if roles were removed
-  if (newMember.roles.cache.size > oldMember.roles.cache.size) {
+  if (newMember.roles.cache.size != oldMember.roles.cache.size) {
    change = Changes.AddedRoles
   }
   // check if username changed
@@ -272,9 +271,6 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   if (newMember.user.avatar != oldMember.user.avatar) {
     change = Changes.avatar
   }
-    if (newMember.roles.cache.size < oldMember.roles.cache.size) {
-      change = Changes.RemovedRoles
-    }
   // post in the guild's log channel
     switch (change) {
       case Changes.AddedRoles:
@@ -282,14 +278,10 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         .setTitle(newMember.user.tag)
         .setThumbnail(avatar)
         .setDescription(`**📝 User Roles Updated**`)
+        .addField(`New`, `<@&${newMember._roles.join(">  <@&")}>`, true)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
-          .setTimestamp();
-        for (const role of newMember.roles.cache.map(x=>x.id)) {
-          if (!oldMember.roles.cache.has(role)) {
-        embed.addField(`Role Added`, `${oldMember.guild.roles.cache.get(role)}`, true)
-        }
-      }
+          .setTimestamp()
         newMember.guild.channels.cache.get(modlogs).send(embed)
         break
       case Changes.username:
@@ -323,21 +315,6 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
           .setTimestamp();
         newMember.guild.channels.cache.get(modlogs).send(embed4);
         break;
-      case Changes.RemovedRoles:
-        let embed6 = new MessageEmbed()
-          .setTitle(newMember.user.tag)
-          .setThumbnail(avatar)
-          .setDescription(`**📝 User Roles Updated**`)
-          .setColor("RED")
-          .setThumbnail(newMember.user.avatarURL())
-          .setTimestamp();
-        for (var role2 of oldMember.roles.cache.map(x => x.id)) {
-          if (!newMember.roles.cache.has(role2)) {
-            embed6.addField(`Role Removed`, `${newMember.guild.roles.cache.get(role2)}`, true)
-          }
-        }
-        newMember.guild.channels.cache.get(modlogs).send(embed6);
-        break
     }
   } else if (!data) {
     return;
