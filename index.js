@@ -574,11 +574,22 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     return;
   }
 })
-client.on("channelUpdate", async(oldChannel, newChannel)=>{
+client.on("channelCreate", async(newChannel)=>{
   const guild = newChannel.message.guild
   const data = await modData.findOne({
     GuildID: guild.id
   })
+  if (data) {
+    let embed = new MessageEmbed()
+    .setTitle("New Channel Created")
+    .setDescription(`Name: ${newChannel.name}\nType: ${newChannel.type}`)
+    .setTimestamp()
+
+    let modlogs = data.Mod
+    guild.channels.cache.get(modlogs).send(embed)
+  } else if (!data) {
+    return;
+  }
 })
 
 client.login(process.env.token)//Enter your bot token here
