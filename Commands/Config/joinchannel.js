@@ -2,18 +2,19 @@ const Discord = module.require("discord.js")
 const prefixModel = require("../Owner/models/welcome");
 
 module.exports = {
-  name: "setwelcome",
+  name: "joinchannel",
   description: "Change the welcome channel per server!",
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
       return message.channel.send("You don't have enough Permissions!")
     }
+    if (!args) {
+      return message.channel.send(`\`Usage: =joinchannel <#channel|off>\``)
+    }
+    if (args[0] === message.mentions.channels.first()) {
     const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });
-
-    if (!message.mentions.channels.first())
-      return message.channel.send('Mention a channel!');
 
     if (data) {
       await prefixModel.findOneAndRemove({
@@ -35,6 +36,22 @@ module.exports = {
         GuildID: message.guild.id
       });
       newData.save();
+    }
+  } else if (args[0] === "off") {
+      const data2 = await prefixModel.findOne({
+        GuildID: message.guild.id
+      });
+
+      if (data2) {
+        await prefixModel.findOneAndRemove({
+          GuildID: message.guild.id
+        });
+
+        return message.channel.send(`Join channel has been turned off!`);
+
+      } else if (!data2) {
+        return message.channel.send(`Join channel isn't setup!`)
+      }
     }
   }
 }

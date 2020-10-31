@@ -8,6 +8,10 @@ module.exports = {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
       return message.channel.send("You don't have enough Permissions!")
     }
+    if (!args[0]) {
+      return message.channels.send("`Usage: =modlogs <#channel|off>`")
+    }
+    if (args[0] === message.mentions.channels.first()) {
     const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });
@@ -35,6 +39,22 @@ module.exports = {
         GuildID: message.guild.id
       });
       newData.save();
+    }
+  } else if (args[0] === "off") {
+      const data2 = await prefixModel.findOne({
+        GuildID: message.guild.id
+      });
+
+      if (data2) {
+        await prefixModel.findOneAndRemove({
+          GuildID: message.guild.id
+        });
+
+        return message.channel.send(`Mod logs have been stopped!`);
+
+      } else if (!data2) {
+        return message.channel.send(`Mod Logs aren't setup!`)
+      }
     }
   }
 }

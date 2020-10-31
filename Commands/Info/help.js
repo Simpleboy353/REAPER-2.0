@@ -84,7 +84,8 @@ module.exports = {
   } else if (args[0] === "config") {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
-        .setDescription("`prefix`, `setwelcome`, `setbye`, `setmessagelogs`, `welcomeoff`, `byeoff`, `messagelogsoff`")
+        .setDescription(
+"```prefix <NewPrefix>\njoinchannel <#channel|off>\nleavechannel <#channel|off>\nmessagelogs <#channel|off>```")
         .setFooter("New Commands Coming Soon!")
         .setColor("RANDOM");
 
