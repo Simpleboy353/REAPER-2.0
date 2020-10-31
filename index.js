@@ -574,5 +574,11 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     return;
   }
 })
+client.on("channelUpdate", async(oldChannel, newChannel)=>{
+  const guild = newChannel.message.guild
+  const data = await modData.findOne({
+    GuildID: guild.id
+  })
+})
 
 client.login(process.env.token)//Enter your bot token here
