@@ -11,7 +11,7 @@ module.exports = {
     if (!args[0]) {
       return message.channel.send("`Usage: =leavechannel <#channel|off>`")
     }
-    if (args[0] == message.mentions.channels.first()) {
+    if (message.mentions.channels.first()) {
     const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });

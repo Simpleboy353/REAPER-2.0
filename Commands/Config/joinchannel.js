@@ -8,10 +8,10 @@ module.exports = {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
       return message.channel.send("You don't have enough Permissions!")
     }
-    if (!args) {
+    if (!args[0]) {
       return message.channel.send(`\`Usage: =joinchannel <#channel|off>\``)
     }
-    if (args[0] === message.mentions.channels.first()) {
+    if (message.mentions.channels.first()) {
     const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });
