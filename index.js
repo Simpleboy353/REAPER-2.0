@@ -257,7 +257,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   var change = Changes.unknown
 
   // check if roles were removed
-  if (newMember.roles.cache.size < oldMember.roles.cache.size) {
+  if (newMember.roles.cache.size > oldMember.roles.cache.size) {
    change = Changes.AddedRoles
   }
   // check if username changed
@@ -272,7 +272,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
   if (newMember.user.avatar != oldMember.user.avatar) {
     change = Changes.avatar
   }
-    if (newMember.roles.cache.size > oldMember.roles.cache.size) {
+    if (newMember.roles.cache.size < oldMember.roles.cache.size) {
       change = Changes.RemovedRoles
     }
   // post in the guild's log channel
@@ -336,7 +336,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
             embed6.addField(`Role Removed`, `${newMember.guild.roles.cache.get(role2)}`, true)
           }
         }
-        newMember.guild.channels.cache.get(modlogs).send(embed4);
+        newMember.guild.channels.cache.get(modlogs).send(embed6);
         break
     }
   } else if (!data) {
