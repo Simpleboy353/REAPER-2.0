@@ -21,7 +21,7 @@ module.exports = {
         GuildID: message.guild.id
       });
 
-      message.channel.send(`Goodbye Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Leave Channel set to ${message.mentions.channels.first()}`);
 
       let newData = new prefixModel({
         Bye: message.mentions.channels.first().id,
@@ -29,7 +29,7 @@ module.exports = {
       });
       newData.save();
     } else if (!data) {
-      message.channel.send(`Goodbye Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Leave Channel set to ${message.mentions.channels.first()}`);
 
       let newData = new prefixModel({
         Bye: message.mentions.channels.first().id,

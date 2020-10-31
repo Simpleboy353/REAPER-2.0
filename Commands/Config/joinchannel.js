@@ -21,7 +21,7 @@ module.exports = {
         GuildID: message.guild.id
       });
 
-      message.channel.send(`Welcome Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Join Channel set to ${message.mentions.channels.first()}`);
 
       let newData = new prefixModel({
         Welcome: message.mentions.channels.first().id,
@@ -29,7 +29,7 @@ module.exports = {
       });
       newData.save();
     } else if (!data) {
-      message.channel.send(`Welcome Channel set to ${message.mentions.channels.first()}`);
+      message.channel.send(`Join Channel set to ${message.mentions.channels.first()}`);
 
       let newData = new prefixModel({
         Welcome: message.mentions.channels.first().id,

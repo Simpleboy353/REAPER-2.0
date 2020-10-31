@@ -2,7 +2,7 @@ const Discord = module.require("discord.js")
 const prefixModel = require("../Owner/models/modlogs");
 
 module.exports = {
-  name: "setmodlogs",
+  name: "modlogs",
   description: "Change the modlogs channel per server!",
   run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
