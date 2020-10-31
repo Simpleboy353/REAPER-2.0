@@ -575,9 +575,8 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
   }
 })
 client.on("channelCreate", async(newChannel)=>{
-  const guild = newChannel.message.guild
   const data = await modData.findOne({
-    GuildID: guild.id
+    GuildID: newChannel.guild.id
   })
   if (data) {
     let embed = new MessageEmbed()
@@ -586,7 +585,7 @@ client.on("channelCreate", async(newChannel)=>{
     .setTimestamp()
 
     let modlogs = data.Mod
-    guild.channels.cache.get(modlogs).send(embed)
+    newChannel.guild.channels.cache.get(modlogs).send(embed)
   } else if (!data) {
     return;
   }
