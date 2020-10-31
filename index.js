@@ -643,7 +643,9 @@ client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
       case changes.topic:
         let embed2 = new MessageEmbed()
           .setTitle("Channel Updated")
-          .addField(`${newChannel}'s Topic Changed`, `${oldChannel.topic} => ${newChannel.topic}`)
+          .setDescription(`${newChannel}'s Topic Changed`)
+          .addField(`Old Topic`, `${oldChannel.topic}`)
+          .addField(`New Topic`, `${newChannel.topic}`)
           .setColor("GREEN")
           .setTimestamp()
 
