@@ -619,7 +619,7 @@ client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
       topic: 2,
       type: 3
     }
-    var change = chnages.unknown
+    var change = changes.unknown
 
     if (newChannel.name != oldChannel.name) {
       change = changes.name
