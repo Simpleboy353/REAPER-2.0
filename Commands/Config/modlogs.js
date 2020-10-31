@@ -9,7 +9,7 @@ module.exports = {
       return message.channel.send("You don't have enough Permissions!")
     }
     if (!args[0]) {
-      return message.channels.send("`Usage: =modlogs <#channel|off>`")
+      return message.channel.send("`Usage: =modlogs <#channel|off>`")
     }
     if (message.mentions.channels.first()) {
     const data = await prefixModel.findOne({
