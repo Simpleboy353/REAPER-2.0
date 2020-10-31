@@ -278,7 +278,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         .setTitle(newMember.user.tag)
         .setThumbnail(avatar)
         .setDescription(`**📝 User Roles Updated**`)
-        .addField(`New`, `<@&${newMember._roles.join(">  <@&")}>`, true)
+        .addField(`New Roles`, `<@&${newMember._roles.join(">  <@&")}>`, true)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
           .setTimestamp()
