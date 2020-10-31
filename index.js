@@ -296,7 +296,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         let embed2 = new MessageEmbed()
           .setTitle(oldMember.user.tag)
           .setThumbnail(avatar)
-          .addField(`📝 User Username Changed`, `${oldMember.user.tag} >> ${newMember.user.tag}`)
+          .addField(`📝 User Username Changed`, `${oldMember.user.tag} => ${newMember.user.tag}`)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
@@ -308,7 +308,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
         let embed3 = new MessageEmbed()
         .setThumbnail(avatar)
           .setTitle(oldMember.user.tag)
-          .addField(`📝 User Nickname Changed`, `${oldnickname} >> ${newnickname}`)
+          .addField(`📝 User Nickname Changed`, `${oldnickname} => ${newnickname}`)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
@@ -379,7 +379,7 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
      let embed = new MessageEmbed()
      .setTitle("📝 Server Updates")
      .setThumbnail(icon)
-     .addField(`Server Name Changed`,`${oldGuild.name} >> ${newGuild.name}`)
+     .addField(`Server Name Changed`,`${oldGuild.name} => ${newGuild.name}`)
      .setTimestamp()
      .setThumbnail(newGuild.iconURL())
      .setColor("GREEN")
@@ -389,7 +389,7 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
      let embed2 = new MessageEmbed()
        .setTitle("📝 Server Updates")
        .setThumbnail(icon)
-       .addField(`Server Verification Level Changed`, `${oldGuild.verificationLevel} >> ${newGuild.verificationLevel}`)
+       .addField(`Server Verification Level Changed`, `${oldGuild.verificationLevel} => ${newGuild.verificationLevel}`)
        .setTimestamp()
        .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
@@ -399,7 +399,7 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
      let embed3 = new MessageEmbed()
        .setTitle("📝 Server Updates")
        .setThumbnail(icon)
-       .addField(`Server Icon Changed`, `[Old Icon](${oldGuild.iconURL({ size: 2048, dynamic: true, format: "png" })}) >> [New Icon](${newGuild.iconURL({size: 2048, dynamic: true, format: "png"})})`)
+       .addField(`Server Icon Changed`, `[Old Icon](${oldGuild.iconURL({ size: 2048, dynamic: true, format: "png" })}) => [New Icon](${newGuild.iconURL({size: 2048, dynamic: true, format: "png"})})`)
        .setTimestamp()
        .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
@@ -409,7 +409,7 @@ client.on(`guildUpdate`, async(oldGuild, newGuild) => {
      let embed4 = new MessageEmbed()
        .setTitle("📝 Server Updates")
        .setThumbnail(icon)
-       .addField(`Verified`, `${oldGuild.verified} >> ${newGuild.verified}`)
+       .addField(`Verified`, `${oldGuild.verified} => ${newGuild.verified}`)
        .setTimestamp()
        .setThumbnail(newGuild.iconURL())
        .setColor("GREEN")
@@ -453,7 +453,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         let embed = new MessageEmbed()
         .setTitle("Role Updates")
         .setDescription(`Updated ${oldRole} role`)
-        .addField(`Name`, `${oldRole.name} >> ${newRole.name}`)
+        .addField(`Name`, `${oldRole.name} => ${newRole.name}`)
         .setColor("GREEN")
         .setTimestamp()
 
@@ -463,7 +463,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           let embed2 = new MessageEmbed()
           .setTitle("Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Hoisted`, `${oldRole.hoist} >> ${newRole.hoist}`)
+          .addField(`Hoisted`, `${oldRole.hoist} => ${newRole.hoist}`)
           .setColor("GREEN")
           .setTimestamp()
           newRole.guild.channels.cache.get(modlogs).send(embed2)
@@ -472,7 +472,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         let embed3 = new MessageEmbed()
           .setTitle("Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Color`,`${oldRole.hexColor} >> ${newRole.hexColor}`)
+          .addField(`Color`,`${oldRole.hexColor} => ${newRole.hexColor}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed3)
@@ -481,7 +481,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         let embed4 = new MessageEmbed()
           .setTitle("Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Mentionable`, `${oldRole.mentionable} >> ${newRole.mentionable}`)
+          .addField(`Mentionable`, `${oldRole.mentionable} => ${newRole.mentionable}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed4)
@@ -553,7 +553,7 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
         let embed = new MessageEmbed()
         .setTitle("Voice State Updates")
         .setDescription(`Voice State Updated For ${newMember}`)
-        .addField(`Deafened`, `${oldUser.deaf} >> ${newUser.deaf}`)
+        .addField(`Deafened`, `${oldUser.deaf} => ${newUser.deaf}`)
         .setColor("RED")
         .setTimestamp()
 
@@ -563,7 +563,7 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
            let embed1 = new MessageEmbed()
            .setTitle("Voice State Updates")
            .setDescription(`Voice State Updated For ${newMember}`)
-           .addField(`Muted`, `${oldUser.mute} >> ${newUser.mute}`)
+           .addField(`Muted`, `${oldUser.mute} => ${newUser.mute}`)
            .setColor("RED")
            .setTimestamp()
 
@@ -582,10 +582,83 @@ client.on("channelCreate", async(newChannel)=>{
     let embed = new MessageEmbed()
     .setTitle("New Channel Created")
     .setDescription(`Name: ${newChannel.name}\nType: ${newChannel.type}`)
+    .setColor("GREEN")
     .setTimestamp()
 
     let modlogs = data.Mod
     newChannel.guild.channels.cache.get(modlogs).send(embed)
+  } else if (!data) {
+    return;
+  }
+})
+client.on("channelDelete", async (newChannel) => {
+  const data = await modData.findOne({
+    GuildID: newChannel.guild.id
+  })
+  if (data) {
+    let embed = new MessageEmbed()
+      .setTitle("Channel Deleted")
+      .setDescription(`Name: ${newChannel.name}\nType: ${newChannel.type}`)
+      .setColor("RED")
+      .setTimestamp()
+
+    let modlogs = data.Mod
+    newChannel.guild.channels.cache.get(modlogs).send(embed)
+  } else if (!data) {
+    return;
+  }
+})
+client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
+  const data = await modData.findOne({
+    GuildID: newChannel.guild.id
+  })
+  if (data) {
+    let modlogs = data.Mod
+    var changes = {
+      name: 1,
+      topic: 2,
+      type: 3
+    }
+    var change = chnages.unknown
+
+    if (newChannel.name != oldChannel.name) {
+      change = changes.name
+    }
+    if (newChannel.topic != oldChannel.topic) {
+      change = changes.topic
+    }
+    if (newChannel.type != oldChannel.type) {
+      change = changes.type
+    }
+    switch (change) {
+      case changes.name:
+        let embed = new MessageEmbed()
+        .setTitle("Channel Updated")
+        .addField(`Channel Renamed`, `${oldChannel.name} => ${newChannel.name}`)
+        .setColor("GREEN")
+        .setTimestamp()
+
+        newChannel.guild.channels.cache.get(modlogs).send(embed)
+        break
+      case changes.topic:
+        let embed2 = new MessageEmbed()
+          .setTitle("Channel Updated")
+          .addField(`${newChannel}'s Topic Changed`, `${oldChannel.topic} => ${newChannel.topic}`)
+          .setColor("GREEN")
+          .setTimestamp()
+
+        newChannel.guild.channels.cache.get(modlogs).send(embed2)
+        break
+      case changes.name:
+        let embed3 = new MessageEmbed()
+          .setTitle("Channel Updated")
+          .addField(`${newChannel}'s Type Changed`, `${oldChannel.type} => ${newChannel.type}`)
+          .setColor("GREEN")
+          .setTimestamp()
+
+        newChannel.guild.channels.cache.get(modlogs).send(embed3)
+        break
+    }
   } else if (!data) {
     return;
   }
