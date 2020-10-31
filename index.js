@@ -283,7 +283,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
           .setTimestamp();
         for (const role of newMember.roles.cache.map(x=>x.id)) {
           if (!oldMember.roles.cache.has(role)) {
-        embed.addField(`Role Added`, `${oldMember.roles.cache.get(role)}`, true)
+        embed.addField(`Role Added`, `${oldMember.guild.roles.cache.get(role)}`, true)
         }
       }
         newMember.guild.channels.cache.get(modlogs).send(embed)
