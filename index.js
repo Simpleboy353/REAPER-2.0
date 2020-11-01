@@ -691,8 +691,4 @@ client.on("guildMemberRemove", async (member) => {
     return;
   }
 })
-
-client.on(`guildRemove`, async(guild)=>{
-  const 
-})
 client.login(process.env.token)//Enter your bot token here
