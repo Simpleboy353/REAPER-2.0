@@ -31,6 +31,8 @@ module.exports = {
     })
     if (data6) {
       var serverprefix = data.Prefix
+    } else if (!data6) {
+      serverprefix = "=";
     }
     const icon = message.guild.iconURL;
     const embed = new Discord.MessageEmbed()
