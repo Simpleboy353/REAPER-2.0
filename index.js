@@ -129,20 +129,12 @@ client.on(`guildMemberRemove`, async (member) => {
 })
 
 client.on(`guildCreate`, guild =>{
-  let defaultChannel = "";
-  guild.channels.cache.forEach((channel) => {
-    if (channel.type == "text" && defaultChannel == "") {
-      if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-        defaultChannel = channel;
-      }
-    }
-  })
   const embed = new MessageEmbed()
   .setTitle("Thanks for Inviting!")
   .setDescription("Hello Everyone, I am Infinity, A multi-purpose Discord Bot \n\nMy default Prefix is `=` but you can change it accordingly. To get my Commands List type `=help`\n\nIf you want to report any error, you can use the `=report` command and if you want to suggest features for me, you can use the `=suggest` command!")
   .addField("Some Useful Links", "Get my Invite Link [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)\nNeed Assistance? Join my [Support Server](https://discord.gg/mqWprFc) Now!")
   .setColor("GREEN")
-   defaultChannel.send(embed);
+   guild.systemChannel.send(embed);
 })
 
 const messageData = require("./Commands/Owner/models/messages")
@@ -654,6 +646,47 @@ client.on("guildMemberAdd", async(member)=>{
   if (data) {
     const autorole = data.Role
     member.roles.add(autorole);
+  } else if (!data) {
+    return;
+  }
+})
+client.on("guildMemberAdd", async(member)=>{
+  const data = await modData.findOne({
+    GuildID: member.guild.id
+  })
+  if (data) {
+    let avatar = member.user.avatarURL;
+    let modlogs = data.Mod
+    let embed = new MessageEmbed()
+    .setTitle(":inbox_tray: Member Joined")
+    .setThumbnail(avatar)
+    .setDescription(`User: ${member.user.username}\nID: ${member.user.id}\nServer Member Count: ${member.guild.members.cache.size}`)
+    .setColor("GREEN")
+    .setThumbnail(member.user.avatarURL())
+    .setTimestamp()
+
+    member.guild.channels.cache.find(modlogs).send(embed)
+  } else if (!data) {
+     return;
+  }
+})
+
+client.on("guildMemberRemove", async (member) => {
+  const data = await modData.findOne({
+    GuildID: member.guild.id
+  })
+  if (data) {
+    let avatar = member.user.avatarURL;
+    let modlogs = data.Mod
+    let embed = new MessageEmbed()
+      .setTitle(":outbox_tray: Member Left")
+      .setThumbnail(avatar)
+      .setDescription(`User: ${member.user.username}\nID: ${member.user.id}\nServer Member Count: ${member.guild.members.cache.size}`)
+      .setColor("RED")
+      .setThumbnail(member.user.avatarURL())
+      .setTimestamp()
+
+    member.guild.channels.cache.find(modlogs).send(embed)
   } else if (!data) {
     return;
   }
