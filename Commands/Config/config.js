@@ -32,6 +32,7 @@ module.exports = {
     const icon = message.guild.iconURL;
     const embed = new Discord.MessageEmbed()
     .setTitle(`Config Stats For **${message.guild.name}**`)
+    .setDescription(`Do \`=help config\` to configure these!`)
     .setThumbnail(icon)
     .setFooter(`Requested by: ${message.author.username}`)
     .setColor("RANDOM")
@@ -41,7 +42,7 @@ module.exports = {
       let prefix = data6.Prefix
       embed.addField(`Prefix`, `Custom Prefix in use: \`${prefix}\``)
     } else if (!data6) {
-      embed.setDescription(`Prefix`, `Default Prefix in use: \`=\``)
+      embed.addField(`Prefix`, `Default Prefix in use: \`=\``)
     }
     if (data3) {
       let autorole = data3.Role
