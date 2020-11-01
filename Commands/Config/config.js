@@ -29,10 +29,13 @@ module.exports = {
     const data6 = await prefixData.findOne({
       GuildID: message.guild.id
     })
+    if (data6) {
+      var serverprefix = data.Prefix
+    }
     const icon = message.guild.iconURL;
     const embed = new Discord.MessageEmbed()
     .setTitle(`Config Stats For **${message.guild.name}**`)
-    .setDescription(`Do \`=help config\` to configure these!`)
+    .setDescription(`Do \`${serverprefix}help config\` to configure these!`)
     .setThumbnail(icon)
     .setFooter(`Requested by: ${message.author.username}`)
     .setColor("RANDOM")
