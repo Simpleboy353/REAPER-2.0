@@ -55,7 +55,7 @@ module.exports = {
       embed.addField(`Modlogs`, `State: Inactive`)
     }
     if (data2) {
-      let messagelogs = data.Message
+      let messagelogs = data2.Message
       embed.addField(`Message Logs`, `State: Active\nChannel: <#${messagelogs}>`)
     } else if (!data2) {
       embed.addField(`Message Logs`, `State: Inactive`)
