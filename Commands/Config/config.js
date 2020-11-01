@@ -30,7 +30,7 @@ module.exports = {
       GuildID: message.guild.id
     })
     if (data6) {
-      var serverprefix = data.Prefix
+      var serverprefix = data6.Prefix
     } else if (!data6) {
       serverprefix = "=";
     }
