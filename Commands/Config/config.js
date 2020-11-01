@@ -33,14 +33,15 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
     .setTitle(`Config Stats For **${message.guild.name}**`)
     .setThumbnail(icon)
-    .setFooter(`Do =help config to configure these`)
+    .setFooter(`Requested by: ${message.author.username}`)
     .setColor("RANDOM")
     .setThumbnail(message.guild.iconURL())
+    .setTimestamp()
     if (data6) {
       let prefix = data6.Prefix
-      embed.setDescription(`Prefix: ${prefix}`)
+      embed.addField(`Prefix`, `Custom Prefix in use: \`${prefix}\``)
     } else if (!data6) {
-      embed.setDescription(`Prefix: \`=\``)
+      embed.setDescription(`Prefix`, `Default Prefix in use: \`=\``)
     }
     if (data3) {
       let autorole = data3.Role
