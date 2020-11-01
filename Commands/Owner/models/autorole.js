@@ -7,4 +7,4 @@ const AutoRoleSchema = new mongoose.Schema({
   GuildID: String
 });
 
-const MessageModel = module.exports = mongoose.model('messages', AutoRoleSchema);
+const MessageModel = module.exports = mongoose.model('autorole', AutoRoleSchema);
