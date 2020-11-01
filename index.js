@@ -268,7 +268,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
     change = Changes.nickname
   }
   // check if avatar changed
-  if (newMember.user.avatar != oldMember.user.avatar) {
+  if (newMember.user.displayAvatarURL() != oldMember.user.displayAvatarURL()) {
     change = Changes.avatar
   }
   // post in the guild's log channel
@@ -309,7 +309,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember)=>  {
       case Changes.avatar:
         let embed4 = new MessageEmbed()
           .setTitle(newMember.user.tag)
-          .addField(`📷 User Avatar Changed`, `[Before](${oldMember.user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })}) >> [After](${user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})`)
+          .addField(`🖼️ User Avatar Changed`, `[Before](${oldMember.user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })}) >> [After](${user.displayAvatarURL({ size: 2048, dynamic: true, format: "png" })})`)
           .setColor("GREEN")
           .setThumbnail(newMember.user.avatarURL())
           .setTimestamp();
@@ -407,8 +407,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
       name: 1,
       hoisted: 2,
       color: 3,
-      mention: 4,
-      permission: 5
+      mention: 4
     }
      
     var change = changes.unknown
@@ -428,7 +427,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
     switch (change) {
       case changes.name:
         let embed = new MessageEmbed()
-        .setTitle("Role Updates")
+        .setTitle("📝 Role Updates")
         .setDescription(`Updated ${oldRole} role`)
         .addField(`Name`, `${oldRole.name} => ${newRole.name}`)
         .setColor("GREEN")
@@ -438,7 +437,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         break
         case changes.hoisted:
           let embed2 = new MessageEmbed()
-          .setTitle("Role Updates")
+          .setTitle("📝 Role Updates")
           .setDescription(`Updated ${oldRole} role`)
           .addField(`Hoisted`, `${oldRole.hoist} => ${newRole.hoist}`)
           .setColor("GREEN")
@@ -447,16 +446,16 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
           break
           case changes.color:
         let embed3 = new MessageEmbed()
-          .setTitle("Role Updates")
+          .setTitle("📝 Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Color`,`${oldRole.hexColor} => ${newRole.hexColor}`)
+          .addField(`Color`,`[${oldRole.hexColor}](https://www.color-hex.com/color/${oldRole.hexColor}) => [${newRole.hexColor}](https://www.color-hex.com/color/${newRole.hexColor})`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed3)
         break
         case changes.mention:
         let embed4 = new MessageEmbed()
-          .setTitle("Role Updates")
+          .setTitle("📝 Role Updates")
           .setDescription(`Updated ${oldRole} role`)
           .addField(`Mentionable`, `${oldRole.mentionable} => ${newRole.mentionable}`)
           .setColor("GREEN")
@@ -474,7 +473,7 @@ client.on(`roleCreate`, async(role)=>{
   })
   if (data) {
     let embed = new MessageEmbed()
-    .setTitle("Role Created")
+    .setTitle("📝 Role Created")
     .setDescription(`Name: ${role.name}\nColor: ${role.hexColor}\nHoisted: ${role.hoist}\nMentionable: ${role.mentionable}`)
     .setColor("GREEN")
     .setTimestamp()
@@ -492,7 +491,7 @@ client.on(`roleDelete`, async (role) => {
   })
   if (data) {
     let embed = new MessageEmbed()
-      .setTitle("Role Deleted")
+      .setTitle("🗑️ Role Deleted")
       .setDescription(`Name: ${role.name}\nColor: ${role.hexColor}\nHoisted: ${role.hoist}\nMentionable: ${role.mentionable}`)
       .setColor("RED")
       .setTimestamp()
@@ -527,20 +526,24 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     }
     switch (change) {
       case changes.deafened:
+        var oldstate = oldUser.deaf === undefined ? "None" : oldUser.deaf;
+        var newstate = newUser.deaf === undefined ? "None" : newUser.deaf;
         let embed = new MessageEmbed()
         .setTitle("Voice State Updates")
         .setDescription(`Voice State Updated For ${newMember}`)
-        .addField(`Deafened`, `${oldUser.deaf} => ${newUser.deaf}`)
+        .addField(`Deafened`, `${oldstate} => ${newstate}`)
         .setColor("RED")
         .setTimestamp()
 
         newUser.guild.channels.cache.get(modlogs).send(embed)
         break
           case changes.muted:
+           var oldState = oldUser.mute === undefined ? "None" : oldUser.mute;
+           var newState = newUser.mute === undefined ? "None" : newUser.mute;
            let embed1 = new MessageEmbed()
            .setTitle("Voice State Updates")
            .setDescription(`Voice State Updated For ${newMember}`)
-           .addField(`Muted`, `${oldUser.mute} => ${newUser.mute}`)
+           .addField(`Muted`, `${oldState} => ${newState}`)
            .setColor("RED")
            .setTimestamp()
 
@@ -557,8 +560,8 @@ client.on("channelCreate", async(newChannel)=>{
   })
   if (data) {
     let embed = new MessageEmbed()
-    .setTitle("New Channel Created")
-    .setDescription(`Name: ${newChannel.name}\nType: ${newChannel.type}`)
+    .setTitle("📝 Channel Created")
+    .setDescription(`Name: \`${newChannel.name}\`\nID: \`${newChannel.id}\`\nType: \`${newChannel.type}\``)
     .setColor("GREEN")
     .setTimestamp()
 
@@ -574,8 +577,8 @@ client.on("channelDelete", async (newChannel) => {
   })
   if (data) {
     let embed = new MessageEmbed()
-      .setTitle("Channel Deleted")
-      .setDescription(`Name: ${newChannel.name}\nType: ${newChannel.type}`)
+      .setTitle("🗑️ Channel Deleted")
+      .setDescription(`Name: \`${newChannel.name}\`\nID: \`${newChannel.id}\`\nType: \`${newChannel.type}\``)
       .setColor("RED")
       .setTimestamp()
 
@@ -610,7 +613,7 @@ client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
     switch (change) {
       case changes.name:
         let embed = new MessageEmbed()
-        .setTitle("Channel Updated")
+        .setTitle("📝 Channel Updated")
         .addField(`Channel Renamed`, `${oldChannel.name} => ${newChannel.name}`)
         .setColor("GREEN")
         .setTimestamp()
@@ -619,7 +622,7 @@ client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
         break
       case changes.topic:
         let embed2 = new MessageEmbed()
-          .setTitle("Channel Updated")
+          .setTitle("📝 Channel Updated")
           .setDescription(`${newChannel}'s Topic Changed`)
           .addField(`Old Topic`, `${oldChannel.topic}`)
           .addField(`New Topic`, `${newChannel.topic}`)
@@ -630,7 +633,7 @@ client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
         break
       case changes.name:
         let embed3 = new MessageEmbed()
-          .setTitle("Channel Updated")
+          .setTitle("📝 Channel Updated")
           .addField(`${newChannel}'s Type Changed`, `${oldChannel.type} => ${newChannel.type}`)
           .setColor("GREEN")
           .setTimestamp()
