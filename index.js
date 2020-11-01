@@ -665,7 +665,7 @@ client.on("guildMemberAdd", async(member)=>{
     .setThumbnail(member.user.avatarURL())
     .setTimestamp()
 
-    member.guild.channels.cache.find(modlogs).send(embed)
+    member.guild.channels.cache.get(modlogs).send(embed)
   } else if (!data) {
      return;
   }
@@ -686,7 +686,7 @@ client.on("guildMemberRemove", async (member) => {
       .setThumbnail(member.user.avatarURL())
       .setTimestamp()
 
-    member.guild.channels.cache.find(modlogs).send(embed)
+    member.guild.channels.cache.get(modlogs).send(embed)
   } else if (!data) {
     return;
   }
