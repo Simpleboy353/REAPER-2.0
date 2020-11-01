@@ -642,5 +642,18 @@ client.on(`channelUpdate`, async(oldChannel, newChannel)=>{
     return;
   }
 })
+const roleData = require("./Commands/Owner/models/autorole")
+client.on("guildMemberAdd", async(member)=>{
+  const data = await roleData.findOne({
+    GuildID: member.guild.id
+  })
+
+  if (data) {
+    const autorole = data.Role
+    member.roles.add(autorole);
+  } else if (!data) {
+    return;
+  }
+})
 
 client.login(process.env.token)//Enter your bot token here
