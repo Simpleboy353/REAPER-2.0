@@ -85,7 +85,7 @@ module.exports = {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
         .setDescription(
-"```autorole <@role|off>\njoinchannel <#channel|off>\nleavechannel <#channel|off>\nmessagelogs <#channel|off>\nmodlogs <#channel|off>\nprefix <NewPrefix>```")
+"```autorole <@role|off>\nconfig stats\njoinchannel <#channel|off>\nleavechannel <#channel|off>\nmessagelogs <#channel|off>\nmodlogs <#channel|off>\nprefix <NewPrefix>```")
         .setFooter("New Commands Coming Soon!")
         .setColor("RANDOM");
 

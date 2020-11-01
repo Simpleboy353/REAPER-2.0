@@ -48,6 +48,18 @@ module.exports = {
     } else if (!data3) {
       embed.addField(`Autorole`, `State: Inactive`)
     }
+    if (data4) {
+      let jchannel = data4.Welcome
+      embed.addField(`Join Logs`, `State: Active\nChannel: <#${jchannel}>`)
+    } else if (!data4) {
+    embed.addField(`Join Logs`, `State: Inactive`)
+    }
+    if (data5) {
+      let bchannel = data5.Bye
+      embed.addField(`Leave Logs`, `State: Active\nChannel: <#${bchannel}>`)
+    } else if (!data5) {
+      embed.addField(`Leave Logs`, `State: Inactive`)
+    }
     if (data1) {
       let modlogs = data1.Mod
       embed.addField(`Modlogs`, `State: Active\nChannel: <#${modlogs}>`)
@@ -59,18 +71,6 @@ module.exports = {
       embed.addField(`Message Logs`, `State: Active\nChannel: <#${messagelogs}>`)
     } else if (!data2) {
       embed.addField(`Message Logs`, `State: Inactive`)
-    }
-    if (data4) {
-      let jchannel = data4.Welcome
-      embed.addField(`Join Logs`, `State: Active\nChannel: <#${jchannel}>`)
-    } else if (!data4) {
-      embed.addField(`Join Logs`, `State: Inactive`)
-    }
-    if (data5) {
-      let bchannel = data5.Bye
-      embed.addField(`Leave Logs`, `State: Active\nChannel: <@${bchannel}>`)
-    } else if (!data5) {
-      embed.addField(`Leave Logs`, `State: Inactive`)
     }
     return message.channel.send(embed);
   } else if (!args[0]) return;
