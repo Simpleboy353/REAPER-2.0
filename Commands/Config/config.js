@@ -11,22 +11,22 @@ module.exports = {
   description: "Get the config stats for your Server",
   run: async(client, message, args)=> {
     if (args[0] === "stats") {
-    const data1 = await modData.fondOne({
+    const data1 = await modData.findOne({
       GuildID: message.guild.id
     })
-    const data2 = await messageData.fondOne({
+    const data2 = await messageData.findOne({
       GuildID: message.guild.id
     })
-    const data3 = await autoroleData.fondOne({
+    const data3 = await autoroleData.findOne({
       GuildID: message.guild.id
     })
-    const data4 = await welcomeData.fondOne({
+    const data4 = await welcomeData.findOne({
       GuildID: message.guild.id
     })
-    const data5 = await byeData.fondOne({
+    const data5 = await byeData.findOne({
       GuildID: message.guild.id
     })
-    const data6 = await prefixData.fondOne({
+    const data6 = await prefixData.findOne({
       GuildID: message.guild.id
     })
     const icon = message.guild.iconURL;
