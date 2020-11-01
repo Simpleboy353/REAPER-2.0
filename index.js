@@ -58,7 +58,7 @@ client.on('message', async (message) => {
     const prefix = data.Prefix;
 
     if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
+    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.find(command => command.aliases.includes(cmd.slice(prefix.length)));
     commandfile.run(client, message, args);
 
   } else if (!data) {
@@ -66,7 +66,7 @@ client.on('message', async (message) => {
     const prefix = config.DEFAULT_PREFIX;
 
     if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
+    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.find(command => command.aliases.includes(cmd.slice(prefix.length)));
     commandfile.run(client, message, args);
 }
 });
@@ -692,4 +692,7 @@ client.on("guildMemberRemove", async (member) => {
   }
 })
 
+client.on(`guildRemove`, async(guild)=>{
+  const 
+})
 client.login(process.env.token)//Enter your bot token here
