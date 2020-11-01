@@ -440,7 +440,7 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         let embed3 = new MessageEmbed()
           .setTitle("📝 Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Color`,`[${oldRole.hexColor}](https://www.color-hex.com/color/${oldRole.hexColor.slice(0)}) => [${newRole.hexColor}](https://www.color-hex.com/color/${newRole.hexColor.slice(0)})`)
+          .addField(`Color`,`[${oldRole.hexColor}](https://www.color-hex.com/color/${oldRole.hexColor.slice(1)}) => [${newRole.hexColor}](https://www.color-hex.com/color/${newRole.hexColor.slice(1)})`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed3)
