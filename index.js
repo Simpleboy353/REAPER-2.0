@@ -534,8 +534,8 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     }
     switch (change) {
       case changes.deafened:
-        var oldstate = oldUser.deaf === undefined ? "None" : oldUser.deaf;
-        var newstate = newUser.deaf === undefined ? "None" : newUser.deaf;
+        var oldstate = oldUser.deaf === undefined ? "None" : oldUser.deaf ? "Yes" : "No"
+        var newstate = newUser.deaf === undefined ? "None" : newUser.deaf ? "Yes" : "No"
         let embed = new MessageEmbed()
         .setTitle("Voice State Updates")
         .setDescription(`Voice State Updated For ${newMember}`)
@@ -546,8 +546,8 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
         newUser.guild.channels.cache.get(modlogs).send(embed)
         break
           case changes.muted:
-           var oldState = oldUser.mute === undefined ? "None" : oldUser.mute;
-           var newState = newUser.mute === undefined ? "None" : newUser.mute;
+           var oldState = oldUser.mute === undefined ? "None" : oldUser.mute ? "Yes" : "No"
+           var newState = newUser.mute === undefined ? "None" : newUser.mute ? "Yes" : "No"
            let embed1 = new MessageEmbed()
            .setTitle("Voice State Updates")
            .setDescription(`Voice State Updated For ${newMember}`)
@@ -709,7 +709,7 @@ client.on("guildMemberRemove", async (member) => {
 })
 client.on("guildDelete", async(guild)=>{
   let logschannel = client.channels.cache.get("772716407628365834")
-  let embed = new MessgaeEmbed()
+  let embed = new MessageEmbed()
   .setTitle("DataBase Updates")
   .setDescription("Server Removed From Database")
   .addField(`Server Name`, `${guild.name}`)
