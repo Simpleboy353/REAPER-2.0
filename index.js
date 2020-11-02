@@ -137,7 +137,7 @@ client.on(`guildCreate`, guild =>{
    guild.systemChannel.send(embed);
 
   let logschannel = client.channels.cache.get('772716407628365834')
-  let embed = new MessageEmbed()
+  let embed2 = new MessageEmbed()
     .setTitle("DataBase Updates")
     .setDescription("Server Added to Database")
     .addField(`Server Name`, `${guild.name}`)
@@ -146,7 +146,7 @@ client.on(`guildCreate`, guild =>{
     .setColor("GREEN")
     .setThumbnail();
 
-  logschannel.send(embed)
+  logschannel.send(embed2)
 })
 
 const messageData = require("./Commands/Owner/models/messages")
