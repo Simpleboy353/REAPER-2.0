@@ -691,4 +691,68 @@ client.on("guildMemberRemove", async (member) => {
     return;
   }
 })
+client.on("guildDelete", async(guild)=>{
+  const data = await prefix.findOne({
+    GuildID: guild.id
+  })
+  const data2 = await welcomeData.findOne({
+    GuildID: guild.id
+  })
+  const data3 = await byeData.findOne({
+    GuildID: guild.id
+  })
+  const data4 = await messageData.findOne({
+    GuildID: guild.id
+  })
+  const data5 = await modData.findOne({
+    GuildID: guild.id
+  })
+  const data6 = await roleData.findOne({
+    GuildID: guild.id
+  })
+  if (data) {
+    let newD = await prefix.findOneAndDelete({
+      GuildID: guild.id
+    })
+  } else if (!data) {
+    return;
+  }
+  if (data2) {
+    let newD = await welcomeData.findOneAndDelete({
+      GuildID: guild.id
+    })
+  } else if (!data2) {
+    return;
+  }
+  if (data3) {
+    let newD = await byeData.findOneAndDelete({
+      GuildID: guild.id
+    })
+  } else if (!data3) {
+    return;
+  }
+  if (data4) {
+    let newD = await messageData.findOneAndDelete({
+      GuildID: guild.id
+    })
+  } else if (!data4) {
+    return;
+  }
+  if (data5) {
+    let newD = await modData.findOneAndDelete({
+      GuildID: guild.id
+    })
+  } else if (!data5) {
+    return;
+  }
+  if (data6) {
+    let newD = await roleData.findOneAndDelete({
+      GuildID: guild.id
+    })
+  } else if (!data6) {
+    return;
+  }
+  const logschannel = client.channels.cache.get("772716407628365834");
+  logschannel.send(`Successfully Cleared the Data for **${guild.name}** Server!`)
+})
 client.login(process.env.token)//Enter your bot token here
