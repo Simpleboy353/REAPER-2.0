@@ -17,6 +17,6 @@ module.exports = {
     .addField(`Input`, cmd)
     .addField(`Output`, result)
     .setColor("GREEN")
-    message.chanel.send(embed)
+    message.channel.send(embed)
   }
 }
