@@ -440,10 +440,12 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         newRole.guild.channels.cache.get(modlogs).send(embed)
         break
         case changes.hoisted:
+        var oldhoiststate = oldRole.hoist ? "Yes" : "No"
+        var newhoiststate = newRole.hoist ? "Yes" : "No"
           let embed2 = new MessageEmbed()
           .setTitle("📝 Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Hoisted`, `${oldRole.hoist} => ${newRole.hoist}`)
+          .addField(`Hoisted`, `${oldhoiststate} => ${newhoiststate}`)
           .setColor("GREEN")
           .setTimestamp()
           newRole.guild.channels.cache.get(modlogs).send(embed2)
@@ -458,10 +460,12 @@ client.on(`roleUpdate`, async(oldRole, newRole)=> {
         newRole.guild.channels.cache.get(modlogs).send(embed3)
         break
         case changes.mention:
+        var oldmentionstate = oldRole.mentionable ? "Yes" : "No"
+        var newmentionstate = newRole.mentionable ? "Yes" : "No"
         let embed4 = new MessageEmbed()
           .setTitle("📝 Role Updates")
           .setDescription(`Updated ${oldRole} role`)
-          .addField(`Mentionable`, `${oldRole.mentionable} => ${newRole.mentionable}`)
+          .addField(`Mentionable`, `${oldmentionstate} => ${newmentionstate}`)
           .setColor("GREEN")
           .setTimestamp()
         newRole.guild.channels.cache.get(modlogs).send(embed4)
