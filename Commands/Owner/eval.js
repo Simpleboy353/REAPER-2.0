@@ -14,8 +14,8 @@ module.exports = {
     const result = eval(cmd)
     let embed = new Discord.MessageEmbed()
     .setTitle("Eval")
-    .addField(`Input`, cmd)
-    .addField(`Output`, result)
+    .addField(`Input`, `${cmd}`)
+    .addField(`Output`, `${result}`)
     .setColor("GREEN")
     message.channel.send(embed)
   }
