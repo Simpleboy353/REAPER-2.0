@@ -137,7 +137,16 @@ client.on(`guildCreate`, guild =>{
    guild.systemChannel.send(embed);
 
   let logschannel = client.channels.cache.get('772716407628365834')
-  logschannel.send(`New Server Added to DataBase!\nName: ${guild.name}\nID: ${guild.id}`)
+  let embed = new MessageEmbed()
+    .setTitle("DataBase Updates")
+    .setDescription("Server Added to Database")
+    .addField(`Server Name`, `${guild.name}`)
+    .addField(`Server ID`, `${guild.id}`)
+    .addField(`Data Stats`, "Data has been Successully Created")
+    .setColor("GREEN")
+    .setThumbnail();
+
+  logschannel.send(embed)
 })
 
 const messageData = require("./Commands/Owner/models/messages")
@@ -695,6 +704,17 @@ client.on("guildMemberRemove", async (member) => {
   }
 })
 client.on("guildDelete", async(guild)=>{
+  let logschannel = client.channels.cache.get("772716407628365834")
+  let embed = new MessgaeEmbed()
+  .setTitle("DataBase Updates")
+  .setDescription("Server Removed From Database")
+  .addField(`Server Name`, `${guild.name}`)
+  .addField(`Server ID`, `${guild.id}`)
+  .addField(`Data Stats`, "Data has been Successully Deleted!")
+  .setColor("GREEN")
+  .setThumbnail();
+
+  logschannel.send(embed)
   const data = await prefix.findOne({
     GuildID: guild.id
   })
@@ -755,7 +775,5 @@ client.on("guildDelete", async(guild)=>{
   } else if (!data6) {
     return;
   }
-  const logschannel = client.channels.cache.get("772716407628365834");
-  logschannel.send(`Successfully Cleared the Data for **${guild.name}** Server!`)
 })
 client.login(process.env.token)//Enter your bot token here
