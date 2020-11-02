@@ -135,6 +135,9 @@ client.on(`guildCreate`, guild =>{
   .addField("Some Useful Links", "Get my Invite Link [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)\nNeed Assistance? Join my [Support Server](https://discord.gg/mqWprFc) Now!")
   .setColor("GREEN")
    guild.systemChannel.send(embed);
+
+  let logschannel = client.channels.cache.get('772716407628365834')
+  logschannel.send(`New Server Added to DataBase!\nName: ${guild.name}\nID: ${guild.id}`)
 })
 
 const messageData = require("./Commands/Owner/models/messages")
