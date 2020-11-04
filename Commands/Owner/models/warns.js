@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PrefixSchema = new mongoose.Schema({
   Warns: {
-    type: String
+    type: Number
   },
   GuildID: String,
   UserId: String
