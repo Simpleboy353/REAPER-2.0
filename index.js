@@ -534,7 +534,7 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
         var oldstate = oldUser.deaf === undefined ? "None" : oldUser.deaf ? "Yes" : "No"
         var newstate = newUser.deaf === undefined ? "None" : newUser.deaf ? "Yes" : "No"
         let embed = new MessageEmbed()
-        .setTitle("Voice State Updates")
+        .setTitle(":loud_sound: Voice State Updates")
         .setDescription(`Voice State Updated For ${newMember}`)
         .addField(`Deafened`, `${oldstate} => ${newstate}`)
         .setColor("RED")
@@ -546,7 +546,7 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
            var oldState = oldUser.mute === undefined ? "None" : oldUser.mute ? "Yes" : "No"
            var newState = newUser.mute === undefined ? "None" : newUser.mute ? "Yes" : "No"
            let embed1 = new MessageEmbed()
-           .setTitle("Voice State Updates")
+           .setTitle(":loud_sound: Voice State Updates")
            .setDescription(`Voice State Updated For ${newMember}`)
            .addField(`Muted`, `${oldState} => ${newState}`)
            .setColor("RED")
