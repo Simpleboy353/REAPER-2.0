@@ -533,10 +533,10 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     if (newUser.mute != oldUser.mute) {
       change = changes.muted
     }
-    if (!oldUser.voiceChannel.channel && newUser.voiceChannel.channel) {
+    if (!oldMember.voice && newMember.voice) {
       change = changes.join
     }
-    if (!newUser.voiceChannel.channel && oldUser.voiceChannel.channel) {
+    if (oldMember.voice && !newMember.voice) {
       change = changes.leave
     }
     switch (change) {
