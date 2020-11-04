@@ -44,6 +44,7 @@ module.exports = {
 <:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!
 
 <:utility:748177830134808597> __**UTILITIES**__\n\`${prefix}help utility\`\nSome Simple Utility Commands`)
+.setFooter(`Please be sure that you have read our privacy policy before using the bot!`)
       .setThumbnail(client.user.avatarURL())
       .setColor("GREEN");
 
