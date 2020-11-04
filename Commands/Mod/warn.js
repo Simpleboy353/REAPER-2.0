@@ -18,10 +18,8 @@ module.exports = {
     });
 
     if (data) {
-      let newData = prefixModel.findOneAndUpdate({
-      Warns = data.Warns + 1
-      });
-      (await newData).save();
+      data.Warns +=1
+      data.save();
       message.channel.send(`**${target.user.username}** has been warned! Total Warnings: ${data.Warns}`);
     } else if (!data) {
       let newData = new prefixModel({
