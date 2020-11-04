@@ -79,9 +79,6 @@ client.on(`guildMemberAdd`, async (member) => {
   const data = await welcomeData.findOne({
     GuildID: member.guild.id
   })
-  const data2 = await modData2.findOne({
-    GuildID: member.guild.id
-  })
 
   if (data) {
 
