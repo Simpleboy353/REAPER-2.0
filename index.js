@@ -513,10 +513,10 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     GuildID: newUser.guild.id
   })
   if (data) {
-    let oldUserChannel = oldUser.voiceChannel
-    let newUserChannel = newUser.voiceChannel
     let oldMember = oldUser.member
     let newMember = newUser.member
+    let oldUserChannel = oldMember.voiceChannel
+    let newUserChannel = newMember.voiceChannel
     let modlogs = data.Mod
     var changes = {
       deafened: 1,
@@ -533,10 +533,10 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     if (newUser.mute != oldUser.mute) {
       change = changes.muted
     }
-    if (oldUserChannel === undefined && newUserChannel === undefined) {
+    if (oldUserChannel === "undefined" && newUserChannel !== "undefined") {
       change = changes.join
     }
-    if (newUserChannel === undefined) {
+    if (newUserChannel === "undefined") {
       change = changes.leave
     }
     switch (change) {
