@@ -69,7 +69,7 @@ module.exports = {
   } else if (args[0] === "info") {
       const embed3 = new Discord.MessageEmbed()
         .setTitle("Info Commands")
-        .setDescription("`botinfo`, `devteam`, `emojiid`, `help`, `invite`, `ping`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`")
+        .setDescription("`botinfo`, `devteam`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`")
         .setColor("RANDOM");
 
       return message.channel.send(embed3);
