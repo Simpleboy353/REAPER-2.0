@@ -513,12 +513,16 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     GuildID: newUser.guild.id
   })
   if (data) {
+    let oldUserChannel = oldUser.voiceChannel
+    let newUserChannel = newUser.voiceChannel
     let oldMember = oldUser.member
     let newMember = newUser.member
     let modlogs = data.Mod
     var changes = {
       deafened: 1,
       muted: 2,
+      join: 3,
+      leave: 4
     }
 
     var change = changes.unknown
@@ -528,6 +532,12 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     }
     if (newUser.mute != oldUser.mute) {
       change = changes.muted
+    }
+    if (oldUserChannel === undefined && newUserChannel !== undefined) {
+      change = changes.join
+    }
+    if (newUserChannel === undefined) {
+      change = changes.leave
     }
     switch (change) {
       case changes.deafened:
@@ -553,6 +563,23 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
            .setTimestamp()
 
         newUser.guild.channels.cache.get(modlogs).send(embed1)
+        break
+          case changes.join:
+         let embed7 = new MessageEmbed()
+         .setTitle(":loud_sound: Voice State Updates")
+         .setDescription(`${newMember} joined a voice channel`)
+         .setColor("GREEN")
+         .setTimestamp()
+
+        newUser.guild.channels.cache.get(modlogs).send(embed7)
+        break
+          case changes.leave:
+         let embed8 = new MessageEmbed()
+         .setTitle(":loud_sound: Voice State Updates")
+         .setDescription(`${newMember} left the voice channel`)
+         .setColor("RED")
+         .setTimestamp()
+        newUser.guild.channels.cache.get(modlogs).send(embed8)
         break
     }
   } else if (!data) {
