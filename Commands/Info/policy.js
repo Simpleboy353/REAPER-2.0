@@ -6,6 +6,7 @@ module.exports = {
   run: async(client, message, args)=>{
     const embed = new Discord.MessageEmbed()
     .setTitle("Privacy Policy")
+    .setescription("By using the bot you agree to our privacy policy")
     .addField("What data do we store?", `
     \`We do not collect any personal information relating your account like Passwords or any other Credentials. The data we collect includes the Server IDs, User IDs, Channel IDs and Some Role IDs.The bot never requests for any personal data of the users and any act that breaks the Tos of Discord is discouraged by us!\``)
     .addField("Why we need this data?" `
