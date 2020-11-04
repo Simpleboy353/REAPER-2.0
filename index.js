@@ -515,8 +515,8 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
   if (data) {
     let oldMember = oldUser.member
     let newMember = newUser.member
-    let oldUserChannel = oldMember.voiceChannel
-    let newUserChannel = newMember.voiceChannel
+    let oldUserChannel = oldUser.voiceChannel
+    let newUserChannel = newUser.voiceChannel
     let modlogs = data.Mod
     var changes = {
       deafened: 1,
@@ -533,10 +533,10 @@ client.on(`voiceStateUpdate`, async(oldUser, newUser)=>{
     if (newUser.mute != oldUser.mute) {
       change = changes.muted
     }
-    if (oldUserChannel === "undefined" && newUserChannel !== "undefined") {
+    if (!oldUser.voiceChannel.channel && newUser.voiceChannel.channel) {
       change = changes.join
     }
-    if (newUserChannel === "undefined") {
+    if (!newUser.voiceChannel.channel && oldUser.voiceChannel.channel) {
       change = changes.leave
     }
     switch (change) {
