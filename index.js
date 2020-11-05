@@ -85,6 +85,9 @@ client.on(`guildMemberAdd`, async (member) => {
     const data2 = await welcomemsg.findOne({
       GuildID: member.guild.id
     })
+    let user = member.user;
+    let server = member.guild;
+    let membercount = member.guild.memberCount;
     let embed = new MessageEmbed()
       .setDescription(data2.JoinMsg)
       .setColor("GREEN");
