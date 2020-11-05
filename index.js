@@ -72,7 +72,7 @@ client.on('message', async (message) => {
 });
 const welcomeData = require("./Commands/Owner/models/welcome")
 const modData2 = require("./Commands/Owner/models/modlogs")
-
+const welcomemsg = require("./Commands/Owner/models/joinmsg")
 client.on(`guildMemberAdd`, async (member) => {
   const avatar = member.user.avatarURL;
 
@@ -82,8 +82,11 @@ client.on(`guildMemberAdd`, async (member) => {
 
   if (data) {
 
+    const data2 = await welcomemsg.findOne({
+      GuildID: member.guild.id
+    })
     let embed = new MessageEmbed()
-      .setDescription(data.WelcomeMsg)
+      .setDescription(data2.JoinMsg)
       .setColor("GREEN");
 
     let channel = data.Welcome
@@ -96,7 +99,7 @@ client.on(`guildMemberAdd`, async (member) => {
 
 
 const byeData = require("./Commands/Owner/models/bye")
-
+const byemsg = require("./Commands/Owner/models/byemsg")
 client.on(`guildMemberRemove`, async (member) => {
   const avatar = member.user.avatarURL;
 
@@ -105,8 +108,12 @@ client.on(`guildMemberRemove`, async (member) => {
   })
   if (data) {
 
+    const data2 = await byemsg.findOne({
+      GuildID: member.guild.id
+    })
+
     let embed = new MessageEmbed()
-      .setDescription(data.ByeMsg)
+      .setDescription(data2.ByeMsg)
       .setColor("GREEN");
 
     let channel = data.Bye
