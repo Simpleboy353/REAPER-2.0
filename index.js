@@ -85,20 +85,28 @@ client.on(`guildMemberAdd`, async (member) => {
     const data2 = await welcomemsg.findOne({
       GuildID: member.guild.id
     })
-     let joinmessage = data.JoinMsg
-    let user = "";
-    if (joinmessage.content.contains("{user}")) user = user.replace("{user}", `${member.user.tag}`)
-    let server = "";
-    if (joinmessage.content.contains("{server}")) server = server.replace("{server}", `${member.guild.name}`)
-    let membercount = "";
-    if (joinmessage.content.contains("{user}")) membercount = membercount.replace("{membercount}", `${member.guild.memberCount}`)
-     let embed = new MessageEmbed()
-      .setDescription(data2.JoinMsg)
+    if (data2) {
+      let embed = new MessageEmbed()
+      .setDescription(`${member} ${data2.JoinMsg}`)
       .setColor("GREEN");
 
     let channel = data.Welcome
 
     member.guild.channels.cache.get(channel).send(embed);
+   } else if (!data2) {
+   let embed2 = new MessageEmbed()
+   .setTitle("Welcome")
+   .setDescription (`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`)
+   .setTuumbnail(member.user.avatarURL())
+   .setFooter(`We now have ${member.guild.memberCount} members!`)
+   .setThumbnail(member.user.avatarURL())
+   .setColor("GREEN")
+
+   let welcomechannel = data.Welcome
+
+member.guild.channels.cache.get(welcomechannel).send(embed2)
+   }
+
   } else if (!data) {
     return;
   }
@@ -118,20 +126,28 @@ client.on(`guildMemberRemove`, async (member) => {
     const data2 = await byemsg.findOne({
       GuildID: member.guild.id
     })
-    let leavemessage = data.ByeMsg
-    let user = "";
-    if (leavemessage.content.contains("{user}")) user = user.replace("{user}", `${member.user.tag}`)
-    let server = "";
-    if (leavemessage.content.contains("{server}")) server = server.replace("{server}", `${member.guild.name}`)
-    let membercount = "";
-    if (leavemessage.content.contains("{membercount}")) membercount = membercount.replace("{membercount}", `${member.guild.memberCount}`)
+  if (data2) {
     let embed = new MessageEmbed()
-      .setDescription(data2.ByeMsg)
+      .setDescription(`${member}, ${data2.ByeMsg}`)
       .setColor("GREEN");
 
     let channel = data.Bye
 
     member.guild.channels.cache.get(channel).send(embed);
+
+   } else if (!data2) {
+   let embed2 = new MessageEmbed()
+   .setTitle("Goodbye")
+   .setDescription (`${member.user.tag} just left the server! We hope they return back soon!`)
+   .setTuumbnail(member.user.avatarURL())
+   .setFooter(`We now have ${member.guild.memberCount} members!`)
+   .setThumbnail(member.user.avatarURL())
+   .setColor("GREEN")
+
+   let byechannel = data.Bye
+
+member.guild.channels.cache.get(byechannel).send(embed2);
+   }
   } else if (!data) {
     return;
   }
