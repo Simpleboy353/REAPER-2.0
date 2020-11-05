@@ -87,11 +87,11 @@ client.on(`guildMemberAdd`, async (member) => {
     })
      let joinmessage = data.JoinMsg
     let user = "";
-    if (leavemessage.content.contains("{user}")) user = user.replace("{user}", `${member.user.tag}`)
+    if (joinmessage.content.contains("{user}")) user = user.replace("{user}", `${member.user.tag}`)
     let server = "";
-    if (leavemessage.content.contains("{server}")) server = server.replace("{server}", `${member.guild.name}`)
+    if (joinmessage.content.contains("{server}")) server = server.replace("{server}", `${member.guild.name}`)
     let membercount = "";
-    if (leavemessage.content.contains("{user}")) membercount = membercount.replace("{membercount}", `${member.guild.memberCount}`)
+    if (joinmessage.content.contains("{user}")) membercount = membercount.replace("{membercount}", `${member.guild.memberCount}`)
      let embed = new MessageEmbed()
       .setDescription(data2.JoinMsg)
       .setColor("GREEN");
