@@ -57,13 +57,13 @@ module.exports = {
     }
     if (data4) {
       let jchannel = data4.Welcome
-      embed.addField(`Join Logs`, `State: Active\nChannel: <#${jchannel}>`)
+      embed.addField(`Join Logs`, `State: Active\nChannel: <#${jchannel}>\nJoin Message: ${data4.WelcomeMsg}`)
     } else if (!data4) {
     embed.addField(`Join Logs`, `State: Inactive`)
     }
     if (data5) {
       let bchannel = data5.Bye
-      embed.addField(`Leave Logs`, `State: Active\nChannel: <#${bchannel}>`)
+      embed.addField(`Leave Logs`, `State: Active\nChannel: <#${bchannel}>\nLeave Message: ${data5.ByeMsg}`)
     } else if (!data5) {
       embed.addField(`Leave Logs`, `State: Inactive`)
     }
