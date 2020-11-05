@@ -26,7 +26,7 @@ module.exports = {
           GuildID: message.guild.id
         });
         newData.save();
-        message.channel.send(`Join Message set to ${data.JoinMsg}`);
+        message.channel.send(`Join Message set to ${newData.JoinMsg}`);
 
       } else if (!data) {
 
