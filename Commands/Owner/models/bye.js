@@ -4,9 +4,6 @@ const PrefixSchema = new mongoose.Schema({
   Bye: {
     type: String,
   },
-  ByeMsg: { 
-    type: String,
-  },
   GuildID: String
 });
 

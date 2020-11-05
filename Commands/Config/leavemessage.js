@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js")
-const prefixModel = require("../Owner/models/bye");
+const prefixModel = require("../Owner/models/byemsg");
 
 module.exports = {
   name: "leavemessage",

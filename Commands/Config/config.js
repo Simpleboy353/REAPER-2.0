@@ -5,6 +5,8 @@ const autoroleData = require("../Owner/models/autorole")
 const welcomeData = require("../Owner/models/welcome")
 const byeData = require("../Owner/models/bye")
 const prefixData = require("../Owner/models/prefix")
+const JoinMsg = require("../Owner/models/joinmsg")
+const ByeMsg = require("../Owner/models/byemsg")
 
 module.exports = {
   name: "config",
@@ -34,6 +36,12 @@ module.exports = {
     } else if (!data6) {
       serverprefix = "=";
     }
+    const data7 = await JoinMsg.findOne({
+      GuildID: message.guild.id
+    })
+      const data8 = await ByeMsg.findOne({
+        GuildID: message.guild.id
+      })
     const icon = message.guild.iconURL;
     const embed = new Discord.MessageEmbed()
     .setTitle(`Config Stats For **${message.guild.name}**`)
@@ -57,9 +65,15 @@ module.exports = {
     }
     if (data4) {
       let jchannel = data4.Welcome
-      embed.addField(`Join Logs`, `State: Active\nChannel: <#${jchannel}>\nJoin Message: ${data4.WelcomeMsg}`)
+      embed.addField(`Join Logs`, `State: Active\nChannel: <#${jchannel}>`)
     } else if (!data4) {
     embed.addField(`Join Logs`, `State: Inactive`)
+    }
+    if (data7) {
+      let joinmsg = data7.JoinMsg
+      embed.addField(`Join Message`, `${joinmsg}`)
+    } else if (!data7) {
+      embed.addField(`Join Message`, `Not Set`)
     }
     if (data5) {
       let bchannel = data5.Bye
@@ -67,6 +81,12 @@ module.exports = {
     } else if (!data5) {
       embed.addField(`Leave Logs`, `State: Inactive`)
     }
+      if (data8) {
+        let byemsg = data7.ByeMsg
+        embed.addField(`Leave Message`, `${byemsg}`)
+      } else if (!data8) {
+        embed.addField(`Leave Message`, `Not Set`)
+      }
     if (data1) {
       let modlogs = data1.Mod
       embed.addField(`Modlogs`, `State: Active\nChannel: <#${modlogs}>`)

@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js")
-const prefixModel = require("../Owner/models/welcome");
+const prefixModel = require("../Owner/models/joinmsg");
 
 module.exports = {
   name: "joinmessage",
@@ -22,20 +22,20 @@ module.exports = {
           GuildID: message.guild.id
         });
         let newData = new prefixModel({
-          WelcomeMsg: args.join(" "),
+          JoinMsg: args.join(" "),
           GuildID: message.guild.id
         });
         newData.save();
-        message.channel.send(`Join Message set to ${data.WelcomeMsg}`);
+        message.channel.send(`Join Message set to ${data.JoinMsg}`);
 
       } else if (!data) {
 
         let newData = new prefixModel({
-          WelcomeMsg: args.join(" "),
+          JoinMsg: args.join(" "),
           GuildID: message.guild.id
         });
         newData.save();
-        message.channel.send(`Join Message set to ${data.WelcomeMsg}`);
+        message.channel.send(`Join Message set to ${data.JoinMsg}`);
 
       }
     } else if (args[0] === "off") {
