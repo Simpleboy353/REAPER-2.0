@@ -86,7 +86,7 @@ module.exports = {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
         .setDescription(
-"To see current settings do \`${prefix}help config\`\n **Join & Leave**\n```▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n    •••••••••••••••    \n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>```\n **Logs & Prefix**```▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\n▪ prefix <NewPrefix>```\n```Note: Custom Join and Leave messages are in beta and doesn't include any variables yet! Therefore bot will mention users itself! And if you setup the join and leave channels without custom messages, the bot will send automated response when user joins or leaves!```")
+`To see current settings do \`${prefix}config stats\`\n **Join & Leave**\n\`\`\`▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n    •••••••••••••••    \n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>\`\`\`\n **Logs & Prefix**\`\`\`▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\n▪ prefix <NewPrefix>\`\`\`\n\`\`\`Note: Custom Join and Leave messages are in beta and doesn't include any variables yet! Therefore bot will mention users itself! And if you setup the join and leave channels without custom messages, the bot will send automated response when user joins or leaves!\`\`\``)
         .setFooter("New Commands Coming Soon!")
         .setColor("RANDOM");
 
