@@ -9,17 +9,17 @@ module.exports = {
     .setTitle("Infinity Bot Privacy Policy")
     .setThumbnail(icon)
     .setDescription("By using the bot you agree to our privacy policy")
-    .addField("What data do we store?", `
+    .addField("**WHAT DATA DO WE STORE?**", `
     We do not collect any personal information relating your account like Passwords or any other Credentials. The data we collect includes the Server IDs, Channel IDs and Some Role IDs. The bot never requests for any personal data of the users and any act that breaks the Tos of Discord is discouraged by us!`)
-    .addField("Why we need this data?", `
+    .addField("**WHY WE NEED THIS DATA?**", `
     The data is required for the proper functioning of the bot features like logging and autoroles. Without this data, our bot will not be able to perform the logging activities and thus making the features not accessable for users`)
-    .addField("How we use the data?", `
+    .addField("**HOW DO WE USE THIS DATA?**", `
     The data is used for the proper functioning for the Logging activities and Autorole features of our Bot. Channel IDs are used to send the messages to the desginated channels and Server IDs to identify the Servers and the Role IDs are used for the Autorole feature`)
-    .addField(`How long do we store your data?`, `
+    .addField(`**HOW LONG DO WE STORE YOUR DATA?**`, `
     The data is stored as long as the bot is in your Server and as soon as the bot is kicked or removed from the Server, the data is deleted and is no longer to accessable to anyone`)
-    .addField("Who do we share the data with?", `
+    .addField("**WHO DO WE SHARE THE DATA WITH**?", `
     We never share your data with anyone except for [MongoDB Inc](https://mongodb.com) which is a DataBase Company and all the data for our Bot is stored on the MongoDB Servers and According to MongoDB Inc. the data is only accessable by us.`)
-    .addField("Got Concerns or Queries?", `
+    .addField("**GOT CONCERNS OR QUERIES?**", `
     If you have any concerns or queries relating our privacy policy or our bot or if you want your data to be removed, You can contact [๖ۣۜℜⱥjͥƤuͣtͫ#0001](https://discord.com/users/661501985517862972) directy on our [Support Server](https://discord.gg/mqWprFc)!`)
     .setThumbnail(client.user.avatarURL())
     .setFooter(`Requested by: ${message.author.username}`)
