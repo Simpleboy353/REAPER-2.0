@@ -44,6 +44,14 @@ client.on('ready', () => {
 client.on('message', async (message) => {
   if (message.author.bot) return;
 
+  if (message.content.match(`<@${client.user.id}>`)) {
+    let embed100 = new MessageEmbedEmbed()
+      .setTitle("Thanks for the Ping!")
+      .setDescription("Hello Everyone, I am Infinity, A multi-purpose Discord Bot \n\nMy default Prefix is `=` but you can change it accordingly. To get my Commands List type `=help`\n\nIf you want to report any error, you can use the `=report` command and if you want to suggest features for me, you can use the `=suggest` command!")
+      .addField("Some Useful Links", "Get my Invite Link [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)\nNeed Assistance? Join my [Support Server](https://discord.gg/mqWprFc) Now!")
+      .setColor("GREEN")
+    guild.systemChannel.send(embed100);
+  }
   //Getting the data from the model
   const data = await prefix.findOne({
     GuildID: message.guild.id
