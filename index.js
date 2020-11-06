@@ -85,13 +85,28 @@ client.on(`guildMemberAdd`, async (member) => {
     const data2 = await welcomemsg.findOne({
       GuildID: member.guild.id
     })
-     let embed = new MessageEmbed()
-      .setDescription(data2.JoinMsg)
+    if (data2) {
+      let embed = new MessageEmbed()
+      .setDescription(`${member} ${data2.JoinMsg}`)
       .setColor("GREEN");
 
     let channel = data.Welcome
 
     member.guild.channels.cache.get(channel).send(embed);
+   } else if (!data2) {
+   let embed2 = new MessageEmbed()
+   .setTitle("Welcome")
+   .setThumbnail(member.user.avatarURL())
+   .setDescription (`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`)
+   .setFooter(`We now have ${member.guild.memberCount} members!`)
+   .setThumbnail(member.user.avatarURL())
+   .setColor("GREEN")
+
+   let welcomechannel = data.Welcome
+
+member.guild.channels.cache.get(welcomechannel).send(embed2)
+   }
+
   } else if (!data) {
     return;
   }
@@ -111,10 +126,10 @@ client.on(`guildMemberRemove`, async (member) => {
     const data2 = await byemsg.findOne({
       GuildID: member.guild.id
     })
-
-    let {usermention} = member.user;
-    let {username} = member.user.tag;
-    let {membercount} = member.guild.memberCount;
+  if (data2) {
+    let usermention = member.user
+    let username = member.user.tag
+    let membercount = member.guild.memberCount
     let embed = new MessageEmbed()
       .setDescription(`${data2.ByeMsg}`)
       .setColor("GREEN");
@@ -122,6 +137,20 @@ client.on(`guildMemberRemove`, async (member) => {
     let channel = data.Bye
 
     member.guild.channels.cache.get(channel).send(embed);
+
+   } else if (!data2) {
+   let embed2 = new MessageEmbed()
+   .setTitle("Goodbye")
+   .setThumbnail(member.user.avatarURL())
+   .setDescription (`**${member.user.tag}** just left the server! We hope they return back soon!`)
+   .setFooter(`We now have ${member.guild.memberCount} members!`)
+   .setThumbnail(member.user.avatarURL())
+   .setColor("GREEN")
+
+   let byechannel = data.Bye
+
+member.guild.channels.cache.get(byechannel).send(embed2);
+   }
   } else if (!data) {
     return;
   }

@@ -44,7 +44,7 @@ module.exports = {
 <:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!
 
 <:utility:748177830134808597> __**UTILITIES**__\n\`${prefix}help utility\`\nSome Simple Utility Commands`)
-.setFooter(`Please be sure that you have read our privacy policy before using the bot!`)
+      .setFooter(`Be sure to read our Privacy Privacy before using the bot! Use =policy for more info!`)
       .setThumbnail(client.user.avatarURL())
       .setColor("GREEN");
 
@@ -86,7 +86,7 @@ module.exports = {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
         .setDescription(
-"```autorole <@role|off>\nconfig stats\njoinchannel <#channel|off>\nleavechannel <#channel|off>\nmessagelogs <#channel|off>\nmodlogs <#channel|off>\nprefix <NewPrefix>```")
+`To see current settings do \`${prefix}config stats\`\n\n **Autorole & Prefix**\n\`\`\`▪ autorole <role|off>\n▪ prefix <NewPrefix>\`\`\`\n **Join & Leave**\`\`\`▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>\`\`\`\n **Logging Activites**\`\`\`▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\`\`\`\n\`\`\`Note: Custom Join and Leave messages are in beta and doesn't include any variables yet! Therefore bot will mention users itself! And if you setup the join and leave channels without custom messages, the bot will send automated response when user joins or leaves!\`\`\``)
         .setFooter("New Commands Coming Soon!")
         .setColor("RANDOM");
 

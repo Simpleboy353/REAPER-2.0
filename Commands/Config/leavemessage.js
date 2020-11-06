@@ -12,7 +12,7 @@ module.exports = {
     if (!args[0]) {
       return message.channel.send(`\`Usage: =leavemessage <Text|off>\``)
     }
-    if (text) {
+    if (text !== "off") {
       const data = await prefixModel.findOne({
         GuildID: message.guild.id
       });
@@ -38,7 +38,7 @@ module.exports = {
         message.channel.send(`Leave Message set to \n${newData.ByeMsg}`);
 
       }
-    } else if (args[0] === "off") {
+    } else if (text === "off") {
       const data2 = await prefixModel.findOne({
         GuildID: message.guild.id
       });

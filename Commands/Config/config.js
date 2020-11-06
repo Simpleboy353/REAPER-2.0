@@ -71,7 +71,7 @@ module.exports = {
     }
     if (data7) {
       let joinmsg = data7.JoinMsg
-      embed.addField(`Join Message`, `${joinmsg}`)
+      embed.addField(`Join Message`, `${data7.JoinMsg}`)
     } else if (!data7) {
       embed.addField(`Join Message`, `Not Set`)
     }
@@ -83,7 +83,7 @@ module.exports = {
     }
       if (data8) {
         let byemsg = data7.ByeMsg
-        embed.addField(`Leave Message`, `${byemsg}`)
+        embed.addField(`Leave Message`, `${data8.ByeMsg}`)
       } else if (!data8) {
         embed.addField(`Leave Message`, `Not Set`)
       }
