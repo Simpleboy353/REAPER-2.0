@@ -131,7 +131,7 @@ client.on(`guildMemberRemove`, async (member) => {
     let username = member.user.tag
     let membercount = member.guild.memberCount
     let embed = new MessageEmbed()
-      .setDescription(`${data2.ByeMsg}`)
+      .setDescription(`**${member.user.tag}** ${data2.ByeMsg}`)
       .setColor("GREEN");
 
     let channel = data.Bye
