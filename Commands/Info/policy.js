@@ -6,7 +6,7 @@ module.exports = {
   run: async(client, message, args)=>{
     const icon = client.user.avatarURL;
     const embed = new Discord.MessageEmbed()
-    .setTitle("Infinity Bot Privacy Policy")
+    .setTitle("INFINITY BOT PRIVACY POLICY")
     .setThumbnail(icon)
     .setDescription("By using the bot you agree to our privacy policy")
     .addField("**WHAT DATA DO WE STORE?**", `
