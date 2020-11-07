@@ -91,7 +91,6 @@ const welcomeData = require("./Commands/Owner/models/welcome")
 const modData2 = require("./Commands/Owner/models/modlogs")
 const welcomemsg = require("./Commands/Owner/models/joinmsg")
 client.on(`guildMemberAdd`, async (member) => {
-  const avatar = member.user.avatarURL;
 
   const data = await welcomeData.findOne({
     GuildID: member.guild.id
@@ -136,12 +135,48 @@ client.on(`guildMemberAdd`, async (member) => {
       }
     }
    } else if (!data2) {
- co
+     return;
+   }
+  })
+   client.on("guildMemberAdd", async(member)=>{
+  const data = await welcomeData.findOne({
+  GuildID: member.guild.id
+})
+     const { createCanvas, loadImage, registerFont } = require('canvas');
+     const request = require('node-superfetch');
+     const path = require('path');
+     registerFont(path.join(__dirname, '.', 'cores', 'fonts', 'Heroes Legend.ttf'), { family: 'Heroes Legend' });
+     const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
+     try {
+       const firstAvatarData = await request.get(firstAvatarURL);
+       const firstAvatar = await loadImage(firstAvatarData.body);
+       const base = await loadImage(path.join(__dirname, '.', 'cores', 'img', 'welcome.png'));
+       const canvas = createCanvas(base.width, base.height);
+       const ctx = canvas.getContext('2d');
+       ctx.drawImage(firstAvatar, -6, 35, 400, 400);
+       ctx.drawImage(base, 0, 0);
+       ctx.textAlign = 'left';
+       ctx.textBaseline = 'top';
+       ctx.fillStyle = '#40e9ff';
+       ctx.font = '24px Heroes Legend';
+       ctx.fillStyle = 'black';
+       ctx.fillText(member.user.tag, 358, 288);
+       ctx.font = '18px Heroes Legend';
+       ctx.fillStyle = 'white';
+       ctx.fillText(member.guild.name, 408, 358)
+
+
+       var errorlogs = client.channels.cache.get("747750993583669258")
+     } catch (err) {
+       return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
+     }
+ if (data) {
+   let channel = data.Welcome
       member.guild.channels.cache.get(channel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
       member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
-  } else if (!data) {
-    return;
-  }
+ } else if (!data) {
+   return;
+ }
 });
 
 
