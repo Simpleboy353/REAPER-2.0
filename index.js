@@ -169,9 +169,7 @@ client.on(`guildMemberAdd`, async (member) => {
      ctx.fillText(member.guild.name, 408, 358)
      let channel = data.Welcome
      member.guild.channels.cache.get(channel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
-     let embed10 = new MessageEmbed()
-      .setImage(canvas.toBuffer())
-     member.guild.channels.cache.get(channel).send(embed10);
+     member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
 
      var errorlogs = client.channels.cache.get("747750993583669258")
    } catch (err) {
