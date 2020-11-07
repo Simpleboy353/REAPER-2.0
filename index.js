@@ -124,7 +124,7 @@ member.guild.channels.cache.get(welcomechannel).send(embed2)
       const { createCanvas, loadImage, registerFont } = require('canvas');
       const request = require('node-superfetch');
       const path = require('path');
-      registerFont(path.join(__dirname, '..', 'cores', 'fonts', 'Heroes Legend.ttf'), { family: 'Heroes Legend' });
+      registerFont(path.join(__dirname, '.', 'cores', 'fonts', 'Heroes Legend.ttf'), { family: 'Heroes Legend' });
           const channel = data.Welcome;
           const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
           try {
