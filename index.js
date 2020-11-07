@@ -105,7 +105,7 @@ client.on(`guildMemberAdd`, async (member) => {
     })
     if (data2) {
 
-    let channel = data.Welcome
+    var channel = data.Welcome
 
     member.guild.channels.cache.get(channel).send(data2.JoinMsg);
       const { createCanvas, loadImage, registerFont } = require('canvas');
@@ -143,7 +143,6 @@ client.on(`guildMemberAdd`, async (member) => {
    let welcomechannel = data.Welcome
 
       member.guild.channels.cache.get(welcomechannel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`)
-          const channel = data.Welcome;
           const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
           try {
             const firstAvatarData = await request.get(firstAvatarURL);
