@@ -41,6 +41,7 @@
     "node-superfetch": "^0.1.10",
     "os": "^0.1.1",
     "os-utils": "0.0.14",
+    "path": "^0.12.7",
     "pretty-ms": "^7.0.0",
     "random-puppy": "^1.1.0",
     "request": "^2.88.2",

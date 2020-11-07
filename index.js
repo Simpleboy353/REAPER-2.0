@@ -44,7 +44,7 @@ client.on('ready', () => {
 client.on('message', async (message) => {
   if (message.author.bot) return;
 
-  if (message.content.match(`<@${client.user.id}>`)) {
+  if (message.content === `<@${client.user.id}>`) {
     let embed100 = new MessageEmbed()
       .setTitle("Thanks for the Ping!")
       .setDescription("Hello Everyone, I am Infinity, A multi-purpose Discord Bot \n\nMy default Prefix is `=` but you can change it accordingly. To get my Commands List type `=help`\n\nIf you want to report any error, you can use the `=report` command and if you want to suggest features for me, you can use the `=suggest` command!")
@@ -53,7 +53,7 @@ client.on('message', async (message) => {
     message.channel.send(embed100);
   }
 
-  if (message.content.match(`<@!${client.user.id}>`)) {
+  if (message.content === `<@!${client.user.id}>`) {
     let embed101 = new MessageEmbed()
       .setTitle("Thanks for the Ping!")
       .setDescription("Hello Everyone, I am Infinity, A multi-purpose Discord Bot \n\nMy default Prefix is `=` but you can change it accordingly. To get my Commands List type `=help`\n\nIf you want to report any error, you can use the `=report` command and if you want to suggest features for me, you can use the `=suggest` command!")
@@ -118,10 +118,39 @@ client.on(`guildMemberAdd`, async (member) => {
    .setFooter(`We now have ${member.guild.memberCount} members!`)
    .setThumbnail(member.user.avatarURL())
    .setColor("GREEN")
-
    let welcomechannel = data.Welcome
 
 member.guild.channels.cache.get(welcomechannel).send(embed2)
+      const { createCanvas, loadImage, registerFont } = require('canvas');
+      const request = require('node-superfetch');
+      const path = require('path');
+      registerFont(path.join(__dirname, '..', 'cores', 'fonts', 'Heroes Legend.ttf'), { family: 'Heroes Legend' });
+          const channel = data.Welcome;
+          const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
+          try {
+            const firstAvatarData = await request.get(firstAvatarURL);
+            const firstAvatar = await loadImage(firstAvatarData.body);
+            const base = await loadImage(path.join(__dirname, '.', 'cores', 'img', 'welcome.png'));
+            const canvas = createCanvas(base.width, base.height);
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(firstAvatar, -6, 35, 400, 400);
+            ctx.drawImage(base, 0, 0);
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillStyle = '#40e9ff';
+            ctx.font = '24px Heroes Legend';
+            ctx.fillStyle = 'black';
+            ctx.fillText(member.user.tag, 358, 288);
+            ctx.font = '18px Heroes Legend';
+            ctx.fillStyle = 'white';
+            ctx.fillText(member.guild.name, 408, 358)
+
+
+           var errorlogs = client.channels.cache.get("747750993583669258")
+            return channel.send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
+          } catch (err) {
+            return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
+          }
    }
 
   } else if (!data) {
