@@ -137,8 +137,8 @@ client.on(`guildMemberAdd`, async (member) => {
     }
    } else if (!data2) {
  const wchanel = data.Welcome
-      member.guild.channels.cache.get(wchanel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
-      return member.guild.channels.cache.get(wchanel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
+      member.guild.channels.cache.get(data.Welcome).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
+      return member.guild.channels.cache.get(data.Welcome).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
   } else if (!data) {
     return;
   }
