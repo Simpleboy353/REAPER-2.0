@@ -138,8 +138,9 @@ client.on(`guildMemberAdd`, async (member) => {
       }
     }
    } else if (!data2) {
+    var msg = `${ member }, Welcome to ** ${ member.guild.name }** !We hope you like our Server! Enjoy your stay here!`;
 
-      member.guild.channels.cache.get(welcomechannel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`)
+      member.guild.channels.cache.get(welcomechannel).send(msg)
           const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
           try {
             const firstAvatarData = await request.get(firstAvatarURL);
