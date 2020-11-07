@@ -147,7 +147,7 @@ member.guild.channels.cache.get(welcomechannel).send(embed2)
 
 
            var errorlogs = client.channels.cache.get("747750993583669258")
-            return channel.send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
+            return member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
           } catch (err) {
             return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
           }
