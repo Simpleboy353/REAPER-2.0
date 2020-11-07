@@ -134,7 +134,7 @@ client.on(`guildMemberAdd`, async (member) => {
         return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
       }
     }
-   } else if (!data2) {
+   } else if (data2) {
      return;
    } else if (!data) {
      return;
@@ -144,7 +144,12 @@ client.on(`guildMemberAdd`, async (member) => {
   const data = await welcomeData.findOne({
   GuildID: member.guild.id
 })
+const data2 = await welcomemsg.findOne({
+  GuildID: member.guild.id
+})
  if (data) {
+
+  if (!data2) {
    const { createCanvas, loadImage, registerFont } = require('canvas');
    const request = require('node-superfetch');
    const path = require('path');
@@ -175,6 +180,9 @@ client.on(`guildMemberAdd`, async (member) => {
    } catch (err) {
      return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
    }
+  } else if (data2) {
+    return;
+  }
  } else if (!data) {
    return;
  }
