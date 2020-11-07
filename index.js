@@ -98,8 +98,6 @@ client.on(`guildMemberAdd`, async (member) => {
   })
 
   if (data) {
-    
-    var welcomechannel = data.Welcome
     var channel = data.Welcome
 
     var data2 = await welcomemsg.findOne({
@@ -138,33 +136,9 @@ client.on(`guildMemberAdd`, async (member) => {
       }
     }
    } else if (!data2) {
-    var msg = `${member}, Welcome to ** ${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`;
-
-      member.guild.channels.cache.get(channel).send(msg)
-          const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
-          try {
-            const firstAvatarData = await request.get(firstAvatarURL);
-            const firstAvatar = await loadImage(firstAvatarData.body);
-            const base = await loadImage(path.join(__dirname, '.', 'cores', 'img', 'welcome.png'));
-            const canvas = createCanvas(base.width, base.height);
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(firstAvatar, -6, 35, 400, 400);
-            ctx.drawImage(base, 0, 0);
-            ctx.textAlign = 'left';
-            ctx.textBaseline = 'top';
-            ctx.fillStyle = '#40e9ff';
-            ctx.font = '24px Heroes Legend';
-            ctx.fillStyle = 'black';
-            ctx.fillText(member.user.tag, 358, 288);
-            ctx.font = '18px Heroes Legend';
-            ctx.fillStyle = 'white';
-            ctx.fillText(member.guild.name, 408, 358)
-            return member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
-          } catch (err) {
-            return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
-          }
-   
-
+ const wchanel = data.Welcome
+      member.guild.channels.cache.get(wchanel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
+      return member.guild.channels.cache.get(wchanel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
   } else if (!data) {
     return;
   }
