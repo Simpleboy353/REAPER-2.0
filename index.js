@@ -104,7 +104,7 @@ client.on(`guildMemberAdd`, async (member) => {
       GuildID: member.guild.id
     })
     if (data2) {
-    member.guild.channels.cache.get(channel).send(data2.JoinMsg);
+    member.guild.channels.cache.get(channel).send(`**${member.user.tag}**, ${data2.JoinMsg}`);
       const { createCanvas, loadImage, registerFont } = require('canvas');
       const request = require('node-superfetch');
       const path = require('path');
@@ -130,15 +130,15 @@ client.on(`guildMemberAdd`, async (member) => {
 
 
         var errorlogs = client.channels.cache.get("747750993583669258")
-        return member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
+        member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
       } catch (err) {
         return errorlogs.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
       }
     }
    } else if (!data2) {
- const wchanel = data.Welcome
-      member.guild.channels.cache.get(data.Welcome).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
-      return member.guild.channels.cache.get(data.Welcome).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
+ co
+      member.guild.channels.cache.get(channel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
+      member.guild.channels.cache.get(channel).send({ files: [{ attachment: canvas.toBuffer(), name: 'welcome.png' }] });
   } else if (!data) {
     return;
   }
