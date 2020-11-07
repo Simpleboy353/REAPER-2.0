@@ -99,14 +99,13 @@ client.on(`guildMemberAdd`, async (member) => {
 
   if (data) {
     
+    var welcomechannel = data.Welcome
+    var channel = data.Welcome
 
     var data2 = await welcomemsg.findOne({
       GuildID: member.guild.id
     })
     if (data2) {
-
-    var channel = data.Welcome
-
     member.guild.channels.cache.get(channel).send(data2.JoinMsg);
       const { createCanvas, loadImage, registerFont } = require('canvas');
       const request = require('node-superfetch');
@@ -139,7 +138,6 @@ client.on(`guildMemberAdd`, async (member) => {
       }
     }
    } else if (!data2) {
-   let welcomechannel = data.Welcome
 
       member.guild.channels.cache.get(welcomechannel).send(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy your stay here!`)
           const firstAvatarURL = member.user.displayAvatarURL({ format: 'png', size: 512 });
