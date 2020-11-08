@@ -53,7 +53,7 @@ module.exports = {
   } else if (args[0] === "mod") {
       const embed1 = new Discord.MessageEmbed()
         .setTitle("Moderation Commands")
-        .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
+        .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `warn`, `checkwarns`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
         .setColor("RANDOM");
      return message.channel.send(embed1)
 

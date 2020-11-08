@@ -18,11 +18,11 @@ module.exports = {
             `${user.user.tag} has not got any warns in this guild!`
           );
         let Embed = new MessageEmbed()
-          .setTitle(`${user.user.tag}'s warns in ${message.guild.name}.. `)
+          .setTitle(`${user.user.tag}'s Warnings`)
           .setColor("0193FC")
           .setDescription(data.map((d) => {
             return d.Warns.map((w, i) =>
-              `**${i} - Moderator: ${message.guild.members.cache.get(w.Moderator).user.tag} Reason: ${w.Reason}**`).join("\n");
+              `${i} - Moderator: ${message.guild.members.cache.get(w.Moderator).user.tag} | Reason: ${w.Reason}`).join("\n");
           }));
         message.channel.send(Embed);
       }

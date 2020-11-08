@@ -1,5 +1,5 @@
 const warns = require("../Owner/models/warns");
-const { MesssageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = {
   name: "warn",
   description: "Warn a user",
@@ -8,8 +8,9 @@ module.exports = {
   run: async (bot, message, args) => {
     let user = message.mentions.users.first();
     if (!user) return message.channel.send(`❌ ${message.author}, How can I warn, you didn't mention anyone.`);
-    if (!args.slice(1).join(" "))
-      return message.channel.send(`❌ ${message.author.username}, You need to specify a reason for warn!`);
+    let reason = args.slice(1).join(" ")
+    if (reason)
+      reason = "Unspecified";
     warns.findOne(
       { Guild: message.guild.id, User: user.id },
       async (err, data) => {
@@ -21,19 +22,37 @@ module.exports = {
             Warns: [
               {
                 Moderator: message.author.id,
-                Reason: args.slice(1).join(" "),
+                Reason: reason,
               },
             ],
           });
           newWarns.save();
-          message.channel.send(`**${user.tag} has been warned. Reason: ${args.slice(1).join(" ")}. Total warnings: 1**`);
+          let embed = new MessageEmbed()
+            .setTitle("Warn")
+            .setDescription(`
+User: ${user}
+Moderator: ${message.author}
+Reason: ${reason}
+Total Warns: 1`)
+            .setColor("RED")
+            .setTimestamp()
+          message.channel.send(embed);
         } else {
           data.Warns.unshift({
             Moderator: message.author.id,
             Reason: args.slice(1).join(" "),
           });
           data.save();
-          message.channel.send(`**${user.tag} has been warned. Reason: ${args.slice(1).join(" ")}. Total warnings: ${data.Warns.length}**`);
+          let embed2 = new MessageEmbed()
+          .setTitle("Warn")
+          .setDescription(`
+User: ${user}
+Moderator: ${message.author}
+Reason: ${reason}
+Total Warns: ${data.Warns.length}`)
+          .setColor("RED")
+          .setTimestamp()
+          message.channel.send(embed2);
         }
       }
     );
