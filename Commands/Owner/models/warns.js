@@ -4,8 +4,8 @@ const PrefixSchema = new mongoose.Schema({
   Warns: {
     type: Number
   },
-  GuildID: String,
-  UserId: String
+  UserID: String,
+  GuildId: String
 });
 
 const MessageModel = module.exports = mongoose.model('Warnings', PrefixSchema);
