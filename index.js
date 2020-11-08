@@ -102,11 +102,8 @@ client.on(`guildMemberAdd`, async (member) => {
     var data2 = await welcomemsg.findOne({
       GuildID: member.guild.id
     })
-    let joinmessage = data2.JoinMsg
-
-    let user = ""; if (joinmessage.content.match("{user}")) user = user.replace("{user}", `${member}`)
     if (data2) {
-    member.guild.channels.cache.get(channel).send(`**${member.user.tag}**, ${joinmessage}`);
+    member.guild.channels.cache.get(channel).send(`**${member}**, ${joinmessage}`);
       const { createCanvas, loadImage, registerFont } = require('canvas');
       const request = require('node-superfetch');
       const path = require('path');
