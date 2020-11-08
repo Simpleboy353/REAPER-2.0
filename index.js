@@ -103,7 +103,7 @@ client.on(`guildMemberAdd`, async (member) => {
       GuildID: member.guild.id
     })
     if (data2) {
-    member.guild.channels.cache.get(channel).send(`**${member}**, ${joinmessage}`);
+    member.guild.channels.cache.get(channel).send(`**${member}**, ${data2.JoinMsg}`);
       const { createCanvas, loadImage, registerFont } = require('canvas');
       const request = require('node-superfetch');
       const path = require('path');
