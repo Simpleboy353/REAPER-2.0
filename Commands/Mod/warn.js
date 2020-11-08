@@ -9,7 +9,7 @@ module.exports = {
     let user = message.mentions.users.first();
     if (!user) return message.channel.send(`❌ ${message.author}, How can I warn, you didn't mention anyone.`);
     let reason = args.slice(1).join(" ")
-    if (reason)
+    if (!reason)
       reason = "Unspecified";
     warns.findOne(
       { Guild: message.guild.id, User: user.id },
