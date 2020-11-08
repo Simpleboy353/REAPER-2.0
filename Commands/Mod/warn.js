@@ -1,37 +1,41 @@
-const Discord = module.require("discord.js")
-const prefixModel = require("../Owner/models/warns");
-
+const warns = require("../Owner/models/warns");
+const { MesssageEmbed } = require("discord.js")
 module.exports = {
   name: "warn",
-  description: "Warn Users And Add their warnings everytime they are warned!",
-  run: async (client, message, args) => {
-    if (!message.member.hasPermission("MANAGE_SERVER")) {
-      return message.channel.send("You don't have enough Permissions!")
-    }
-    const target = message.mentions.members.first();
-    if (!target) {
-      return message.channel.send("Mention a user!")
-    }
-    const data = await prefixModel.findOne({
-      UserID: target.id,
-      GuildID: message.guild.id,
-    });
-
-    if (data) {
-      let newwarns = data.Warns = data.Warns + 1
-      const warndata = await prefixModel.findOneAndUpdate({
-      Warns: newwarns
-      })
-      warndata.save();
-      message.channel.send(`**${target.user.tag}** has been warned! Total Warnings: ${warndata.Warns}`);
-    } else if (!data) {
-      let newData = new prefixModel({
-        Warns: 1,
-        UserID: target.id,
-        GuildID: message.guild.id,
-      });
-      newData.save();
-      message.channel.send(`**${target.user.username}** has been warned!`)
-    }
-  }
-}
+  description: "Warn a user",
+  category: "Moderation",
+  usage: "<prefix>warn <user> <reason>",
+  run: async (bot, message, args) => {
+    let user = message.mentions.users.first();
+    if (!user) return message.channel.send(`❌ ${message.author}, How can I warn, you didn't mention anyone.`);
+    if (!args.slice(1).join(" "))
+      return message.channel.send(`❌ ${message.author.username}, You need to specify a reason for warn!`);
+    warns.findOne(
+      { Guild: message.guild.id, User: user.id },
+      async (err, data) => {
+        if (err) console.log(err);
+        if (!data) {
+          let newWarns = new warns({
+            User: user.id,
+            Guild: message.guild.id,
+            Warns: [
+              {
+                Moderator: message.author.id,
+                Reason: args.slice(1).join(" "),
+              },
+            ],
+          });
+          newWarns.save();
+          message.channel.send(`**${user.tag} has been warned. Reason: ${args.slice(1).join(" ")}. Total warnings: 1**`);
+        } else {
+          data.Warns.unshift({
+            Moderator: message.author.id,
+            Reason: args.slice(1).join(" "),
+          });
+          data.save();
+          message.channel.send(`**${user.tag} has been warned. Reason: ${args.slice(1).join(" ")}. Total warnings: ${data.Warns.length}**`);
+        }
+      }
+    );
+  },
+};

@@ -1,11 +1,7 @@
-const mongoose = require('mongoose');
-
-const PrefixSchema = new mongoose.Schema({
-  Warns: {
-    type: Number
-  },
-  UserID: String,
-  GuildId: String
+const mongoose = require("mongoose");
+let Schema = new mongoose.Schema({
+  Warns: Array,
+  User: String,
+  Guild: String,
 });
-
-const MessageModel = module.exports = mongoose.model('Warnings', PrefixSchema);
+module.exports = mongoose.model("warns", Schema);

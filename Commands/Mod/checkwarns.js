@@ -1,23 +1,31 @@
-const Discord = module.require("discord.js");
-const warnData = require("../Owner/models/warns")
-
-module.exports  = {
-  name: "checkwarns",
-  description: "Check the mentioned User's Warn Count",
-  run: async(client, message, args) => {
+const warns = require("../../models/warns");
+const { MessageEmbed, Message } = require("discord.js");
+module.exports = {
+  name: "warns",
+  description: "Get a user's warns in the guild!",
+  category: "Moderation",
+  usage: "<prefix>warns <user>",
+  aliases: ["warnings", "infractions"],
+  run: async (bot, message, args) => {
     let user = message.mentions.members.first();
-    if (!user) {
-      return message.channel.send("Mention Someone")
-    }
-    let data = await warnData.findOne({
-      UserID: user.id,
-      GuildID: message.guild.id
-    })
-    if (data) {
-      message.channel.send(`**${message.mentions.members.first().username}** has ${data.Warns} warnings!`)
-    }
-    if (!data) {
-      message.channel.send(`**${message.mentions.members.first().username}** has no warnings!`)
-    }
-  }
-}
+    if (!user) return message.channel.send(`❌ ${message.author}, How can I check warns, you didn't mention anyone.`);
+    warns.find(
+      { Guild: message.guild.id, User: user.id },
+      async (err, data) => {
+        if (err) console.log(err);
+        if (!data.length)
+          return message.channel.send(
+            `${user.user.tag} has not got any warns in this guild!`
+          );
+        let Embed = new MessageEmbed()
+          .setTitle(`${user.user.tag}'s warns in ${message.guild.name}.. `)
+          .setColor("0193FC")
+          .setDescription(data.map((d) => {
+            return d.Warns.map((w, i) =>
+              `**${i} - Moderator: ${message.guild.members.cache.get(w.Moderator).user.tag} Reason: ${w.Reason}**`).join("\n");
+          }));
+        message.channel.send(Embed);
+      }
+    );
+  },
+};
