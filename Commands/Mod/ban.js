@@ -6,6 +6,8 @@ module.exports = {
   description: "Ban anyone with one shot whithout knowing anyone xD",
   usage: "ban <@user> <reason>",
   run: async(client, message, args) => {
+    let reason = args.slice(1).join(" ");
+    if (!reason) reason = "Unspecified"
     
     if(!message.member.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(`**${message.author.username}**, You do not have perms to ban someone`)
@@ -27,21 +29,21 @@ module.exports = {
     if (target.id === message.guild.owner.id) {
       return message.channel.send("You cannot Ban The Server Owner")
     }
-   
-    
-   if(!args[1]) {
-     return message.channel.send(`**${message.author.username}**, Please Give Reason To ban Member`)
-   }
     
     let embed = new discord.MessageEmbed()
     .setTitle("Action : Ban")
-    .setDescription(`Banned ${target} (${target.id})`)
+    .setDescription(`Banned ${target} (${target.id})\nReason: ${reason}`)
     .setColor("#ff2050")
     .setThumbnail(target.avatarURL)
     .setFooter(`Banned by ${message.author.tag}`);
     
-    message.channel.send(embed)
-    target.ban(args[1])
+    target
+    .ban({
+      reason: reason
+    })
+    .then(() => {
+      message.channel.send(embed)
+    })
     
   }
 }
