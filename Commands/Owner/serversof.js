@@ -14,7 +14,7 @@ module.exports = {
       client.guilds.cache.forEach(x => {
         if (x.owner.id == id) {
         message.channel.send(`🔹**${x.name}** | \`${x.memberCount}\` members (ID: ${x.id})\n............................`);
-        }
+        } else return message.channel.send(`I am in no server owned by <@${id}>`)
       });
 
       if (data.length > 0) {
