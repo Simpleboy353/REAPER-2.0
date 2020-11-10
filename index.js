@@ -102,8 +102,13 @@ client.on(`guildMemberAdd`, async (member) => {
     var data2 = await welcomemsg.findOne({
       GuildID: member.guild.id
     })
+    var joinmessage = data2.JoinMsg;
+    joinmessage = joinmessage.replace("{user.mention}", `${member}`)
+    joinmessage = joinmessage.replace("{user.name}", `${member.user.tag}`)
+    joinmessage = joinmessage.replace("{server}", `${member.guild.name}`)
+    joinmessage = joinmessage.replace("{membercount}", `${member.guild.memberCount}`)
     if (data2) {
-    member.guild.channels.cache.get(channel).send(`**${member}**, ${data2.JoinMsg}`);
+    member.guild.channels.cache.get(channel).send(joinmessage);
       const { createCanvas, loadImage, registerFont } = require('canvas');
       const request = require('node-superfetch');
       const path = require('path');
@@ -203,8 +208,13 @@ client.on(`guildMemberRemove`, async (member) => {
       GuildID: member.guild.id
     })
   if (data2) {
+    var leavemessage = data2.ByeMsg;
+    leavemessage = leavemessage.replace("{user.mention}", `${member}`)
+    leavemessage = leavemessage.replace("{user.name}", `${member.user.tag}`)
+    leavemessage = leavemessage.replace("{server}", `${member.guild.name}`)
+    leavemessage = leavemessage.replace("{membercount}", `${member.guild.memberCount}`)
     let embed = new MessageEmbed()
-      .setDescription(`**${member.user.tag}** ${data2.ByeMsg}`)
+      .setDescription(leavemessage)
       .setColor("GREEN");
 
     let channel = data.Bye
