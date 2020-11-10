@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { panelModel, ticketModel } = require("../data/export");
+const { panelModel, ticketModel } = require("../Commands/Owner/models/tickets");
 
 module.exports = async (message, user, guildDoc) => {
   const ticketDoc = await ticketModel.findOne({
