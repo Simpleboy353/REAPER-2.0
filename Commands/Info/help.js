@@ -39,7 +39,7 @@ module.exports = {
 
 <:mod:748544387499294841> __**MODERATION**__\n\`${prefix}help mod\`\nIssues relating some users? Use these Commands
 
-<:music:761893108442071060> __**MUSIC**__\n\`${prefix}help music\`\nRelax and listen to some music!\nNote: Music Commands work with the default prefix \`=\` only!
+<:music:761893108442071060> __**MUSIC**__\n\`${prefix}help music\`\nRelax and listen to some music!
 
 <:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!
 
@@ -54,6 +54,7 @@ module.exports = {
       const embed1 = new Discord.MessageEmbed()
         .setTitle("Moderation Commands")
         .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `warn`, `checkwarns`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
+        .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
      return message.channel.send(embed1)
 
@@ -61,7 +62,7 @@ module.exports = {
       const embed2 = new Discord.MessageEmbed()
         .setTitle("Music Commands")
         .setDescription("`play [p]`, `pause`, `resume [r]`, `skip [s]`, `shuffle`, `skipto [st]`, `search`, `stop`, `queue [q]`, `np`, `playlist [pl]`, `volume`, `pruning`, `remove`, `lyrics [ly]`, `repeat [rep]`")
-        .setFooter("Use = before each command!")
+        .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
       return message.channel.send(embed2)
@@ -70,6 +71,7 @@ module.exports = {
       const embed3 = new Discord.MessageEmbed()
         .setTitle("Info Commands")
         .setDescription("`botinfo`, `devteam`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`")
+        .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
       return message.channel.send(embed3);
@@ -78,6 +80,7 @@ module.exports = {
       const embed4 = new Discord.MessageEmbed()
         .setTitle("Utility Commands")
         .setDescription("`addemoji`, `avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `emoji`, `emojiid`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `playstore`, `poll`, `react`, `removerole`, `say`, `servericon`, `suggestion`, `timedlockdown`, `unlock`, `weather`, `wiki`, `youtube`")
+        .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
       return message.channel.send(embed4);
@@ -87,7 +90,7 @@ module.exports = {
         .setTitle("Config Commands")
         .setDescription(
 `To see current settings do \`${prefix}config stats\`\n\n **Autorole & Prefix**\n\`\`\`▪ autorole <role|off>\n▪ prefix <NewPrefix>\`\`\`\n **Join & Leave**\`\`\`▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>\`\`\`\n **Logging Activites**\`\`\`▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\`\`\`\n\`\`\`Note: Custom Join and Leave messages are in beta and doesn't include any variables yet! Therefore bot will mention users itself! And if you setup the join and leave channels without custom messages, the bot will send automated response when user joins or leaves!\`\`\``)
-        .setFooter("New Commands Coming Soon!")
+        .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
       return message.channel.send(embed5);
@@ -96,6 +99,7 @@ module.exports = {
       const embed6 = new Discord.MessageEmbed()
         .setTitle("Fun Commands")
         .setDescription("`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`")
+        .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
       return message.channel.send(embed6);
@@ -104,7 +108,8 @@ module.exports = {
       const embed7 = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setTitle("Image Commands")
-        .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `meme`, `phb`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`");
+        .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `meme`, `phb`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`")
+        .setFooter(`Use ${prefix} before each command!`);
 
       return message.channel.send(embed7);
 
@@ -112,6 +117,7 @@ module.exports = {
       const embed8 = new Discord.MessageEmbed()
       .setTitle("NSFW Commands")
       .setDescription("`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `danbooru`, `hentai`, `milf`, `pussy`")
+      .setFooter(`Use ${prefix} before each command!`)
       .setColor("RANDOM")
 
       return message.channel.send(embed8);
