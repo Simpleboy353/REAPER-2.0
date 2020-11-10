@@ -918,7 +918,9 @@ client.on("guildDelete", async(guild)=>{
   }
 });
 const createTicket = require("././utils/ticket");
-const { panelModel, guildModel, ticketModel } = require("././Commands/Owner/models/tickets");
+const { panelModel } = require("././Commands/Owner/models/tickets/panel");
+const { ticketModel } = require("././Commands/Owner/models/tickets/ticket");
+const { guildModel } = require("././Commands/Owner/models/tickets/guild");
 const { MessageAttachment } = require("discord.js");
 const fetchAll = require("discord-fetch-all");
 const { reactions } = require("discord-fetch-all");
