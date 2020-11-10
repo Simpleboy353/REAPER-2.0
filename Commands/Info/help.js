@@ -89,7 +89,7 @@ module.exports = {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
         .setDescription(
-`To see current settings do \`${prefix}config stats\`\n\n **Autorole & Prefix**\n\`\`\`▪ autorole <role|off>\n▪ prefix <NewPrefix>\`\`\`\n **Join & Leave**\`\`\`▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>\`\`\`\n **Logging Activites**\`\`\`▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\`\`\`\n\`\`\`Note: Custom Join and Leave messages are in beta and doesn't include any variables yet! Therefore bot will mention users itself! And if you setup the join and leave channels without custom messages, the bot will send automated response when user joins or leaves!\`\`\``)
+          `To see current settings do \`${prefix}config stats\`\n\n **Autorole & Prefix**\n\`\`\`▪ autorole <@role|off>\n▪ prefix <NewPrefix>\`\`\`\n **Join & Leave**\`\`\`▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>\n          __Variables__          \n▪ {user.mention} Mention the user who Joined/Left\n▪ {user.name} The name of the user who Joined/Left\n▪ {server} Server which the user joined\n▪ {membercount} Member Count of the Server, which the user Joined/Left\`\`\`\n **Logging Activites**\`\`\`▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\`\`\`\n\`\`\`Note: The bot will send an automated response of the Join and Leave Channels are setup without join or leave messages\`\`\``)
         .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
