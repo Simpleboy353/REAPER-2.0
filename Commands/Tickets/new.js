@@ -4,7 +4,7 @@ module.exports = {
   name: "new",
   description: "makes a ticket channel!",
   cooldown: 3,
-  run: async(message)=> {
+  run: async(client, message, args)=> {
     const guildDoc = await guildModel.findOne({ Guild: message.guild.id });
     const e = message.member;
     const user = await message.guild.members.cache.get(e.id);

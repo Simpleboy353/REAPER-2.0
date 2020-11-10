@@ -7,7 +7,7 @@ module.exports = {
   name: "transcript",
   description: "get a transcript of a ticket!",
   cooldown: 3,
-  async execute(message) {
+  run: async(client, message, args)=>{
     const ticketDoc = await ticketModel.findOne({ guild: message.guild.id });
     const guildDoc = await guildModel.findOne({ Guild: message.guild.id });
     const e = message.member;
