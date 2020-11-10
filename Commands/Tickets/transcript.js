@@ -1,5 +1,5 @@
 const ticketModel = require("../Owner/models/tickets/ticket");
-const guildModel = require("../Commands/Owner/models/tickets/guild");
+const guildModel = require("../Owner/models/tickets/guild");
 const fetchAll = require("discord-fetch-all");
 const fs = require("fs");
 const { MessageAttachment } = require("discord.js");
