@@ -130,7 +130,7 @@ const data2 = await welcomemsg.findOne({
    var channel = data.Welcome
 
    let embed200 = new MessageEmbed()
-   .setTitle("Goodbye")
+   .setTitle("Welcome")
      .setDescription(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
      .setFooter(`We are now **${member.guild.memberCount} members`)
      .setColor("GREEN")
