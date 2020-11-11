@@ -63,26 +63,42 @@ client.on('message', async (message) => {
   const data = await prefix.findOne({
     GuildID: message.guild.id
   });
-
-  const messageArray = message.content.split(' ');
-  const cmd = messageArray[0];
-  const args = messageArray.slice(1);
-
   //If there was a data, use the database prefix BUT if there is no data, use the default prefix which you have to set!
   if (data) {
     const prefix = data.Prefix;
 
-    if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.find(command => command.aliases.includes(cmd.slice(prefix.length)));
-    commandfile.run(client, message, args);
+    if (message.author.bot) return; // This line makes sure that the bot does not respond to other bots
+    if (!message.guild) return;
+    if (!message.content.startsWith(prefix)) return; // This line makes sure that the bot does not respond to other messages with the bots prefix
+    if (!message.member) message.member = await message.guild.fetchMember(message);
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+    if (cmd.length === 0) return;
+
+    let command = client.commands.get(cmd);
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (command)
+      command.run(client, message, args);
 
   } else if (!data) {
     //set the default prefix here
     const prefix = config.DEFAULT_PREFIX;
 
-    if (!message.content.startsWith(prefix)) return;
-    const commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.find(command => command.aliases.includes(cmd.slice(prefix.length)));
-    commandfile.run(client, message, args);
+    if (message.author.bot) return; // This line makes sure that the bot does not respond to other bots
+    if (!message.guild) return;
+    if (!message.content.startsWith(prefix)) return; // This line makes sure that the bot does not respond to other messages with the bots prefix
+    if (!message.member) message.member = await message.guild.fetchMember(message);
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+    if (cmd.length === 0) return;
+
+    let command = client.commands.get(cmd);
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (command)
+      command.run(client, message, args);
+
 }
 });
 const welcomeData = require("./Commands/Owner/models/welcome")
