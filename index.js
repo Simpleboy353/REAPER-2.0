@@ -192,6 +192,10 @@ client.on(`guildCreate`, guild =>{
   logschannel.send(embed2)
 })
 
+client.on("messageDelete", async(message)=>{
+  require("./events/guild/messageDelete")
+});
+
 client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
   const data = await messageData.findOne({
     GuildID: newMessage.guild.id
