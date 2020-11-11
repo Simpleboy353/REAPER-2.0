@@ -1,4 +1,3 @@
-const { load } = require("dotenv/types");
 const {readdirSync} = require("fs");
 module.exports=(client)=> {
   const load = dirs => {
