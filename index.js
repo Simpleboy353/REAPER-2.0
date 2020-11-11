@@ -23,6 +23,12 @@ mongoose.connect(config.mongoPass, {
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}`)
 })
+const eventFiles = glob.sync('./events/**/*.js');
+for (const file of eventFiles) {
+  const event = require(file);
+  const eventName = /\/events.(.*).js/.exec(file)[1];
+  client.on(eventName, event.bind(null, client));
+};
 
 client.on('ready', () => {
   client.user.setPresence({ status: 'online' });
@@ -210,33 +216,6 @@ client.on(`guildCreate`, guild =>{
     .setThumbnail();
 
   logschannel.send(embed2)
-})
-
-const messageData = require("./Commands/Owner/models/messages")
-
-client.on(`messageDelete`, async(message)=> {
-  const data = await messageData.findOne({
-    GuildID: message.guild.id
-  })
-
-  if (data) {
-
-    if (message.author.bot) {
-    return;
-    }
-    let embed = new MessageEmbed()
-    .setTitle("🗑️ Message Deleted")
-    .setDescription(`Message deleted in <#${message.channel.id}> by ${message.author}`)
-    .addField(`Message Content`, message.content,true)
-    .setTimestamp()
-    .setColor("GREEN");
-
-    let channel = data.Message
-
-    message.guild.channels.cache.get(channel).send(embed);
-  } else if (!data) {
-    return;
-  }
 })
 
 client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
