@@ -17,35 +17,12 @@ mongoose.connect(config.mongoPass, {
   useFindAndModify: false,
 });
 
-['command'].forEach(handler => {
+['command', 'event'].forEach(handler => {
   require(`./handler/${handler}`)(client);
 })
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}`)
+['event'].forEach(handler => {
+  require(`./handler/${handler}`)(client);
 })
-const eventFiles = glob.sync('./events/**/*.js');
-for (const file of eventFiles) {
-  const event = require(file);
-  const eventName = /\/events.(.*).js/.exec(file)[1];
-  client.on(eventName, event.bind(null, client));
-};
-
-client.on('ready', () => {
-  client.user.setPresence({ status: 'online' });
-  const activities_list = [
-    { msg: "Infinity Rocks", type: "STREAMING" },
-    { msg: "music for your server!", type: "PLAYING" },
-    { msg: "=help", type: "LISTENING" },
-    { msg: "Helping You make your Server Better", type: "PLAYING" },
-    { msg: `with ${client.users.cache.size} users in ${client.guilds.cache.size} servers!`, type: "PLAYING" },
-  ];// creates an arraylist containing phrases you want your bot to switch through.
-  setInterval(() => {
-    const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 
-      client.user.setActivity(activities_list[index].msg, {
-        type: activities_list[index].type,
-      }); // sets bot's activities to one of the phrases in the arraylist.
-  }, 10000); // Runs this every 10 seconds.});
-});
 
 client.on('message', async (message) => {
   if (message.author.bot) return;
