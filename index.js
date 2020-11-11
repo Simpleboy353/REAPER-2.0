@@ -20,9 +20,6 @@ mongoose.connect(config.mongoPass, {
 ['command', 'event'].forEach(handler => {
   require(`./handler/${handler}`)(client);
 })
-['event'].forEach(handler => {
-  require(`./handler/${handler}`)(client);
-})
 
 client.on('message', async (message) => {
   if (message.author.bot) return;
