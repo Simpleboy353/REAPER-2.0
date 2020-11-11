@@ -17,8 +17,26 @@ mongoose.connect(config.mongoPass, {
   useFindAndModify: false,
 });
 
-['command', 'event'].forEach(handler => {
+['command'].forEach(handler => {
   require(`./handler/${handler}`)(client);
+})
+
+client.on("ready", async(client)=> {
+  client.user.setPresence({ status: 'online' });
+  const activities_list = [
+    { msg: "Infinity Rocks", type: "STREAMING" },
+    { msg: "music for your server!", type: "PLAYING" },
+    { msg: "=help", type: "LISTENING" },
+    { msg: "Helping You make your Server Better", type: "PLAYING" },
+    { msg: `with ${client.users.cache.size} users in ${client.guilds.cache.size} servers!`, type: "PLAYING" },
+  ];// creates an arraylist containing phrases you want your bot to switch through.
+  setInterval(() => {
+    const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 
+    client.user.setActivity(activities_list[index].msg, {
+      type: activities_list[index].type,
+    }); // sets bot's activities to one of the phrases in the arraylist.
+  }, 10000);
+  console.log(`Logged in as ${client.user.tag}`)
 })
 
 client.on('message', async (message) => {
@@ -191,9 +209,29 @@ client.on(`guildCreate`, guild =>{
 
   logschannel.send(embed2)
 })
-
+const messageData = require("./Commands/Owner/models/messages")
 client.on("messageDelete", async(message)=>{
-  require("./events/guild/messageDelete")
+    const data = await messageData.findOne({
+      GuildID: message.guild.id
+    })
+    if (data) {
+
+      if (message.author.bot) {
+        return;
+      }
+      let embed = new MessageEmbed()
+        .setTitle("🗑️ Message Deleted")
+        .setDescription(`Message deleted in <#${message.channel.id}> by ${message.author}`)
+        .addField(`Message Content`, message.content, true)
+        .setTimestamp()
+        .setColor("GREEN");
+
+      let channel = data.Message
+
+      message.guild.channels.cache.get(channel).send(embed);
+    } else if (!data) {
+      return;
+    }
 });
 
 client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
@@ -204,16 +242,16 @@ client.on(`messageUpdate`, async(oldMessage, newMessage)=> {
   if (data) {
 
     if (newMessage.author.bot) {
-    return;
+      return;
     }
 
     let embed = new MessageEmbed()
-    .setTitle("📝 Message Edited")
-    .setDescription(`Message Edited in <#${newMessage.channel.id}> by ${newMessage.author}`)
-    .addField("Old Message", oldMessage.content, true)
-    .addField("New Message", newMessage.content, true)
-    .setTimestamp()
-    .setColor("GREEN")
+      .setTitle("📝 Message Edited")
+      .setDescription(`Message Edited in <#${newMessage.channel.id}> by ${newMessage.author}`)
+      .addField("Old Message", oldMessage.content, true)
+      .addField("New Message", newMessage.content, true)
+      .setTimestamp()
+      .setColor("GREEN")
 
     let channel = data.Message
 
