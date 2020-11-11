@@ -28,22 +28,14 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setThumbnail(avatar)
       .setTitle("Available Command Categories")
-      .setDescription(`
-<:conf:748544324978999448> __**CONFIGURATION**__\n\`${prefix}help config\`\nConfigure the bot as per your server!
-
-<:nerdfun:770838517576237068> __**FUN**__\n\`${prefix}help fun\`\nHave some fun in your Server!
-
-<:cam:748544442478100511> __**IMAGE**__\n\`${prefix}help image\`\nManipulate Images with these commands
-
-<:inf:748544269798866964> __**INFORMATION**__\n\`${prefix}help info\`\nGet some info relating the Server, users or our Bot
-
-<:mod:748544387499294841> __**MODERATION**__\n\`${prefix}help mod\`\nIssues relating some users? Use these Commands
-
-<:music:761893108442071060> __**MUSIC**__\n\`${prefix}help music\`\nRelax and listen to some music!
-
-<:nsfw:768346751576440852> __**NSFW**__\n\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!
-
-<:utility:748177830134808597> __**UTILITIES**__\n\`${prefix}help utility\`\nSome Simple Utility Commands`)
+      .addField(`**》CONFIGURATION**`, `\`${prefix}help config\`\nConfigure as per your Server!`)
+      .addField(`**》FUN**`, `\`${prefix}help fun\`\nHave some fun in your Server!`)
+      .addField(`**》IMAGE**`, `\`${prefix}help image\`\nManipulate Images with these Commands!`)
+      .addField(`**》INFORMATION**`, `\`${prefix}help info\`\nGet some info relating the Server, users or our Bot`)
+      .addField(`**》MODERATION**`, `\`${prefix}help mod\`\nIssues relating some users? Use these Commands`)
+      .addField(`**》MUSIC**`, `\`${prefix}help music\`\nRelax and listen to some music!`)
+      .addField(`**》NSFW**`, `\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!`)
+      .addField(`**》UTILITIES**`, `\`${prefix}help utility\`\nSome Simple Utility Commands`)
       .setFooter(`Be sure to read our Privacy Policy before using the bot! Use =policy for more info!`)
       .setThumbnail(client.user.avatarURL())
       .setColor("GREEN");
@@ -88,8 +80,11 @@ module.exports = {
   } else if (args[0] === "config") {
       const embed5 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
-        .setDescription(
-          `To see current settings do \`${prefix}config stats\`\n\n **Autorole & Prefix**\n\`\`\`▪ autorole <@role|off>\n▪ prefix <NewPrefix>\`\`\`\n **Join & Leave**\`\`\`▪ joinchannel <#channel|off>\n▪ joinmessage <Text|off>\n▪ leavechannel <#channel|off>\n▪ leavemessage <Text|off>\n\n ▪▪▪▪▪▪▪▪▪ Variables ▪▪▪▪▪▪▪▪▪ \n\n▪ {user.mention} - Mention the user who Joined/Left\n▪ {user.name} - Displays the name of the user who Joined/Left\n▪ {server} - Display the name of the Server\n▪ {membercount} - Display the Member Count of the Server\`\`\`\n **Logging Activites**\`\`\`▪ messagelogs <#channel|off>\n▪ modlogs <#channel|off>\`\`\`\n\`\`\`Note: The bot will send an automated response if the Join and Leave Channels are setup without join or leave messages\`\`\``)
+        .setDescription(`To see current settings do \`${prefix}config stats\``)
+        .addField(`**》AUTOROLE & PREFIX**`, `\`\`\`•autorole <@role|off>\n•prefix <NewPrefix>\`\`\``)
+        .addField(`**》JOIN & LEAVE**`, `\`\`\`•joinchannel <#channel|off>\n•joinmessage <text|off>\n•leavechannel <#channel|off>\n•leavemessage <text|off>\`\`\``)
+        .addField(`**》VARIABLES**`, `\`\`\`▪{user.mention} - Mentions the user who Joined/Left\n▪{user.name} - Displays the name of the user who Joined/Left\n▪{server} - Displays the name of the Server\n▪{membercount} - Display the Member Count of the Server\`\`\``)
+        .addField(`**》LOGGING ACTIVITIES**`, `\`\`\`•messagelogs <#channel|off>\n•modlogs <#channel|off>\`\`\`\n\`\`\`Note: The bot will send an automated response if the Join and Leave Channels are setup without join or leave messages\`\`\``)
         .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
