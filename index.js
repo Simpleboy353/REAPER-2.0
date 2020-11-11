@@ -21,7 +21,7 @@ mongoose.connect(config.mongoPass, {
   require(`./handler/${handler}`)(client);
 })
 
-client.on("ready", async(client)=> {
+client.on("ready", ()=> {
   client.user.setPresence({ status: 'online' });
   const activities_list = [
     { msg: "Infinity Rocks", type: "STREAMING" },
