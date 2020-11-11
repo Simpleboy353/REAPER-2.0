@@ -1,4 +1,4 @@
-const messageData = require("../Commands/Owner/models/messages")
+const messageData = require("../../Commands/Owner/models/messages")
 module.exports = async (message) => {
   const data = await messageData.findOne({
     GuildID: message.guild.id
