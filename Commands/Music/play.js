@@ -39,7 +39,7 @@ module.exports = {
       .setDescription(`Cannot connect to voice channel, missing permissions`)
       .setColor("BLUE")
     const embed8 = new Discord.MessageEmbed()
-      .setDescription(`I cannot speak in this voice channel, make sure I have proper permissions!`)
+      .setDescription(`I can't speak in this voice channel, make sure I have proper permissions!`)
       .setColor("BLUE")
 
     const permissions = channel.permissionsFor(message.client.user);
