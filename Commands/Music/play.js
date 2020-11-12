@@ -10,8 +10,8 @@ module.exports = {
   aliases: ["p"],
   category: "music",
   usage: "play <youtube link | song name>",
-  async execute(bot, message, args, serverQueue, queue) {
-    const lang = await bot.getGuildLang(message.guild.id);
+  run: async(client, message, args, serverQueue, queue) =>{
+    const lang = await client.getGuildLang(message.guild.id);
     const voiceChannel = message.member.voice.channel;
     const search = args[0];
 
@@ -24,7 +24,7 @@ module.exports = {
     }
 
     const vcMembers = voiceChannel.members;
-    if (vcMembers.has(bot.user.id)) {
+    if (vcMembers.has(client.user.id)) {
       return message.channel.send(lang.MUSIC.ALREADY_IN_VC);
     }
 
@@ -96,7 +96,7 @@ module.exports = {
       queueConstruct.songs.push(song);
 
       try {
-        // TODO: check if bot is already in the voice chat
+        // TODO: check if client is already in the voice chat
         const connection = await voiceChannel.join();
         queueConstruct.connection = connection;
 
