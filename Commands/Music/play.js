@@ -48,7 +48,7 @@ module.exports = {
       } else {
         const results = await youtube.searchVideos(args.join(" "), 1);
 
-        if (!results[0]?.id) {
+        if (!results[0].id) {
           return message.channel.send("There were no songs found");
         }
 
