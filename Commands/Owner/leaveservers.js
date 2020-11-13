@@ -3,17 +3,16 @@ const Discord = require('discord.js');
 require('dotenv');
 
 module.exports = {
-  name: "serversof",
+  name: "leaveservers",
   description: "Check what Servers the bot is in!",
   run: async (client, message, args) => {
-    let id = args[0];
-    if (!id) return message.channel.send("Enter an ID")
     try {
       if (message.author.id != "661501985517862972") return message.channel.send(`<a:_cross:725303285015117844> Developer Only <a:_cross:725303285015117844>`);
       let data = [];
       client.guilds.cache.forEach(x => {
-        if (x.owner.id == id) {
-        message.channel.send(`🔹**${x.name}** | \`${x.memberCount}\` members (ID: ${x.id})\n............................`);
+        if (x.memberCount <= 10) {
+          x.leave()
+        message.channel.send(`🔹 Left **${x.name}** as it had \`${x.memberCount}\` members\n............................`);
         } 
       });
 
