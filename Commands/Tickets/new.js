@@ -44,7 +44,7 @@ module.exports = {
       ch.send(`Thanks for Creating a ticket, ${message.author}! Please be patient, Support will contact you shortly! To close this ticket, do \`${prefix}close\``)
       message.react(":white_check_mark:")
 
-      let data2 = await channelData.findOneAndUpdate({
+      let data2 = channelData.findOneAndUpdate({
         Channel: tchannel.id,
         UserID: message.author.id,
         GuildID: message.guild.id
