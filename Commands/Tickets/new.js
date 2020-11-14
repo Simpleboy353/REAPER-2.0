@@ -40,9 +40,8 @@ module.exports = {
           allow: ['READ_MESSAGE_HISTORY']
         },
       ],
-    }).then((ch, message)=> {
+    }).then(ch=> {
       ch.send(`Thanks for Creating a ticket, ${message.author}! Please be patient, Support will contact you shortly! To close this ticket, do \`${prefix}close\``)
-      message.react(":white_check_mark:")
 
       let data2 = channelData.findOneAndUpdate({
         Channel: tchannel.id,
