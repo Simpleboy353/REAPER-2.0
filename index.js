@@ -66,7 +66,6 @@ client.on('message', async (message) => {
   //If there was a data, use the database prefix BUT if there is no data, use the default prefix which you have to set!
   if (data) {
     const prefix = data.Prefix;
-
     if (message.author.bot) return; // This line makes sure that the bot does not respond to other bots
     if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return; // This line makes sure that the bot does not respond to other messages with the bots prefix
