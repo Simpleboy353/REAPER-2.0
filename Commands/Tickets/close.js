@@ -10,8 +10,7 @@ module.exports = {
       Channel: message.channel.id,
       GuildID: message.guild.id
     })
-    if (message.channel.id === data.Channel) {
-      if (message.author.id === data.UserID || message.member.hasPermission("MANAGE_CHANNELS")) {
+   if (data) {
       let embed = new Discord.MessageEmbed()
       .setDescription("This ticket will be deleted in 5 seconds!")
       message.channel.send(embed)
@@ -21,7 +20,6 @@ module.exports = {
       }, ms(time));
     } else {
     message.channel.send("This is not a ticket channel!")
-      }
     }
   }
 }
