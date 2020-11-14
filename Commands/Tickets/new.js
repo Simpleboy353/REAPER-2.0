@@ -9,7 +9,7 @@ module.exports = {
       GuildID: message.guild.id
     })
     if (data) {
-    message.guild.channels.create(`${message.author.tag}`, {
+    message.guild.channels.create(`${message.author.tag}-ticket`, {
       type: 'text',
       permissionOverwrites: [
         {
@@ -30,8 +30,9 @@ module.exports = {
           allow: ['READ_MESSAGE_HISTORY']
         },
       ],
-    }).then(ch=> {
+    }).then((ch, message)=> {
       ch.send(`Thanks for Creating a ticket, ${message.author}! Please be patient, Support will contact you shortly!`)
+      message.react(":white_check_mark:")
     })
   } else if (!data) {
     message.channel.send("There's no accessrole setup for this server!")
