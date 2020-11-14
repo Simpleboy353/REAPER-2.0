@@ -7,7 +7,7 @@ module.exports = {
   name: "new",
   description: "Create a new ticket in the server!",
   run: async(client, message, args) => {
-    const data2 = await prefixData.findOne({
+    const data2 = prefixData.findOne({
       GuildID: message.guild.id
     })
     if (data2) {
