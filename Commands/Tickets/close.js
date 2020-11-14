@@ -10,8 +10,7 @@ module.exports = {
       Channel: message.channel.id,
       GuildID: message.guild.id
     })
-      const channel = await message.guild.channels.cache.get(data.Channel)
-    if (message.channel.id === channel.id) {
+    if (message.channel.id === data.Channel) {
       if (message.author.id === data.UserID || message.member.hasPermission("MANAGE_CHANNELS")) {
       let embed = new Discord.MessageEmbed()
       .setDescription("This ticket will be deleted in 5 seconds!")
