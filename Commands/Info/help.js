@@ -10,7 +10,6 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setThumbnail(avatar)
       .setTitle("Available Command Categories")
-      .addField(`**》CONFIGURATION**`, `\`${prefix}help config\`\nConfigure as per your Server!`)
       .addField(`**》FUN**`, `\`${prefix}help fun\`\nHave some fun in your Server!`)
       .addField(`**》IMAGE**`, `\`${prefix}help image\`\nManipulate Images with these Commands!`)
       .addField(`**》INFORMATION**`, `\`${prefix}help info\`\nGet some info relating the Server, users or our Bot`)
@@ -58,19 +57,6 @@ module.exports = {
         .setColor("RANDOM");
 
       return message.channel.send(embed4);
-
-  } else if (args[0] === "config") {
-      const embed5 = new Discord.MessageEmbed()
-        .setTitle("Config Commands")
-        .setDescription(`To see current settings do \`${prefix}config stats\``)
-        .addField(`**》AUTOROLE & PREFIX**`, `\`\`\`•autorole <@role|off>\n•prefix <NewPrefix>\`\`\``)
-        .addField(`**》JOIN & LEAVE**`, `\`\`\`•joinchannel <#channel|off>\n•joinmessage <text|off>\n•leavechannel <#channel|off>\n•leavemessage <text|off>\`\`\``)
-        .addField(`**》VARIABLES**`, `\`\`\`▪{user.mention} - Mentions the user who Joined/Left\n▪{user.name} - Displays the name of the user who Joined/Left\n▪{server} - Displays the name of the Server\n▪{membercount} - Display the Member Count of the Server\`\`\``)
-        .addField(`**》LOGGING ACTIVITIES**`, `\`\`\`•messagelogs <#channel|off>\n•modlogs <#channel|off>\`\`\`\n\`\`\`Note: The bot will send an automated response if the Join and Leave Channels are setup without join or leave messages\`\`\``)
-        .setFooter(`Use ${prefix} before each command!`)
-        .setColor("RANDOM");
-
-      return message.channel.send(embed5);
 
   } else if (args[0] === "fun") {
       const embed6 = new Discord.MessageEmbed()
