@@ -1,29 +1,11 @@
 const Discord = module.require("discord.js");
-const mongoose = require("mongoose")
-const prefixModel = require("../Owner/models/prefix");
-
-mongoose.connect("mongodb+srv://Simpleboy353:rhtking123@cluster0.hcxzx.mongodb.net/Clustor0?retryWrites=true&w=majority", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
 module.exports = {
   name: "help",
   description: "Get the Command List",
   aliases: ["commands", "cmd", "h"],
   run: async(client, message, args) => {
     const avatar = client.user.avatarURL;
-    const data = await prefixModel.findOne({
-      GuildID: message.guild.id
-    });
-
-    if (data) {
-     var prefix = data.Prefix;
-    } else if (!data) {
-      //set the default prefix here
-     var prefix = "=";
-    }
-
+    const prefix = "=";
     if (!args[0]) {
     const embed = new Discord.MessageEmbed()
       .setThumbnail(avatar)
