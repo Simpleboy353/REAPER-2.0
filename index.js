@@ -7,11 +7,19 @@ const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/")
-const config = require("./config.json") // enter your bot prefix in the config.json file
+const config = require("./config.json")// enter your bot prefix in the config.json file
+const mongoose = require("mongoose")
+const prefixModel = require("./database/guildData/prefix)
 
 ['command'].forEach(handler => {
   require(`./handler/${handler}`)(client);
 })
+
+mongoose.connect(config.mongoPass, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 
 client.on("ready", ()=> {
   client.user.setPresence({ status: 'online' });
@@ -20,8 +28,13 @@ client.on("ready", ()=> {
 })
 
 client.on('message', async (message) => {
-  
-    const prefix = config.DEFAULT_PREFIX;
+  const data = prefixModel.findOne({ GuildID: message.guild.id })
+  if (data) {
+   var prefix = data.Prefix;
+  } else if (!data) {
+   prefix = config.DEFAULT_PREFIX;
+  }
+client.prefix = prefix;
 
     if (message.author.bot) return; // This line makes sure that the bot does not respond to other bots
     if (!message.guild) return;
