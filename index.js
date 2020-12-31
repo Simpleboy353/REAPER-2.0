@@ -9,7 +9,7 @@ client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json")// enter your bot prefix in the config.json file
 const mongoose = require("mongoose")
-const prefixModel = require("./database/guildData/prefix)
+const prefixModel = require("./database/guildData/prefix")
 
 ['command'].forEach(handler => {
   require(`./handler/${handler}`)(client);
