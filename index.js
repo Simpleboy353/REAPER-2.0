@@ -74,4 +74,4 @@ client.on("guildMemberAdd", async(member)=>{
   }
 });
 
-client.login(process.env.token)//Enter your bot token here
+client.login("YOUR_TOP_SECRET_BOT_TOKEN!")//Enter your bot token here
