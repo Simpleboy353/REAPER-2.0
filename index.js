@@ -74,4 +74,39 @@ client.on("guildMemberAdd", async(member)=>{
   }
 });
 
+// Welcome Here!
+const welcomeData = require("./database/guildData/welcome")
+const welcomemsg = require("./database/guildData/joinmsg")
+client.on(`guildMemberAdd`, async (member) => {
+
+  const data = await welcomeData.findOne({
+    GuildID: member.guild.id
+  })
+
+  if (data) {
+    var channel = data.Welcome
+
+    var data2 = await welcomemsg.findOne({
+      GuildID: member.guild.id
+    })
+    if (data2) {
+      var joinmessage = data2.JoinMsg;
+
+      joinmessage = joinmessage.replace("{user.mention}", `${member}`)
+      joinmessage = joinmessage.replace("{user.name}", `${member.user.tag}`)
+      joinmessage = joinmessage.replace("{server}", `${member.guild.name}`)
+      joinmessage = joinmessage.replace("{membercount}", `${member.guild.memberCount}`)
+
+      let embed20 = new MessageEmbed()
+        .setDescription(joinmessage)
+        .setColor("GREEN")
+      member.guild.channels.cache.get(channel).send(embed20);
+    }
+  } else if (data2) {
+    return;
+  } else if (!data) {
+    return;
+  }
+
+
 client.login("YOUR_TOP_SECRET_BOT_TOKEN!")//Enter your bot token here
