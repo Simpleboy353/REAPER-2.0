@@ -5,7 +5,7 @@ module.exports = {
    description: "Setup the bot's prefix for the current guild",
    aliases: ["botsymbol"],
    run: async(client, message, args)=>{
-   if (message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`You don't have the required Permissions!`)
+   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`You don't have the required Permissions!`)
    
    if (!args) return message.channel.send(`No Prefix Specified!`)
    
