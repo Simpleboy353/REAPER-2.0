@@ -6,7 +6,7 @@ module.exports = {
     run: async (client, message, args) => {
         let target = message.mentions.members.first() || args.join(" ");
         let author = message.member;
-        let isBotOwner = "661501985517862972";
+        let isBotOwner = require('../../config.json').OWNER_ID;
     if (args.length == 0) {
     return message.channel.send("Damn, You are trying to kill the air..??").then(msg => msg.delete(2300))
     }
