@@ -1,1 +1,0 @@
-const token = 'NzMzNjcwMjk0MDg2MjIxODY1.XxRCOg.iA-njbUWvlHvzequ2Mip5Ca_11U';
