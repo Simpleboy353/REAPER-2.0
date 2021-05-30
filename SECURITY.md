@@ -2,20 +2,14 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
+Versions Older than 3 months aren't supported!
 | Version | Supported          |
 | ------- | ------------------ |
 | 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
+| 5.0.0   | ✅:                |
+| 4.0.3   | :x:
 | < 4.0   | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+To Report any vulnerability, please do that in Issues. or you can DM me directly on [Discord](https://discord.com/users/661501985517862972) or Join our [Support Server](https://discord.gg/yMfyeNR2DT)!
