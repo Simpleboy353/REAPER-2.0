@@ -1,4 +1,4 @@
-const roleData = require("../../../database/guildData/autorole")
+const roleData = require("../../database/guildData/autorole")
 
 module.exports = {
    name: "autorole",

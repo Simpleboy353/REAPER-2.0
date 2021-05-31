@@ -11,15 +11,15 @@ const config = require("./config.json")// enter your bot prefix in the config.js
 const mongoose = require("mongoose")
 const prefixModel = require("./database/guildData/prefix")
 
-['command'].forEach(handler => {
-  require(`./handler/${handler}`)(client);
-})
-
 mongoose.connect(config.mongoPass, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
+
+['command'].forEach(handler => {
+  require(`./handler/${handler}`)(client)
+})
 
 client.on("ready", ()=> {
   client.user.setPresence({ status: 'online' });
@@ -49,8 +49,6 @@ client.prefix = prefix;
     if (!command) command = client.commands.get(client.aliases.get(cmd));
     if (command)
       command.run(client, message, args);
-
-}
 });
 
 // Auto-Role is here!
@@ -106,7 +104,7 @@ client.on(`guildMemberAdd`, async (member) => {
     return;
   } else if (!data) {
     return;
-  }
+}
+});
 
-
-client.login("YOUR_TOP_SECRET_BOT_TOKEN!")//Enter your bot token here
+client.login("NjgyMDM4MTczODk0NzA1MTY2.XlXLjA.8QVXwCbKoWmlQF2OWGxF2Q8EuK8")//Enter your bot token here

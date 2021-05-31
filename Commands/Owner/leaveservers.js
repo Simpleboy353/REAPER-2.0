@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const OWNER_ID = require('../../config.json')>OWNER_ID;
+const OWNER_ID = require('../../config.json').OWNER_ID;
 const ERROR_LOGS_CHANNEL = require('../../config.json').ERROR_LOGS_CHANNEL;
 require('dotenv');
 
