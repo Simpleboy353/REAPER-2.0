@@ -5,11 +5,12 @@ module.exports = {
   aliases: ["commands", "cmd", "h"],
   run: async(client, message, args) => {
     const avatar = client.user.avatarURL;
-    const prefix = "=";
+    const prefix = message.client.prefix;
     if (!args[0]) {
     const embed = new Discord.MessageEmbed()
       .setThumbnail(avatar)
       .setTitle("Available Command Categories")
+      .addField(`**》CONFIGURATION**`, `\`${prefix}help config\`\nConfigure the bot as per your server!!`)
       .addField(`**》FUN**`, `\`${prefix}help fun\`\nHave some fun in your Server!`)
       .addField(`**》IMAGE**`, `\`${prefix}help image\`\nManipulate Images with these Commands!`)
       .addField(`**》INFORMATION**`, `\`${prefix}help info\`\nGet some info relating the Server, users or our Bot`)
@@ -84,6 +85,14 @@ module.exports = {
       .setColor("RANDOM")
 
       return message.channel.send(embed8);
+    } else if (args[0] === "config"){
+        const embed9 = new Discord.MessageEmbed()
+        .setTitle("Config Commands")
+        .setDescription("`autorole`, `joinchannel`, `joinmessage`, `prefix`")
+        .setFooter(`Use ${prefix} before each command!`)
+        .setColor("RANDOM")
+  
+        return message.channel.send(embed9);
     }
   }
 }

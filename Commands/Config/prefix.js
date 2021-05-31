@@ -1,32 +1,44 @@
-const prefixModel = require("../../database/guildData/prefix.js");
+const Discord = module.require("discord.js")
+const prefixModel = require("../../database/guildData/prefix");
 
 module.exports = {
-   name: "prefix",
-   description: "Setup the bot's prefix for the current guild",
-   aliases: ["botsymbol"],
-   run: async(client, message, args)=>{
-   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`You don't have the required Permissions!`)
-   
-   if (!args) return message.channel.send(`No Prefix Specified!`)
-   
-   if (args.length > 5) return message.channel.send(`Prefix cannot be longer than 5 characters!`)
-   
-   if (args.join(" ") === "@here" || args.join(" ") === "@everyone") return message.channel.send(`You cannot use mentions as prefix!`)
-   
-   var newPrefix = args.join(" ");
-   
-   const data = prefixModel.findOne({ GuildID: message.guild.id })
-   
-   if (data) {
-      let newD = prefixModel.findOneAndUpdate({ Prefix: newPrefix, GuildID: message.guild.id })
-      ;(await newD).save();
-      
-      return message.channel.send(`Successfully changed the prefix to ${newPrefix}`)
-      } else if (!data) {
-         let newData = new prefixModel({ Prefix: newPrefix, GuildID: message.guild.id })
-         ;(await newData).save();
-         
-         return message.channel.send(`Successfully changed the prefix to ${newPrefix}`)
+  name: "prefix",
+  description: "Change the prefix per server!",
+  run: async(client, message, args) => {
+    if (!message.member.hasPermission("MANAGE_SERVER")) {
+      return message.channel.send("You dont have enough Permissions!")
+    }
+     
+  const data = await prefixModel.findOne({
+    GuildID: message.guild.id
+  });
+
+  if (!args[0])
+    return message.channel.send('You must provide a **new prefix**!');
+
+  if (args[0].length > 5)
+    return message.channel.send('Your new prefix must be under \`5\` characters!');
+
+  if (data) {
+    await prefixModel.findOneAndRemove({
+      GuildID: message.guild.id
+    });
+
+    message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
+
+    let newData = new prefixModel({
+      Prefix: args[0],
+      GuildID: message.guild.id
+    });
+    newData.save();
+  } else if (!data) {
+    message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
+
+    let newData = new prefixModel({
+      Prefix: args[0],
+      GuildID: message.guild.id
+    });
+    newData.save();
       }
    }
 }

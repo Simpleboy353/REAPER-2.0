@@ -10,6 +10,8 @@ client.categories = fs.readdirSync("./Commands/")
 const config = require("./config.json")// enter your bot prefix in the config.json file
 const mongoose = require("mongoose")
 const prefixModel = require("./database/guildData/prefix")
+const cooldowns = new Collection();
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 mongoose.connect(config.mongoPass, {
   useNewUrlParser: true,
@@ -28,27 +30,70 @@ client.on("ready", ()=> {
 })
 
 client.on('message', async (message) => {
-  const data = prefixModel.findOne({ GuildID: message.guild.id })
+  const data = await prefixModel.findOne({
+    GuildID: message.guild.id
+  }, (error) => {
+    if (error) {
+      console.log(error)
+    }
+  })
   if (data) {
-   var prefix = data.Prefix;
-  } else if (!data) {
-   prefix = config.DEFAULT_PREFIX;
+    var PREFIX = data.Prefix
+  } else {
+    PREFIX = "!";
   }
-client.prefix = prefix;
+  client.prefix = PREFIX;
 
-    if (message.author.bot) return; // This line makes sure that the bot does not respond to other bots
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return; // This line makes sure that the bot does not respond to other messages with the bots prefix
-    if (!message.member) message.member = await message.guild.fetchMember(message);
+  if (message.author.bot) return;
+  if (!message.guild) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    if (cmd.length === 0) return;
+  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`);
+  if (!prefixRegex.test(message.content)) return;
 
-    let command = client.commands.get(cmd);
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    if (command)
-      command.run(client, message, args);
+  const [, matchedPrefix] = message.content.match(prefixRegex);
+
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const commandName = args.shift().toLowerCase();
+  
+  const command =
+    client.commands.get(commandName) ||
+    client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
+
+    if (!command) {
+      return message.channel.send("Couldn't find that command!")
+    }
+
+  if (!cooldowns.has(command.name)) {
+    cooldowns.set(command.name, new Collection());
+  }
+
+  const now = Date.now();
+  const timestamps = cooldowns.get(command.name);
+  const cooldownAmount = (command.cooldown || 1) * 1000;
+
+  if (timestamps.has(message.author.id)) {
+    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+      const timeLeft = (expirationTime - now) / 1000;
+      return message.reply(
+        `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
+      );
+    }
+  }
+
+  timestamps.set(message.author.id, now);
+  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+  try {
+    command.run(client, message, args);
+  } catch (error) {
+    console.error(error);
+    let embed2000 = new MessageEmbed()
+   .setDescription("There was an error executing that command.")
+   .setColor("BLUE")
+    message.channel.send(embed2000).catch(console.error);
+  }
 });
 
 // Auto-Role is here!
@@ -107,4 +152,4 @@ client.on(`guildMemberAdd`, async (member) => {
 }
 });
 
-client.login("NjgyMDM4MTczODk0NzA1MTY2.XlXLjA.8QVXwCbKoWmlQF2OWGxF2Q8EuK8")//Enter your bot token here
+client.login(config.BOT_TOKEN)//Enter your bot token here
