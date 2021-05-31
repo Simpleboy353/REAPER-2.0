@@ -1,11 +1,14 @@
 # A feature rich Discord Bot with many commands!
 
-## What Command Categories does Reaper Got?
+# What Command Categories does Reaper Include?
 - **Configuration**
 - **Utilities**
 - **Fun**
 - **Image Manipulation**
 - **And a lot more!**
+
+# Important
+- **Keep checking the Releases Section to get the latest info about the new updates, bug fixes etc about the repository.**
 
 # Getting started
 - **[Click here to fork the repository](https://github.com/Simpleboy353/REAPER-2.0)
