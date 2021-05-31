@@ -27,7 +27,7 @@ or open your terminal and type `git clone https://github.com/Simpleboy353/REAPER
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID"
 }
 ```
-- **Don't chnage the `tenorAPI` or the `gif` command won't work!**
+- **Don't change the `tenorAPI` or the `gif` command won't work!**
 
 # Contributing
 - **Feel free to open pull requests to contribute to the repository!**
