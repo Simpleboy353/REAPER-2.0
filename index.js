@@ -107,4 +107,4 @@ client.on(`guildMemberAdd`, async (member) => {
 }
 });
 
-client.login("NjgyMDM4MTczODk0NzA1MTY2.XlXLjA.8QVXwCbKoWmlQF2OWGxF2Q8EuK8")//Enter your bot token here
+client.login("YOUR_TOKEN_HERE")//Enter your bot token here
