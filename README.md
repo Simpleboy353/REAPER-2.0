@@ -9,7 +9,7 @@
 
 # Getting started
 - **[Click here to fork the repository](https://github.com/Simpleboy353/REAPER-2.0)
-or open your terminal and type `git clone https://github.com/eritislami/evobot.git`**
+or open your terminal and type `git clone https://github.com/Simpleboy353/REAPER-2.0.git`**
 - **Install all necessary packages**
 `npm install`
 - **Start the bot**
