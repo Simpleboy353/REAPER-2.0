@@ -25,7 +25,7 @@
 
 ---
 
-## Important
+## Versions and Support Info
 - **Keep checking the [Releases Section](https://github.com/Simpleboy353/REAPER-2.0/releases) to get the latest info relating new updates, bug fixes etc about the repository.**
 - **Get Information relating different versions of this repository:**
 
