@@ -32,7 +32,7 @@
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
 | v6.0.0-stable (Error Free Version) (Current Version)   |       ✅       |
-| v5.5.0-stable (Welcomer Added)                         |       ❌       |
+| v5.5.0-stable (Welcomer Added)                         |       ✅       |
 | v5.0.0-beta (Autorole Added)                           |       ❌       |
 | v4.9.0-alpha (Custom Prefix Added)                     |       ❌       |
 | v4.4.0-alpha (Database Support Added)                  |       ❌       |
