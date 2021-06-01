@@ -44,7 +44,7 @@
 ---
 
 ## Getting started
-#### To Fork the repository
+#### Creating a fork:
 - 1). [Click here to fork the repository](https://github.com/Simpleboy353/REAPER-2.0)
 - 2). Open your terminal and type `git clone https://github.com/Simpleboy353/REAPER-2.0.git`
 #### Install all necessary packages
