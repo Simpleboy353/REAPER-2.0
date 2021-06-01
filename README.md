@@ -4,17 +4,42 @@
 
 ---
 
-## What Command Categories does Reaper Include?
-- **Configuration**
-- **Utilities**
-- **Fun**
-- **Image Manipulation**
-- **And a lot more!**
+## What features does Reaper Include?
+
+| Features             | Availability |
+| -------------------- | ------------ |
+| Autorole             |     ✅       |
+| Custom Prefix        |     ✅       |
+| Permanent Database   |     ✅       |
+| Welcomer             |     ✅       |
+
+| Commands Category      | Availability |
+| ---------------------- | ------------ |
+| Configuration          |     ✅       |
+| Fun                    |     ✅       |
+| Image                  |     ✅       |
+| Info                   |     ✅       |
+| Moderation             |     ✅       |
+| NSFW                   |     ✅       |
+| Utilities              |     ✅       |
 
 ---
 
 ## Important
 - **Keep checking the [Releases Section](https://github.com/Simpleboy353/REAPER-2.0/releases) to get the latest info relating new updates, bug fixes etc about the repository.**
+- **Get Information relating different versions of this repository:**
+
+|              REAPER Versions                           | Support Status |
+| ------------------------------------------------------ | -------------- |
+| v6.0.0-stable (Error Free Version) (Current Version)   |       ✅       |
+| v5.5.0-stable (Welcomer Added)                         |       ❌       |
+| v5.0.0-beta (Autorole Added)                           |       ❌       |
+| v4.9.0-alpha (Custom Prefix Added)                     |       ❌       |
+| v4.4.0-alpha (Database Support Added)                  |       ❌       |
+
+- **The Information above includes Versions with only `Major Updates` and not Versions with `Bug fixes`**
+- **`v6.0.0-stable` is included in the List because this version includes the fixing of every error in the repository.**
+- **Support is provided only for `Stable` Versions and not for `Beta` or `Alpha` Versions.**
 
 ---
 
