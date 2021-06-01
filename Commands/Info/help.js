@@ -10,12 +10,11 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setThumbnail(avatar)
       .setTitle("Available Command Categories")
-      .addField(`**》CONFIGURATION**`, `\`${prefix}help config\`\nConfigure the bot as per your server!!`)
+      .addField(`**》CONFIGURATION**`, `\`${prefix}help config\`\nConfigure the bot as per your server!`)
       .addField(`**》FUN**`, `\`${prefix}help fun\`\nHave some fun in your Server!`)
       .addField(`**》IMAGE**`, `\`${prefix}help image\`\nManipulate Images with these Commands!`)
       .addField(`**》INFORMATION**`, `\`${prefix}help info\`\nGet some info relating the Server, users or our Bot`)
       .addField(`**》MODERATION**`, `\`${prefix}help mod\`\nIssues relating some users? Use these Commands`)
-      .addField(`**》MUSIC**`, `\`${prefix}help music\`\nRelax and listen to some music!`)
       .addField(`**》NSFW**`, `\`${prefix}help nsfw\`\nSome NSFW Content for you! 18+ ONLY!`)
       .addField(`**》UTILITIES**`, `\`${prefix}help utility\`\nSome Simple Utility Commands`)
       .setFooter(`Be sure to read our Privacy Policy before using the bot! Use =policy for more info!`)
@@ -27,19 +26,10 @@ module.exports = {
   } else if (args[0] === "mod") {
       const embed1 = new Discord.MessageEmbed()
         .setTitle("Moderation Commands")
-        .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `warn`, `checkwarns`, `massaddrole`, `massremoverole`, `slowmode`, `voicekick`, `voicemute`, `voiceunmute`, `voicemuteall`, `voiceunmuteall`, `deafen`, `undeafen`, `deafenall`, `undeafenall`")
+        .setDescription("`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`")
         .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
      return message.channel.send(embed1)
-
-  } else if (args[0] === "music") {
-      const embed2 = new Discord.MessageEmbed()
-        .setTitle("Music Commands")
-        .setDescription("`play [p]`, `pause`, `resume [r]`, `skip [s]`, `shuffle`, `skipto [st]`, `search`, `stop`, `queue [q]`, `np`, `playlist [pl]`, `volume`, `pruning`, `remove`, `lyrics [ly]`, `repeat [rep]`")
-        .setFooter(`Use ${prefix} before each command!`)
-        .setColor("RANDOM");
-
-      return message.channel.send(embed2)
 
   } else if (args[0] === "info") {
       const embed3 = new Discord.MessageEmbed()
@@ -53,7 +43,7 @@ module.exports = {
   } else if (args[0] === "utility") {
       const embed4 = new Discord.MessageEmbed()
         .setTitle("Utility Commands")
-        .setDescription("`addemoji`, `avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `emoji`, `emojiid`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `playstore`, `poll`, `react`, `removerole`, `say`, `servericon`, `suggestion`, `timedlockdown`, `unlock`, `weather`, `wiki`, `youtube`")
+        .setDescription("`avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `unlock`, `weather`, `wiki`, `youtube`")
         .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
 
@@ -72,7 +62,7 @@ module.exports = {
       const embed7 = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setTitle("Image Commands")
-        .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `meme`, `phb`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`")
+        .setDescription("`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `phb`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`")
         .setFooter(`Use ${prefix} before each command!`);
 
       return message.channel.send(embed7);
@@ -80,7 +70,7 @@ module.exports = {
     } else if (args[0] === "nsfw") {
       const embed8 = new Discord.MessageEmbed()
       .setTitle("NSFW Commands")
-      .setDescription("`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `danbooru`, `hentai`, `milf`, `pussy`")
+      .setDescription("`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `danbooru`, `hentai`, `milf`, `pussy`, `urban`")
       .setFooter(`Use ${prefix} before each command!`)
       .setColor("RANDOM")
 
