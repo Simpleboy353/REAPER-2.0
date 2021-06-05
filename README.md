@@ -66,7 +66,7 @@
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID"
 }
 ```
-- **Don't change the `tenorAPI` or the `gif` command won't work!**
+- **Don't change the `tenorAPI` else the `gif` command won't work!**
 
 ---
 
