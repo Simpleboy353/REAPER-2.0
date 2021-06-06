@@ -1,4 +1,4 @@
-# REAPER-2.0
+#               REAPER-2.0
 
 ## A feature rich Discord Bot with many commands!
 
@@ -47,9 +47,9 @@
 #### Creating a fork:
 - 1). [Click here to fork the repository](https://github.com/Simpleboy353/REAPER-2.0)
 - 2). Open your terminal and type `git clone https://github.com/Simpleboy353/REAPER-2.0.git`
-#### Install all necessary packages
+#### Installing all necessary packages
 - `npm install`
-#### Start the bot
+#### Starting the bot
 - `node .` or `node index`
 
 ---
@@ -66,14 +66,16 @@
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID"
 }
 ```
+- **Visit Official [MongoDB Webite](https://mongodb.com) to get your `mongoPass`**
+- **Watch this [video](https://youtu.be/pf-8KA8td88) to know how to get your `mongoPass`**
 - **Don't change the `tenorAPI` else the `gif` command won't work!**
 
 ---
 
 ## Contributing
 - **Feel free to open pull requests to contribute to the repository!**
-- **Join our [Support Server](https://discord.gg/VxgQvDfyDK)**
-- **Invite my bot to your Server, [Here](https://discord.com/oauth2/authorize?client_id=733670294086221865&permissions=1584921983&scope=bot)**
+- **Join our [Support Server](https://infinitybot.tk/support)**
+- **Invite my bot to your Server, [Here](https://infinitybot.tk/invite)**
 
 ---
 
