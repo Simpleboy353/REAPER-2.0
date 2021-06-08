@@ -27,8 +27,22 @@ client.on("ready", ()=> {
   client.user.setPresence({ status: 'online' });
   client.user.setActivity("Hello", {type: "STREAMING"});
   console.log(`Logged in as ${client.user.tag}`)
-})
+});
+/** ERROR HANDLING */
+client.on("warn", (info) => console.log(info));
 
+client.on("error", console.error);
+
+client.on('uncaughtException', (err) => {
+  console.log("Uncaught Exception: " + err)
+  process.exit(1)
+});
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('[FATAL] Possibly Unhandled Rejection at: Promise ', promise, ' reason: ', reason.message);
+});
+
+
+// MAIN MESSAGE EVENT
 client.on('message', async (message) => {
   const data = await prefixModel.findOne({
     GuildID: message.guild.id
