@@ -66,7 +66,7 @@
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID"
 }
 ```
-- **Visit Official [MongoDB Webite](https://mongodb.com) to get your `mongoPass`**
+- **Visit Official [MongoDB Website](https://mongodb.com) to get your `mongoPass`**
 - **Watch this [video](https://youtu.be/pf-8KA8td88) to know how to get your `mongoPass`**
 - **Don't change the `tenorAPI` else the `gif` command won't work!**
 
