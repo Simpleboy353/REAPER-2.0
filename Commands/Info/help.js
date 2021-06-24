@@ -78,7 +78,7 @@ module.exports = {
     } else if (args[0] === "config"){
         const embed9 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
-        .setDescription("`autorole`, `joinchannel`, `joinmessage`, `prefix`")
+        .setDescription("`autorole`, `antilink`, `joinchannel`, `joinmessage`, `leavechannel`, `leavemessage` `prefix`")
         .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM")
   
