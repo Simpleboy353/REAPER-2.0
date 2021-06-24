@@ -30,11 +30,11 @@ module.exports = {
 		if (user.id === message.owner.id) {
 			return message.channel.send("You can use any Mod Command against the Server Owner")
 		}
-		const time = args[1];
+		const time = args[0];
 		if(!time) {
 			return message.channel.send("How many are you going to mute that person ()");
 		}
-		const reason = args.splice(2).join(" ");
+		const reason = args.slice(1).join(" ");
 		if(!reason) {
 			return message.channel.send("With what reason are you going to tempmute?:");
 		}
