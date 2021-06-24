@@ -31,11 +31,11 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.1.0-stable (Error Free Version) (Current Version)   |       ✅       |
-| v5.5.0-stable (Welcomer Added)                         |       ✅       |
-| v5.0.0-beta (Autorole Added)                           |       ❌       |
-| v4.9.0-alpha (Custom Prefix Added)                     |       ❌       |
-| v4.4.0-alpha (Database Support Added)                  |       ❌       |
+| v6.1.0-stable (Error Free Version) (Current Version)   |       Available       |
+| v5.5.0-stable (Welcomer Added)                         |       Available       |
+| v5.0.0-beta (Autorole Added)                           |       Seems okay to me!       |
+| v4.9.0-alpha (Custom Prefix Added)                     |       Discontinued       |
+| v4.4.0-alpha (Database Support Added)                  |       Discontinued       |
 
 - **The Information above includes Versions with only `Major Updates` and not Versions with `Bug fixes`**
 - **`v6.1.0-stable` is included in the List because this version includes the fixing of every error in the repository.**
