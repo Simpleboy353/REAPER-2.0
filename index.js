@@ -131,6 +131,31 @@ client.on("guildMemberAdd", async(member)=>{
   }
 });
 
+/**
+ * Anti-link is here!!
+ */
+const antilinkData = require('./database/guildData/antilink')
+ client.on("message", async(message)=>{
+  const antilink = await antilinkData.findOne({
+    GuildID: message.guild.id
+  })
+  if (antilink) {
+     if (message.content.match("https://") || message.content.match("discord.gg") || message.content.match("www.")) {
+    message.delete();
+    message.channel.send("No links allowed while anti-link is active!").then(msg=>{
+    let time = '2s'
+    setTimeout(function(){
+    msg.delete();
+  }, ms(time));
+})
+  } else {
+    return;
+  }
+} else if (!antilink) {
+  return;
+}
+});
+
 // Welcome Here!
 const welcomeData = require("./database/guildData/welcome")
 const welcomemsg = require("./database/guildData/joinmsg")
@@ -160,10 +185,65 @@ client.on(`guildMemberAdd`, async (member) => {
       member.guild.channels.cache.get(channel).send(embed20);
     }
   } else if (data2) {
-    return;
+    var channel = data.Welcome
+
+    let embed200 = new MessageEmbed()
+      .setTitle("Welcome")
+      .setDescription(`${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`)
+      .setFooter(`We are now ${member.guild.memberCount} members`)
+      .setColor("GREEN")
+
+      member.guild.channels.cache.get(channel).send(embed200)
   } else if (!data) {
     return;
 }
 });
+
+const byeData = require("./database/guildData/leavechannel")
+const byemsg = require("./database/guildData/leavemessage")
+client.on(`guildMemberRemove`, async (member) => {
+  const avatar = member.user.avatarURL;
+
+  const data = await byeData.findOne({
+    GuildID: member.guild.id
+  })
+  if (data) {
+
+    const data2 = await byemsg.findOne({
+      GuildID: member.guild.id
+    })
+    if (data2) {
+      var leavemessage = data2.ByeMsg;
+
+      leavemessage = leavemessage.replace("{user.mention}", `${member}`)
+      leavemessage = leavemessage.replace("{user.name}", `${member.user.tag}`)
+      leavemessage = leavemessage.replace("{server}", `${member.guild.name}`)
+      leavemessage = leavemessage.replace("{membercount}", `${member.guild.memberCount}`)
+      
+      let embed = new MessageEmbed()
+        .setDescription(leavemessage)
+        .setColor("GREEN");
+
+      let channel = data.Bye
+
+      member.guild.channels.cache.get(channel).send(embed);
+
+    } else if (!data2) {
+      let embed2 = new MessageEmbed()
+        .setTitle("Goodbye")
+        .setThumbnail(member.user.avatarURL())
+        .setDescription(`**${member.user.tag}** just left the server! We hope they return back soon!`)
+        .setFooter(`We now have ${member.guild.memberCount} members!`)
+        .setThumbnail(member.user.avatarURL())
+        .setColor("GREEN")
+
+      let byechannel = data.Bye
+
+      member.guild.channels.cache.get(byechannel).send(embed2);
+    }
+  } else if (!data) {
+    return;
+  }
+})
 
 client.login(config.BOT_TOKEN)//Enter your bot token here
