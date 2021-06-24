@@ -8,6 +8,7 @@
 
 | Features             | Availability |
 | -------------------- | ------------ |
+| Anti-Link            |     ✅       |
 | Autorole             |     ✅       |
 | Custom Prefix        |     ✅       |
 | Permanent Database   |     ✅       |
@@ -31,15 +32,16 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.1.0-stable (Error Free Version) (Current Version)   |       Available       |
-| v5.5.0-stable (Welcomer Added)                         |       Available       |
-| v5.0.0-beta (Autorole Added)                           |       Seems okay to me!       |
+| v6.3.0-stable (Anti-Link Support) (Current Version)    |       Available       
+| v6.1.0-stable (Error Free Version)                     |       Available       |
+| v5.5.0-stable (Welcomer Added)                         |       Seems okay to me!       |
+| v5.0.0-beta (Autorole Added)                           |       Discontinued       |
 | v4.9.0-alpha (Custom Prefix Added)                     |       Discontinued       |
 | v4.4.0-alpha (Database Support Added)                  |       Discontinued       |
 
 - **The Information above includes Versions with only `Major Updates` and not Versions with `Bug fixes`**
 - **`v6.1.0-stable` is included in the List because this version includes the fixing of every error in the repository.**
-- **Support is provided only for `Stable` Versions and not for `Beta` or `Alpha` Versions.**
+- **Support is provided only for `Stable` and `Beta` Versions and not for `Alpha` Versions.**
 
 ---
 
@@ -50,7 +52,7 @@
 #### Installing all necessary packages
 - `npm install`
 #### Starting the bot
-- `node .` or `node index`
+- `node .` or `node index` 
 
 ---
 
@@ -66,6 +68,7 @@
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID"
 }
 ```
+- **The `mongoPass` must be a `url`**
 - **Visit Official [MongoDB Website](https://mongodb.com) to get your `mongoPass`**
 - **Watch this [video](https://youtu.be/pf-8KA8td88) to know how to get your `mongoPass`**
 - **Don't change the `tenorAPI` else the `gif` command won't work!**
