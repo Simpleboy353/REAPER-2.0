@@ -4,4 +4,4 @@ const antilinkSchema = new mongoose.Schema({
     GuildID: String,
 });
 
-const antilinkModel = moduele.exports = new mongoose.model('anitlink', anitlinkSchema)
+const antilinkModel = module.exports = new mongoose.model('antilink', antilinkSchema)
