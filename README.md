@@ -3,6 +3,8 @@
 ## A feature rich Discord Bot with many commands!
 
 ---
+## Have suggestions on what could be added?
+- **Leave your suggestions right [here](https://github.com/Simpleboy353/REAPER-2.0/issues/15) then!**
 
 ## What features does Reaper Include?
 
