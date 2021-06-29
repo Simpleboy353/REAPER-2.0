@@ -1,7 +1,7 @@
 {
-  "name": "tut-bot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "REAPER-2.P",
+  "version": "v6.3.0-stable",
+  "description": "An Open Source discord bot with lots of features",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
