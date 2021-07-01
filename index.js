@@ -54,7 +54,7 @@ client.on('message', async (message) => {
   if (data) {
     var PREFIX = data.Prefix
   } else {
-    PREFIX = "!";
+    PREFIX = config.DEFAULT_PREFIX;
   }
   client.prefix = PREFIX;
 
