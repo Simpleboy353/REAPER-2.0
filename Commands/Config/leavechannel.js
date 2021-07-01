@@ -2,7 +2,7 @@ const Discord = module.require("discord.js")
 const joinModel = require("../../database/guildData/leavechannel");
 
 module.exports = {
-  name: "joinchannel",
+  name: "leavechannel",
   description: "Change the goodbye channel per server!",
   aliases: ["gchannel", "goodbye"],
   run: async (client, message, args) => {
