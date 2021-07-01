@@ -2,7 +2,7 @@ const Discord = module.require("discord.js")
 const joinModel = require("../../database/guildData/leavemessage");
 
 module.exports = {
-  name: "joinmessage",
+  name: "leavemessage",
   description: "Change the welcome message per server!",
   aliases: ["leavemsg", "goodbyemsg", "lmsg"],
   run: async (client, message, args) => {
