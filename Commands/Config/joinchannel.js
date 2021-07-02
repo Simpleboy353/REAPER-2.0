@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js")
-const joinModel = require("../../database/guildData/welcome");
+const prefixModel = require("../../database/guildData/welcome");
 
 module.exports = {
   name: "joinchannel",
@@ -13,21 +13,21 @@ module.exports = {
       return message.channel.send("I Don't have the `Manage Channels` Permission, required for setting up the channel!")
     }
     if (!args[0]) {
-      return message.channel.send(`\`Usage: ${message.client.prefix}joinchannel <#channel|off>\``)
+      return message.channel.send(`\`Usage: =joinchannel <#channel|off>\``)
     }
     if (message.mentions.channels.first()) {
-    const data = await joinModel.findOne({
+    const data = await prefixModel.findOne({
       GuildID: message.guild.id
     });
 
     if (data) {
-      await joinModel.findOneAndRemove({
+      await prefixModel.findOneAndRemove({
         GuildID: message.guild.id
       });
 
       message.channel.send(`Join Channel set to ${message.mentions.channels.first()}`);
 
-      let newData = new joinModel({
+      let newData = new prefixModel({
         Welcome: message.mentions.channels.first().id,
         GuildID: message.guild.id
       });
@@ -35,19 +35,19 @@ module.exports = {
     } else if (!data) {
       message.channel.send(`Join Channel set to ${message.mentions.channels.first()}`);
 
-      let newData = new joinModel({
+      let newData = new prefixModel({
         Welcome: message.mentions.channels.first().id,
         GuildID: message.guild.id
       });
       newData.save();
     }
   } else if (args[0] === "off") {
-      const data2 = await joinModel.findOne({
+      const data2 = await prefixModel.findOne({
         GuildID: message.guild.id
       });
 
       if (data2) {
-        await joinModel.findOneAndRemove({
+        await prefixModel.findOneAndRemove({
           GuildID: message.guild.id
         });
 

@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js")
-const joinModel = require("../../database/guildData/joinmsg");
+const prefixModel = require("../../database/guildData/joinmsg");
 
 module.exports = {
   name: "joinmessage",
@@ -11,18 +11,18 @@ module.exports = {
     }
     const text = args.join(" ");
     if (!args[0]) {
-      return message.channel.send(`\`Usage: ${message.client.prefix}joinmessage <Text|off>\``)
+      return message.channel.send(`\`Usage: =joinmessage <Text|off>\``)
     }
     if (text !== "off") {
-      const data = await joinModel.findOne({
+      const data = await prefixModel.findOne({
         GuildID: message.guild.id
       });
 
       if (data) {
-        await joinModel.findOneAndRemove({
+        await prefixModel.findOneAndRemove({
           GuildID: message.guild.id
         });
-        let newData = new joinModel({
+        let newData = new prefixModel({
           JoinMsg: args.join(" "),
           GuildID: message.guild.id
         });
@@ -31,7 +31,7 @@ module.exports = {
 
       } else if (!data) {
 
-        let newData = new joinModel({
+        let newData = new prefixModel({
           JoinMsg: args.join(" "),
           GuildID: message.guild.id
         });
@@ -40,12 +40,12 @@ module.exports = {
 
       }
     } else if (text === "off") {
-      const data2 = await joinModel.findOne({
+      const data2 = await prefixModel.findOne({
         GuildID: message.guild.id
       });
 
       if (data2) {
-        await joinModel.findOneAndRemove({
+        await prefixModel.findOneAndRemove({
           GuildID: message.guild.id
         });
 

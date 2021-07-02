@@ -185,6 +185,19 @@ client.on(`guildMemberAdd`, async (member) => {
       member.guild.channels.cache.get(channel).send(embed20);
     }
   } else if (data2) {
+    return;
+  } else if (!data) {
+    return;
+  }
+})
+client.on("guildMemberAdd", async (member) => {
+  const data = await welcomeData.findOne({
+    GuildID: member.guild.id
+  })
+  const data2 = await welcomemsg.findOne({
+    GuildID: member.guild.id
+  })
+  if (data) {
     var channel = data.Welcome
 
     let embed200 = new MessageEmbed()
@@ -193,12 +206,17 @@ client.on(`guildMemberAdd`, async (member) => {
       .setFooter(`We are now ${member.guild.memberCount} members`)
       .setColor("GREEN")
 
+    if (!data2) {
       member.guild.channels.cache.get(channel).send(embed200)
+    } else if (data2) {
+      return;
+    }
   } else if (!data) {
     return;
-}
+  }
 });
 
+// Goodbye Stuff Here!!
 const byeData = require("./database/guildData/leavechannel")
 const byemsg = require("./database/guildData/leavemessage")
 client.on(`guildMemberRemove`, async (member) => {
@@ -246,4 +264,4 @@ client.on(`guildMemberRemove`, async (member) => {
   }
 })
 
-client.login(config.BOT_TOKEN)//Enter your bot token here
+client.login(process.env.token)//Enter your bot token here
