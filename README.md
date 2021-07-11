@@ -34,9 +34,10 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.3.0-stable (Anti-Link Support) (Current Version)    |       Available       
-| v6.1.0-stable (Error Free Version)                     |       Available       |
-| v5.5.0-stable (Welcomer Added)                         |       Seems okay to me!       |
+| v6.5.0-stable (V13 Support Added) (Latest Version)     |       Available       |
+| v6.3.0-stable (Anti-Link Support)                      |       Available       
+| v6.1.0-stable (Error Free Version)                     |       Seems okay to me!       |
+| v5.5.0-stable (Welcomer Added)                         |       Discontinued       |
 | v5.0.0-beta (Autorole Added)                           |       Discontinued       |
 | v4.9.0-alpha (Custom Prefix Added)                     |       Discontinued       |
 | v4.4.0-alpha (Database Support Added)                  |       Discontinued       |
