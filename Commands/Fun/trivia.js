@@ -5,7 +5,7 @@ let questions = [
     options: ["JavaScript/TypeScript", "Python", "Ruby", "Rust"],
     correct: 1,
   },
-  
+
   {
     title: "Best NPM package",
     options: ["int.engine", "ms", "ws", "discord.js"],
@@ -13,17 +13,17 @@ let questions = [
   },
 
   {
-      title: "Which command is better",
-      options:["8ball", "emoify", "ascii", "flipword"],
-      correct: 2,
+    title: "Which command is better",
+    options: ["8ball", "emoify", "ascii", "flipword"],
+    correct: 2,
   },
   //you can also add more!
-  
 ];
 module.exports = {
   name: "trivia",
   description: "Test your knowledge!",
   category: "fun",
+  botPerms: ["EMBED_LINKS"],
   run: async (client, message, args) => {
     let q = questions[Math.floor(Math.random() * questions.length)];
     let i = 0;
@@ -39,7 +39,7 @@ module.exports = {
       .setFooter(
         `Reply to this message with the correct question number! You have 15 seconds.`
       );
-    message.channel.send(Embed);
+    message.channel.send({ embeds: [Embed] });
     try {
       let msgs = await message.channel.awaitMessages(
         (u2) => u2.author.id === message.author.id,

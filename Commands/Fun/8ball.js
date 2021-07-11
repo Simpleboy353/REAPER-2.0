@@ -1,10 +1,13 @@
 const Discord = module.require("discord.js");
 
 module.exports = {
-    name: "8ball",
-    description: "Tells you a fortune",
-    run: async (client, message, args) => {
-    if (args.length == 0) return message.channel.send("`Usage: =8ball <msg>`").then(msg => msg.delete(2300)); 
+  name: "8ball",
+  description: "Tells you a fortune",
+  run: async (client, message, args) => {
+    if (args.length == 0)
+      return message.channel
+        .send("`Usage: =8ball <msg>`")
+        .then((msg) =>setTimeout(() => msg.delete(), 2300));
 
     var fortunes = [
       "Yes.",
@@ -27,7 +30,9 @@ module.exports = {
       "My sources say no.",
       "Outlook not so good...",
       "Very doubtful.",
-    ];  
-      await message.channel.send(fortunes[Math.floor(Math.random()*fortunes.length)]);
+    ];
+    await message.channel.send(
+      fortunes[Math.floor(Math.random() * fortunes.length)]
+    );
   },
-}
+};
