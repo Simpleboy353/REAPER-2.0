@@ -15,9 +15,9 @@ function loadEvents(client) {
 
   // other events
   client.on("messageCreate", (m) => otherEvent("antilinks")(m));
-  client.on("guildMemberAdd", (m) => guildEvent("autorole")(m));
-  client.on("guildMemberAdd", (m) => guildEvent("welcome")(m));
-  client.on("guildMemberRemove", (m) => guildEvent("goodbye")(m));
+  client.on("guildMemberAdd", (m) => otherEvent("autorole")(m));
+  client.on("guildMemberAdd", (m) => otherEvent("welcome")(m));
+  client.on("guildMemberRemove", (m) => otherEvent("goodbye")(m));
 
   // warnings and errors
   client.on("warn", (info) => console.log(info));
