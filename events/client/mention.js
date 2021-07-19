@@ -6,18 +6,16 @@ module.exports = async (message, client) => {
   if (!message.guild.me.permissionsIn(message.channel).has("SEND_MESSAGES"))
     return;
 
-  const sDoc = await prefixModel.findOne(
-    {
+  const prefixData = await prefixModel.findOne({
       GuildID: message.guild.id,
-    },
-    (error) => {
-      if (error) {
-        console.log(error);
-      }
+    }).catch(err=>console.log(err))
+  
+    if (prefixData) {
+      var PREFIX = prefixData.Prefix
+    } else if (!prefixData) {
+      PREFIX = "+"
     }
-  );
-
-  let p = sDoc ? sDoc.prefix : client.prefix;
+    client.prefix = PREFIX;
 
   // mentioned bot
   if (message.content.startsWith(`<@!${client.user.id}>`)) {
