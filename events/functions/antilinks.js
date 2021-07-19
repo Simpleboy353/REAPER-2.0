@@ -1,4 +1,5 @@
 const antilinkData = require("../../database/guildData/antilink");
+const ms = require('ms')
 
 module.exports = async (message) => {
   const antilink = await antilinkData.findOne({
@@ -11,9 +12,7 @@ module.exports = async (message) => {
       message.content.match("www.")
     ) {
       message.delete();
-      message.channel
-        .send("No links allowed while anti-link is active!")
-        .then((msg) => {
+      let msg = message.channel.send("No links allowed while anti-link is active!").then((msg) => {
           let time = "2s";
           setTimeout(function () {
             msg.delete();
