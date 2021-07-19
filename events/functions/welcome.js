@@ -1,45 +1,48 @@
 const welcomeData = require("../../database/guildData/welcome");
 const welcomemsg = require("../../database/guildData/joinmsg");
+const { MessageEmbed } = require('discord.js')
 
 module.exports = async (member) => {
-  const data = await welcomeData.findOne({
-    GuildID: member.guild.id,
-  });
+ const avatar = member.user.avatarURL;
 
-  var data2 = await welcomemsg.findOne({
-    GuildID: member.guild.id,
-  });
+ const data = await welcomeData.findOne({
+   GuildID: member.guild.id,
+ });
+ if (data) {
+   const data2 = await welcomemsg.findOne({
+     GuildID: member.guild.id,
+   });
+   if (data2) {
+     var joinmessage = data2.JoinMsg;
 
-  if (data && data2) {
-    var channel = data.Welcome;
+     joinmessage = joinmessage.replace("{user.mention}", `${member}`);
+     joinmessage = joinmessage.replace("{user.name}", `${member.user.tag}`);
+     joinmessage = joinmessage.replace("{server}", `${member.guild.name}`);
+     joinmessage = joinmessage.replace(
+       "{membercount}",
+       `${member.guild.memberCount}`
+     );
 
-    var joinmessage = data2.JoinMsg;
+     let embed = new MessageEmbed()
+       .setDescription(joinmessage)
+       .setColor("GREEN");
 
-    joinmessage = joinmessage.replace("{user.mention}", `${member}`);
-    joinmessage = joinmessage.replace("{user.name}", `${member.user.tag}`);
-    joinmessage = joinmessage.replace("{server}", `${member.guild.name}`);
-    joinmessage = joinmessage.replace(
-      "{membercount}",
-      `${member.guild.memberCount}`
-    );
+     let channel = data.Welcome;
 
-    let embed20 = new MessageEmbed()
-      .setDescription(joinmessage)
-      .setColor("GREEN");
-    member.guild.channels.cache.get(channel).send({ embeds: [embed20] });
-  }
-
-  if (data && !data2) {
-    var channel = data.Welcome;
-
-    let embed200 = new MessageEmbed()
-      .setTitle("Welcome")
+     member.guild.channels.cache.get(channel).send({embeds: [embed]});
+     
+   } else if (!data2) {
+     let embed2 = new MessageEmbed
+     .setTitle("Welcome")
       .setDescription(
         `${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`
       )
       .setFooter(`We are now ${member.guild.memberCount} members`)
       .setColor("GREEN");
+     
+     let channel = data.Welcome
 
-    member.guild.channels.cache.get(channel).send({ embeds: [embed200] });
-  }
+    member.guild.channels.cache.get(channel).send({ embeds: [embed2] });
+   }
+ }
 };
