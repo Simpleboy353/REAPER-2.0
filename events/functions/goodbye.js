@@ -1,5 +1,6 @@
 const byeData = require("../../database/guildData/leavechannel");
 const byemsg = require("../../database/guildData/leavemessage");
+const { MessageEmbed } = require('discord.js')
 
 module.exports = async (member) => {
  const avatar = member.user.avatarURL;
