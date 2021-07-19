@@ -26,7 +26,7 @@ const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/");
-client.prefix = DEFAULT_PREFIX;
+client.setMaxListeners(0);
 
 loadCommands(client);
 loadEvents(client);
