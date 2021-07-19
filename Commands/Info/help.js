@@ -1,12 +1,23 @@
 const Discord = require("discord.js");
+const prefixModel = require('../../database/guildData/prefix')
+
 module.exports = {
   name: "help",
   description: "Get the Command List",
   aliases: ["commands", "cmd", "h"],
   botPerms: ["EMBED_LINKS"],
-  run: async (client, message, args, p) => {
+  run: async (client, message, args) => {
     const avatar = client.user.avatarURL;
-    const prefix = p
+    const prefixData = await prefixModel.findOne({
+      GuildID: message.guild.id,
+    }).catch(err=>console.log(err))
+  
+    if (prefixData) {
+      var prefix = prefixData.Prefix
+    } else if (!prefixData) {
+      prefix = "+"
+    }
+    client.prefix = prefix;
     if (!args[0]) {
       const embed = new Discord.MessageEmbed()
         .setThumbnail(avatar)
