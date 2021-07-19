@@ -1,21 +1,20 @@
 const prefixModel = require("../../database/guildData/prefix");
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const { DEFAULT_PREFIX } = require('../../config.json')
 const { Collection } = require("discord.js")
 module.exports = async (message, cooldowns) => {
-  const data = await prefixModel.findOne(
-    {
-      GuildID: message.guild.id,
-    },
-    (error) => {
-      if (error) {
-        console.log(error);
-      }
-    }
-  );
-
+  
   let client = message.client;
+  const prefixData = await prefixModel.findOne({
+    GuildID: message.guild.id,
+  }).catch(err=>console.log(err))
 
-  let PREFIX = data ? data.Prefix : client.prefix;
+  if (prefixData) {
+    var PREFIX = prefixData.Prefix
+  } else if (!prefixData) {
+    PREFIX = DEFAULT_PREFIX
+  }
+  client.prefix = PREFIX;
 
   if (message.author.bot) return;
   if (!message.guild) return;
