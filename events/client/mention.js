@@ -18,7 +18,7 @@ module.exports = async (message, client) => {
     client.prefix = PREFIX;
 
   // mentioned bot
-  if (message.content.startsWith(`<@!${client.user.id}>`)) {
+  if (message.content ===`<@!${client.user.id}>` || message.content === `<@${client.user.id}>`) {
     return message.channel.send(
       `My prefix in this server is \`${p}\`\n\nTo get a list of commands, type \`${p}help\``
     );
