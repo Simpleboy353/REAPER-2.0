@@ -120,7 +120,7 @@ module.exports = {
       const embed9 = new Discord.MessageEmbed()
         .setTitle("Config Commands")
         .setDescription(
-          "`autorole`, `antilink`, `joinchannel`, `joinmessage`, `leavechannel`, `leavemessage` `prefix`"
+          "`autorole`, `antilink`, `dashboard`, `joinchannel`, `joinmessage`, `leavechannel`, `leavemessage` `prefix`"
         )
         .setFooter(`Use ${prefix} before each command!`)
         .setColor("RANDOM");
