@@ -3,7 +3,7 @@
     "OWNER_ID":"",
     "BOT_TOKEN": "",
     "tenorAPI":"ZEEELJXAFQBN",
-    "DEFAULT_PREFIX":"!",
+    "DEFAULT_PREFIX":"",
     "mongoPass": "",
     "ERROR_LOGS_CHANNEL": ""
 }

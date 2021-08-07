@@ -1,8 +1,12 @@
 {
-  "name": "REAPER-2.0",
-  "version": "v6.5.0-stable",
+  "name": "reaper-2.0",
+  "version": "v6.6.0-beta",
   "description": "An Open Source discord bot with lots of features",
   "main": "index.js",
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.20.0"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,8 +26,7 @@
     "dateformat": "^3.0.3",
     "discord-emoji": "^1.1.1",
     "discord-fetch-all": "^2.0.5",
-    "discord-paginationembed": "^2.1.0",
-    "discord.js": "^13.0.0-dev.676118a.1625486570",
+    "discord.js": "^13.0.0",
     "dotenv": "^8.2.0",
     "figlet": "^1.5.0",
     "flip-text": "^1.1.0",
@@ -52,7 +55,6 @@
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "superagent": "^6.1.0",
-    "sylphy": "^0.4.5",
     "twemoji-parser": "^13.0.0",
     "urban": "^0.3.2",
     "util": "^0.12.3",
@@ -60,6 +62,6 @@
     "ytdl-core-discord": "^1.2.4"
   },
   "devDependencies": {
-    "@types/node": "^14.10.1"
+    "@types/node": "^16.6.1"
   }
 }

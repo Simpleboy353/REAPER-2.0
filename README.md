@@ -4,8 +4,8 @@
 
 ---
 ## Requirements
-- Discord.js v13 (`npm install discord.js@dev`)
-- NodeJS v14 or higher
+- Discord.js v13 (`npm install discord.js@latest`)
+- NodeJS v16 or higher
 - Basic knowledge of JS or Discord.JS
 
 ## Have suggestions on what could be added?
@@ -17,9 +17,12 @@
 | -------------------- | ------------ |
 | Anti-Link            |     ✅       |
 | Autorole             |     ✅       |
+| Auto-Mod             |     ✅       |
 | Custom Prefix        |     ✅       |
 | Permanent Database   |     ✅       |
 | Welcomer             |     ✅       |
+| Logging              |     ✅       |
+| Menu(s)              |     ✅       |
 
 | Commands Category      | Availability |
 | ---------------------- | ------------ |
@@ -39,9 +42,10 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.5.0-stable (V13 Support Added) (Latest Version)     |       Available       |
-| v6.3.0-stable (Anti-Link Support)                      |       Available       
-| v6.1.0-stable (Error Free Version)                     |       Seems okay to me!       |
+| v6.6.0-beta (Logging, New UI for settings) (Current)   |       Available       |
+| v6.5.0-stable (V13 Support Added)                      |       Available       |
+| v6.3.0-stable (Anti-Link Support)                      |       Seems Okay to me!       |       
+| v6.1.0-stable (Error Free Version)                     |       Discontinued       |
 | v5.5.0-stable (Welcomer Added)                         |       Discontinued       |
 | v5.0.0-beta (Autorole Added)                           |       Discontinued       |
 | v4.9.0-alpha (Custom Prefix Added)                     |       Discontinued       |
@@ -86,6 +90,7 @@
 ## Contributing
 - **Feel free to open pull requests to contribute to the repository!**
 - **Join our [Support Server](https://infinitybot.tk/support)**
+- **Join our [Development server](https://discord.gg/yMfyeNR2DT)**
 - **Invite my bot to your Server, [Here](https://infinitybot.tk/invite)**
 
 ---

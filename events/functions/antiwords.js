@@ -1,5 +1,5 @@
 const antiwordsData = require('../../database/guildData/antiwords')
-  client.on("message", async (message) => {
+  module.exports = async (message) => {
     const antiwords = await antiwordsData.findOne({
       GuildID: message.guild.id,
     })
@@ -18,4 +18,4 @@ const antiwordsData = require('../../database/guildData/antiwords')
     } else if (!antiwords) {
       return;
     }
-  });
+  }

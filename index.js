@@ -31,10 +31,10 @@ client.setMaxListeners(0);
 loadCommands(client);
 loadEvents(client);
 
-process.on("uncaughtException", (err) => {
+/**process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
   process.exit(1);
-});
+});*/
 process.on("unhandledRejection", (reason, promise) => {
   console.log(
     "[FATAL] Possibly Unhandled Rejection at: Promise ",
