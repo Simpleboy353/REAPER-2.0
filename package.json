@@ -62,6 +62,6 @@
     "ytdl-core-discord": "^1.2.4"
   },
   "devDependencies": {
-    "@types/node": "^16.4.13"
+    "@types/node": "16.4.13"
   }
 }
