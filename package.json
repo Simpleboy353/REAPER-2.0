@@ -24,7 +24,7 @@
     "config.json": "0.0.4",
     "cpu-stat": "^2.0.1",
     "dateformat": "^3.0.3",
-    "discord-emoji": "^1.1.1",
+    "discord-emoji": "^2.0.0",
     "discord-fetch-all": "^2.0.5",
     "discord.js": "^13.0.0",
     "dotenv": "^8.2.0",
