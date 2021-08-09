@@ -17,7 +17,7 @@
     "ascii-table": "0.0.9",
     "booru": "^2.3.2",
     "canvas": "^2.6.1",
-    "canvas-constructor": "^4.1.0",
+    "canvas-constructor": "^5.0.0",
     "chalk": "^4.1.1",
     "colornames": "^1.1.1",
     "common-tags": "^1.8.0",
