@@ -1,7 +1,7 @@
 {
 
-    "OWNER_ID":"661501985517862972",
-    "BOT_TOKEN": "ODU4Mzk1MTc5MTI2ODgyMzI0.YNdgzg.0BaaegjCRgz-8qFIh85JFbdeP5M",
+    "OWNER_ID":"",
+    "BOT_TOKEN": "",
     "tenorAPI":"ZEEELJXAFQBN",
     "DEFAULT_PREFIX":"!",
     "mongoPass": "",
