@@ -7,6 +7,8 @@ const { Client, Collection, Intents } = require("discord.js");
 const { DEFAULT_PREFIX, BOT_TOKEN } = require("./config.json");
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
+const { loadSlashCommands } = require("./handler/loadSlashCommands")
+const { DiscordTogether } = require('discord-together')
 
 const client = new Client({
   allowedMentions: { parse: ["users", "roles"] },
@@ -19,22 +21,29 @@ const client = new Client({
     Intents.FLAGS.GUILD_VOICE_STATES,
     Intents.FLAGS.GUILD_INVITES,
     Intents.FLAGS.GUILD_BANS,
-    Intents.FLAGS.GUILD_PRESENCES,
+    //Intents.FLAGS.GUILD_PRESENCES,
   ],
 });
 
+client.discordTogether = new DiscordTogether(client);
 client.commands = new Collection();
+client.slash = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/");
 client.setMaxListeners(0);
 
 loadCommands(client);
 loadEvents(client);
+loadSlashCommands(client);
 
-/**process.on("uncaughtException", (err) => {
+
+// Error Handling
+
+process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
   process.exit(1);
-});*/
+});
+
 process.on("unhandledRejection", (reason, promise) => {
   console.log(
     "[FATAL] Possibly Unhandled Rejection at: Promise ",

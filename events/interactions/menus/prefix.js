@@ -3,6 +3,8 @@ const prefixData = require("../../../database/guildData/prefix")
 module.exports = async(interaction, client)=> {
     if (!interaction.isSelectMenu()) return;
 
+    let msg = await interaction.channel.messages.fetch(interaction.message.id)
+
     if (interaction.values[0] === "prefix") {
 
         await interaction.deferUpdate()
@@ -12,7 +14,7 @@ module.exports = async(interaction, client)=> {
         })
 
         if (!data) {
-            interaction.channel.send("Please send the new prefix below!")
+            msg.edit("Please send the new prefix below!")
 
             const filter = (m) => m.author.id === interaction.member.id
 
@@ -22,7 +24,7 @@ module.exports = async(interaction, client)=> {
                 let prefix = collected.content
 
                 if (prefix.length >= 5) {
-                    return interaction.channel.send(`Prefix must be of less than 5 characters!`)
+                    return msg.edit(`Prefix must be of less than 5 characters!`)
                 }
 
                 let newData = new prefixData({
@@ -34,7 +36,7 @@ module.exports = async(interaction, client)=> {
 
                 await collector.stop()
 
-                return interaction.channel.send(`Prefix changed to ${prefix}!`)
+                return msg.edit(`Prefix changed to ${prefix}!`)
             })
 
             collector.on('end', async(collected, reason)=> {
@@ -42,7 +44,7 @@ module.exports = async(interaction, client)=> {
             })
         } else if (data) {
 
-            await interaction.channel.send('Please send the new prefix below!')
+            await msg.edit('Please send the new prefix below!')
             const newFilter = (m) => m.author.id === interaction.member.id
 
             const newCollector = await interaction.channel.createMessageCollector({ newFilter, time: 60000 })
@@ -51,7 +53,7 @@ module.exports = async(interaction, client)=> {
                 let newPrefix = collected.content
 
                 if (newPrefix.length >= 5) {
-                    return interaction.channel.send(`Prefix must be of less than 5 characters!`)
+                    return msg.edit(`Prefix must be of less than 5 characters!`)
                 }
                 await prefixData.findOneAndRemove({
                     GuildID: interaction.guild.id
@@ -66,7 +68,7 @@ module.exports = async(interaction, client)=> {
 
                 await newCollector.stop()
 
-                return interaction.channel.send(`Prefix changed to ${newPrefix}`)
+                return msg.edit(`Prefix changed to ${newPrefix}`)
             })
 
             newCollector.on('end', async(collected, reason)=> {

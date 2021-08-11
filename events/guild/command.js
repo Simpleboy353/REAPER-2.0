@@ -3,8 +3,9 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const { DEFAULT_PREFIX } = require('../../config.json')
 const { Collection } = require("discord.js")
 module.exports = async (message, cooldowns) => {
-  
+
   let client = message.client;
+
   const prefixData = await prefixModel.findOne({
     GuildID: message.guild.id,
   }).catch(err=>console.log(err))

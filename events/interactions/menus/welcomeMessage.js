@@ -3,6 +3,8 @@ const JoinMsg = require('../../../database/guildData/joinmsg')
 module.exports = async(interaction, client)=>{
     if (!interaction.isSelectMenu()) return;
 
+    let msg = await interaction.channel.messages.fetch(interaction.message.id)
+
     if (interaction.values[0] === "welcome_message") {
 
         await interaction.deferUpdate()
@@ -12,7 +14,7 @@ module.exports = async(interaction, client)=>{
         })
 
         if (!data) {
-            await interaction.channel.send("Please send the **MESSAGE** to be setup as the Welcome Message!")
+            await msg.edit("Please send the **MESSAGE** to be setup as the Welcome Message!")
             
             const filter = (m) => m.author.id === interaction.member.id
 
@@ -30,7 +32,7 @@ module.exports = async(interaction, client)=>{
             newData.save()
 
             await collector.stop()
-            return interaction.channel.send(`Goodbye Message has been set to:\n${joinMsg}`)
+            return msg.edit(`Goodbye Message has been set to:\n${joinMsg}`)
         })
 
         collector.on("end", async(collected) => {
@@ -41,7 +43,7 @@ module.exports = async(interaction, client)=>{
                 GuildID: interaction.guild.id
             })
 
-            return interaction.channel.send('Welcome Message has been removed!')
+            return msg.edit('Welcome Message has been removed!')
         }
     }
 }

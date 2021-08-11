@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = async(oldChannel, newChannel) => {
     const data = await channelData.findOne({
-        GuildID: newchannel.guild.id,
+        GuildID: newChannel.guild.id,
     })
 
     if (!data) return;

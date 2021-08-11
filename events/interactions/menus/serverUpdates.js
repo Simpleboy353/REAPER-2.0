@@ -3,7 +3,7 @@ const serverData = require("../../../database/guildData/serverupdates")
 
 module.exports = async(interaction, client) => {
     if (!interaction.isSelectMenu()) return;
-
+    let msg = await interaction.channel.messages.fetch(interaction.message.id)
     if (interaction.values[0] === "server_updates") {
 
         await interaction.deferUpdate()
@@ -13,7 +13,7 @@ module.exports = async(interaction, client) => {
         })
 
         if (!data) {
-            await interaction.channel.send("Please send the **CHANNEL ID** to be setup for Server Update Logs")
+            await msg.edit("Please send the **CHANNEL ID** to be setup for Server Update Logs")
 
             const filter = (m) => m.author.id === interaction.member.id
 
@@ -26,7 +26,7 @@ module.exports = async(interaction, client) => {
 
                 let channel = interaction.guild.channels.cache.get(channelID)
 
-                if (!channel) return interaction.channel.send("Couldn't find that channel!")
+                if (!channel) return msg.edit("Couldn't find that channel!")
 
                 let newData = new serverData({
                     ChannelID: channelID,
@@ -37,7 +37,7 @@ module.exports = async(interaction, client) => {
 
                 await collector.stop()
     
-                return interaction.channel.send(`Server updates will be logged in ${interaction.guild.channels.cache.get(channelID)}`)
+                return msg.edit(`Server updates will be logged in ${interaction.guild.channels.cache.get(channelID)}`)
             })
 
             collector.on('end', async(collected, returnValue) => {
@@ -49,7 +49,7 @@ module.exports = async(interaction, client) => {
                 GuildID: interaction.guild.id
             })
 
-            return interaction.channel.send(`Server Updates Logging has been stopped!`)
+            return msg.edit(`Server Updates Logging has been stopped!`)
         }
     }
 }

@@ -1,23 +1,22 @@
-const Discord = module.require("discord.js");
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-  name: "youtube",
-  description: "Search For results on Youtube",
-  botPerms: ["EMBED_LINKS"],
-  run: async (client, message, args) => {
-    const text = args.join(" ");
-    const search = args.join("+");
-    if (!text) {
-      return message.channel.send("Enter some text to search for");
+    name: "youtube",
+    description: "Watch Youtube in Discord!",
+    run: async(client, message, args) => {
+
+      if (!message.member.voice.channelId) {
+        return message.channel.send('You need to join a voice channel first!')
+      }
+        client.discordTogether.createTogetherCode(message.member.voice.channelId, 'youtube').then(async(invite) => {
+            
+            let embed = new MessageEmbed()
+            .setTitle("Youtube Together")
+            .setDescription(`[Click Here](${invite.code}) to access Youtube Together!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
+            .setColor("RED")
+            .setFooter(`Requested By: ${message.author.tag}`)
+            
+            return message.channel.send({ embeds: [embed] });
+        });
     }
-    const embed = new Discord.MessageEmbed()
-      .setTitle("YT Search")
-      .addField(`You Searched for`, `${text}`)
-      .addField(
-        `Results`,
-        `[Here's What I found](https://youtube.com/results?search_query=${search})`
-      )
-      .setColor("RANDOM");
-    message.channel.send({ embeds: [embed] });
-  },
-};
+}

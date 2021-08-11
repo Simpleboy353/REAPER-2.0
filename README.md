@@ -10,6 +10,7 @@
 ---
 ## Requirements
 - Discord.js v13 (`npm install discord.js@latest`)
+- `applications.commands` scope enabled for your bot in Developer Portal (For Slash Cmds).
 - NodeJS v16 or higher
 - Basic knowledge of JS or Discord.JS
 
@@ -28,6 +29,7 @@
 | Welcomer             |     ✅       |
 | Logging              |     ✅       |
 | Menu(s)              |     ✅       |
+| Slash Commands       |     ✅       |
 
 | Commands Category      | Availability |
 | ---------------------- | ------------ |
@@ -47,9 +49,10 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.6.0-beta (Logging, New UI for settings) (Current)   |       Available       |
-| v6.5.0-stable (V13 Support Added)                      |       Available       |
-| v6.3.0-stable (Anti-Link Support)                      |       Seems Okay to me!       |       
+| v6.7.0-beta (Slash Cmds, Thread Events) (Current)      |       Available       |
+| v6.6.0-beta (Logging, New UI for settings)             |       Available       |
+| v6.5.0-stable (V13 Support Added)                      |       Seems Okay to me!       |
+| v6.3.0-stable (Anti-Link Support)                      |       Discontinued       |       
 | v6.1.0-stable (Error Free Version)                     |       Discontinued       |
 | v5.5.0-stable (Welcomer Added)                         |       Discontinued       |
 | v5.0.0-beta (Autorole Added)                           |       Discontinued       |

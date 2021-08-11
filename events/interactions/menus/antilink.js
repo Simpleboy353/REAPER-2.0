@@ -2,6 +2,7 @@ const antilinkData = require("../../../database/guildData/antilink")
 
 module.exports = async(interaction, client) => {
     if (!interaction.isSelectMenu()) return;
+    let msg = await interaction.channel.messages.fetch(interaction.message.id)
     if (interaction.values[0] === "antilink") {
 
         await interaction.deferUpdate()
@@ -17,14 +18,14 @@ module.exports = async(interaction, client) => {
 
             newData.save();
 
-            return interaction.channel.send('Antilink System has been enabled!')
+            return msg.edit('Antilink System has been enabled!')
         } else if (data) {
             
             await antilinkData.findOneAndRemove({
                 GuildID: interaction.guild.id
             })
 
-            return interaction.channel.send('Antilink System has been disabled!')
+            return msg.edit('Antilink System has been disabled!')
         }
     }
 }

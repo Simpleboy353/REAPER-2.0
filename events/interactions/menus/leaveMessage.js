@@ -3,6 +3,8 @@ const GoodbyeMsg = require('../../../database/guildData/leavemessage')
 module.exports = async(interaction, client)=>{
     if (!interaction.isSelectMenu()) return;
 
+    let msg = await interaction.channel.messages.fetch(interaction.message.id)
+
     if (interaction.values[0] === "leave_message") {
 
         await interaction.deferUpdate()
@@ -12,7 +14,7 @@ module.exports = async(interaction, client)=>{
         })
 
         if (!data) {
-            await interaction.channel.send("Please send the **MESSAGE** to be setup as Goodbye Message!")
+            await msg.edit("Please send the **MESSAGE** to be setup as Goodbye Message!")
             const filter = (m) => m.author.id === interaction.member.id
 
             const collector = await interaction.channel.createMessageCollector({ filter, time: 60000 })
@@ -29,7 +31,7 @@ module.exports = async(interaction, client)=>{
             newData.save()
 
             await collector.stop()
-            return interaction.channel.send(`Goodbye Message has been set to:\n${goodbyeMsg}`)
+            return msg.edit(`Goodbye Message has been set to:\n${goodbyeMsg}`)
         })
 
         collector.on("end", async(collected) => {
@@ -40,7 +42,7 @@ module.exports = async(interaction, client)=>{
                 GuildID: interaction.guild.id
             })
 
-            return interaction.channel.send('Goodbye Message has been removed!')
+            return msg.edit('Goodbye Message has been removed!')
         }
     }
 }

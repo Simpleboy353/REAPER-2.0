@@ -12,6 +12,7 @@ function loadEvents(client) {
   client.on("messageCreate", (m) => clientEvent("mention")(m, client));
 
   // guild events
+  client.on('interactionCreate', (m) => guildEvent("interactionCreate")(m, client));
   client.on("messageCreate", (m) => guildEvent("command")(m, cooldowns));
   client.on('messageDelete', (m) => guildEvent("messageDelete")(m))
   client.on("messageUpdate", (m, n) => guildEvent("messageUpdate")(m, n));
@@ -28,6 +29,11 @@ function loadEvents(client) {
   client.on("guildBanRemove", (m) => guildEvent("guildBanRemove")(m));
   client.on("voiceStateUpdate", (m, n) => guildEvent("voiceStateUpdate")(m, n));
   client.on("guildUpdate", (m) => guildEvent("guildUpdate")(m, n));
+  client.on('threadUpdate', (m, n) => guildEvent('threadUpdate')(m, n, client));
+  client.on('threadMembersUpdate', (m, n) => guildEvent('threadMembersUpdate')(m, n, client));
+  client.on('threadCreate', (m) => guildEvent('threadCreate')(m, client));
+  client.on('threadDelete', (m) => guildEvent('threadDelete')(m, client));
+
 
   // other events
   client.on("messageCreate", (m) => otherEvent("antilinks")(m));
@@ -37,6 +43,7 @@ function loadEvents(client) {
   client.on("guildMemberRemove", (m) => otherEvent("goodbye")(m));
 
   // Menu Events
+  client.on('interactionCreate', (m) => menuEvents("help")(m, client));
   client.on("interactionCreate", (m) => menuEvents("antilink")(m, client));
   client.on("interactionCreate", (m) => menuEvents("autorole")(m, client));
   client.on("interactionCreate", (m) => menuEvents("automod")(m, client));

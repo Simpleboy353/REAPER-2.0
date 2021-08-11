@@ -26,7 +26,7 @@
     "dateformat": "^4.0.0",
     "discord-emoji": "^1.1.1",
     "discord-fetch-all": "^3.0.0",
-    "discord.js": "^13.0.0",
+    "discord.js": "^13.0.1",
     "dotenv": "^10.0.0",
     "figlet": "^1.5.0",
     "flip-text": "^1.1.0",
@@ -60,8 +60,5 @@
     "util": "^0.12.3",
     "ytdl-core": "^4.0.0",
     "ytdl-core-discord": "^1.2.4"
-  },
-  "devDependencies": {
-    "@types/node": "16.4.13"
   }
 }
