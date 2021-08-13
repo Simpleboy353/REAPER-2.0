@@ -67,44 +67,8 @@ module.exports = {
 
     const msg = message.channel.send({ embeds: [editEmbed], components: [helpMenu]})
 
-<<<<<<< Updated upstream
-      return message.channel.send({ embeds: [embed6] });
-    } else if (args[0] === "image") {
-      const embed7 = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle("Image Commands")
-        .setDescription(
-          "`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `phb`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
-        )
-        .setFooter(`Use ${prefix} before each command!`);
-
-      return message.channel.send({ embeds: [embed7] });
-    } else if (args[0] === "nsfw") {
-      const embed8 = new Discord.MessageEmbed()
-        .setTitle("NSFW Commands")
-        .setDescription(
-          "`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `danbooru`, `hentai`, `milf`, `pussy`, `urban`"
-        )
-        .setFooter(`Use ${prefix} before each command!`)
-        .setColor("RANDOM");
-
-      return message.channel.send({ embeds: [embed8] });
-    } else if (args[0] === "config") {
-      const embed9 = new Discord.MessageEmbed()
-        .setTitle("Config Commands")
-        .setDescription(
-          "`autorole`, `antilink`, `dashboard`, `joinchannel`, `joinmessage`, `leavechannel`, `leavemessage` `prefix`"
-        )
-        .setFooter(`Use ${prefix} before each command!`)
-        .setColor("RANDOM");
-
-      return message.channel.send({ embeds: [embed9] });
-    }
-  },
-=======
     setTimeout(function(){
-      msg.delete()
+      msg.edit("Menu Timed Out!")
     }, 180000)
   }
->>>>>>> Stashed changes
 };
