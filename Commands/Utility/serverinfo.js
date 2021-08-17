@@ -54,9 +54,9 @@ module.exports = {
         `Total Channels: \`${
           message.guild.channels.cache.size
         }\` \nText Channels: \`${
-          message.guild.channels.cache.filter((c) => c.type === "text").size
+          message.guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size
         }\` \nVoice Channels: \`${
-          message.guild.channels.cache.filter((c) => c.type === "voice").size
+          message.guild.channels.cache.filter((c) => c.type === "GUILD_VOICE").size
         }\` \nAFK Channel: ${afk} \nAFK Timeout: \`${
           message.guild.afkTimeout
         } sec\` \nTotal Roles: \`${
