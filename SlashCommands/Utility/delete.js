@@ -12,7 +12,7 @@ module.exports = {
                 {
                     name: 'channel',
                     description: 'Channel to delete',
-                    type: "STRING"
+                    type: "ROLE"
                 }
             ],
         },
@@ -24,7 +24,7 @@ module.exports = {
                 {
                     name: 'role',
                     description: 'Role to delete',
-                    type: "STRING"
+                    type: "ROLE"
                 }
             ]
         }
