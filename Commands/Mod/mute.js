@@ -31,8 +31,32 @@ module.exports = {
     let muterole = message.guild.roles.cache.find((x) => x.name === "Muted");
 
     if (!muterole) {
-      return message.channel.send("This Server has no role named as `Muted`");
-    }
+     try {
+				message.reply({
+					content: `I dont find the role, I go to create them`, 
+					allowedMentions: { repliedUser: true}
+			    });
+                muterole = await message.guild.roles.create({
+                    data: {
+                        name: 'Muted',
+                        permissions: []
+                    }
+                });
+                message.guild.channels.cache.filter(c => c.type === 'text').forEach(async (channel, id) => {
+                    await channel.createOverwrite(muterole, {
+                        SEND_MESSAGES: false,
+                        ADD_REACTIONS: false
+                    })
+                });
+       
+					message.channel.send({
+						content: `The role <@&${muterole}> be created`
+                    });
+       
+			} catch (error) {
+                console.log(error)
+            }
+        };
 
     if (user.roles.cache.has(muterole)) {
       return message.channel.send(`Given User is already muted`);
