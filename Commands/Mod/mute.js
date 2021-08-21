@@ -33,24 +33,22 @@ module.exports = {
     if (!muterole) {
      try {
 				message.reply({
-					content: `I dont find the role, I go to create them`, 
+					content: `No mute role found, creating one!`, 
 					allowedMentions: { repliedUser: true}
 			    });
                 muterole = await message.guild.roles.create({
-                    data: {
                         name: 'Muted',
                         permissions: []
-                    }
                 });
-                message.guild.channels.cache.filter(c => c.type === 'text').forEach(async (channel, id) => {
-                    await channel.createOverwrite(muterole, {
+                message.guild.channels.cache.filter(c => c.type === 'GUILD_TEXT').forEach(async (channel, id) => {
+                    await channel.permissionOverwrites.edit(muterole, {
                         SEND_MESSAGES: false,
                         ADD_REACTIONS: false
                     })
                 });
        
 					message.channel.send({
-						content: `The role <@&${muterole}> be created`
+						content: `The role <@&${muterole}> has been created`
                     });
        
 			} catch (error) {
