@@ -28,7 +28,7 @@ function loadEvents(client) {
   client.on("guildBanAdd", (m) => guildEvent("guildBanAdd")(m));
   client.on("guildBanRemove", (m) => guildEvent("guildBanRemove")(m));
   client.on("voiceStateUpdate", (m, n) => guildEvent("voiceStateUpdate")(m, n));
-  client.on("guildUpdate", (m) => guildEvent("guildUpdate")(m, n));
+  client.on("guildUpdate", (m, n) => guildEvent("guildUpdate")(m, n));
   client.on('threadUpdate', (m, n) => guildEvent('threadUpdate')(m, n, client));
   client.on('threadMembersUpdate', (m, n) => guildEvent('threadMembersUpdate')(m, n, client));
   client.on('threadCreate', (m) => guildEvent('threadCreate')(m, client));
