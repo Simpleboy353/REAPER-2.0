@@ -16,7 +16,7 @@ module.exports = async(oldThreadMembers, newThreadMembers) => {
 
         newThread.guild.channels.cache.get(data.ChannelID).send({embeds: [memberJoinEmbed]})
 
-    } else if (oldThread.rateLimitPerUser !== newThread.rateLimitPerUser) {
+    } else if (oldThreadMembers.size > newThreadMembers.size) {
         let memberLeftEmbed = new MessageEmbed()
         .setTitle(`${oldThreadMembers.thread.name}`)
         .addField("Thread Member Count Updated",`${oldThreadMembers.size} => ${newThreadMembers.size}`)
