@@ -13,7 +13,7 @@ module.exports = async(thread) => {
     .setDescription(`
 Name: ${thread.name}
 ID: ${thread.id}
-Owner: ${thread.guild.members.cache.get(thread.ownerId)}
+Created By: ${thread.guild.members.cache.get(thread.ownerId)}
 Parent Channel: ${thread.parent.name}`)
     .setColor("GREEN")
     .setTimestamp()
