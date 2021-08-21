@@ -10,7 +10,7 @@ module.exports = async(member) => {
 
     const embed = new MessageEmbed()
     .setTitle('Member Banned')
-    .setDescription(`User: ${member.user.tag} (${member})\nUser ID: ${member.id}\nAcc Created On: ${member.user.createdAt}`)
+    .setDescription(`User: ${member.user.tag} (${member.user})\nUser ID: ${member.id}\nAcc Created On: ${member.user.createdAt}`)
     .setColor("RED")
     .setTimestamp()
 
