@@ -39,7 +39,7 @@
     "jimp": "^0.14.0",
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.10.7",
+    "mongoose": "^6.0.0",
     "ms": "^2.1.2",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
