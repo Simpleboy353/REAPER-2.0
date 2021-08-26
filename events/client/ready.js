@@ -30,6 +30,7 @@ module.exports = (client) => {
     .connect(mongoPass, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
       useFindAndModify: false,
     })
     .then(
