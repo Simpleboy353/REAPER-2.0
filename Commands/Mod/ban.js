@@ -24,7 +24,7 @@ module.exports = {
         `**${message.author.username}**, You can not ban yourself!`
       );
     }
-    if (target.id === message.guild.owner.id) {
+    if (target.id === message.guild.ownerId) {
       return message.channel.send("You cannot Ban The Server Owner");
     }
 
