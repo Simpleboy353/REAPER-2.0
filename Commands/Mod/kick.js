@@ -18,7 +18,7 @@ module.exports = {
         `**${message.author.username}**, Please mention the person who you want to kick`
       );
     }
-    if (target.id === message.guild.owner.id) {
+    if (target.id === message.guild.ownerId) {
       return message.channel.send("You cannot kick the Server Owner");
     }
     if (target.id === message.author.id) {
