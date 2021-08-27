@@ -11,7 +11,7 @@ module.exports = {
     let reason = args.slice(1).join(" ");
     if (!reason) reason = "Unspecified";
 
-    const target = message.mentions.members.first();
+    const target = message.mentions.members.first() || message.guild.users.cache.get(args[0]);
 
     if (!target) {
       return message.channel.send(
