@@ -11,7 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
 
 
-    let target = message.mentions.members.first();
+    let target = message.mentions.members.first() || message.guild.users.cache.get(args[0]);
 
     if (!target) {
       return message.channel.send(
