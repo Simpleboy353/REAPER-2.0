@@ -97,8 +97,8 @@
 
 ## Contributing
 - **Feel free to open pull requests to contribute to the repository!**
-- **Join our [Support Server](https://infinitybot.tk/support)**
-- **Join our [Development server](https://discord.gg/yMfyeNR2DT)**
+- **Join our [Support & Development Server](https://infinitybot.tk/support)**
+- **Join our [Community server](https://discord.gg/yMfyeNR2DT)**
 - **Invite my bot to your Server, [Here](https://infinitybot.tk/invite)**
 
 ---
