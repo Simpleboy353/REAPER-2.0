@@ -18,14 +18,14 @@ module.exports = async(interaction, client) => {
         .setColor("RANDOM");
 
       await msg.edit({ embeds: [settingsEmbed] });
-        
+
         } else if (interaction.values[0] === "fun") {
             await interaction.deferUpdate()
 
             const funEmbed = new Discord.MessageEmbed()
         .setTitle("Fun Commands")
         .setDescription(
-          "`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`"
+          "`8ball`, `ascii`, `calculator`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `rps`, `slap`, `trivia`, `ttt`, `urban`, `vaportext`, `yomama`"
         )
         .setColor("RANDOM");
 
@@ -43,7 +43,7 @@ module.exports = async(interaction, client) => {
             )
 
             await msg.edit({ embeds: [imageEmbed]})
-    
+
         } else if (interaction.values[0] === "info") {
 
             await interaction.deferUpdate()
