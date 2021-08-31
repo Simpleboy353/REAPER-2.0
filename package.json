@@ -41,7 +41,7 @@
     "google-play-scraper": "^8.0.2",
     "got": "^11.5.1",
     "imdb-api": "^4.2.0",
-    "jimp": "^0.14.0",
+    "jimp": "^0.16.0",
     "mal-scraper": "^2.11.3",
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
