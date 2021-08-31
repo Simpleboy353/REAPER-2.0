@@ -4,7 +4,7 @@ const fs = require("fs");
 const chalk = require("chalk");
 
 const { Client, Collection, Intents } = require("discord.js");
-const { DEFAULT_PREFIX, BOT_TOKEN } = require("./config.json");
+const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL } = require("./config.json");
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
 const { loadSlashCommands } = require("./handler/loadSlashCommands")
@@ -41,6 +41,12 @@ loadSlashCommands(client);
 
 process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
+  
+  const exceptionembed = new MessageEmbed()
+  .setTitle("Uncaught Exception")
+  .setDescription(`${err}`)
+  .setColor("RED")
+  client.channels.cache.get(ERROR_LOGS_CHANNEL).send({ embeds: [exceptionembed] })
 });
 
 process.on("unhandledRejection", (reason, promise) => {
@@ -50,6 +56,13 @@ process.on("unhandledRejection", (reason, promise) => {
     " reason: ",
     reason.message
   );
+  
+   const rejectionembed = new MessageEmbed()
+  .setTitle("Unhandled Promise Rejection")
+  .addField("Promise", `${promise}`)
+  .addField("Reason", `${reason.message}`)
+  .setColor("RED")
+  client.channels.cache.get(ERROR_LOGS_CHANNEL).send({ embeds: [rejectionembed] })
 });
 
 client.login(BOT_TOKEN).then(() => {
