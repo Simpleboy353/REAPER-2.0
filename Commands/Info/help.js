@@ -66,9 +66,5 @@ module.exports = {
     .setColor("GREEN")
 
     const msg = message.channel.send({ embeds: [editEmbed], components: [helpMenu]})
-
-    setTimeout(function(){
-      msg.edit("Menu Timed Out!")
-    }, 180000)
   }
 };
