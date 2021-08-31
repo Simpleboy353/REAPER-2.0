@@ -41,7 +41,6 @@ loadSlashCommands(client);
 
 process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
-  process.exit(1);
 });
 
 process.on("unhandledRejection", (reason, promise) => {
