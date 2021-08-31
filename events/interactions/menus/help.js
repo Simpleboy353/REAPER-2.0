@@ -25,7 +25,7 @@ module.exports = async(interaction, client) => {
             const funEmbed = new Discord.MessageEmbed()
         .setTitle("Fun Commands")
         .setDescription(
-          "`8ball`, `ascii`, `calculator`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `rps`, `slap`, `trivia`, `ttt`, `urban`, `vaportext`, `yomama`"
+          "`8ball`, `ascii`, `calculator`, `clap`, `clyde`, `connect4`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `guessthenumber`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `rps`, `slap`, `snake`, `trivia`, `ttt`, `urban`, `vaportext`, `yomama`"
         )
         .setColor("RANDOM");
 
@@ -75,7 +75,7 @@ module.exports = async(interaction, client) => {
             const nsfwEmbed = new Discord.MessageEmbed()
         .setTitle("NSFW Commands")
         .setDescription(
-          "`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `danbooru`, `hentai`, `milf`, `pussy`, `urban`"
+          "`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `erokemo`, `danbooru`, `kitsune`, `hentai`, `hentaiass`, `hentaithigh`, `gonewild`, `milf`, `feetgif`, `pussy`, `porngif`, `urban`, `thigh`, `lewd`"
         )
         .setColor("RANDOM");
 
@@ -87,7 +87,7 @@ module.exports = async(interaction, client) => {
             const utilityEmbed = new Discord.MessageEmbed()
         .setTitle("Utility Commands")
         .setDescription(
-          "`avatar`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `unlock`, `weather`, `wiki`, `youtube`"
+          "`avatar`, `animesearch`, `announce`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `unlock`, `weather`, `wiki`, `youtube`"
         )
         .setColor("RANDOM");
 

@@ -3,7 +3,7 @@ require("dotenv").config({ path: "src/.env" });
 const fs = require("fs");
 const chalk = require("chalk");
 
-const { Client, Collection, Intents } = require("discord.js");
+const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
 const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL } = require("./config.json");
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
@@ -41,7 +41,7 @@ loadSlashCommands(client);
 
 process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
-  
+
   const exceptionembed = new MessageEmbed()
   .setTitle("Uncaught Exception")
   .setDescription(`${err}`)
@@ -56,7 +56,7 @@ process.on("unhandledRejection", (reason, promise) => {
     " reason: ",
     reason.message
   );
-  
+
    const rejectionembed = new MessageEmbed()
   .setTitle("Unhandled Promise Rejection")
   .addField("Promise", `${promise}`)
