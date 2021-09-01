@@ -56,6 +56,12 @@ module.exports = {
           description: "Shows all the utility commands",
           value: "utility",
           emoji: "🔧"
+        },
+        {
+          label: "Games",
+          description: "Shows all the game commands",
+          value: "game",
+          emoji: "🎮"
         }
       ])
     )
@@ -66,5 +72,9 @@ module.exports = {
     .setColor("GREEN")
 
     const msg = message.channel.send({ embeds: [editEmbed], components: [helpMenu]})
+
+    setTimeout(function(){
+      msg.edit("Menu Timed Out!")
+    }, 180000)
   }
 };

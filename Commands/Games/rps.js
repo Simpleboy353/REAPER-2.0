@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-const simplydjs = require("simply-djs")
+const simplydjs = require("simply-djs");
 
 module.exports = {
   name: "rps",

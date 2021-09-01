@@ -63,6 +63,12 @@ module.exports = {
           description: "Shows all the utility commands",
           value: "utility",
           emoji: "🔧"
+        },
+        {
+          label: "Games",
+          description: "Shows all the game commands",
+          value: "game",
+          emoji: "🎮"
         }
       ])
     )
