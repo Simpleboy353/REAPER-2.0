@@ -59,7 +59,7 @@
     "request-promise-native": "^1.0.9",
     "run": "^1.4.0",
     "simple-youtube-api": "^5.2.1",
-    "simply-djs": "^1.1.22",
+    "simply-djs": "^2.0.0",
     "snekfetch": "^4.0.4",
     "superagent": "^6.1.0",
     "twemoji-parser": "^13.0.0",
