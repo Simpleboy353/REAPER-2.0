@@ -1,3 +1,5 @@
+![Reaper Logo](https://media.discordapp.net/attachments/853118185330049054/885199802369974292/images_1.jpeg)
+
 <h1 align="center"> REAPER-2.0  </h1>
 <p align="center">
 <a href="https://github.com/Simpleboy353/REAPER-2.0/blob/main/LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/Simpleboy353/REAPER-2.0?style=for-the-badge"></a>
@@ -19,6 +21,8 @@
 
 ## What features does Reaper Include?
 
+<details><summary>Available Features</summary>
+
 | Features             | Availability |
 | -------------------- | ------------ |
 | Anti-Link            |     ✅       |
@@ -31,6 +35,10 @@
 | Menu(s)              |     ✅       |
 | Slash Commands       |     ✅       |
 
+</details>
+
+<details><summary>Command Categories</summary>
+
 | Commands Category      | Availability |
 | ---------------------- | ------------ |
 | Configuration          |     ✅       |
@@ -41,15 +49,16 @@
 | NSFW                   |     ✅       |
 | Utilities              |     ✅       |
 
----
+</details>
 
 ## Versions and Support Info
-- **Keep checking the [Releases Section](https://github.com/Simpleboy353/REAPER-2.0/releases) to get the latest info relating new updates, bug fixes etc about the repository.**
-- **Get Information relating different versions of this repository:**
+
+<details><summary>Detailed Versions Info</summary>
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.7.0-beta (Slash Cmds, Thread Events) (Current)      |       Available       |
+| v6.7.5-aplha (Better Error Logging) (Current)          |       Available       |
+| v6.7.0-beta (Slash Cmds, Thread Events)                |       Available       |
 | v6.6.0-beta (Logging, New UI for settings)             |       Available       |
 | v6.5.0-stable (V13 Support Added)                      |       Seems Okay to me!       |
 | v6.3.0-stable (Anti-Link Support)                      |       Discontinued       |       
@@ -59,6 +68,9 @@
 | v4.9.0-alpha (Custom Prefix Added)                     |       Discontinued       |
 | v4.4.0-alpha (Database Support Added)                  |       Discontinued       |
 
+</details>
+
+- **Keep checking the [Releases Section](https://github.com/Simpleboy353/REAPER-2.0/releases) to get the latest info relating new updates, bug fixes etc about the repository.**
 - **The Information above includes Versions with only `Major Updates` and not Versions with `Bug fixes`**
 - **`v6.1.0-stable` is included in the List because this version includes the fixing of every error in the repository.**
 - **Support is provided only for `Stable` and `Beta` Versions and not for `Alpha` Versions.**
