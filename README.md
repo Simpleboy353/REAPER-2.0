@@ -57,7 +57,7 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.7.5-aplha (Better Error Logging) (Current)          |       Available       |
+| v6.7.5-alpha (Better Error Logging) (Current)          |       Available       |
 | v6.7.0-beta (Slash Cmds, Thread Events)                |       Available       |
 | v6.6.0-beta (Logging, New UI for settings)             |       Available       |
 | v6.5.0-stable (V13 Support Added)                      |       Seems Okay to me!       |
