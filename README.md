@@ -10,6 +10,11 @@
 <h3 align="center">An Multi-purpose Discord bot with many features!</h3>
 
 ---
+
+> ⚠️ THE NEXT UPDATE HAS BEEN DELAYED AND A NEW RELEASE DATE HAS NOT BEEN DECIDED YET!
+
+> ℹ️ BUTTONS TO RUN WITH REPL.IT, HEROKU AND GLITCH WILL ALSO BE ADDED WITH NEXT UPDATE.
+
 ## Requirements
 - Discord.js v13 (`npm install discord.js@latest`)
 - `applications.commands` scope enabled for your bot in Developer Portal (For Slash Cmds).
@@ -102,8 +107,10 @@
 ```
 - **The `mongoPass` must be a `url`**
 - **Visit Official [MongoDB Website](https://mongodb.com) to get your `mongoPass`**
-- **Watch this [video](https://youtu.be/pf-8KA8td88) to know how to get your `mongoPass`**
+- **Watch this video to know how to get your `mongoPass`:**
+[![MongoDb Tutorial](http://img.youtube.com/vi/pf-8KA8td88/0.jpg)](http://www.youtube.com/watch?v=pf-8KA8td88 "MongoDB Tutorial")
 - **Don't change the `tenorAPI` else the `gif` command won't work!**
+
 
 ---
 
