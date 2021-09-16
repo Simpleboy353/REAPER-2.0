@@ -2,7 +2,6 @@ const { Client, Message, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'unmute',
-    aliases: [''],
     description: 'Unmutes the specified user.',
     usage: '',
     /**
