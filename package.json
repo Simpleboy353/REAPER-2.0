@@ -71,7 +71,7 @@
     "ytdl-core-discord": "^1.2.4"
   },
   "devDependencies": {
-    "node": "^16.9.1"
+    "node": "16.9.1"
   },
   "repository": {
     "type": "git",
