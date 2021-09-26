@@ -1,10 +1,10 @@
 {
 
-    "OWNER_ID":"661501985517862972",
-    "BOT_TOKEN": "ODgxNzYzMjYxNTk3NDkxMjIy.YSxkBw.8Gs2YL8hotftuMsIUTQh1BsPxy8",
+    "OWNER_ID":"",
+    "BOT_TOKEN": "",
     "tenorAPI":"ZEEELJXAFQBN",
     "DEFAULT_PREFIX":"!",
-    "mongoPass": "mongodb+srv://AgentRockstar:rhtking123@cluster0.xgmca.mongodb.net/Cluster0?retryWrites=true&w=majority",
-    "ERROR_LOGS_CHANNEL": "891550533905682512",
+    "mongoPass": "",
+    "ERROR_LOGS_CHANNEL": "",
     "ALEXFLIPNOTE_API_KEY":""
 }
