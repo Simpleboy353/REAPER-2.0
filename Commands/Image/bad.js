@@ -10,12 +10,11 @@ module.exports = {
           .first()
           .avatarURL({ format: "png", dynamic: true, size: 2048 })
       : message.author.avatarURL({ format: "png", dynamic: true, size: 2048 });
-    let link = `https://api.alexflipnote.dev/bad?image=${avatar}`;
 
     if (!avatar) {
       return message.channel.send("`Usage: =bad <user>`");
     }
-    const embed = new Discord.MessageEmbed().setColor("#800080").setImage(link);
-    message.channel.send({ embeds: [embed] });
+   const link = await client.images.image.bad({ image: avatar })
+    message.channel.send({ files: [{ attachment: link }] });
   },
 };

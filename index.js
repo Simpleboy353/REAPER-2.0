@@ -4,7 +4,7 @@ const fs = require("fs");
 const chalk = require("chalk");
 
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
-const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL } = require("./config.json");
+const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL, ALEXFLIPNOTE_API_KEY } = require("./config.json");
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
 const { loadSlashCommands } = require("./handler/loadSlashCommands")
@@ -24,7 +24,8 @@ const client = new Client({
     //Intents.FLAGS.GUILD_PRESENCES,
   ],
 });
-
+const alexClient = require("alexflipnote.js")
+client.images = new alexClient(ALEXFLIPNOTE_API_KEY)
 client.discordTogether = new DiscordTogether(client);
 client.commands = new Collection();
 client.slash = new Collection();

@@ -7,20 +7,16 @@ module.exports = {
   description: "Another Fun Command",
   botPerms: ["ATTTACH_FILES", "MANAGE_MESSAGES"],
   run: async (client, message, args) => {
-    if (message.channel.type === "dm") return;
-    let text = args[0];
-    let text2 = args[1];
-    if (!text) {
-      return message.reply("You need to provide the first argument!");
-    }
-    if (!text2) {
-      return message.channel.send("You need to provide the second argument!");
-    }
+    let splitText = args.join(" ").slipt("/")
+    let text = splitText[0]
+    if (!text) return message.channel.send("Proper usage: =phb text/text")
+    let text2 = splitText[1]
+    if (!text2) return message.channel.send("Proper usage: =phb text/text")
+    const link = await client.images.image.pornhub({ text1: text, text2: text2 })
     message.channel.send({
       files: [
         {
-          attachment: `https://api.alexflipnote.dev/pornhub?text=${text}&text2=${text2}`,
-          name: "file.jpg",
+          attachment: link
         },
       ],
     });

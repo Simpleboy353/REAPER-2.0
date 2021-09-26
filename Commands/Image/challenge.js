@@ -12,11 +12,11 @@ module.exports = {
     if (!text) {
       return message.reply("`Usage: =challenge <text>`");
     }
+    const link = await client.images.image.challenge({ text: text })
     message.channel.send({
       files: [
         {
-          attachment: `https://api.alexflipnote.dev/challenge?text=${text}`,
-          name: "file.jpg",
+          attachment: link
         },
       ],
     });

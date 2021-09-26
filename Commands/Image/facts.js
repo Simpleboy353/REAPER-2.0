@@ -12,11 +12,11 @@ module.exports = {
     if (!text) {
       return message.reply("You need to provide some text!");
     }
+    const link = await client.images.image.facts({ text: text })
     message.channel.send({
       files: [
         {
-          attachment: `https://api.alexflipnote.dev/facts?text=${text}`,
-          name: "file.jpg",
+          attachment: link
         },
       ],
     });

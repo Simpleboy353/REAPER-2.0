@@ -12,11 +12,11 @@ module.exports = {
     if (!text) {
       return message.reply("You need to provide some text!");
     }
+    const link = await client.images.image.supreme({ text: text })
     message.channel.send({
       files: [
         {
-          attachment: `https://api.alexflipnote.dev/supreme?text=${text}`,
-          name: "file.jpg",
+          attachment: link
         },
       ],
     });

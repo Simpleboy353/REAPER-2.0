@@ -9,13 +9,12 @@ module.exports = {
       ? message.mentions.users
           .first()
           .avatarURL({ format: "png", dynamic: true, size: 2048 })
-      : message.author.avatarURL({ format: "png", dynamic: true, size: 2048 });
-    let link = `https://api.alexflipnote.dev/amiajoke?image=${avatar}`;
+      : message.author.avatarURL({ format: "png", dynamic: true, size: 2048 })
 
     if (!avatar) {
       return message.channel.send("`Usage: =amaiajoke <user>`");
     }
-    const embed = new Discord.MessageEmbed().setColor("#800080").setImage(link);
-    message.channel.send({ embeds: [embed] });
+    const link = await client.images.image.amiajoke({ image: avatar })
+    message.channel.send({ files: [{ attachment: link }] });
   },
 };

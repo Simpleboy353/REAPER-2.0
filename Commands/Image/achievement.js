@@ -1,6 +1,5 @@
 const Discord = module.require("discord.js");
 const Jimp = require("jimp");
-const cooldown = new Set();
 
 module.exports = {
   name: "achievement",
@@ -12,11 +11,11 @@ module.exports = {
     if (!text) {
       return message.reply("`Usage: =achievement <txt>`");
     }
+    const link = await client.images.image.achievement({ text: text })
     message.channel.send({
       files: [
         {
-          attachment: `https://api.alexflipnote.dev/achievement?text=${text}`,
-          name: "file.jpg",
+          attachment: link
         },
       ],
     });

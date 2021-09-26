@@ -1,6 +1,6 @@
 {
   "name": "reaper-2.0",
-  "version": "v6.6.0-beta",
+  "version": "6.7.5-alpha",
   "description": "An Open Source discord bot with lots of features",
   "main": "index.js",
   "engines": {
@@ -14,10 +14,12 @@
   "author": "Tester",
   "license": "ISC",
   "dependencies": {
+    "@iamtraction/google-translate": "^1.1.2",
+    "alexflipnote.js": "^2.5.0",
     "ascii-table": "0.0.9",
     "booru": "^2.3.2",
-    "canvas": "^2.6.1",
-    "canvas-constructor": "^5.0.0",
+    "canvas": "^2.8.0",
+    "canvas-constructor": "^5.0.1",
     "chalk": "^4.1.1",
     "colornames": "^1.1.1",
     "common-tags": "^1.8.0",
@@ -67,5 +69,17 @@
     "util": "^0.12.3",
     "ytdl-core": "^4.0.0",
     "ytdl-core-discord": "^1.2.4"
-  }
+  },
+  "devDependencies": {
+    "node": "^16.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simpleboy353/REAPER-2.0.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Simpleboy353/REAPER-2.0/issues"
+  },
+  "homepage": "https://github.com/Simpleboy353/REAPER-2.0#readme"
 }

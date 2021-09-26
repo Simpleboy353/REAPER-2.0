@@ -39,7 +39,7 @@ module.exports = async(interaction, client) => {
             .setColor("RANDOM")
             .setTitle("Image Commands")
             .setDescription(
-              "`achievement`, `amazeme`, `amiajoke`, `bad`, `catsay`, `challenge`, `changemymind`, `creatememe`, `didyoumean`, `drake`, `facts`, `illegal`, `jokeoverhead`, `phb`, `rip`, `scroll`, `tableflip`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
+              "`achievement`, `amazeme`, `amiajoke`, `bad`, `challenge`, `changemymind`, `creatememe`, `drake`, `facts`, `illegal`, `phb`, `rip`, `scroll`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
             )
 
             await msg.edit({ embeds: [imageEmbed]})
