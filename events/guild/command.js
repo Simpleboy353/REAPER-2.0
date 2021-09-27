@@ -1,6 +1,6 @@
 const prefixModel = require("../../database/guildData/prefix");
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const { DEFAULT_PREFIX } = require('../../config.json')
+const { DEFAULT_PREFIX, OWNER_ID } = require('../../config')
 const { Collection } = require("discord.js")
 module.exports = async (message, cooldowns) => {
 
@@ -18,7 +18,7 @@ module.exports = async (message, cooldowns) => {
   client.prefix = PREFIX;
 
   if (message.author.bot) return;
-  if (!message.guild) return;
+
 
   if (!message.guild.me.permissionsIn(message.channel).has("SEND_MESSAGES"))
     return;
@@ -41,16 +41,66 @@ module.exports = async (message, cooldowns) => {
     );
 
   if (!command) return;
+    //command enaled thing
+    if(command.enabled === false) {
+      return message.reply('This command is disabled!')
+    }
+    // ownerOnly thing
+    if(command.ownerOnly === true) {
+      if(!message.author.id === OWNER_ID) {
+        return message.reply('This command is Owner only!')
+      }
+    }
+    // user permissions handler
+  if (!message.member.permissions.has(command.userPerms || [])) {
+    if(command.userPermError === null || command.userPermError === undefined) {
+      return message.reply(`You need  \`${command.userPerms}\` permissions to use this comand!`);
+    } else {
+      return message.reply(command.userPermError)
+    }
+  }
 
-  // user permissions handler
-  if (!message.member.permissions.has(command.userPerms || []))
-    return message.reply("Ey ey ey! You can't use that command");
+
 
   // bot permissions handler
-  if (!message.guild.me.permissions.has(command.botPerms || []))
+  if (!message.guild.me.permissions.has(command.botPerms || [])) {
+  if(command.botPermError === null || command.botPermError === undefined) {
     return message.reply(
-      `Ups :/  I need ${command.botPerms} to run this command correctly`
+      `Ups :/  I need \`${command.botPerms}\` premission|s to run this command correctly`
     );
+ } else {
+    return message.reply(command.botPermError)
+  }
+  }
+      //guildOnly thing
+  if(command.guildOnly === true) {
+    console.log(message.channel.type)
+    if(message.channel.type === 'DM' || message.channel.type === 'GROUP_DM') {
+      return message.reply('This command is Server only!')
+    }
+  }
+    //nsfw thingy
+    if(command.nsfw === true) {
+      if(message.channel.nsfw === false) {
+        return message.reply('This command is NSFW only, mark the channel as nsfw for this command to work!')
+      }
+    }
+  //min args and max args thing
+  const arguments = message.content.split(/[ ]+/)
+
+        arguments.shift()
+        if (
+          arguments.length < command.minArgs ||
+          (command.maxArgs !== null && arguments.length > command.maxArgs)
+        ) {
+          return message.reply(command.expectedArgs)
+          
+        }
+
+
+
+
+  
 
   // cooldowns
   if (!cooldowns.has(command.name)) {
@@ -87,3 +137,26 @@ module.exports = async (message, cooldowns) => {
     message.channel.send({ embeds: [embed2000] }).catch(console.error);
   }
 };
+/* 
+example usage
+module.exports = {
+  name: "name",
+  description: "description",
+  aliases: [],
+  botPerms: [],
+  userPerms: [],
+  expectedArgs: null,
+  minArgs: 1,
+  maxArgs: 2,
+  ownerOnly: true,
+  guildOnly: true,
+  enabled: true,
+  nsfw: false,
+  userPermError: null,
+  botPermError: null,
+  run: async (client, message, args) => {
+    //code
+  },
+};
+
+*/
