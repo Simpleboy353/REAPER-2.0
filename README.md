@@ -11,14 +11,10 @@
 
 ---
 
-> ⚠️ THE NEXT UPDATE HAS BEEN DELAYED AND A NEW RELEASE DATE HAS NOT BEEN DECIDED YET!
-
-> ℹ️ BUTTONS TO RUN THIS BOT WITH REPL.IT, HEROKU AND GLITCH WILL ALSO BE ADDED WITH NEXT UPDATE.
-
 ## Requirements
 - Discord.js v13 (`npm install discord.js@latest`)
 - `applications.commands` scope enabled for your bot in Developer Portal (For Slash Cmds).
-- NodeJS v16 or higher
+- NodeJS v16.6 or higher
 - Basic knowledge of JS or Discord.JS
 
 ## Have suggestions on what could be added?
@@ -51,6 +47,7 @@
 | Image                  |     ✅       |
 | Info                   |     ✅       |
 | Moderation             |     ✅       |
+| Music                  |     ✅       |
 | NSFW                   |     ✅       |
 | Utilities              |     ✅       |
 
@@ -62,10 +59,11 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v6.7.5-alpha (Better Error Logging) (Current)          |       Available       |
+| v7.0.0-stable (Music System) (Current)                 |       Available       |
+| v6.7.5-alpha (Better Error Logging)                    |       Available       |
 | v6.7.0-beta (Slash Cmds, Thread Events)                |       Available       |
-| v6.6.0-beta (Logging, New UI for settings)             |       Available       |
-| v6.5.0-stable (V13 Support Added)                      |       Seems Okay to me!       |
+| v6.6.0-beta (Logging, New UI for settings)             |       Seems okay to me!       |
+| v6.5.0-stable (V13 Support Added)                      |       Discontinued       |
 | v6.3.0-stable (Anti-Link Support)                      |       Discontinued       |       
 | v6.1.0-stable (Error Free Version)                     |       Discontinued       |
 | v5.5.0-stable (Welcomer Added)                         |       Discontinued       |
@@ -103,7 +101,8 @@
   "DEFAULT_PREFIX":"ENTER_YOUR_PREFIX_HERE",
   "mongoPass": "ENTER_YOUR_MONGODB_URL_HERE",
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID",
-  "ALEXFLIPNOTE_API_KEY": "ADD_YOUR_API_KEY_HERE"
+  "ALEXFLIPNOTE_API_KEY": "ADD_YOUR_API_KEY_HERE",
+  "YT_COOKIE": "ADD_YOUR_COOKIE_HERE",
 }
 ```
 - **The `mongoPass` must be a `url`**

@@ -6,5 +6,6 @@
     "DEFAULT_PREFIX":"!",
     "mongoPass": "",
     "ERROR_LOGS_CHANNEL": "",
-    "ALEXFLIPNOTE_API_KEY":""
+    "ALEXFLIPNOTE_API_KEY":"",
+    "YT_COOKIE": ""
 }

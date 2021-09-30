@@ -4,11 +4,14 @@ const fs = require("fs");
 const chalk = require("chalk");
 
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
-const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL, ALEXFLIPNOTE_API_KEY } = require("./config.json");
+const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL, ALEXFLIPNOTE_API_KEY, YT_COOKIE } = require("./config.json");
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
 const { loadSlashCommands } = require("./handler/loadSlashCommands")
+const { loadPlayerEvents } = require("./handler/loadPlayerEvents");
 const { DiscordTogether } = require('discord-together')
+const { Player } = require('discord-player')
+const Enmap = require("enmap")
 
 const client = new Client({
   allowedMentions: { parse: ["users", "roles"] },
@@ -24,6 +27,10 @@ const client = new Client({
     //Intents.FLAGS.GUILD_PRESENCES,
   ],
 });
+const Embeds = require("./functions/embeds/Embeds")
+const Logger = require("./functions/Logger/Logger")
+const Util = require("./functions/util/Util")
+
 const alexClient = require("alexflipnote.js")
 client.images = new alexClient(ALEXFLIPNOTE_API_KEY)
 client.discordTogether = new DiscordTogether(client);
@@ -32,11 +39,33 @@ client.slash = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/");
 client.setMaxListeners(0);
+const Cookie = YT_COOKIE;
+client.logger = Logger;
+client.utils = Util;
+client.say = Embeds;
+client.player = new Player(client, {
+  leaveOnEnd: false,
+  leaveOnStop: false,
+  leaveOnEmpty: false,
+  leaveOnEmptyCooldown: 60000,
+  autoSelfDeaf: true,
+  initialVolume: 130,
+  ytdlDownloadOptions: {
+    requestOptions: {
+      headers: {
+        cookie: Cookie,
+      }
+    }
+  },
+})
+
+client.player.use("YOUTUBE_DL", require("@discord-player/downloader").Downloader);
+client.db = new Enmap({ name: "musicdb" });
 
 loadCommands(client);
 loadEvents(client);
+loadPlayerEvents(client);
 loadSlashCommands(client);
-
 
 // Error Handling
 

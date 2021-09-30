@@ -1,9 +1,36 @@
 module.exports = async(interaction, client) => {
+    const { OwnerID } = require('../../config.json')
 
     if (!interaction.isCommand()) return;
 
         const command = client.slash.get(interaction.commandName);
         if (!command) return interaction.reply({ content: 'an Erorr' });
+
+        if (command.ownerOnly) {
+            if (!interaction.member.user.id == OwnerID) {
+                return interaction.reply('Command under developement!')
+            }
+        }
+
+        if (command.userPerms) {
+            if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.member.id).permissions.has(command.userPerms || [])) {
+                if (command.noUserPermsMessage) {
+                    return interaction.reply(command.noUserPermsMessage)
+                } else if (!command.noUserPermsMessage) {
+                    return interaction.reply(`You need the \`${command.userPerms}\` permission to use this command!`)
+                }
+            }
+        }
+
+        if (command.botPerms) {
+            if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(client.user.id).permissions.has(command.botPerms || [])) {
+                if (command.noBotPermsMessage) {
+                    return interaction.reply(command.noBotPermsMessage)
+                } else if (!command.noBotPermsMessage) {
+                    return interaction.reply(`I need the \`${command.userPerms}\` permission to execute this command!`)
+                }
+            }
+        } 
 
         const args = [];
 
@@ -17,6 +44,7 @@ module.exports = async(interaction, client) => {
         }
 
         try {
+
             command.run(client, interaction, args)
         } catch (e) {
             interaction.reply({ content: e.message });
