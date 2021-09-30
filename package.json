@@ -28,7 +28,7 @@
     "common-tags": "^1.8.0",
     "config.json": "0.0.4",
     "cpu-stat": "^2.0.1",
-    "dateformat": "^4.0.0",
+    "dateformat": "^5.0.0",
     "discord-emoji": "^2.0.0",
     "discord-fetch-all": "^3.0.0",
     "discord-gamecord": "^1.1.4",
