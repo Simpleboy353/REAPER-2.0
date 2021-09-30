@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@discord-player/downloader": "^3.0.1",
+    "@discordjs/builders": "^0.6.0",
     "@discordjs/opus": "^0.6.0",
     "@iamtraction/google-translate": "^1.1.2",
     "alexflipnote.js": "^2.5.0",
@@ -83,7 +84,13 @@
     "type": "git",
     "url": "git+https://github.com/Simpleboy353/REAPER-2.0.git"
   },
-  "keywords": ["open-source", "discord", "discord-bot", "discord.js", "multi-purpose-bot"],
+  "keywords": [
+    "open-source",
+    "discord",
+    "discord-bot",
+    "discord.js",
+    "multi-purpose-bot"
+  ],
   "bugs": {
     "url": "https://github.com/Simpleboy353/REAPER-2.0/issues"
   },

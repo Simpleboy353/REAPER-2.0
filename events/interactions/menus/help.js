@@ -44,6 +44,17 @@ module.exports = async(interaction, client) => {
 
             await msg.edit({ embeds: [imageEmbed]})
 
+            } else if (interaction.values[0] === "music") {
+ 
+         await interaction.deferUpdate();
+ 
+         const musicEmbed = new Discord.MessageEmbed()
+         .setTitle(`Music Commands`)
+         .setDescription("`clearqueue`, `filter`, `filter list`, `info`, `jump`, `loop`, `lyrics`, `move`, `mute`, `pause`, `play`, `previoustrack`, `queue`, `remove`, `resume`, `unmute`, `volume`, `youtube`\n\n```Note: Music commands work only with slash commands!\nBe sure to use music before each command!```")
+         .setColor("BLUE")
+ 
+         await msg.edit({ embeds: [musicEmbed] })
+
         } else if (interaction.values[0] === "info") {
 
             await interaction.deferUpdate()

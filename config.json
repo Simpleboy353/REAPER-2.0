@@ -1,11 +1,12 @@
 {
 
-    "OWNER_ID":"",
-    "BOT_TOKEN": "",
+    "OWNER_ID":"661501985517862972",
+    "BOT_TOKEN": "ODgxNzYzMjYxNTk3NDkxMjIy.YSxkBw.4tVCyNbrF7dp6VZV77ULxGvmfRw",
     "tenorAPI":"ZEEELJXAFQBN",
     "DEFAULT_PREFIX":"!",
-    "mongoPass": "",
-    "ERROR_LOGS_CHANNEL": "",
-    "ALEXFLIPNOTE_API_KEY":"",
-    "YT_COOKIE": ""
+    "mongoPass": "mongodb+srv://AgentRockstar:rhtking123@cluster0.xgmca.mongodb.net/Cluster0?retryWrites=true&w=majority",
+    "ERROR_LOGS_CHANNEL": "891550533905682512",
+    "ALEXFLIPNOTE_API_KEY":"DWL-wC6AMGa6nuiBEBDXlQZr7CW5CD5WVDXJ2xqn",
+    "YT_COOKIE": "VISITOR_INFO1_LIVE=RvnloThmlCI; PREF=tz=Asia.Calcutta&f5=30000; GPS=1; YSC=d5uhTyqwRlU; SID=-gca3520Cxe-RtbpNoqtTA76Hx3IMiXma4z1I_L-kgkXsGXy565UEWbFXWh_SizO5a2Q7A.; Secure-3PSID=-gca3520Cxe-RtbpNoqtTA76Hx3IMiXma4z1I_L-kgkXsGXyEa4LINvqml8xztGn7L0tBA.; HSID=Ah7YInqFF5LRIhovg; SSID=AvwwxQqyJUJhO2Hhj; APISID=_LofmDnj4sKbmP6b/Ai-EFTEIsbBDXDAOa; SAPISID=HuH7CnfffYQ7pjLJ/A2qbUzpxgUxv8aJ-a; Secure-3PAPISID=HuH7CnfffYQ7pjLJ/A2qbUzpxgUxv8aJ-a; LOGIN_INFO=AFmmF2swRAIgeAdwECq7QtP6cWe20vKRf4aksal2Rg-zzJwH-eEjF5MCIHUrNnwp_FP-Xr3GzlSAKPZ0ii8qQ-lVMEOFvZ8gIRtN:QUQ3MjNmd0pSV0N0ZUFkN19nTGtheTlfYkFNb3ZpQ2FETGRkTkg4WlRvZFgtOWlqaDFQa3ZrVzJ2OElDRmJYbkxrSEFPanlzRmU0cWpyOVY4azFqaTBFRmNHLTFKRGJuQktNZUk1ck5vdWpibXNoY0lZUkNSVzY3a1BRUkk3T0pmbzdCeHV2WXhObXZqZUhDVlQwdURBX1M5b0lOTnJwUGlB; SIDCC=AJi4QfEojYTQ0--mbSy_ikFsw-RtLvwzxh2brq410o1a_lbQXrToFBzQ7xhEV8OFcx2NP2iJ7w; __Secure-3PSIDCC=AJi4QfGt32O-vVSX5Of6InJb4Cm8tnd13xAkYDPLisebqFOm-ux9FTM4bkxitbJcCmcP6I3O"
 }
+

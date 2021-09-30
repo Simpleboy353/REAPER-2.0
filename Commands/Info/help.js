@@ -46,6 +46,12 @@ module.exports = {
           emoji: "🔒"
         },
         {
+          label: "Music",
+          description: "Shows all the Music commands!",
+          value: "music",
+          emoji: "🎵"
+        },
+        {
           label: "NSFW",
           description: "Shows all the NSFW commands",
           value: "nsfw",

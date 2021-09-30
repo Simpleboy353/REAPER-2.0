@@ -245,7 +245,7 @@ module.exports = {
     if (guildQueue && channel.id !== interaction.guild.me.voice.channelId)
       return client.say.warnMessage(interaction, "I'm already playing in a different voice channel!");
 
-    /**if (!channel?.viewable)
+    if (!channel?.viewable)
       return client.say.warnMessage(interaction, "I need **\`VIEW_CHANNEL\`** permission.");
     if (!channel?.joinable)
       return client.say.warnMessage(interaction, "I need **\`CONNECT_CHANNEL\`** permission.");
@@ -272,7 +272,7 @@ module.exports = {
       if (!queue.connection) { 
         await queue.connect(channel);
       const embed = new MessageEmbed()
-      .setAuthor("Infinity", client.user.displayAvatarURL())
+      .setAuthor("REAPER MUSIC", client.user.displayAvatarURL())
       .setDescription(`👍 Joined ${queue.connection.channel.toString()} and 📄 bound to ${queue.metadata.channel.toString()}`)
       .setColor(queue.guild.me.displayColor || "#00FFFF");
 
