@@ -110,7 +110,7 @@ module.exports = async(interaction, client) => {
           const gameEmbed = new Discord.MessageEmbed()
         .setTitle("Game Commands")
         .setDescription(
-          "`connect4`, `fattype`, `guessthenumber`, `rps`, `snake`, `ttt`"
+          "`connect4`, `catchthefish`, `fasttype`, `football`, `gunfight`, `guessthenumber`, `rps`, `snake`, `ttt`"
         )
         .setColor("RANDOM");
 
