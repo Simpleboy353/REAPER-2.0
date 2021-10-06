@@ -17,7 +17,7 @@ async function sendErrorLog(client, error, type) {
     ) return;
 
     const { ERROR_LOGS_CHANNEL } = require("../../config.json");
-    const channelId = errorLogsChannel;
+    const channelId = ERROR_LOGS_CHANNEL;
     if (!channelId) {
       return client.logger.error("ERR_LOG", error?.stack || `${error}`);
     }
