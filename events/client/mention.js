@@ -6,6 +6,8 @@ module.exports = async (message, client) => {
   if (!message.guild.me.permissionsIn(message.channel).has("SEND_MESSAGES"))
     return;
 
+  const { DEFAULT_PREFIX } = require("../../config.json")
+
   const prefixData = await prefixModel.findOne({
       GuildID: message.guild.id,
     }).catch(err=>console.log(err))
@@ -13,7 +15,7 @@ module.exports = async (message, client) => {
     if (prefixData) {
       var PREFIX = prefixData.Prefix
     } else if (!prefixData) {
-      PREFIX = "+"
+      PREFIX = DEFAULT_PREFIX
     }
     client.prefix = PREFIX;
 
