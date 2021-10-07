@@ -31,7 +31,7 @@
     "dateformat": "^5.0.0",
     "discord-emoji": "^2.0.0",
     "discord-fetch-all": "^3.0.0",
-    "discord-gamecord": "^1.1.4",
+    "discord-gamecord": "^2.0.0",
     "discord-nsfw": "^1.3.0",
     "discord-nsfw-simple": "^1.1.3",
     "discord-player": "^5.1.0",
