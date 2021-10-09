@@ -77,10 +77,10 @@ module.exports = {
     .setDescription('Choose an option from the menu below!')
     .setColor("GREEN")
 
-    const msg = message.channel.send({ embeds: [editEmbed], components: [helpMenu]})
-
-    setTimeout(function(){
-      msg.edit("Menu Timed Out!")
-    }, 180000)
+    message.channel.send({ embeds: [editEmbed], components: [helpMenu]}).then(msg=>{
+      setTimeout(async function () {
+        await msg.delete();
+      }, 180000)
+    })
   }
 };
