@@ -84,11 +84,7 @@ module.exports = {
     .setDescription('Choose an option from the menu below!')
     .setColor("GREEN")
 
-    const msg = interaction.reply({ embeds: [helpEmbed], components: [helpMenu]})
-
-    setTimeout(function(){
-      msg.delete()
-    }, 180000)
+    interaction.reply({ embeds: [helpEmbed], components: [helpMenu]})
     }
   }
 };
