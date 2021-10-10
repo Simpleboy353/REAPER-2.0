@@ -27,6 +27,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_PRESENCES,
   ],
 });
+const { checkValid } = require("./functions/validation/checkValid")
 const Embeds = require("./functions/embeds/Embeds")
 const Logger = require("./functions/Logger/Logger")
 const Util = require("./functions/util/Util")
@@ -66,6 +67,7 @@ loadCommands(client);
 loadEvents(client);
 loadPlayerEvents(client);
 loadSlashCommands(client);
+checkValid();
 
 // Error Handling
 
