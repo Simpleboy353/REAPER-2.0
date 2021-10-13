@@ -1,3 +1,12 @@
+/**
+* READ THIS BEFORE YOU CHANGE THE CONTENT OF THIS COMMAND!
+* You are not allowed to change lines about this repo in this command.
+* You can change bot name and owner name, but not the source of this bot.
+* You are also not allowed to remove the credits from the footer to the orginal owner from this bot.
+* If you want to change the description, you will have to add the line that: "[YOUR BOT NAME] is an modified instance of Reaper-2.0 bot made by Simpleboy353.
+* These points are not optional, but remarks from the dev team of Reaper-2.0.
+*/
+
 const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
@@ -11,22 +20,24 @@ module.exports = {
       .format(" D [days], H [hrs], m [mins], s [secs]");
 
     let embed = new Discord.MessageEmbed()
-      .setAuthor("Infinity#4967's Info", client.user.avatarURL())
+      .setAuthor("REAPER-,2.0's Info", client.user.avatarURL())
       .setColor("RANDOM")
       .setDescription(
-        `**Bot Name: **Infinity \n**Owner: **๖ۣۜℜⱥjͥƤuͣtͫ#5915 \n**Total Categories: **8 \n**Total Commands: **141 \n**Users:** ${
+        `**Bot Name: **Reaper \n**Owner: **[YOUR_NAME_HERE] \n**Total Categories: **8 \n**Total Commands: **${client.commands.size} \n**Users:** ${
           client.users.cache.size
         } \n**Servers:** ${client.guilds.cache.size} \n**Channels:** ${
           client.channels.cache.size
-        } \n**Uptime and Ping: **${duration} / ${Math.round(
-          client.ws.ping
-        )}ms \n**State: **Under Development \n**Online Status: **Up 24/7 (Except during Maintenance)`
+        }
+      )
+      .addField(
+        "About Reaper-2.0",
+        "Reaper-2.0 is an open-source multi-purpose discord bot with features like moderation, music, logging, welcomer and so much more!\nYou can find the link to the [GitHub Repo Here](https://github.com/Simpleboy353/REAPER-2.0)"
       )
       .addField(
         "Some Useful Links",
-        "**Get Infinity's Invite Link** **[Here](https://discord.com/api/oauth2/authorize?client_id=733670294086221865&permissions=8&scope=bot)** \n**Need Help? Join Infinity's** **[Support Server](https://discord.gg/mqWprFc)** **for assistance**"
+        "**Get your own bot!** **[Here](https://github.com/Simpleboy353/REAPER-2.0)** \n**Need Help? Join our ** **[Support/Development Server](https://infinitybot.tk/support)** **for assistance**"
       )
-      .setFooter("Regards, Infinity Bot Team");
+      .setFooter("Regards, Reaper-2.0 Development Team");
     message.channel.send({ embeds: [embed] });
   },
 };
