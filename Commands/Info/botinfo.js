@@ -27,7 +27,7 @@ module.exports = {
           client.users.cache.size
         } \n**Servers:** ${client.guilds.cache.size} \n**Channels:** ${
           client.channels.cache.size
-        }
+        }`
       )
       .addField(
         "About Reaper-2.0",
