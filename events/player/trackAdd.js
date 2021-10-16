@@ -8,6 +8,6 @@ module.exports = async(queue, track) => {
       .setDescription(`[${track.title}](${track.url}) ~ [${track.requestedBy.toString()}]`)
       .setColor(queue.guild.me.displayColor || "#00FFFF");
 
-    return queue.metadata.reply({ embeds: [embed], allowedMentions: { repliedUser: false } }).catch(console.error);
+    return queue.metadata.channel.send({ embeds: [embed], allowedMentions: { repliedUser: false } }).catch(console.error);
 
 };
