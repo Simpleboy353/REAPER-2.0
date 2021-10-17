@@ -115,7 +115,7 @@
 ---
 
 ## Contributing
-- **Feel free to open pull requests to contribute to the repository!**
+- **Before contributing to this repo, make sure to read [CONTRIBUTIONS.md](https://github.com/Simpleboy353/REAPER-2.0/blob/master/CONTRIBUTIONS.md)**
 - **Join our [Support & Development Server](https://infinitybot.tk/support)**
 - **Join our [Community server](https://discord.gg/yMfyeNR2DT)**
 - **Invite my bot to your Server, [Here](https://infinitybot.tk/invite)**
