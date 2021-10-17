@@ -5,7 +5,7 @@ module.exports = {
   name: "antiwords",
   userPerms: ["ADMINISTRATOR"],
   description: "Setup antilink per server!",
-  run: async(client, message, args) {
+  run: async(client, message, args) => {
     if (!args[0]) {
       return message.channel.send(`Usage: \`(prefix)antiwords <on|off>\``)
     }
