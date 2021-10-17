@@ -3,9 +3,9 @@ const antiwordsSchema = require("../../database/guildData/antiwords");
 
 module.exports = {
   name: "antiwords",
-  permissions: ["ADMINISTRATOR"],
+  userPerms: ["ADMINISTRATOR"],
   description: "Setup antilink per server!",
-  async execute(client, message, cmd, args, Discord) {
+  run: async(client, message, args) {
     if (!args[0]) {
       return message.channel.send(`Usage: \`(prefix)antiwords <on|off>\``)
     }
