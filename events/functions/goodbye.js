@@ -24,7 +24,7 @@ module.exports = async (member) => {
      );
 
      let embed = new MessageEmbed()
-       .setDescription(leavemessage)
+       .setDescription(`${leavemessage}`)
        .setColor("GREEN");
 
      let channel = data.Bye;
