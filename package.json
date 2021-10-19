@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@discord-player/downloader": "^3.0.1",
-    "@discordjs/builders": "^0.6.0",
+    "@discordjs/builders": "^0.7.0",
     "@discordjs/opus": "^0.6.0",
     "@iamtraction/google-translate": "^1.1.2",
     "alexflipnote.js": "^2.5.0",
