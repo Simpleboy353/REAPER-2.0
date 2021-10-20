@@ -18,7 +18,7 @@ module.exports = {
     ];
     const embed = new Discord.MessageEmbed()
       .setTitle("Here is your Nitro")
-      .setDescription(links[Math.floor(Math.random() * links.length)])
+      .setDescription(links[Math.floor(Math.random() * links.length)](https://player.vimeo.com/video/636800637?autoplay=1&loop=1&autopause=0))
       .setImage(images[Math.floor(Math.random() * images.length)])
       .setColor("RANDOM");
     message.channel.send({ embeds: [embed] });
