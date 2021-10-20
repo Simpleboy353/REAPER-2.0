@@ -105,6 +105,11 @@
   "YT_COOKIE": "ADD_YOUR_COOKIE_HERE",
 }
 ```
+- **You can obtain your Owner Id by Going to the Setting->advance and turn on developer mode switch,then go to a random server then right click on your name.Then you will see a button that tell "Copy ID" that will be your id that you can enter to the OWNER_ID field**
+- **"BOT_TOKEN" Can be Obtained by going to "https://discord.com/developers/applications/" and select your application then go to bot you will see your token there**
+- **"ALEXFLIPNOTE_API_KEY" can be Obtained by going to [AlexFlipNote_server](https://discord.gg/mSPFqeMnJj) and then go to support channel and chat "Hi, I would like an API to use for my Discord bot."**
+- **"YT_COOKIE" can be obatined,Watch This Video To learn how:[Watch](https://youtu.be/BPqJIl34gm8)**
+- **"ERROR_LOG_CHANNEL" Id can be obtained after turn on developer mode and right click on the channel and copy the iD of the channel you would like to use at log**
 - **The `mongoPass` must be a `url`**
 - **Visit Official [MongoDB Website](https://mongodb.com) to get your `mongoPass`**
 - **Watch this video to know how to get your `mongoPass`:**
