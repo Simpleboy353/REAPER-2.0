@@ -13,7 +13,7 @@ module.exports = {
              run: async(client, interaction, args) => {
        const msgnum = interaction.options.getInteger('number')
        interaction.reply('Purging...');
-       interaction.deleteReply();
-    interaction.channel.bulkDelete(msgnum)
+       interaction.channel.bulkDelete(msgnum);
+    interaction.channel.send("Done,If you wish you can delete this");
   }
 }
