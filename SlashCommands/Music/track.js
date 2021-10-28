@@ -264,6 +264,12 @@ module.exports = {
       queue.metadata = interaction;
     } else {
       queue = await client.player.createQueue(interaction.guild, {
+        ytdlOptions: {
+            quality: "highest",
+            filter: "audioonly",
+            highWaterMark: 1 << 25,
+            dlChunkSize: 0
+        },
         metadata: interaction
       });
     }
