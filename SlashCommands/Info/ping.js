@@ -19,7 +19,7 @@ module.exports = {
     .setDescription("Looks like the bot is slow.")
     .setColor("RANDOM")
 
-    const msg = await interaction.reply({
+    await interaction.reply({
         embeds: [embed1]
       })
         let end = Date.now();
@@ -30,7 +30,7 @@ module.exports = {
           .addField("Message Latency", `${end - start}ms`, true)
           .setColor("RANDOM");
 
-       await msg.edit({ embeds: [embed] }).catch((e) => interaction.reply(e));
+       interaction.editReply({ embeds: [embed] }).catch((e) => interaction.followUp(e));
     }
   },
 };
