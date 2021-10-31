@@ -40,4 +40,4 @@ module.exports = {
 }
 ```
 
-- If you are making a bug fix, please be sure that the bug can no longer be reproduced. If the fix is temporary, Mark the PR as [TEMPORARY_FIX]
+- If you are making a bug fix, please be sure that the bug can no longer be reproduced. If the fix is temporary, Mark the PR as [TEMPORARY_FIX].
