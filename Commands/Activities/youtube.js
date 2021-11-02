@@ -8,7 +8,7 @@ module.exports = {
       if (!message.member.voice.channelId) {
         return message.channel.send('You need to join a voice channel first!')
       }
-        client.discordTogether.createTogetherCode(message.member.voice.channelId, 'youtube').then(async(invite) => {
+        client.discordTogether.createTogetherCode(message.member.voice.channelId, 'youtubeDev').then(async(invite) => {
             
             let embed = new MessageEmbed()
             .setTitle("Youtube Together")

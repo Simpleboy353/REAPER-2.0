@@ -1,11 +1,11 @@
 {
 
     "OWNER_ID":"",
-    "BOT_TOKEN": "",
+    "BOT_TOKEN": "ODU2MTMyNzk0MjQ0OTIzNDMy.YM8lzA.dUoH-qo1ro82AQofB-89N7Be5aA",
     "tenorAPI":"ZEEELJXAFQBN",
     "DEFAULT_PREFIX":"!",
-    "mongoPass": "",
-    "ERROR_LOGS_CHANNEL": "",
+    "mongoPass": "mongodb+srv://AgentRockstar:rhtking123@cluster0.xgmca.mongodb.net/Cluster0?retryWrites=true&w=majority",
+    "ERROR_LOGS_CHANNEL": "885118422126559252",
     "ALEXFLIPNOTE_API_KEY":"",
     "YT_COOKIE": ""
     

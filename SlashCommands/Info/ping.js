@@ -3,16 +3,9 @@ const discord = require("discord.js");
 module.exports = {
   name: "ping",
   description: "Get the bot's ping!",
-  options: [
-    {
-      name: "info",
-      description: "Get the bot's ping!",
-      type: 'SUB_COMMAND'
-    }
-  ],
+  options: null,
   run: async (client, interaction, args) => {
 
-    if (interaction.options.getSubcommand() === "info") {
     let start = Date.now();
 
     let embed1 = new discord.MessageEmbed()
@@ -31,6 +24,5 @@ module.exports = {
           .setColor("RANDOM");
 
        interaction.editReply({ embeds: [embed] }).catch((e) => interaction.followUp(e));
-    }
   },
 };

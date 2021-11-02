@@ -50,7 +50,7 @@ module.exports = async(interaction, client) => {
  
          const musicEmbed = new Discord.MessageEmbed()
          .setTitle(`Music Commands`)
-         .setDescription("`clearqueue`, `filter`, `filter list`, `info`, `jump`, `loop`, `lyrics`, `move`, `mute`, `pause`, `play`, `previoustrack`, `queue`, `remove`, `resume`, `unmute`, `volume`, `youtube`\n\n```Note: Music commands work only with slash commands!\nBe sure to use music before each command!```")
+         .setDescription("`clearqueue`, `filter`, `filter list`, `info`, `jump`, `loop`, `lyrics`, `move`, `mute`, `pause`, `play`, `previoustrack`, `queue`, `remove`, `resume`, `unmute`, `volume`, `youtube`\n\n```Note: Music commands work only with slash commands!```")
          .setColor("BLUE")
  
          await msg.edit({ embeds: [musicEmbed] })
@@ -98,7 +98,7 @@ module.exports = async(interaction, client) => {
             const utilityEmbed = new Discord.MessageEmbed()
         .setTitle("Utility Commands")
         .setDescription(
-          "`avatar`, `animesearch`, `announce`, `calculator`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `translate`, `unlock`, `weather`, `wiki`, `youtube`"
+          "`avatar`, `animesearch`, `announce`, `calculator`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `translate`, `unlock`, `weather`, `wiki`"
         )
         .setColor("RANDOM");
 
@@ -110,11 +110,22 @@ module.exports = async(interaction, client) => {
           const gameEmbed = new Discord.MessageEmbed()
         .setTitle("Game Commands")
         .setDescription(
-          "`connect4`, `catchthefish`, `fasttype`, `football`, `gunfight`, `guessthenumber`, `rps`, `snake`, `ttt`"
+          "`connect4`, `catchthefish`, `chaoswords`, `fasttype`, `fight`, `football`, `gunfight`, `guessthenumber`, `guessthepokemon`, `lieswatter`, `neverhaveiever`, `quickclick`, `rps`, `shuffleguess`, `snake`, `trivia`, `ttt`"
         )
         .setColor("RANDOM");
 
         await msg.edit({ embeds: [gameEmbed] })
+      } else if (interaction.values[0] === "activities") {
+            await interaction.deferUpdate()
+            
+        const activityEmbed = new Discord.MessageEmbed()
+        .setTitle("Activity Commands")
+        .setDescription(
+          "`awkword`, `betrayal`, `chess`, `doodlecrew`, `fishington`, `lettertile`, `poker`, `spellcast`, `youtube`"
+        )
+        .setColor("RANDOM")
+
+        await msg.edit({ embeds: [activityEmbed]})
       }
     }
 }

@@ -5,14 +5,46 @@ module.exports = {
   description: "Shows the Help Menu",
   options: [
     {
-      name: "menu",
-      description: "Shows the Help Menu",
-      type: 'SUB_COMMAND'
+      name: "command",
+      description: "Get help for a command!",
+      type: 'STRING',
+      required: false
     }
   ],
   run: async (client, interaction, args) => {
+    let commandInfo = await interaction.options.getString("command")
 
-    if (interaction.options.getSubcommand() === "menu") {
+    if (commandInfo) {
+      let cmd = client.commands.get(commandInfo);
+
+      if (!cmd) {
+        return interaction.reply("Couldn't find that command!")
+      } else if (cmd) {
+        let description = cmd.description ? cmd.description : "No description available.";
+        let aliases = cmd.aliases ? cmd.aliases.join(", ") : "No aliases available.";
+        let botPerms = cmd.botPerms ? cmd.botPerms.join(", ") : "No permissions required.";
+        let userPerms = cmd.userPerms ? cmd.userPerms.join(", ") : "No permissions required.";
+        let ownerOnly = cmd.ownerOnly ? "Yes" : "No";
+        let nsfwOnly = cmd.nsfwOnly ? "Yes" : "No";
+        let cooldown = cmd.cooldown ? cmd.cooldown : "No cooldown.";
+        let isDisabled = cmd.isDisabled ? "Yes" : "No";
+
+        let helpEmbed = new MessageEmbed()
+        .setTitle(`Help for **${cmd.name}**`)
+        .addField("Name", `${cmd.name}`, true)
+        .addField("Description", `${description}`, true)
+        .addField("Aliases", `${aliases}`, true)
+        .addField("Owner Only", `${ownerOnly}`, true)
+        .addField("NSFW Only", `${nsfwOnly}`, true)
+        .addField("Cooldown", `${cooldown}`, true)
+        .addField("Disabled", `${isDisabled}`, true)
+        .addField("Required Bot Permissions", `${botPerms}`, true)
+        .addField("Required User Permissions", `${userPerms}`, true)
+        .setColor("GREEN")
+
+        return interaction.reply({ embeds: [helpEmbed], ephemeral: true });
+      }
+    } else {
 
     let helpMenu = new MessageActionRow()
     .addComponents(
@@ -27,6 +59,12 @@ module.exports = {
           description: "Change the bot settings",
           value: "settings",
           emoji: "🛠"
+        },
+        {
+          label: "Activities",
+          description: "Access the new Discord Activities Feature",
+          value: "activities",
+          emoji: "🎮"
         },
         {
           label: "Fun",
