@@ -46,12 +46,17 @@ module.exports = async(queue, track, client) => {
   .setStyle("SUCCESS")
   .setEmoji("🔊")
 
+   const mute = new MessageButton()
+  .setCustomId("mute")
+  .setStyle("SUCCESS")
+  .setEmoji("🔇")
+
   // A row cannot have more than 4 components!
   const controlRow1 = new MessageActionRow()
   .addComponents([playPause], [skip], [repeat], [stop], [shuffle])
 
   const controlRow2 = new MessageActionRow()
-  .addComponents([volumeLess], [volumeMore])
+  .addComponents([volumeLess], [volumeMore], [mute])
 
   const playMessage = await queue.metadata.editReply({ embeds: [embed], components: [controlRow1, controlRow2] });
        
@@ -96,9 +101,15 @@ module.exports = async(queue, track, client) => {
         await button.deferUpdate();
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         if (!queue.repeatMode) {
-          queue.setRepeatMode(QueueRepeatMode.QUEUE)
-          queue.metadata.followUp({ content: "Loop mode has been enabled!", ephemeral: true})
-        } else if (queue.repeatMode) {
+          queue.setRepeatMode(QueueRepeatMode.TRACK)
+          queue.metadata.followUp({ content: "Track Loop mode has been enabled!", ephemeral: true})
+        } else if (queue.repeatMode === 1 ) {
+          queue.setRepeatMode(QueueRepeatMode.QUEUE )
+          queue.metadata.followUp({ content: "Queue Loop mode has been enabled!", ephemeral: true})
+        }else if (queue.repeatMode === 2) {
+          queue.setRepeatMode(QueueRepeatMode.AUTOPLAY)
+          queue.metadata.followUp({ content: "AutoPlay Activated!", ephemeral: true})
+        }else if (queue.repeatMode === 3) {
           queue.setRepeatMode(QueueRepeatMode.OFF)
           queue.metadata.followUp({ content: "Loop mode has been disabled!", ephemeral: true})
         }
@@ -136,14 +147,24 @@ module.exports = async(queue, track, client) => {
         await button.deferUpdate();
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         let volume;
-        if (queue.volume === 130) return queue.metadata.followUp({ content: "Volume cannot be higher than 130!", ephemeral: true})
-        if (queue.volume + 10 >= 130) volume = 130;
+        if (queue.volume === 200) return queue.metadata.followUp({ content: "Volume cannot be higher than 200!", ephemeral: true})
+        if (queue.volume + 10 >= 200) volume = 200;
         else volume = queue.volume + 10;
         queue.setVolume(Number(volume));
         queue.metadata.followUp({ content: `Volume set to ${queue.volume}%`, ephemeral: true})
         break;
 
-      default: return;
+        case "mute":
+        await button.deferUpdate();
+        if (queue.volume === 0) {
+          queue.setVolume(100)
+          queue.metadata.followUp({ content: "Unmuted!", ephemeral: true})
+        } else {
+          queue.setVolume(100)
+          queue.metadata.followUp({ content: "Returned the song to normal volume", ephemeral: true})
+        }
+        break;
+         default: return;
     }
   });
 
