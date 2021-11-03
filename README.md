@@ -59,10 +59,11 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v7.1.0-stable (Support for Activities) (Current)       |       Available       |
+| v7.1.5-stable (Button controls for music) (Current)    |       Available       |
+| v7.1.0-stable (Support for Activities)                 |       Available       |
 | v7.0.0-stable (Music System)                           |       Available       |
-| v6.7.5-alpha (Better Error Logging)                    |       Available       |
-| v6.7.0-beta (Slash Cmds, Thread Events)                |       Seems okay to me!       |
+| v6.7.5-alpha (Better Error Logging)                    |       Seems okay to me!       |
+| v6.7.0-beta (Slash Cmds, Thread Events)                |       Discontinued       |
 | v6.6.0-beta (Logging, New UI for settings)             |       Discontinued       |
 | v6.5.0-stable (V13 Support Added)                      |       Discontinued       |
 | v6.3.0-stable (Anti-Link Support)                      |       Discontinued       |       
