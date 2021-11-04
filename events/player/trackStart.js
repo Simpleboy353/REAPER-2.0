@@ -63,7 +63,7 @@ module.exports = async(queue, track, client) => {
     // Delete message after song has ended!
     setTimeout(async function(){
       if (msg && !msg.deleted) {
-        await msg.delete();
+        return await usedStop();
       } else {
         return;
       }
