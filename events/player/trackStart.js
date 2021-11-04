@@ -53,17 +53,33 @@ module.exports = async(queue, track, client) => {
   const controlRow2 = new MessageActionRow()
   .addComponents([volumeLess], [volumeMore])
 
-  const playMessage = await queue.metadata.editReply({ embeds: [embed], components: [controlRow1, controlRow2] });
+  const playMessage = await queue.metadata.channel.send({ embeds: [embed], components: [controlRow1, controlRow2] }).then(async(msg)=>{
+    /**
+     * Function to delete the message after the stop button is used
+     */
+    async function usedStop() {
+      await msg.delete()
+    }
+    // Delete message after song has ended!
+    setTimeout(async function(){
+      if (msg && !msg.deleted) {
+        await msg.delete();
+      } else {
+        return;
+      }
+    }, track.durationMS)
        
   const filter = (user) => user.id === queue.metadata.member.id;
 
-  var collector = await playMessage.createMessageComponentCollector(filter, {
-    componentType: "BUTTON",
-    time: track.durationMS  > 0 ? track.durationMS  * 1000 : 600000
+  var collector = await msg.createMessageComponentCollector(filter, {
+    time: track.duration  > 0 ? track.duration * 1000 : 600000
   });
 
   collector.on("collect", async(button, user) => {
     if (!queue) return;
+    if (!track.durationMS) {
+      collector.stop();
+    }
 
     switch (button.customId) {
 
@@ -109,7 +125,7 @@ module.exports = async(queue, track, client) => {
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         queue.stop();
         queue.metadata.followUp({ content: "Stopped the music!", ephemeral: true })
-        
+        usedStop();
         collector.stop();
         break;
         
@@ -147,7 +163,8 @@ module.exports = async(queue, track, client) => {
     }
   });
 
-  collector.on("end", () => {
-    return queue.metadata.deleteReply();
-  })
+    collector.on("end", () => {
+      console.log("Queue ended!")
+    })
+  });
 }
