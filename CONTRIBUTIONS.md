@@ -17,8 +17,8 @@ module.exports = {
     description: "commandDescription",
     botPerms: ["Permissions_required_by_the_bot"],
     userPerms: ["Permissions_required_by_the_user"],
-    nsfwOnly: false // True if the command can be used in nsfw channels only,
-    ownerOnly: false // True if the command can be used by owner only,
+    nsfwOnly: false, // True if the command can be used in nsfw channels only,
+    ownerOnly: false, // True if the command can be used by owner only,
     run: async(client, message, args) => {
     // Command here
     }
@@ -32,8 +32,8 @@ module.exports = {
     description: "commandDescription",
     botPerms: ["Permissions_required_by_the_bot"],
     userPerms: ["Permissions_required_by_the_user"],
-    ownerOnly: false // True if the command can be used by owner only,
-    options: null // If options are required, add accordingly else keep it null
+    ownerOnly: false, // True if the command can be used by owner only,
+    options: null, // If options are required, add accordingly else keep it null
     run: async(client, interaction, args) => {
     // Command here
     }
