@@ -35,11 +35,9 @@ module.exports = {
       .setThumbnail(target.avatarURL)
       .setFooter(`Banned by ${message.author.tag}`);
 
-    target
-      .ban({
-        reason: reason,
-      })
-      .then(() => {
+    await message.guild.bans.create(target, {
+      reason: reason
+    }).then(() => {
         message.channel.send({ embeds: [embed] });
       });
   },
