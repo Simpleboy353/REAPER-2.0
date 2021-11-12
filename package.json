@@ -16,7 +16,7 @@
   "dependencies": {
     "@discord-player/downloader": "^3.0.1",
     "@discordjs/builders": "^0.8.0",
-    "@discordjs/opus": "^0.6.0",
+    "@discordjs/opus": "^0.7.0",
     "@iamtraction/google-translate": "^1.1.2",
     "alexflipnote.js": "^2.5.0",
     "ascii-table": "0.0.9",
