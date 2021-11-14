@@ -1,5 +1,9 @@
 module.exports = async(queue, tracks, client) => {
 
-    return client.say.queueMessage(client, queue, `Tracks Enqueued ${tracks.length}\nSource: ${tracks.source}`);
+    queue.metadata.editReply(`Tracks Enqueued ${tracks.length}\nSource: ${tracks.source}`).then(async(msg)=>{
+        setTimeout(function(){
+            msg.delete();
+        }, 10000);
+    })
 
 };

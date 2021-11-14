@@ -36,7 +36,7 @@ module.exports = (client) => {
     .then(
       console.log(
         chalk.bgGreenBright.black(
-          ` ${client.user.username} connecting to Mongo DB `
+          ` ${client.user.username} connected to Mongo DB `
         )
       )
     )

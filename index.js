@@ -1,5 +1,3 @@
-require("dotenv").config({ path: "src/.env" });
-
 const fs = require("fs");
 const chalk = require("chalk");
 
@@ -44,9 +42,9 @@ const Cookie = YT_COOKIE;
 client.logger = Logger;
 client.utils = Util;
 client.say = Embeds;
-client.player = new Player(client, {
-  leaveOnEnd: false,
-  leaveOnStop: false,
+const player = new Player(client, {
+  leaveOnEnd: true,
+  leaveOnStop: true,
   leaveOnEmpty: false,
   leaveOnEmptyCooldown: 60000,
   autoSelfDeaf: true,
@@ -60,7 +58,8 @@ client.player = new Player(client, {
   },
 })
 
-client.player.use("YOUTUBE_DL", require("@discord-player/downloader").Downloader);
+player.use("YOUTUBE_DL", require("@discord-player/downloader").Downloader);
+client.player = player;
 client.db = new Enmap({ name: "musicdb" });
 
 loadCommands(client);

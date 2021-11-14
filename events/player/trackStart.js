@@ -8,18 +8,23 @@ module.exports = async(queue, track, client) => {
   const embed = new MessageEmbed()
   .setTitle("Now playing")
   .setColor(queue.guild.me.displayColor || "BLUE")
-  .setDescription(`[${track.title}](${track.url}) ~ [${track.requestedBy.toString()}]`)
+  .setDescription(`[${track.title}](${track.url}) ~ [${track.requestedBy.toString()}]\n${queue.createProgressBar()}`)
   .setImage(`${track.thumbnail}`);
 
   const playPause = new MessageButton()
   .setCustomId("playPause")
-  .setStyle("SUCCESS")
+  .setStyle("PRIMARY")
   .setEmoji("⏯")
 
   const skip = new MessageButton()
   .setCustomId("skip")
-  .setStyle("SUCCESS")
+  .setStyle("PRIMARY")
   .setEmoji("⏭")
+
+  const repeatThis = new MessageButton()
+  .setCustomId("repeatThis")
+  .setStyle("SUCCESS")
+  .setEmoji("🔂")
 
   const repeat = new MessageButton()
   .setCustomId("repeat")
@@ -28,32 +33,35 @@ module.exports = async(queue, track, client) => {
 
   const stop = new MessageButton()
   .setCustomId("stop")
-  .setStyle("SUCCESS")
+  .setStyle("DANGER")
   .setEmoji("⏹")
 
   const shuffle = new MessageButton()
   .setCustomId("shuffle")
-  .setStyle("SUCCESS")
+  .setStyle("PRIMARY")
   .setEmoji("🔀")
 
   const volumeLess = new MessageButton()
   .setCustomId("volumeLess")
-  .setStyle("SUCCESS")
+  .setStyle("SECONDARY")
   .setEmoji("🔉")
 
   const volumeMore = new MessageButton()
   .setCustomId("volumeMore")
-  .setStyle("SUCCESS")
+  .setStyle("SECONDARY")
   .setEmoji("🔊")
 
   // A row cannot have more than 4 components!
   const controlRow1 = new MessageActionRow()
-  .addComponents([playPause], [skip], [repeat], [stop], [shuffle])
+  .addComponents([playPause], [skip], [shuffle], [stop],)
 
   const controlRow2 = new MessageActionRow()
-  .addComponents([volumeLess], [volumeMore])
+  .addComponents([volumeLess], [repeat], [repeatThis], [volumeMore])
 
-  const playMessage = await queue.metadata.channel.send({ embeds: [embed], components: [controlRow1, controlRow2] }).then(async(msg)=>{
+  await queue.metadata.channel.send({ embeds: [embed], components: [controlRow1, controlRow2] }).then(async(msg)=>{
+  
+    client.db.set(`playingembed_${queue.metadata.guild.id}`, msg.id);
+    client.db.set(`playingchannel_${queue.metadata.guild.id}`, queue.metadata.channel.id);
     /**
      * Function to delete the message after the stop button is used
      */
@@ -69,7 +77,7 @@ module.exports = async(queue, track, client) => {
       }
     }, track.durationMS)
        
-  const filter = (user) => user.id === queue.metadata.member.id;
+  const filter = (user) => !user.bot || user.id === queue.metadata.member.id;
 
   var collector = await msg.createMessageComponentCollector(filter, {
     time: track.duration  > 0 ? track.duration * 1000 : 600000
@@ -104,6 +112,7 @@ module.exports = async(queue, track, client) => {
           return queue.metadata.followUp({ content: "No more songs in the queue to skip!", ephemeral: true })
         } else {
           queue.skip();
+          usedStop();
           queue.metadata.followUp({ content: "Skipped the current song!", ephemeral: true })
         }
         break;
@@ -119,7 +128,19 @@ module.exports = async(queue, track, client) => {
           queue.metadata.followUp({ content: "Loop mode has been disabled!", ephemeral: true})
         }
         break;
-        
+
+      case "repeatThis":
+        await button.deferUpdate();
+        if (!client.utils.canModifyQueue(queue.metadata)) return;
+        if (!queue.repeatMode) {
+          queue.setRepeatMode(QueueRepeatMode.TRACK)
+          queue.metadata.followUp({ content: "Repeating current song now!", ephemeral: true})
+        } else if (queue.repeatMode) {
+          queue.setRepeatMode(QueueRepeatMode.OFF)
+          queue.metadata.followUp({ content: "Repeating current song now!", ephemeral: true})
+        }
+        break;
+
       case "stop":
         await button.deferUpdate();
         if (!client.utils.canModifyQueue(queue.metadata)) return;
