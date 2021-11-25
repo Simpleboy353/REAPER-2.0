@@ -15,6 +15,7 @@
 module.exports = {
     name: "commandName",
     description: "commandDescription",
+    usage: "Insert usage here",
     botPerms: ["Permissions_required_by_the_bot"],
     userPerms: ["Permissions_required_by_the_user"],
     nsfwOnly: false, // True if the command can be used in nsfw channels only,
