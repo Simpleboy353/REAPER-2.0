@@ -24,7 +24,7 @@
     "booru": "^2.3.2",
     "canvas": "^2.8.0",
     "canvas-constructor": "^5.0.1",
-    "chalk": "^4.1.1",
+    "chalk": "^5.0.0",
     "colornames": "^1.1.1",
     "common-tags": "^1.8.0",
     "config.json": "0.0.4",
