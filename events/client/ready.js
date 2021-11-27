@@ -1,10 +1,17 @@
 const chalk = require("chalk");
 const mongoose = require("mongoose");
-
+const guildin = client.guilds.cache.size;
+const guildmember = client.users.cache.size;
+var os = require('os-utils');
 const { mongoPass } = require("../../config.json"); 
 module.exports = (client) => {
  client.user.setPresence({ status: "online" });
- client.user.setActivity("Hello", { type: "STREAMING" });
+let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serving: ' + guildmember + ' member',`Current Cpu core : ${os.cpuCount()}`]
+ client.user.setPresence({ status: "online" });
+ setInterval(() => {
+   var text = textList[Math.floor(Math.random() * textList.length)];
+  client.user.setActivity(text, { type: "WATCHING"});
+}, 3000);
 
   let allMembers = new Set();
   client.guilds.cache.forEach((guild) => {
