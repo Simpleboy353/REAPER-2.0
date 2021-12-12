@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 var os = require('os-utils');
 const { mongoPass } = require("../../config.json"); 
 module.exports = (client) => {
+
+ const guildin = client.guilds.cache.size;
+ const guildmember = client.users.cache.size;
+
  client.user.setPresence({ status: "online" });
 let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serving: ' + guildmember + ' member',`Current Cpu core : ${os.cpuCount()}`]
  client.user.setPresence({ status: "online" });
@@ -10,9 +14,6 @@ let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serv
    var text = textList[Math.floor(Math.random() * textList.length)];
   client.user.setActivity(text, { type: "WATCHING"});
 }, 3000);
-
-  const guildin = client.guilds.cache.size;
-  const guildmember = client.users.cache.size;
 
   let allMembers = new Set();
   client.guilds.cache.forEach((guild) => {
