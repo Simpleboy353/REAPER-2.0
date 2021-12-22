@@ -18,7 +18,7 @@
 - Basic knowledge of JS or Discord.JS
 
 ## Have suggestions on what could be added?
-- **Leave your suggestions right [here](https://github.com/Simpleboy353/REAPER-2.0/issues/15) then!**
+- **Leave your suggestions right [here](https://github.com/Simpleboy353/REAPER-2.0/discussions/138) then!**
 
 ## What features does Reaper Include?
 
