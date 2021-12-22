@@ -53,6 +53,11 @@ module.exports = {
                         label: "Prefix",
                         description: "Change the bot's prefix for your server!",
                         value: "prefix"
+                    },
+                    {
+                        label: "Rep System",
+                        description: "Enable or Disable Rep System!",
+                        value: "rep",
                     }
                 ])
             )

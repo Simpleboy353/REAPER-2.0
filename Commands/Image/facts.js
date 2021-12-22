@@ -6,6 +6,7 @@ module.exports = {
   name: "facts",
   description: "Another Fun Command",
   botPerms: ["ATTTACH_FILES"],
+  enabled: false,
   run: async (client, message, args) => {
     if (message.channel.type === "dm") return;
     let text = args.join(" ");

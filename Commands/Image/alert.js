@@ -4,6 +4,7 @@ module.exports = {
   name: 'alert',
   permissions: ["SEND_MESSAGES"],
   cooldown: 3,
+  enabled: false,
   description: 'Get a custom clyde message!',
   async execute(client, message, cmd, args, Discord) {
     if (!args[0]) {

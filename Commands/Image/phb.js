@@ -6,6 +6,7 @@ module.exports = {
   name: "phb",
   description: "Another Fun Command",
   botPerms: ["ATTTACH_FILES", "MANAGE_MESSAGES"],
+  enabled: false,
   run: async (client, message, args) => {
     let splitText = args.join(" ").slipt("/")
     let text = splitText[0]

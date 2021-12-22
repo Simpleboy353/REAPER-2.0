@@ -41,6 +41,7 @@ function loadEvents(client) {
   client.on("guildMemberAdd", (m) => otherEvent("autorole")(m));
   client.on("guildMemberAdd", (m) => otherEvent("welcome")(m));
   client.on("guildMemberRemove", (m) => otherEvent("goodbye")(m));
+  client.on("messageCreate", (m) => otherEvent("rep")(m));
 
   // Menu Events
   client.on('interactionCreate', (m) => menuEvents("help")(m, client));
@@ -48,6 +49,7 @@ function loadEvents(client) {
   client.on("interactionCreate", (m) => menuEvents("autorole")(m, client));
   client.on("interactionCreate", (m) => menuEvents("automod")(m, client));
   client.on('interactionCreate', (m) => menuEvents('prefix')(m, client));
+  client.on("interactionCreate", (m) => menuEvents("rep")(m, client));
   client.on("interactionCreate", (m) => menuEvents("welcomeChannel")(m, client));
   client.on("interactionCreate", (m) => menuEvents("leaveChannel")(m, client));
   client.on("interactionCreate", (m) => menuEvents("welcomeMessage")(m, client));

@@ -4,6 +4,7 @@ module.exports = {
   name: "trash",
   description: "Another Image Manipulation Command",
   botPerms: ["ATTTACH_FILES"],
+  enabled: false,
   run: async (client, message, args) => {
    const mention = message.mentions.members.first();
         if (!mention) {

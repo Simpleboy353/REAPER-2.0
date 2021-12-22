@@ -6,6 +6,7 @@ module.exports = {
   name: "textimage",
   description: "Another Fun Command",
   botPerms: ["ATTTACH_FILES", "MANAGE_MESSAGES"],
+  enabled: false,
   run: async (client, message, args) => {
     if (message.channel.type === "dm") return;
     let text = args.join(" ");
