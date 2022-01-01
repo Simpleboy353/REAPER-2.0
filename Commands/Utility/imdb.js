@@ -5,13 +5,8 @@ module.exports = {
   name: "imdb",
   description: "Get the information about series and movies",
   botPerms: ["EMBED_LINKS"],
+  enabled: false,
   run: async (client, message, args) => {
-    var state = "Disabled";
-    if (state === "Disabled") {
-      return message.channel.send(
-        "Command has been disabled! Contact Bot Owner for more info!"
-      );
-    }
     const name = args.join(" ");
     if (!name) {
       return message.channel.send("Please Give the name of a movie or series!");
@@ -25,9 +20,9 @@ module.exports = {
       .setTitle(movie.Title)
       .setColor("RANDOM")
       .setThumbnail(movie.poster)
-      .SetDescription(
+      .setDescription(
         `Description: \`${movie.plot}\`\nRatings: \`${movie.ratings}\`\nCountry: \`${movie.country}\`\nLanguages: \`${movie.languages}\`\nType: \`${movie.type}\``
       );
-    message.chanel.send({ embeds: [embed] });
+    message.channel.send({ embeds: [embed] });
   },
 };
