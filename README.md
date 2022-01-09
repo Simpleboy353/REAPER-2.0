@@ -1,3 +1,5 @@
+> ⚠️ The image manipulation commands using the AlexFlipNote's API are no longer working. Therefore you no longer need to use the `ALEXFLIPNOTE_API_KEY` for your bot.
+
 ![Reaper Logo](https://media.discordapp.net/attachments/853118185330049054/885199802369974292/images_1.jpeg)
 
 <h1 align="center"> REAPER-2.0  </h1>
