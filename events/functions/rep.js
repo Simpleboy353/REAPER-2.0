@@ -16,12 +16,16 @@ module.exports = async (message, client) => {
 		UserID: message.mentions.members.first().id
 	}).catch(console.error);
 
-	let repWords = ["thank you", "thanks", "thank u", "thnx", "tysm", "ty"]
+
+
+	let words = ["ft", "lf", "for trade", "looking for"]
 	let tradeRepChannel = await data.ChannelID
 	let found;
 
-	repWords.forEach(word => {
-		if (message.content.toLowerCase().includes(word)) found = true
+	let messageArray = await message.content.toLowerCase().split(" ");
+
+    words.forEach(async(word)=>{
+		if (messageArray.includes(word)) found = true
 		else found = false
 	})
 

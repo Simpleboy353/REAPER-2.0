@@ -39,7 +39,7 @@ module.exports = async(interaction, client) => {
             .setColor("RANDOM")
             .setTitle("Image Commands")
             .setDescription(
-              "`achievement`, `amazeme`, `amiajoke`, `bad`, `challenge`, `changemymind`, `creatememe`, `drake`, `facts`, `illegal`, `phb`, `rip`, `scroll`, `textimage`, `trash`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
+              "`afraid`, `alert`, `amazeme`, `biden`,`changemymind`, `clyde`, `cryingfloor`, `disastergirl`, `dockofshame`, `doge`, `drake`, `facepalm`, `feelsgood`, `illegal`, `keanu`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
             )
 
             await msg.edit({ embeds: [imageEmbed]})
@@ -62,7 +62,7 @@ module.exports = async(interaction, client) => {
             const infoEmbed = new Discord.MessageEmbed()
         .setTitle("Info Commands")
         .setDescription(
-          "`botinfo`, `devteam`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`"
+          "`botinfo`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`"
         )
         .setColor("RANDOM");
 
@@ -83,14 +83,22 @@ module.exports = async(interaction, client) => {
         } else if (interaction.values[0] === "nsfw") {
             await interaction.deferUpdate()
 
-            const nsfwEmbed = new Discord.MessageEmbed()
-        .setTitle("NSFW Commands")
-        .setDescription(
-          "`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `erokemo`, `danbooru`, `kitsune`, `hentai`, `hentaiass`, `hentaithigh`, `gonewild`, `milf`, `feetgif`, `pussy`, `porngif`, `urban`, `thigh`, `lewd`"
-        )
-        .setColor("RANDOM");
+            if (!interaction.channel.nsfw) {
+              const denyEmbed = new Discord.MessageEmbed()
+              .setDescription("You can view NSFW commands only in a NSFW channel!")
+              .setColor("RED")
 
-        await msg.edit({ embeds: [nsfwEmbed] })
+              return msg.edit({ embeds: [denyEmbed] })
+            }
+
+              const nsfwEmbed = new Discord.MessageEmbed()
+              .setTitle("NSFW Commands")
+              .setDescription(
+                  "`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `erokemo`, `danbooru`, `kitsune`, `hentai`, `hentaiass`, `hentaithigh`, `gonewild`, `milf`, `feetgif`, `pussy`, `porngif`, `urban`, `thigh`, `lewd`"
+              )
+              .setColor("RANDOM");
+
+              await msg.edit({ embeds: [nsfwEmbed] })
 
         } else if (interaction.values[0] === "utility") {
             await interaction.deferUpdate()

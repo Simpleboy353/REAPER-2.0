@@ -1,5 +1,3 @@
-> ⚠️ The image manipulation commands using the AlexFlipNote's API are no longer working. Therefore you no longer need to use the `ALEXFLIPNOTE_API_KEY` for your bot.
-
 ![Reaper Logo](https://media.discordapp.net/attachments/853118185330049054/885199802369974292/images_1.jpeg)
 
 <h1 align="center"> REAPER-2.0  </h1>
@@ -62,10 +60,11 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v7.2.0-stable (Rep System) (Current)                   |       Available       |
-| v7.1.5-stable (Button controls for music) (Current)    |       Available       |
-| v7.1.0-stable (Support for Activities)                 |       Available       |
-| v7.0.0-stable (Music System)                           |       Seems okay to me!       |
+| v7.3.0-stable (Updated Rep System) (Current)           |       Available       |
+| v7.2.0-stable (Rep System)                             |       Available       |
+| v7.1.5-stable (Button controls for music)              |       Available       |
+| v7.1.0-stable (Support for Activities)                 |       Seems okay to me!       |
+| v7.0.0-stable (Music System)                           |       Discontinued       |
 | v6.7.5-alpha (Better Error Logging)                    |       Discontinued       |
 | v6.7.0-beta (Slash Cmds, Thread Events)                |       Discontinued       |
 | v6.6.0-beta (Logging, New UI for settings)             |       Discontinued       |
@@ -107,11 +106,9 @@
   "DEFAULT_PREFIX":"ENTER_YOUR_PREFIX_HERE",
   "mongoPass": "ENTER_YOUR_MONGODB_URL_HERE",
   "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID",
-  "ALEXFLIPNOTE_API_KEY": "ADD_YOUR_API_KEY_HERE",
   "YT_COOKIE": "ADD_YOUR_COOKIE_HERE",
 }
 ```
-- **To get the `ALEXFLIPNOTE_API_KEY`, join [AlexFlipNote's Discord Server](https://discord.gg/mSPFqeMnJj)**
 - **Watch [this video](https://youtu.be/BPqJIl34gm8) to know, how to get the `YT_COOKIE`**
 - **You may use any channel id for `ERROR_LOGS_CHANNEL`, but the bot must be present in the server you are choosing the ID from.**
 - **All the errors your bot faces, will be logged in the `ERROR_LOGS_CHANNEL`**

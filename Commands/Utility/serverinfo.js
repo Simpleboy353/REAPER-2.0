@@ -43,9 +43,7 @@ module.exports = {
       .setThumbnail(servericon)
       .addField(
         `General Info`,
-        `Owner: ${message.guild.owner} \nRegion: \`${
-          region[message.guild.region]
-        }\` \nVerification Lvl: \`${
+        `Owner: ${message.guild.members.cache.get(message.guild.ownerId)} \nVerification Lvl: \`${
           verifLevels[message.guild.verificationLevel]
         }\``
       )
