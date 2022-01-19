@@ -4,6 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
 	name: "rep",
 	description: "Change a user's rep points count",
+	userPerms: ["ADMINISTRATOR"],
 	options: [
 		{
 			name: "add",
