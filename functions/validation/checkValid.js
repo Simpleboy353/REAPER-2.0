@@ -34,13 +34,6 @@ async function checkValid() {
             )
         )
     }
-    if (!config.ALEXFLIPNOTE_API_KEY) {
-        console.log(
-            chalk.bgYellowBright.black(
-                "[WARN] ALEXFLIPNOTE_API_KEY_WAS_NOT_FOUND"
-            )
-        )
-    }
     if (!config.YT_COOKIE) {
         console.log(
             chalk.bgYellowBright.black(
