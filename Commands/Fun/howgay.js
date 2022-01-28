@@ -14,7 +14,7 @@ module.exports = {
     const howgayembed = new Discord.MessageEmbed()
       .setTitle(`Gay Machine Calculator`)
       .setDescription(`${target.username} is ` + rng + "% Gay🌈")
-      .setColor("PINK");
+      .setColor("GREEN");
 
     message.channel.send({ embeds: [howgayembed] });
   },
