@@ -32,7 +32,7 @@ module.exports = async (member) => {
      member.guild.channels.cache.get(channel).send({embeds: [embed]});
      
    } else if (!data2) {
-     let embed2 = new MessageEmbed
+     let embed2 = new MessageEmbed()
      .setTitle("Welcome")
       .setDescription(
         `${member}, Welcome to **${member.guild.name}**! We hope you like our Server! Enjoy Your Stay here!`
