@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    networks:
+      - mongodb_network
+    environment:
+      PUID: 1000
+      PGID: 1000
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD-example}
+    volumes:
+      - ./database:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+  discord-bot-node:
+    depends_on:
+      - mongodb
+    network_mode: host
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+      OWNER_ID: ${OWNER_ID}
+      ERROR_LOGS_CHANNEL: ${ERROR_LOGS_CHANNEL}
+      DEFAULT_PREFIX: ${DEFAULT_PREFIX-!}
+      tenorAPI: ${tenorAPI-"ZEEELJXAFQBN"}
+      mongoPass: ${mongoPass-"mongodb://root:example@mongodb:27017/"}
+      YT_COOKIE: ${YT_COOKIE}
+    build: .
+    restart: unless-stopped
+networks:
+  mongodb_network:
+    name: mongodb_network

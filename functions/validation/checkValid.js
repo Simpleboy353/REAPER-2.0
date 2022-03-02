@@ -1,4 +1,4 @@
-const config = require("../../config.json")
+const config = process.env;
 const chalk = require("chalk")
 
 /**

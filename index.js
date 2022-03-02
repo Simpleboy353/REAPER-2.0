@@ -2,7 +2,7 @@ const fs = require("fs");
 const chalk = require("chalk");
 
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
-const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL, YT_COOKIE } = require("./config.json");
+const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL, YT_COOKIE } = process.env;
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
 const { loadSlashCommands } = require("./handler/loadSlashCommands")
