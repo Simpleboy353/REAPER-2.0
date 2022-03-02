@@ -89,26 +89,17 @@
 #### Creating a fork:
 - 1). [Click here to fork the repository](https://github.com/Simpleboy353/REAPER-2.0)
 - 2). Open your terminal and type `git clone https://github.com/Simpleboy353/REAPER-2.0.git`
-#### Installing all necessary packages
+#### Running the bot in docker
+- `docker compose up`
+---
+#### Runing locally, install all necessary packages
 - `npm install`
-#### Starting the bot
+##### Starting the bot
 - `node .` or `node index` 
 
----
 
 ## Configuration
-- **Edit the `config.json` file and enter the  required values**
-```json
-{
-  "OWNER_ID": "YOUR_ID_HERE",
-  "BOT_TOKEN": "YOUR_BOT_TOKEN",
-  "tenorAPI":"ZEEELJXAFQBN",
-  "DEFAULT_PREFIX":"ENTER_YOUR_PREFIX_HERE",
-  "mongoPass": "ENTER_YOUR_MONGODB_URL_HERE",
-  "ERROR_LOGS_CHANNEL": "ADD_ERRORLOGS_CHANNEL_ID",
-  "YT_COOKIE": "ADD_YOUR_COOKIE_HERE",
-}
-```
+- **Rename `.env.template` to `.env` and change the values**
 - **Watch [this video](https://youtu.be/BPqJIl34gm8) to know, how to get the `YT_COOKIE`**
 - **You may use any channel id for `ERROR_LOGS_CHANNEL`, but the bot must be present in the server you are choosing the ID from.**
 - **All the errors your bot faces, will be logged in the `ERROR_LOGS_CHANNEL`**
