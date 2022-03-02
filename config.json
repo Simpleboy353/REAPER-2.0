@@ -1,0 +1,10 @@
+{
+    "OWNER_ID":"948575789367058483",
+    "BOT_TOKEN": "OTQ4NTc1Nzg5MzY3MDU4NDgz.Yh90Cw.5UeHlUBcotapHDg-lqqYIXvYZzg",
+    "tenorAPI":"ZEEELJXAFQBN",
+    "DEFAULT_PREFIX":"!",
+    "mongoPass": "mongodb+srv://admin:0pJ43Ztd7qFNK4Rh@cluster0.r6vt0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "ERROR_LOGS_CHANNEL": "948573578905927723",
+    "YT_COOKIE": ""
+}
+
