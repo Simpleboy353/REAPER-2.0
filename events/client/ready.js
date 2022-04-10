@@ -39,8 +39,6 @@ let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serv
     .connect(mongoPass, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
     })
     .then(
       console.log(
