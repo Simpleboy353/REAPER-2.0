@@ -46,7 +46,6 @@ const player = new Player(client, {
   },
 });
 
-player.use("YOUTUBE_DL", require("@discord-player/downloader").Downloader);
 client.player = player;
 client.db = new Enmap({ name: "musicdb" });
 
