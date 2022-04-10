@@ -7,28 +7,18 @@ const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
 const { loadSlashCommands } = require("./handler/loadSlashCommands")
 const { loadPlayerEvents } = require("./handler/loadPlayerEvents");
-const { DiscordTogether } = require('discord-together')
-const { Player } = require('discord-player')
-const Enmap = require("enmap")
+const { DiscordTogether } = require('discord-together');
+const { Player } = require('discord-player');
+const Enmap = require("enmap");
 
 const client = new Client({
   allowedMentions: { parse: ["users", "roles"] },
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_WEBHOOKS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
-    Intents.FLAGS.GUILD_INVITES,
-    Intents.FLAGS.GUILD_BANS,
-    Intents.FLAGS.GUILD_PRESENCES,
-  ],
+  intents: 32767
 });
-const { checkValid } = require("./functions/validation/checkValid")
-const Embeds = require("./functions/embeds/Embeds")
-const Logger = require("./functions/Logger/Logger")
-const Util = require("./functions/util/Util")
+const { checkValid } = require("./functions/validation/checkValid");
+const Embeds = require("./functions/embeds/Embeds");
+const Logger = require("./functions/Logger/Logger");
+const Util = require("./functions/util/Util");
 
 client.discordTogether = new DiscordTogether(client);
 client.commands = new Collection();
@@ -54,8 +44,9 @@ const player = new Player(client, {
       }
     }
   },
-})
+});
 
+player.use("YOUTUBE_DL", require("@discord-player/downloader").Downloader);
 client.player = player;
 client.db = new Enmap({ name: "musicdb" });
 
@@ -96,7 +87,7 @@ process.on("unhandledRejection", (reason, promise) => {
 client.login(BOT_TOKEN).then(() => {
   console.log(
     chalk.bgBlueBright.black(
-      ` Successfully logged in as: ${client.user.username}#${client.user.discriminator} `
+      ` Successfully logged in as: ${client.user.tag}`
     )
   );
 });
