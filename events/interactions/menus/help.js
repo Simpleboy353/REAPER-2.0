@@ -94,7 +94,7 @@ module.exports = async(interaction, client) => {
               const nsfwEmbed = new Discord.MessageEmbed()
               .setTitle("NSFW Commands")
               .setDescription(
-                  "`4k`, `anal`, `ass`, `blowjob`, `boobs`, `cumsluts`, `erokemo`, `danbooru`, `kitsune`, `hentai`, `hentaiass`, `hentaithigh`, `gonewild`, `milf`, `feetgif`, `pussy`, `porngif`, `urban`, `thigh`, `lewd`"
+                  "`4k`, `anal`, `asian`, `ass`, `blowjob`, `boobs`, `cumsluts`, `erokemo`, `danbooru`, `kitsune`, `hentai`, `hentaiass`, `hentaithigh`, `gonewild`, `milf`, `feetgif`, `pussy`, `porngif`, `urban`, `thigh`, `lewd`"
               )
               .setColor("RANDOM");
 
