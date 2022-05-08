@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const got = require("got"); //MAKE SURE TO INSTALL THE PACKAGE "GOT" ELSE THE CODE WOULD NOT WORK
 
 module.exports = {
-  name: "ass",
+  name: "4k",
   category: "NSFW",
   description: "Sends 4k girl pics",
   usage: "[command]",
