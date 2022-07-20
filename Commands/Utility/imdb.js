@@ -16,7 +16,7 @@ module.exports = {
 
     let movie = await imob.get({ name: args.join(" ") });
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle(movie.Title)
       .setColor("RANDOM")
       .setThumbnail(movie.poster)

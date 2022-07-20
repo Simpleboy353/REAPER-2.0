@@ -1,5 +1,5 @@
 const discord = module.require("discord.js");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "kick",
@@ -30,7 +30,7 @@ module.exports = {
     let reason = args.slice(1).join(" ");
     if (!reason) reason = "-";
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setTitle("KICK MEMBER")
       .setColor("RANDOM")
       .setThumbnail(target.user.displayAvatarURL)

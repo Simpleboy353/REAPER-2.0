@@ -8,7 +8,7 @@ module.exports = {
 
     let start = Date.now();
 
-    let embed1 = new discord.MessageEmbed()
+    let embed1 = new discord.EmbedBuilder()
     .setDescription("Looks like the bot is slow.")
     .setColor("RANDOM")
 
@@ -17,7 +17,7 @@ module.exports = {
       })
         let end = Date.now();
 
-        let embed = new discord.MessageEmbed()
+        let embed = new discord.EmbedBuilder()
           .setTitle("Ping!")
           .addField("API Latency", `${Math.round(client.ws.ping)}ms`, true)
           .addField("Message Latency", `${end - start}ms`, true)

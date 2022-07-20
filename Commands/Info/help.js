@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu} = require("discord.js");
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder} = require("discord.js");
 
 module.exports = {
   name: "help",
@@ -22,17 +22,18 @@ module.exports = {
         let cooldown = cmd.cooldown ? cmd.cooldown : "No cooldown.";
         let isDisabled = cmd.isDisabled ? "Yes" : "No";
 
-        let helpEmbed = new MessageEmbed()
+        let helpEmbed = new EmbedBuilder()
         .setTitle(`Help for **${cmd.name}**`)
-        .addField("Name", `${cmd.name}`, true)
-        .addField("Description", `${description}`, true)
-        .addField("Aliases", `${aliases}`, true)
-        .addField("Owner Only", `${ownerOnly}`, true)
-        .addField("NSFW Only", `${nsfwOnly}`, true)
-        .addField("Cooldown", `${cooldown}`, true)
-        .addField("Disabled", `${isDisabled}`, true)
-        .addField("Required Bot Permissions", `${botPerms}`, true)
-        .addField("Required User Permissions", `${userPerms}`, true)
+        .addFields([
+          { name: "Name", value: `${cmd.name}`},
+          { name: "Description", value: `${description}`},
+          { name: "Aliases", value: `${aliases}`},
+          { name: "Owner Only", value: `${ownerOnly}`},
+          { name: "NSFW Only", value: `${nsfwOnly}`},
+          { name:"Cooldown", value:`${cooldown}`},
+          { name: "Required Bot Permissions", value: `${botPerms}`},
+          { name: "Required User Permissions", value: `${userPerms}`}
+        ])
         .setColor("GREEN")
 
         return message.channel.send({ embeds: [helpEmbed] })
@@ -40,9 +41,9 @@ module.exports = {
 
     } else if (!args[0]) {
 
-    let helpMenu = new MessageActionRow()
+    let helpMenu = new ActionRowBuilder()
     .addComponents(
-      new MessageSelectMenu()
+      new SelectMenuBuilder()
       .setCustomId("help_menu")
       .setPlaceholder('Help Menu')
       .setMinValues(1)
@@ -111,7 +112,7 @@ module.exports = {
       ])
     )
 
-    let editEmbed = new MessageEmbed()
+    let editEmbed = new EmbedBuilder()
     .setTitle('Help Menu')
     .setDescription('Choose an option from the menu below!')
     .setColor("GREEN")

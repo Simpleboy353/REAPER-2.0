@@ -1,5 +1,5 @@
 const userRepData = require("../../database/guildData/userRep")
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 
 module.exports = {
 	name: "check",
@@ -20,7 +20,7 @@ module.exports = {
 			UserID: user.id
 		}).catch(console.error);
 
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 		.setTitle(`${user.username}'s Reputation`)
 		.setColor("GREEN")
 		.setThumbnail(user.displayAvatarURL())

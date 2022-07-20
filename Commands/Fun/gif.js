@@ -20,7 +20,7 @@ module.exports = {
       let id = res.data[0].id;
       let msgurl = `https://media.giphy.com/media/${id}/giphy.gif`;
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.EmbedBuilder()
         .setTitle(`First result for \`${term}\` on GIPHY`)
         .setImage(msgurl)
         .setFooter(

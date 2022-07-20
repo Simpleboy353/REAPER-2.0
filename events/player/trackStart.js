@@ -1,4 +1,4 @@
-const { MessageEmbed , MessageActionRow, MessageButton } = require("discord.js");
+const { MessageEmbed , ButtonBuilder, ActionRowBuilder} = require("discord.js");
 const { QueueRepeatMode } = require('discord-player')
 
 module.exports = async(queue, track, client) => {
@@ -11,44 +11,44 @@ module.exports = async(queue, track, client) => {
   .setDescription(`[${track.title}](${track.url}) ~ [${track.requestedBy.toString()}]\n${queue.createProgressBar()}`)
   .setImage(`${track.thumbnail}`);
 
-  const playPause = new MessageButton()
+  const playPause = new ButtonBuilder()
   .setCustomId("playPause")
-  .setStyle("PRIMARY")
+  .setStyle(ButtonStyle.Primary)
   .setEmoji("⏯")
 
-  const skip = new MessageButton()
+  const skip = new ButtonBuilder()
   .setCustomId("skip")
-  .setStyle("PRIMARY")
+  .setStyle(ButtonStyle.Success)
   .setEmoji("⏭")
 
-  const repeatThis = new MessageButton()
+  const repeatThis = new ButtonBuilder()
   .setCustomId("repeatThis")
-  .setStyle("SUCCESS")
+  .setStyle(ButtonStyle.Success)
   .setEmoji("🔂")
 
-  const repeat = new MessageButton()
+  const repeat = new ButtonBuilder()
   .setCustomId("repeat")
-  .setStyle("SUCCESS")
+  .setStyle(ButtonStyle.Success)
   .setEmoji("🔁")
 
-  const stop = new MessageButton()
+  const stop = new ButtonBuilder()
   .setCustomId("stop")
-  .setStyle("DANGER")
+  .setStyle(ButtonStyle.Danger)
   .setEmoji("⏹")
 
-  const shuffle = new MessageButton()
+  const shuffle = new ButtonBuilder()
   .setCustomId("shuffle")
-  .setStyle("PRIMARY")
+  .setStyle(ButtonStyle.Primary)
   .setEmoji("🔀")
 
-  const volumeLess = new MessageButton()
+  const volumeLess = new ButtonBuilder()
   .setCustomId("volumeLess")
-  .setStyle("SECONDARY")
+  .setStyle(ButtonStyle.Secondary)
   .setEmoji("🔉")
 
-  const volumeMore = new MessageButton()
+  const volumeMore = new ButtonBuilder()
   .setCustomId("volumeMore")
-  .setStyle("SECONDARY")
+  .setStyle(ButtonStyle.Secondary)
   .setEmoji("🔊")
 
   // A row cannot have more than 4 components!

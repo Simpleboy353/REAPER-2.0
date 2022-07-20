@@ -9,7 +9,7 @@ module.exports = {
   botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
   run: async (client, message, args) => {
     let user = message.mentions.users.first() || message.author;
-    let embed = new discord.MessageEmbed()
+    let embed = new discord.EmbedBuilder()
       .setColor("RANDOM")
       .setTitle(`${user.username}'s Avatar`)
       .setDescription(

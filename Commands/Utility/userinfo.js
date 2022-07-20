@@ -48,7 +48,7 @@ module.exports = {
             "true": "Yes, The User is a Bot",
             "false": "No, The User is a Human"
         };
-        const userlol = new Discord.MessageEmbed()
+        const userlol = new Discord.EmbedBuilder()
         .setAuthor(`User Info`, mention.user.avatarURL())
         .setThumbnail(usericon)
         .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``)

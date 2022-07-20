@@ -32,7 +32,7 @@ module.exports = {
         color: toHex(args[0]),
       },
     });
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.EmbedBuilder()
       .setAuthor(
         `${message.author.username} - (${message.author.id})`,
         message.author.displayAvatarURL()

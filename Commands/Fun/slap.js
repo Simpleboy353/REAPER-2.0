@@ -8,7 +8,7 @@ module.exports = {
     if (!member) {
       return message.reply("You need to mention a user");
     }
-  const embed = new Discord.MessageEmbed()
+  const embed = new Discord.EmbedBuilder()
     .setTitle(message.author.name + " slapped :raised_back_of_hand: " +
           member.displayName +
           ", " +

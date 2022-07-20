@@ -24,7 +24,7 @@ module.exports = {
         async function work() {
         let owo = (await neko.nsfw.feetGif());
 
-        const cumslut = new Discord.MessageEmbed()
+        const cumslut = new Discord.EmbedBuilder()
         .setTitle("feetGif")
         .setImage(owo.url)
         .setColor(`#FF0000`)

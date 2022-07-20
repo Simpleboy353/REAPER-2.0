@@ -37,7 +37,7 @@ module.exports = {
           .catch((err) => console.log(err))
       );
 
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.EmbedBuilder()
       .setThumbnail(banMember.user.displayAvatarURL())
       .setColor("RANDOM")
       .addField("Moderation:", "SOFT BAN")

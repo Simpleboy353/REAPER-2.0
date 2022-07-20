@@ -14,7 +14,7 @@ module.exports = {
       return message.channel.send("Please type the Pokemon Name");
     }
     const link = `https://i.some-random-api.ml/pokemon/${name}.png`;
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle(`${name}`)
       .setImage(link)
       .setColor("RANDOM");

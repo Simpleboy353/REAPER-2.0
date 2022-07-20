@@ -10,7 +10,7 @@ module.exports = {
         if(!lang) return message.channel.send("Provide the ISO code of the language.")
         if(!txt) return message.channel.send("Provide a text to translate.")
         translate(txt, { to: lang }).then(res => {
-          const embed = new discord.MessageEmbed()
+          const embed = new discord.EmbedBuilder()
           .setDescription(res.text)
           .setColor("RANDOM")
           message.channel.send({ embeds: [embed] });

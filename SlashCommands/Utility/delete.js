@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'delete',
@@ -50,7 +50,7 @@ module.exports = {
 
             await deleteRole.delete()
 
-            const roleEmbed = new MessageEmbed()
+            const roleEmbed = new EmbedBuilder()
             .setTitle("Role Deleted")
             .setDescription(`
 Name: ${deleteRole.name}
@@ -78,7 +78,7 @@ Deleted By: ${interaction.member.user.username}`)
 
             await toBeDeletedChannel.delete();
 
-            const channelEmbed = new MessageEmbed()
+            const channelEmbed = new EmbedBuilder()
             .setTitle("Channel Deleted")
             .setDescription(`
 Name: ${toBeDeletedChannel.name}

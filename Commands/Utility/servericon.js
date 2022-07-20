@@ -6,7 +6,7 @@ module.exports = {
   botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
   run: async (client, message, args) => {
     const server = message.guild;
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle(`${message.guild.name}'s Icon`)
       .setDescription(
         `[Icon Link](${server.iconURL({

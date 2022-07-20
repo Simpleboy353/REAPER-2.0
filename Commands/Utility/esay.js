@@ -9,7 +9,7 @@ module.exports = {
     if (!msg) {
       return message.channel.send("Enter some text");
     }
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setDescription(`${msg}`)
       .setColor("RANDOM");
 

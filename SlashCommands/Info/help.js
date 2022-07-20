@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu} = require("discord.js");
+const { EmbedBuilder, MessageActionRow, MessageSelectMenu} = require("discord.js");
 
 module.exports = {
   name: "help",
@@ -29,7 +29,7 @@ module.exports = {
         let cooldown = cmd.cooldown ? cmd.cooldown : "No cooldown.";
         let isDisabled = cmd.isDisabled ? "Yes" : "No";
 
-        let helpEmbed = new MessageEmbed()
+        let helpEmbed = new EmbedBuilder()
         .setTitle(`Help for **${cmd.name}**`)
         .addField("Name", `${cmd.name}`, true)
         .addField("Description", `${description}`, true)
@@ -117,7 +117,7 @@ module.exports = {
       ])
     )
 
-    let helpEmbed = new MessageEmbed()
+    let helpEmbed = new EmbedBuilder()
     .setTitle('Help Menu')
     .setDescription('Choose an option from the menu below!')
     .setColor("GREEN")

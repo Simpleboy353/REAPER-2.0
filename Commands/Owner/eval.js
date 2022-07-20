@@ -1,6 +1,6 @@
 /**Use the command at your own risk!
  *We will not be responsible for the the negative outcomes, if anything wrong happens!*/
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const OWNER_ID = require("../../config.json").OWNER_ID;
 module.exports = {
   name: "eval",
@@ -20,7 +20,7 @@ module.exports = {
 
       if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
 
-      let embed = new MessageEmbed()
+      let embed = new EmbedBuilder()
         .setAuthor("Eval", message.author.avatarURL())
         .addField("Input", `\`\`\`${code}\`\`\``)
         .addField("Output", `\`\`\`${evaled}\`\`\``)

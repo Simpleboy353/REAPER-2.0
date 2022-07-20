@@ -28,7 +28,7 @@ module.exports = {
       return message.channel.send("You cannot Ban The Server Owner");
     }
 
-    let embed = new discord.MessageEmbed()
+    let embed = new discord.EmbedBuilder()
       .setTitle("Action : Ban")
       .setDescription(`Banned ${target} (${target.id})\nReason: ${reason}`)
       .setColor("#ff2050")

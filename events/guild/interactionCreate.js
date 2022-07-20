@@ -1,7 +1,7 @@
 module.exports = async(interaction, client) => {
     const { OwnerID } = require('../../config.json')
 
-    if (!interaction.isCommand()) return;
+    if (!interaction.type !== interaction.ApplicationCommand) return;
 
         const command = client.slash.get(interaction.commandName);
         if (!command) return interaction.reply({ content: 'an Erorr' });

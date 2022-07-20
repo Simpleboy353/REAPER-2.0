@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "dm",
@@ -15,7 +15,7 @@ module.exports = {
 
       if (!args[0]) {
       
-      let Embed89 = new MessageEmbed()
+      let Embed89 = new EmbedBuilder()
       .setDescription('your msg')
       .setTitle("**Syntax Helper - Command**")
       .setColor("#FBD570")
@@ -29,7 +29,7 @@ module.exports = {
 
       
       
-    if (!user) {let Embed172 = new MessageEmbed()
+    if (!user) {let Embed172 = new EmbedBuilder()
         .setDescription("Please mention a **Valid** user.")
         .setTitle("**Error - Impossible Action**")
         .setColor("#FF073A")
@@ -39,7 +39,7 @@ module.exports = {
         
     
 
-    if (!text){let Embed172 = new MessageEmbed()
+    if (!text){let Embed172 = new EmbedBuilder()
         .setDescription("Please enter a **Message**.")
         .setTitle("**Error - Impossible Action**")
         .setColor("#FBD570")
@@ -52,7 +52,7 @@ module.exports = {
    
      
     
-      let embed = new MessageEmbed()
+      let embed = new EmbedBuilder()
       .setTitle("**Dear User**")
       .setDescription(`${text}`)
       .setColor("#FBD570")

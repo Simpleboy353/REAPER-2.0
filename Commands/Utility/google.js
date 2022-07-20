@@ -11,7 +11,7 @@ module.exports = {
     if (!text2) {
       return message.channel.send("Enter some to search for");
     }
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setAuthor(
         "Google",
         `https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png`

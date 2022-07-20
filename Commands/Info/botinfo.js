@@ -19,7 +19,7 @@ module.exports = {
       .duration(client.uptime)
       .format(" D [days], H [hrs], m [mins], s [secs]");
 
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.EmbedBuilder()
       .setAuthor("REAPER-,2.0's Info", client.user.avatarURL())
       .setColor("RANDOM")
       .setDescription(

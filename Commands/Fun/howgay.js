@@ -10,7 +10,7 @@ module.exports = {
 
     let rng = Math.floor(Math.random() * 101);
 
-    const howgayembed = new Discord.MessageEmbed()
+    const howgayembed = new Discord.EmbedBuilder()
       .setTitle(`Gay Machine Calculator`)
       .setDescription(`${target.user.username} is ` + rng + "% Gay🌈")
       .setColor("GREEN");

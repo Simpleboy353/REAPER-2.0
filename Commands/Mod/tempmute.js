@@ -1,4 +1,4 @@
-const { MessageEmbed } = module.require("discord.js");
+const { EmbedBuilder } = module.require("discord.js");
 const ms = require("ms");
 const discord = require("discord.js");
 
@@ -40,14 +40,14 @@ module.exports = {
         "With what reason are you going to tempmute?:"
       );
     }
-    const mtembde = new MessageEmbed()
+    const mtembde = new EmbedBuilder()
       .setTitle("Action: Tempmute")
       .setColor("RANDOM")
       .addField("User:", user)
       .addField("Reason", reason)
       .addField("Moderator:", message.member.displayName)
       .addField("Time", time, true);
-    const mtuembde = new MessageEmbed()
+    const mtuembde = new EmbedBuilder()
       .setTitle("YOU HAVE BEEN MUTED!!")
       .setColor("RANDOM")
       .addField("Reason", reason)

@@ -1,5 +1,5 @@
 const rep = require("../../database/guildData/userRep")
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "rep",

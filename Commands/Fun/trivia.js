@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 let questions = [
   {
     title: "Best programming language",
@@ -27,7 +27,7 @@ module.exports = {
   run: async (client, message, args) => {
     let q = questions[Math.floor(Math.random() * questions.length)];
     let i = 0;
-    const Embed = new MessageEmbed()
+    const Embed = new EmbedBuilder()
       .setTitle(q.title)
       .setDescription(
         q.options.map((opt) => {

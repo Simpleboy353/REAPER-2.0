@@ -11,7 +11,7 @@ module.exports = {
       return message.channel.send("You need to enter some text to search for");
     }
     const link = `https://www.wikipedia.org/w/index.php?search=${search}&ns0=1`;
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("Wikipedia Search")
       .addField(`You Searched for:`, `${msg}`)
       .addField(`Results:`, `[Here's What I found](${link})`)

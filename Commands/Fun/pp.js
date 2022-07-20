@@ -12,7 +12,7 @@ module.exports = {
     const ppSize = Math.floor(Math.random() * 10);
 
     ppSize = ppSize * "=";
-    const ppSizeEmbed = new Discord.MessageEmbed()
+    const ppSizeEmbed = new Discord.EmbedBuilder()
       .setTitle(`Gay Machine Calculator`)
       .setDescription(`${target.username}'s pp: 8` + ppSize + "D")
       .setColor("BLUE");

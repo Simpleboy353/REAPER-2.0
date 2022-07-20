@@ -8,7 +8,7 @@ module.exports = {
   botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
   run: async (client, message, args) => {
     if (cooldown.has(message.author.id)) {
-      let cooldownemb = new Discord.MessageEmbed()
+      let cooldownemb = new Discord.EmbedBuilder()
         .setAuthor(
           `${message.author.username} Cooldown..`,
           message.author.displayAvatarURL
@@ -41,7 +41,7 @@ module.exports = {
     if (meow.length > 1) {
       return message.reply("Only one thing can be made illegal at a time");
     }
-    const emb = new Discord.MessageEmbed();
+    const emb = new Discord.EmbedBuilder();
     emb.setAuthor(
       "Trump has now made " + meow + " illegal!",
       "http://blog.adsy.me/wp-content/uploads/2016/11/angry-side-face-trump-transparent.png"

@@ -12,7 +12,7 @@ module.exports = {
     if (!pll) {
       return message.channel.send("Enter some text for the Poll");
     }
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.EmbedBuilder()
       .setTitle("Poll Time")
       .setDescription(`${pll}`)
       .setFooter(`Started by ${message.author.username}`)

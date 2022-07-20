@@ -23,7 +23,7 @@ module.exports = {
           let content = JSON.parse(response.body);
           var title = content[0].data.children[0].data.title;
           var amazeme = content[0].data.children[0].data.url;
-          let wow = new discord.MessageEmbed()
+          let wow = new discord.EmbedBuilder()
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
             .setFooter(`Analator go brr brr...`)

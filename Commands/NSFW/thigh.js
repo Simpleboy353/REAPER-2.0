@@ -17,7 +17,7 @@ module.exports = {
     }
 
     const image = await nsfw.thigh();
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
     .setTitle(`Thigh`)
     .setColor("GREEN")
     .setImage(image);

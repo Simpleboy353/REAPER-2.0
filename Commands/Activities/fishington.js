@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
     name: "fishington",
@@ -10,7 +10,7 @@ module.exports = {
       }
         client.discordTogether.createTogetherCode(message.member.voice.channelId, 'fishington').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Fishington.io")
             .setDescription(`[Click Here](${invite.code}) to play Poker!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")

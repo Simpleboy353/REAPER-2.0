@@ -12,7 +12,7 @@ module.exports = {
         null: ["SEND_MESSAGES"],
       },
     ]);
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("Channel Updates")
       .setDescription(`🔓 ${message.channel}  has been Unlocked`)
       .setColor("RANDOM");

@@ -1,4 +1,4 @@
-const { MessageEmbed } = module.require('discord.js');
+const { EmbedBuilder } = module.require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {

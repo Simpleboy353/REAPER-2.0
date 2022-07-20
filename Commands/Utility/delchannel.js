@@ -12,7 +12,7 @@ module.exports = {
     }
     fetchedChannel.delete();
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("Channel Updates")
       .setDescription("Channel has been deleted")
       .setColor("RANDOM");

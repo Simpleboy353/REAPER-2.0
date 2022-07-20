@@ -13,7 +13,7 @@ run: async (client, message, args) => {
 
         malScraper.getInfoFromName(search)
           .then((data) => {
-          const malEmbed = new Discord.MessageEmbed()
+          const malEmbed = new Discord.EmbedBuilder()
             .setAuthor(`My Anime List search result for ${args}`.split(',').join(' '))
             .setThumbnail(data.picture)
             .setColor('#ffc1cc') //I personally use bubblegum pink!

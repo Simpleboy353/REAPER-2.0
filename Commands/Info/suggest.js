@@ -14,7 +14,7 @@ module.exports = {
     message.channel.send(
       "Thanks for Suggesting Features for Infinity. Our Mod team will inform you if your Suggestion is accepted or not!"
     );
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setAuthor(`New Suggestion!`, avatar)
       .setDescription(`${suggestion} \n\nBy: ${message.author.tag}`)
       .setFooter(`ID: ${message.author.id}`)

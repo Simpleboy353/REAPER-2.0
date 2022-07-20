@@ -16,14 +16,14 @@ module.exports = {
     ];
     var image = Math.floor(Math.random() * images.length);
     if (!member) return message.channel.send("you need to mention someone");
-    let HugEmbed = new Discord.MessageEmbed()
+    let HugEmbed = new Discord.EmbedBuilder()
       .setTitle(
         `${message.author.username} you can't hug yourself but come here I'll hug you`
       )
       .setImage(String([images[image]]))
       .setColor(0xf000ff);
     if (member.id === message.author.id) return message.channel.send(HugEmbed);
-    let HugEmbed2 = new Discord.MessageEmbed()
+    let HugEmbed2 = new Discord.EmbedBuilder()
       .setTitle(
         `${message.author.username} hugs ${member.user.username}, how cute`
       )

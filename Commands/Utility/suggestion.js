@@ -22,7 +22,7 @@ module.exports = {
       `${message.author}, Your Suggestion has been submitted!`
     );
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("New Suggestion")
       .setDescription(`${msg}`)
       .setFooter(`Suggested by ${message.author.tag}`)

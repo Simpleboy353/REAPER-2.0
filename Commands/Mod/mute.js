@@ -1,4 +1,4 @@
-const { Client, Message, MessageEmbed } = require('discord.js');
+const { Client, Message, EmbedBuilder } = require('discord.js');
 const ms = require('ms')
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
                     })
                 });
                 message.channel.send(
-                    new MessageEmbed()
+                    new EmbedBuilder()
                     .setDescription('Muted role has sucessfully been created')
                     .setColor("GREEN")
                 )

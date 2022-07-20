@@ -37,7 +37,7 @@ module.exports = {
       .then(booru.commonfy)
       .then((images) => {
         for (let image of images) {
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.EmbedBuilder()
             .setTitle("Danbooru:")
             .setImage(image.common.file_url)
             .setColor("#FF0000")

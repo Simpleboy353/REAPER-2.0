@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { parse } = require("twemoji-parser");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const Color = `#ffffff`;
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
         customemoji.animated ? "gif" : "png"
       }`;
 
-      const Added = new MessageEmbed()
+      const Added = new EmbedBuilder()
         .setAuthor(`Enlarged Emoji`, authoravatar)
         .setColor(`${Color}`)
         .setDescription(`\`${customemoji.name}\` \`${customemoji.id}\``)

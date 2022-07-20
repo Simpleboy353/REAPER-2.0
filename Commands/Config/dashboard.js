@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 
 module.exports = {
     name: "dashboard",
@@ -10,9 +10,9 @@ module.exports = {
             return message.channel.send(`Please specify an option! Available Options:\`\`\`js\nadmin\nwelcomer\nlogging\n\`\`\``);
         }
         if (args[0] === "admin") {
-            const adminMenu = new MessageActionRow()
+            const adminMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                 .setCustomId("adminMenu")
                 .setPlaceholder("Admin Menu")
                 .setMinValues(1)
@@ -44,9 +44,9 @@ module.exports = {
             return message.channel.send({ content: "Admin Settings", components: [adminMenu]})
 
         } else if (args[0] === "welcomer") {
-            const welcomerMenu = new MessageActionRow()
+            const welcomerMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                 .setCustomId("welcomerMenu")
                 .setPlaceholder("Welcomer Menu")
                 .setMinValues(1)
@@ -83,9 +83,9 @@ module.exports = {
             return message.channel.send({ content: "Welcomer Settings" ,components: [welcomerMenu]})
 
         } else if (args[0] === "logging") {
-            const loggingMenu = new MessageActionRow()
+            const loggingMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                 .setCustomId("loggingMenu")
                 .setPlaceholder("Logging Menu")
                 .setMinValues(1)

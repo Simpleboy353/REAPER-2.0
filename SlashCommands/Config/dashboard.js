@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 
 module.exports = {
     name: "dashboard",
@@ -26,9 +26,9 @@ module.exports = {
             if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.member.id).permissions.has("ADMINISTRATOR")) {
                 return interaction.reply("Missing Permissions")
             }
-            const adminMenu = new MessageActionRow()
+            const adminMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                 .setCustomId("adminMenu")
                 .setPlaceholder("Admin Menu")
                 .setMinValues(1)
@@ -68,9 +68,9 @@ module.exports = {
             if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.member.id).permissions.has("MANAGE_GUILD")) {
                 return interaction.reply("Missing Permissions")
             }
-            const welcomerMenu = new MessageActionRow()
+            const welcomerMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                 .setCustomId("welcomerMenu")
                 .setPlaceholder("Welcomer Menu")
                 .setMinValues(1)
@@ -110,9 +110,9 @@ module.exports = {
             if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.member.id).permissions.has("MANAGE_GUILD")) {
                 return interaction.reply("Missing Permissions")
             }
-            const loggingMenu = new MessageActionRow()
+            const loggingMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                 .setCustomId("loggingMenu")
                 .setPlaceholder("Logging Menu")
                 .setMinValues(1)

@@ -12,7 +12,7 @@ module.exports = {
       return message.channel.send("`Usage: =delrole <role>`");
     }
     role.delete();
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("Roles Update")
       .setDescription(`${role} role has been deleted`)
       .setColor("RANDOM");

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
     name: "activity",
@@ -73,7 +73,7 @@ module.exports = {
 
         client.discordTogether.createTogetherCode(member.voice.channelId, 'youtube').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Youtube Together")
             .setDescription(`[Click Here](${invite.code}) to access Youtube Together!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("RED")
@@ -89,7 +89,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'awkword').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Awkword.io")
             .setDescription(`[Click Here](${invite.code}) to play Awkword.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -105,7 +105,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'chessDev').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Chess.io")
             .setDescription(`[Click Here](${invite.code}) to play Chess.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -121,7 +121,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'betrayal').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Betrayal.io")
             .setDescription(`[Click Here](${invite.code}) to play Betrayal.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -137,7 +137,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'doodlecrew').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Doodle Crew")
             .setDescription(`[Click Here](${invite.code}) to play Doodle Crew!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -154,7 +154,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'fishington').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Fishington.io")
             .setDescription(`[Click Here](${invite.code}) to play Fishington.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -170,7 +170,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'lettertile').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Lettertile.io")
             .setDescription(`[Click Here](${invite.code}) to play Lettertile.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -187,7 +187,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'poker').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Poker.io")
             .setDescription(`[Click Here](${invite.code}) to play Poker.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -203,7 +203,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'spellcast').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Spellcast.io")
             .setDescription(`[Click Here](${invite.code}) to play Spellcast.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -219,7 +219,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'checkers').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Checkers")
             .setDescription(`[Click Here](${invite.code}) to play Checkers!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -235,7 +235,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'puttparty').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Puttparty")
             .setDescription(`[Click Here](${invite.code}) to play Puttparty!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")
@@ -251,7 +251,7 @@ module.exports = {
           }
         client.discordTogether.createTogetherCode(interaction.member.voice.channelId, 'wordsnack').then(async(invite) => {
             
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setTitle("Wordsnack")
             .setDescription(`[Click Here](${invite.code}) to play Wordsnack!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("GREEN")

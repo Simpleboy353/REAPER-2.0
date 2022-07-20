@@ -1,5 +1,5 @@
 const { bgYellowBright } = require("chalk");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "filter",
@@ -368,7 +368,7 @@ module.exports = {
 
     } else if (interaction.options.getSubcommand() === "list") {
 
-      let listEmbed = new MessageEmbed()
+      let listEmbed = new EmbedBuilder()
       .setTitle("Music Filters")
       .setDescription("`8d`, `bassboost`, `compressor`, `dim`, `expander`, `flanger`, `gate`, `haas`, `karaoke`, `mcomoand`, `mono`, `mstlr`, `mstrr`, `nightcore`, `phaser`, `pulsator`, `reverse`, `softlimiter`, `subboost`, `surrounding`, `treble`, `tremolo`, `vaporwave`, `vibrato`")
       .setColor("BLUE")

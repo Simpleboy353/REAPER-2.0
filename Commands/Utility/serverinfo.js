@@ -38,7 +38,7 @@ module.exports = {
       southafrica: "South Africa",
       india: "India",
     };
-    const serverembed = new Discord.MessageEmbed()
+    const serverembed = new Discord.EmbedBuilder()
       .setAuthor(`${message.guild.name}`, message.guild.iconURL())
       .setThumbnail(servericon)
       .addField(

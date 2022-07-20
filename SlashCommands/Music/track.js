@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const { QueueRepeatMode } = require('discord-player');
 const { waitForDebugger } = require('inspector');
 
@@ -277,7 +277,7 @@ module.exports = {
     try {
       if (!queue.connection) { 
         await queue.connect(channel);
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
       .setAuthor("REAPER MUSIC", client.user.displayAvatarURL())
       .setDescription(`👍 Joined ${queue.connection.channel.toString()} and 📄 bound to ${queue.metadata.channel.toString()}`)
       .setColor(queue.guild.me.displayColor || "#00FFFF");
@@ -342,7 +342,7 @@ module.exports = {
               song = queue.tracks[songNum]
             }
         
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
               .setColor(interaction.guild.me.displayColor || "#00FFFF")
               .setTitle(`${song.title}`)
               .setURL(`${song.url}`)

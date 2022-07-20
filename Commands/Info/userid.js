@@ -7,7 +7,7 @@ module.exports = {
     var mention = message.guild.member(message.mentions.users.first());
     if (!mention) return message.channel.send("Mention a user to get their ID");
     const lolicon = mention.user.avatarURL;
-    const lolid = new Discord.MessageEmbed()
+    const lolid = new Discord.EmbedBuilder()
       .setThumbnail(mention.user.avatarURL)
       .setColor("RANDOM")
       .setTitle("Here is " + `${mention.user.username}\'s ID`)

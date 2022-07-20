@@ -5,7 +5,7 @@ module.exports = {
   description: "Get the bot's",
   botPerms: ["EMBED_LINKS"],
   run: async (client, message, args) => {
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.EmbedBuilder()
       .setTitle("Invite Me")
       .setColor("RANDOM")
       .setDescription(

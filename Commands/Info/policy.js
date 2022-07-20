@@ -6,7 +6,7 @@ module.exports = {
   botPerms: ["EMBED_LINKS"],
   run: async (client, message, args) => {
     const icon = client.user.avatarURL;
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.EmbedBuilder()
       .setTitle("INFINITY BOT PRIVACY POLICY")
       .setThumbnail(icon)
       .setDescription("By using the bot you agree to our privacy policy")
