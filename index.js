@@ -57,7 +57,7 @@ checkValid();
 
 // Error Handling
 
-/**process.on("uncaughtException", (err) => {
+process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
 
   const exceptionembed = new EmbedBuilder()
@@ -65,7 +65,7 @@ checkValid();
   .setDescription(`${err}`)
   .setColor("Red")
   client.channels.cache.get(ERROR_LOGS_CHANNEL).send({ embeds: [exceptionembed] })
-});*/
+});
 
 process.on("unhandledRejection", (reason, promise) => {
   console.log(

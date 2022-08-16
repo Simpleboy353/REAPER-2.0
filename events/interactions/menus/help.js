@@ -9,6 +9,8 @@ module.exports = async(interaction, client) => {
 
         if (interaction.values[0] === "settings") {
 
+          await interaction.deferUpdate();
+
             const settingsEmbed = new Discord.EmbedBuilder()
         .setTitle("Config Commands")
         .setDescription(
@@ -19,6 +21,8 @@ module.exports = async(interaction, client) => {
       await msg.edit({ embeds: [settingsEmbed] });
 
         } else if (interaction.values[0] === "fun") {
+
+          await interaction.deferUpdate();
 
             const funEmbed = new Discord.EmbedBuilder()
         .setTitle("Fun Commands")
@@ -31,6 +35,8 @@ module.exports = async(interaction, client) => {
 
         } else if (interaction.values[0] === "image") {
 
+          await interaction.deferUpdate();
+
             const imageEmbed = new Discord.EmbedBuilder()
             .setColor("Random")
             .setTitle("Image Commands")
@@ -41,6 +47,8 @@ module.exports = async(interaction, client) => {
             await msg.edit({ embeds: [imageEmbed]})
 
             } else if (interaction.values[0] === "music") {
+
+              await interaction.deferUpdate();
  
          const musicEmbed = new Discord.EmbedBuilder()
          .setTitle(`Music Commands`)
@@ -50,6 +58,8 @@ module.exports = async(interaction, client) => {
          await msg.edit({ embeds: [musicEmbed] })
 
         } else if (interaction.values[0] === "info") {
+
+          await interaction.deferUpdate();
 
             const infoEmbed = new Discord.EmbedBuilder()
         .setTitle("Info Commands")
@@ -62,6 +72,8 @@ module.exports = async(interaction, client) => {
 
         } else if (interaction.values[0] === "moderation") {
 
+          await interaction.deferUpdate();
+
             const modEmbed = new Discord.EmbedBuilder()
             .setTitle("Moderation Commands")
             .setDescription(
@@ -72,6 +84,8 @@ module.exports = async(interaction, client) => {
             await msg.edit({ embeds: [modEmbed] })
 
         } else if (interaction.values[0] === "nsfw") {
+
+          await interaction.deferUpdate();
 
             if (!interaction.channel.nsfw) {
               const denyEmbed = new Discord.EmbedBuilder()
@@ -92,6 +106,8 @@ module.exports = async(interaction, client) => {
 
         } else if (interaction.values[0] === "utility") {
 
+          await interaction.deferUpdate();
+
             const utilityEmbed = new Discord.EmbedBuilder()
         .setTitle("Utility Commands")
         .setDescription(
@@ -103,6 +119,8 @@ module.exports = async(interaction, client) => {
 
       } else if (interaction.values[0] === "game") {
 
+        await interaction.deferUpdate();
+
           const gameEmbed = new Discord.EmbedBuilder()
         .setTitle("Game Commands")
         .setDescription(
@@ -112,6 +130,8 @@ module.exports = async(interaction, client) => {
 
         await msg.edit({ embeds: [gameEmbed] })
       } else if (interaction.values[0] === "activities") {
+
+        await interaction.deferUpdate();
             
         const activityEmbed = new Discord.EmbedBuilder()
         .setTitle("Activity Commands")

@@ -3,7 +3,7 @@ const { InteractionType } = require("discord.js");
 module.exports = async(interaction, client) => {
     const { OwnerID } = require('../../config.json')
 
-    if (!interaction.type === InteractionType.ApplicationCommand) return;
+    if (interaction.type !== InteractionType.ApplicationCommand) return;
 
         const command = client.slash.get(interaction.commandName);
         if (!command) return interaction.reply({ content: 'an Erorr' });
