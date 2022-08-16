@@ -14,6 +14,7 @@
 ## Requirements
 - Discord.js v14 (`npm install discord.js@latest`)
 - `applications.commands` scope enabled for your bot in Developer Portal (For Slash Cmds).
+- `MESSAGE_CONTENT`, `GUILD_MEMBERS` intents enabled in Developer Portal (`GUILD_PRESENCES` is optional)
 - NodeJS v16.9.0 or higher
 - Basic knowledge of JS or Discord.JS
 
