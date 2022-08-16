@@ -46,7 +46,7 @@
     "fs": "0.0.1-security",
     "giphy-api": "^2.0.1",
     "google-play-scraper": "^8.0.2",
-    "got": "^11.5.1",
+    "got": "^11.8.5",
     "imdb-api": "^4.2.0",
     "jimp": "^0.16.0",
     "mal-scraper": "^2.11.3",
