@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "wiki",
   description: "Get Search Results from Wikipedia",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const search = args.join("_");
     const msg = args.join(" ");
@@ -15,7 +15,7 @@ module.exports = {
       .setTitle("Wikipedia Search")
       .addField(`You Searched for:`, `${msg}`)
       .addField(`Results:`, `[Here's What I found](${link})`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     message.channel.send({ embeds: [embed] });
   },

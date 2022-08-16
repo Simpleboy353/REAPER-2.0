@@ -42,7 +42,7 @@ module.exports = {
                 message.channel.send(
                     new EmbedBuilder()
                     .setDescription('Muted role has sucessfully been created')
-                    .setColor("GREEN")
+                    .setColor("Green")
                 )
             } catch (error) {
                 console.log(error)

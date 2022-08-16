@@ -6,11 +6,11 @@ module.exports = {
   category: "Utility",
   usage: "avatar/avatar @user",
   description: "Gives avatar for message author or mentioned user.",
-  botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
+  botPerms: ["EmbedLinks", "ManageMessages"],
   run: async (client, message, args) => {
     let user = message.mentions.users.first() || message.author;
     let embed = new discord.EmbedBuilder()
-      .setColor("RANDOM")
+      .setColor("Random")
       .setTitle(`${user.username}'s Avatar`)
       .setDescription(
         `[Avatar Link](${user.displayAvatarURL({

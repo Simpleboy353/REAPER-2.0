@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "wideavatar",
   description: "Get a  widened avatar of a user",
-  botPerms: ["ATTTACH_FILES"],
+  botPerms: ["AttachFiles"],
   run: async (client, message, args) => {
     const mention = message.mentions.members.first() || message.member;
     const avatar = mention.user.displayAvatarURL({

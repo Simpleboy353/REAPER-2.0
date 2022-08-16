@@ -1,5 +1,5 @@
 const { bgYellowBright } = require("chalk");
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
   name: "filter",
@@ -9,21 +9,21 @@ module.exports = {
   options: [
     {
     name: "apply",
-    type: "SUB_COMMAND",
+    type: ApplicationCommandOptionType.Subcommand,
     description: "Apply filters to music!",
     options: [
       {
         name: "filter",
         description: "The filter to apply!",
-        type: "STRING",
         required: true,
+        type: ApplicationCommandOptionType.String,
       }
     ]
   },
   {
     name: "list",
     description: "List of all the available filters",
-    type: "SUB_COMMAND"
+    type: ApplicationCommandOptionType.Subcommand
   }
   ],
   run: async(client, interaction, args) => {

@@ -18,7 +18,7 @@ module.exports = async(interaction, client)=>{
             
             const filter = (m) => m.author.id === interaction.member.id
 
-            const collector = await interaction.channel.createMessageCollector({ filter, time: 60000 })
+            const collector = await interaction.channel.createMessageCollector({ filter, time: 60_000 })
 
             collector.on("collect", async(collected) => {
 

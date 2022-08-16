@@ -6,7 +6,7 @@ module.exports = {
   category: "NSFW",
   description: "Sends anal porn pics",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     try {
       //command
@@ -18,7 +18,7 @@ module.exports = {
           setTimeout(() => msg.delete(), 3000);
         });
       }
-      got("https://www.reddit.com/r/anal/random.json")
+      got("https://www.reddit.com/r/anal/Random.json")
         .then((response) => {
           let content = JSON.parse(response.body);
           var title = content[0].data.children[0].data.title;
@@ -27,7 +27,7 @@ module.exports = {
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
             .setFooter(`Analator go brr brr...`)
-            .setColor("RANDOM");
+            .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })
         .catch(console.error);

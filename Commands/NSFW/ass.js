@@ -6,7 +6,7 @@ module.exports = {
   category: "NSFW",
   description: "Sends 4k girl pics",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     try {
       //command
@@ -20,14 +20,15 @@ module.exports = {
       }
       got("https://www.reddit.com/r/Asshole/random.json")
         .then((response) => {
-          let content = JSON.parse(response.body);
+          let conte
+          nt = JSON.parse(response.body);
           var title = content[0].data.children[0].data.title;
           var amazeme = content[0].data.children[0].data.url;
           let wow = new discord.EmbedBuilder()
             .setDescription(`**${title}**`)
             .setImage(amazeme)
             .setFooter(`Nice `)
-            .setColor("RANDOM");
+            .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })
         .catch(console.error);

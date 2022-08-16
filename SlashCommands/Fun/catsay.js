@@ -1,4 +1,4 @@
-const Discord = module.require("discord.js");
+const { ApplicationCommandOptionType } = require("discord.js");
 module.exports = {
 name: "catsay",
     description: "Make The Cat say thing of your choice",
@@ -6,8 +6,8 @@ name: "catsay",
         {
             name: "text",
             description: "the text",
-            type: "STRING",
-            required: true
+            required: true,
+            type: ApplicationCommandOptionType.String,
         }
     ],
   run: async (client, interaction, args) => {

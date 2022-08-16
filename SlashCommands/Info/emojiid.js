@@ -1,4 +1,4 @@
-const Discord = module.require("discord.js");
+const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
   name: "emoji",
@@ -7,7 +7,8 @@ module.exports = {
       {
         name: "name",
         description: "Emoji to get ID of",
-        type: 'STRING',
+        required: true,
+        type: ApplicationCommandOptionType.String,
       }
   ],
   run: async (client, interaction, args) => {

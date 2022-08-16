@@ -3,8 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "newtext",
   description: "Create text Channels in your Server",
-  userPerms: ["MANAGE_CHANNELS"],
-  botPerms: ["EMBED_LINKS", "MANAGE_CHANNELS"],
+  userPerms: ["ManageChannels"],
+  botPerms: ["EmbedLinks", "ManageChannels"],
   run: async (client, message, args) => {
     if (!args[0]) {
       return message.channel.send("Please mention the name for the Channel");
@@ -14,7 +14,7 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
       .setTitle("Channel Updates")
       .setDescription(`Channel has been created`)
-      .setColor("RANDOM");
+      .setColor("Random");
     message.channel.send({ embeds: [embed] });
   },
 };

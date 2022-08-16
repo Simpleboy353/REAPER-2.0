@@ -3,8 +3,8 @@ const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.j
 module.exports = {
     name: "dashboard",
     description: "View the dashboard for the required category.",
-    botPerms: ["MANAGE_GUILD"],
-    userPerms: ["ADMINISITRATOR"],
+    botPerms: ["ManageGuild"],
+    userPerms: ["Administrator"],
     run: async(client, message, args)=>{
         if (!args[0]){
             return message.channel.send(`Please specify an option! Available Options:\`\`\`js\nadmin\nwelcomer\nlogging\n\`\`\``);

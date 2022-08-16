@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: "giverole",
   description: "Give roles to users",
-  userPerms: ["MANAGE_ROLES"],
-  botPerms: ["EMBED_LINKS", "MANAGE_ROLES"],
+  userPerms: ["ManageRoles"],
+  botPerms: ["EmbedLinks", "ManageRoles"],
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
     if (!user)

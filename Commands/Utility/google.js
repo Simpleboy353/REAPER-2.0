@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "google",
   description: "Search anything on google",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const text1 = args.join(" ");
     const text2 = args.join("+");
@@ -23,7 +23,7 @@ module.exports = {
         `**Searched for: **\n${text1} \n\n**Result: **\n[Here's What I found](https://google.com/search?q=${text2})`
       )
       .setThumbnail(google)
-      .setColor("RANDOM");
+      .setColor("Random");
     message.channel.send({ embeds: [embed] });
   },
 };

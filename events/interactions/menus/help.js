@@ -8,35 +8,31 @@ module.exports = async(interaction, client) => {
         let msg = await interaction.channel.messages.fetch(interaction.message.id)
 
         if (interaction.values[0] === "settings") {
-            await interaction.deferUpdate()
 
-            const settingsEmbed = new Discord.MessageEmbed()
+            const settingsEmbed = new Discord.EmbedBuilder()
         .setTitle("Config Commands")
         .setDescription(
           "`autorole`, `antilink`, `joinchannel`, `joinmessage`, `leavechannel`, `leavemessage` `prefix`"
         )
-        .setColor("RANDOM");
+        .setColor("Random");
 
       await msg.edit({ embeds: [settingsEmbed] });
 
         } else if (interaction.values[0] === "fun") {
-            await interaction.deferUpdate()
 
-            const funEmbed = new Discord.MessageEmbed()
+            const funEmbed = new Discord.EmbedBuilder()
         .setTitle("Fun Commands")
         .setDescription(
           "`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`"
         )
-        .setColor("RANDOM");
+        .setColor("Random");
 
         await msg.edit({ embeds: [funEmbed] });
 
         } else if (interaction.values[0] === "image") {
 
-            await interaction.deferUpdate()
-
-            const imageEmbed = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            const imageEmbed = new Discord.EmbedBuilder()
+            .setColor("Random")
             .setTitle("Image Commands")
             .setDescription(
               "`afraid`, `alert`, `amazeme`, `biden`,`changemymind`, `clyde`, `cryingfloor`, `disastergirl`, `dockofshame`, `doge`, `drake`, `facepalm`, `feelsgood`, `illegal`, `keanu`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
@@ -46,9 +42,7 @@ module.exports = async(interaction, client) => {
 
             } else if (interaction.values[0] === "music") {
  
-         await interaction.deferUpdate();
- 
-         const musicEmbed = new Discord.MessageEmbed()
+         const musicEmbed = new Discord.EmbedBuilder()
          .setTitle(`Music Commands`)
          .setDescription("`clearqueue`, `filter`, `filter list`, `info`, `jump`, `loop`, `lyrics`, `move`, `mute`, `pause`, `play`, `previoustrack`, `queue`, `remove`, `resume`, `unmute`, `volume`, `youtube`\n\n```Note: Music commands work only with slash commands!```")
          .setColor("BLUE")
@@ -57,81 +51,74 @@ module.exports = async(interaction, client) => {
 
         } else if (interaction.values[0] === "info") {
 
-            await interaction.deferUpdate()
-
-            const infoEmbed = new Discord.MessageEmbed()
+            const infoEmbed = new Discord.EmbedBuilder()
         .setTitle("Info Commands")
         .setDescription(
           "`botinfo`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`"
         )
-        .setColor("RANDOM");
+        .setColor("Random");
 
         await msg.edit({ embeds: [infoEmbed] })
 
         } else if (interaction.values[0] === "moderation") {
-            await interaction.deferUpdate()
 
-            const modEmbed = new Discord.MessageEmbed()
+            const modEmbed = new Discord.EmbedBuilder()
             .setTitle("Moderation Commands")
             .setDescription(
               "`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`"
             )
-            .setColor("RANDOM");
+            .setColor("Random");
 
             await msg.edit({ embeds: [modEmbed] })
 
         } else if (interaction.values[0] === "nsfw") {
-            await interaction.deferUpdate()
 
             if (!interaction.channel.nsfw) {
-              const denyEmbed = new Discord.MessageEmbed()
+              const denyEmbed = new Discord.EmbedBuilder()
               .setDescription("You can view NSFW commands only in a NSFW channel!")
               .setColor("RED")
 
               return msg.edit({ embeds: [denyEmbed] })
             }
 
-              const nsfwEmbed = new Discord.MessageEmbed()
+              const nsfwEmbed = new Discord.EmbedBuilder()
               .setTitle("NSFW Commands")
               .setDescription(
                   "`4k`, `anal`,`asian`, `ass`, `blowjob`, `boobs`, `cumsluts`, `erokemo`, `danbooru`, `kitsune`, `hentai`, `hentaiass`, `hentaithigh`, `gonewild`, `milf`, `feetgif`, `pussy`, `porngif`, `urban`, `thigh`, `lewd`"
               )
-              .setColor("RANDOM");
+              .setColor("Random");
 
               await msg.edit({ embeds: [nsfwEmbed] })
 
         } else if (interaction.values[0] === "utility") {
-            await interaction.deferUpdate()
 
-            const utilityEmbed = new Discord.MessageEmbed()
+            const utilityEmbed = new Discord.EmbedBuilder()
         .setTitle("Utility Commands")
         .setDescription(
           "`avatar`, `animesearch`, `announce`, `calculator`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `translate`, `unlock`, `weather`, `wiki`"
         )
-        .setColor("RANDOM");
+        .setColor("Random");
 
         await msg.edit({ embeds: [utilityEmbed] })
 
       } else if (interaction.values[0] === "game") {
-            await interaction.deferUpdate()
 
-          const gameEmbed = new Discord.MessageEmbed()
+          const gameEmbed = new Discord.EmbedBuilder()
         .setTitle("Game Commands")
         .setDescription(
-          "`connect4`, `catchthefish`, `chaoswords`, `fasttype`, `fight`, `football`, `gunfight`, `guessthenumber`, `guessthepokemon`, `lieswatter`, `neverhaveiever`, `quickclick`, `rps`, `shuffleguess`, `snake`, `trivia`, `ttt`"
+          "`catchthefish`, `football`, `gunfight`"
         )
-        .setColor("RANDOM");
+        .setColor("Random");
 
         await msg.edit({ embeds: [gameEmbed] })
       } else if (interaction.values[0] === "activities") {
-            await interaction.deferUpdate()
             
-        const activityEmbed = new Discord.MessageEmbed()
+        const activityEmbed = new Discord.EmbedBuilder()
         .setTitle("Activity Commands")
         .setDescription(
           "`awkword`, `betrayal`, `chess`, `doodlecrew`, `fishington`, `lettertile`, `poker`, `spellcast`, `youtube`"
         )
-        .setColor("RANDOM")
+        .setColor("Random")
 
         await msg.edit({ embeds: [activityEmbed]})
       }

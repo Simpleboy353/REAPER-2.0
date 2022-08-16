@@ -5,8 +5,8 @@ module.exports = {
   category: "moderation",
   description: "Ban anyone with one shot whithout knowing anyone xD",
   usage: "ban <@user> <reason>",
-  userPerms: ["BAN_MEMBERS"],
-  botPerms: ["EMBED_LINKS", "BAN_MEMBERS"],
+  userPerms: ["BanMembers"],
+  botPerms: ["EmbedLinks", "BanMembers"],
   run: async (client, message, args) => {
     let reason = args.slice(1).join(" ");
     if (!reason) reason = "Unspecified";

@@ -7,7 +7,7 @@ module.exports = {
   category: "Fun",
   usage: "amazeme",
   description: "Returns random amazing fact/image.",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     // AGAIN, MAKE SURE TO INSTALL 'GOT' PACKAGE!
 

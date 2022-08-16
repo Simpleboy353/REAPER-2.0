@@ -3,8 +3,11 @@ const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder} = require("discord.js
 module.exports = {
   name: "help",
   description: "Get the Command List",
+  enabled: true,
+  ownerOnly: false,
+  nsfwOnly: false,
   aliases: ["commands", "cmd", "h"],
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     if (args[0]) {
       let command = args[0];
@@ -34,7 +37,7 @@ module.exports = {
           { name: "Required Bot Permissions", value: `${botPerms}`},
           { name: "Required User Permissions", value: `${userPerms}`}
         ])
-        .setColor("GREEN")
+        .setColor("Green")
 
         return message.channel.send({ embeds: [helpEmbed] })
       }
@@ -115,7 +118,7 @@ module.exports = {
     let editEmbed = new EmbedBuilder()
     .setTitle('Help Menu')
     .setDescription('Choose an option from the menu below!')
-    .setColor("GREEN")
+    .setColor("Green")
 
       message.channel.send({ embeds: [editEmbed], components: [helpMenu]}).then(msg=>{
         setTimeout(async function () {

@@ -1,23 +1,24 @@
-const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
     name: "dashboard",
     description: "View the dashboard for the required category.",
+    userPerms: ["Administrator"],
     options: [
         {
             name: "admin",
             description: "Shows the admin menu",
-            type: 'SUB_COMMAND',
+            type: ApplicationCommandOptionType.Subcommand,
         },
         {
             name: "welcomer",
             description: "Shows the welcomer menu",
-            type: 'SUB_COMMAND',
+            type: ApplicationCommandOptionType.Subcommand,
         },
         {
             name: "logging",
             description: "Shows the logging menu",
-            type: 'SUB_COMMAND',
+            type: ApplicationCommandOptionType.Subcommand,
         }
     ],
     run: async(client, interaction, args)=>{

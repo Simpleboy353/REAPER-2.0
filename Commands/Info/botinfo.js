@@ -13,7 +13,7 @@ require("moment-duration-format");
 module.exports = {
   name: "botinfo",
   description: "Shows the bot info",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const duration = moment
       .duration(client.uptime)
@@ -21,7 +21,7 @@ module.exports = {
 
     let embed = new Discord.EmbedBuilder()
       .setAuthor("REAPER-,2.0's Info", client.user.avatarURL())
-      .setColor("RANDOM")
+      .setColor("Random")
       .setDescription(
         `**Bot Name: **Reaper \n**Owner: **[YOUR_NAME_HERE] \n**Total Categories: **8 \n**Total Commands: **${client.commands.size} \n**Users:** ${
           client.users.cache.size
@@ -29,14 +29,14 @@ module.exports = {
           client.channels.cache.size
         }`
       )
-      .addField(
-        "About Reaper-2.0",
-        "Reaper-2.0 is an open-source multi-purpose discord bot with features like moderation, music, logging, welcomer and so much more!\nYou can find the link to the [GitHub Repo Here](https://github.com/Simpleboy353/REAPER-2.0)"
-      )
-      .addField(
-        "Some Useful Links",
-        "**Get your own bot!** **[Here](https://github.com/Simpleboy353/REAPER-2.0)** \n**Need Help? Join our ** **[Support/Development Server](https://infinitybot.tk/support)** **for assistance**"
-      )
+      .addFields([
+        { name: "About Reaper-2.0",
+          value: "Reaper-2.0 is an open-source multi-purpose discord bot with features like moderation, music, logging, welcomer and so much more!\nYou can find the link to the [GitHub Repo Here](https://github.com/Simpleboy353/REAPER-2.0)"
+        },
+        { name: "Some Useful Links",
+          value: "**Get your own bot!** **[Here](https://github.com/Simpleboy353/REAPER-2.0)** \n**Need Help? Join our ** **[Support/Development Server](https://infinitybot.tk/support)** **for assistance**"
+        }
+      ])
       .setFooter("Regards, Reaper-2.0 Development Team");
     message.channel.send({ embeds: [embed] });
   },

@@ -24,7 +24,7 @@ module.exports = {
     .setAuthor("Ping!", message.author.avatarURL())
     .addField("API Latency", Math.round(client.ws.ping) + "ms", true)
     .addField("Message Latency", end - start + "ms", true)
-    .setColor("RANDOM");
+    .setColor("Random");
     m.edit({ embeds: [embed] }).catch(e => message.channel.send(e))
     
   })

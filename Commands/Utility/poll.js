@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "poll",
   description: "Start a Poll",
-  userPerms: ["MANAGE_SERVER"],
+  userPerms: ["ManageGuild"],
   run: async (client, message, args) => {
     const pll = args.join(" ");
     if (!message.member.hasPermission("MANAGE_SERVER")) {
@@ -16,7 +16,7 @@ module.exports = {
       .setTitle("Poll Time")
       .setDescription(`${pll}`)
       .setFooter(`Started by ${message.author.username}`)
-      .setColor("RANDOM");
+      .setColor("Random");
     message.channel
       .send({ embeds: [embed] })
       .then(function (message, str) {

@@ -7,8 +7,6 @@ module.exports = async(interaction, client) => {
     let msg = await interaction.channel.messages.fetch(interaction.message.id)
 
     if (interaction.values[0] === "channel_logs") {
-
-        await interaction.deferUpdate()
         
         const data = await channelData.findOne({
             GuildID: interaction.guild.id
@@ -21,7 +19,7 @@ module.exports = async(interaction, client) => {
 
             let channelID;
 
-            const collector = await interaction.channel.createMessageCollector({ filter, time: 60000 })
+            const collector = await interaction.channel.createMessageCollector({ filter, time: 60_000 })
 
             collector.on('collect', async(collected, returnValue) => {
                 channelID = collected.content

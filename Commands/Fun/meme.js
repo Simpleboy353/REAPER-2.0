@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "meme",
   description: "Sends a random meme",
-  botPerms: ["ATTTACH_FILES"],
+  botPerms: ["AttachFiles"],
   run: async (client, message, args) => {
     var num = Math.floor(Math.random() * (500 - 1) + 1);
     message.channel.send({

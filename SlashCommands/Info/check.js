@@ -1,5 +1,5 @@
 const userRepData = require("../../database/guildData/userRep")
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js")
 
 module.exports = {
 	name: "check",
@@ -8,8 +8,8 @@ module.exports = {
 		{
 			name: "user",
 			description: "Shows the amount of General Rep the user has gained!",
-			type: "USER",
-			required: true
+			required: true,
+			type: ApplicationCommandOptionType.User,
 		}
 	],
 	run: async(client, interaction, args)=> {
@@ -22,7 +22,7 @@ module.exports = {
 
 		const embed = new EmbedBuilder()
 		.setTitle(`${user.username}'s Reputation`)
-		.setColor("GREEN")
+		.setColor("Green")
 		.setThumbnail(user.displayAvatarURL())
 
 		if (data) {

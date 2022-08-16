@@ -19,7 +19,7 @@ module.exports = {
     const image = await nsfw.gonewild();
     const embed = new Discord.EmbedBuilder()
     .setTitle(`Gonewild`)
-    .setColor("GREEN")
+    .setColor("Green")
     .setImage(image);
     message.channel.send({ embeds: [embed] });
   },

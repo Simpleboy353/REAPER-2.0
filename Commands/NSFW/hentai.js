@@ -6,7 +6,7 @@ module.exports = {
   category: "NSFW",
   description: "Sends random hentai",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     //command
     try {
@@ -27,7 +27,7 @@ module.exports = {
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
             .setFooter(`Credits to r/hentai`)
-            .setColor("RANDOM");
+            .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })
         .catch(console.error);

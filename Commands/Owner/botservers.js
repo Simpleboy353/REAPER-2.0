@@ -6,7 +6,7 @@ require("dotenv");
 module.exports = {
   name: "botservers",
   description: "Check what Servers the bot is in!",
-  botPerms: ["USE_EXTERNAL_EMOJIS"],
+  botPerms: ["UseExternalEmojis"],
   run: async (client, message, args) => {
     try {
       if (message.author.id != OWNER_ID)

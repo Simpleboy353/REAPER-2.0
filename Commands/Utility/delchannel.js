@@ -3,8 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "delchannel",
   description: "Delete Channels From your Server",
-  userPerms: ["MANAGE_CHANNELS"],
-  botPerms: ["EMBED_LINKS", "MANAGE_CHANNELS"],
+  userPerms: ["ManageChannels"],
+  botPerms: ["EmbedLinks", "ManageChannels"],
   run: async (client, message, args) => {
     const fetchedChannel = message.mentions.channels.first();
     if (!fetchedChannel) {
@@ -15,7 +15,7 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
       .setTitle("Channel Updates")
       .setDescription("Channel has been deleted")
-      .setColor("RANDOM");
+      .setColor("Random");
 
     await message.channel.send({ embeds: [embed] });
   },

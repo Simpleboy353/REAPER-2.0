@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "pp",
   description: "Another fun Command",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     let target = message.mentions.members
       ? message.mentions.members.first()

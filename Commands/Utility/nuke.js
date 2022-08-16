@@ -1,8 +1,8 @@
 module.exports = {
     name: "nuke",
     description: "nuke",
-     botPerms: ["ADMINISTRATOR"],
-    userPerms: ["ADMINISTRATOR"],
+     botPerms: ["Administrator"],
+    userPerms: ["Administrator"],
              run: async(client, message, args) => {
         const channeltonuke =message.mentions.channels.first() || message.channel;
       message.channel.send(`Nuking ${channeltonuke}`);

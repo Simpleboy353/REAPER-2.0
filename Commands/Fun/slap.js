@@ -14,7 +14,7 @@ module.exports = {
           ", " +
           member.displayName +
           " is now in the hospital! :hospital:")
-      .setColor("RANDOM");
+      .setColor("Random");
     await message.reply({ embeds: [embed] });
   },
 };

@@ -6,8 +6,8 @@ module.exports = {
   category: "moderation",
   description: "Kick anyone with one shot xD",
   usage: "kick <@user> <reason>",
-  userPerms: ["KICK_MEMBERS"],
-  botPerms: ["EMBED_LINKS", "KICK_MEMBERS"],
+  userPerms: ["KickMembers"],
+  botPerms: ["EmbedLinks", "KickMembers"],
   run: async (client, message, args) => {
 
 
@@ -32,7 +32,7 @@ module.exports = {
 
     const embed = new EmbedBuilder()
       .setTitle("KICK MEMBER")
-      .setColor("RANDOM")
+      .setColor("Random")
       .setThumbnail(target.user.displayAvatarURL)
       .setDescription(
         `Action : Kick \nReason: ${reason} \nUser: ${target} \nModerator: ${message.member}`

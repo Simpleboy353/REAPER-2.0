@@ -17,7 +17,7 @@ module.exports = async(interaction, client)=>{
             await msg.edit("Please send the **MESSAGE** to be setup as Goodbye Message!")
             const filter = (m) => m.author.id === interaction.member.id
 
-            const collector = await interaction.channel.createMessageCollector({ filter, time: 60000 })
+            const collector = await interaction.channel.createMessageCollector({ filter, time: 60_000 })
 
             collector.on("collect", async(collected) => {
 

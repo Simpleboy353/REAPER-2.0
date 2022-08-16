@@ -1,19 +1,21 @@
+const { ApplicationCommandOptionType } = require("discord.js");
+
 module.exports = {
     name: "purge",
     description: "purge",
-     botPerms: ["MANAGE_MESSAGES"],
-    userPerms: ["MANAGE_MESSAGES"],
+     botPerms: ["ManageMessages"],
+    userPerms: ["ManageMessages"],
    options: [
                 {
                     name: 'number',
                     description: '1-100',
-                    type: "INTEGER"
+                    required: true,
+                    type: ApplicationCommandOptionType.Number
                 }
             ],
              run: async(client, interaction, args) => {
-       const msgnum = interaction.options.getInteger('number')
-       interaction.reply('Purging...');
-       interaction.channel.bulkDelete(msgnum);
-    interaction.channel.send("Done,If you wish you can delete this");
+       const msgnum = interaction.options.getNumber('number')
+       await interaction.channel.bulkDelete(msgnum);
+       interaction.reply({ content: "Done,If you wish you can delete this", ephemeral: true });
   }
 }

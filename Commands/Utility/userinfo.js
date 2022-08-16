@@ -49,16 +49,18 @@ module.exports = {
             "false": "No, The User is a Human"
         };
         const userlol = new Discord.EmbedBuilder()
-        .setAuthor(`User Info`, mention.user.avatarURL())
+        .setTitle(`User Info`)
         .setThumbnail(usericon)
-        .addField(`General Info`, `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``)
-        .addField(`Overview`, `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\`\nIs Bot: \`${bot[mention.user.bot]}\``)
-        .addField(`Server Relating Info`, `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: \`${finalPermissions.join(', ')}\``)
-        .addField(`Misc Info`, `Acc Created on: \n\`${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\` \nJoined This Server on: \n\`${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\``)
+        .addFields([
+        { name: `General Info`, value: `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``},
+        { name: `Overview`, value: `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\`\nIs Bot: \`${bot[mention.user.bot]}\``},
+        { name: `Server Relating Info`, value: `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: \`${finalPermissions.join(', ')}\``},
+        { name: `Misc Info`, value: `Acc Created on: \n\`${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\` \nJoined This Server on: \n\`${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\``},
+        ])
         .setThumbnail(mention.user.avatarURL())
         .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
         .setTimestamp()
-        .setColor("RANDOM");
+        .setColor("Random");
         message.channel.send({ embeds: [userlol] })
     }
 }

@@ -13,7 +13,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Awkword.io")
             .setDescription(`[Click Here](${invite.code}) to play Awkword.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${message.author.tag}`)
             
             return message.channel.send({ embeds: [embed] });

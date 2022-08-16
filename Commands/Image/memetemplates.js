@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "memetemplates",
   description: "Get all the available meme templates",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const embed = new Discord.EmbedBuilder()
       .setTitle("Available Meme Templates")

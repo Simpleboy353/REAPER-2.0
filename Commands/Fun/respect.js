@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "respect",
   description: "Returns Random Respect GIF",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
     if (!user) {

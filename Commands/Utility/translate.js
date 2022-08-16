@@ -12,7 +12,7 @@ module.exports = {
         translate(txt, { to: lang }).then(res => {
           const embed = new discord.EmbedBuilder()
           .setDescription(res.text)
-          .setColor("RANDOM")
+          .setColor("Random")
           message.channel.send({ embeds: [embed] });
     }).catch(err => {
       message.channel.send("Please provide a valid ISO language code.")

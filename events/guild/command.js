@@ -1,49 +1,42 @@
 const prefixModel = require("../../database/guildData/prefix");
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const { DEFAULT_PREFIX, OWNER_ID } = require('../../config')
-const { Collection } = require("discord.js")
+const { DEFAULT_PREFIX, OWNER_ID } = require('../../config.json')
+const { Collection, EmbedBuilder } = require("discord.js")
 module.exports = async (message, cooldowns) => {
 
   let client = message.client;
 
-  const prefixData = await prefixModel.findOne({
+  const data = await prefixModel.findOne({
     GuildID: message.guild.id,
   }).catch(err=>console.log(err))
 
-  if (prefixData) {
-    var PREFIX = prefixData.Prefix
-  } else if (!prefixData) {
-    PREFIX = DEFAULT_PREFIX
+  if (data) {
+    var PREFIX = data.Prefix
+  } else {
+    PREFIX = "!";
   }
   client.prefix = PREFIX;
 
   if (message.author.bot) return;
+  if (!message.guild) return;
 
-
-  if (!message.guild.me.permissionsIn(message.channel).has("SEND_MESSAGES"))
-    return;
-
-  const prefixRegex = new RegExp(
-    `^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`
-  );
+  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`);
   if (!prefixRegex.test(message.content)) return;
 
   const [, matchedPrefix] = message.content.match(prefixRegex);
 
-  const p = matchedPrefix.length;
-  const args = message.content.slice(p).trim().split(/ +/);
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const commandName = args.shift().toLowerCase();
 
   const command =
     client.commands.get(commandName) ||
-    client.commands.find(
-      (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
-    );
+    client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 
-  if (!command) return;
     //command enaled thing
-    if(command.enabled === false) {
-      return message.reply('This command is disabled!')
+    if (command.enabled) {
+      if(command.enabled === false) {
+        return message.reply('This command is disabled!')
+      }
     }
     // ownerOnly thing
     if(command.ownerOnly === true) {
@@ -51,26 +44,25 @@ module.exports = async (message, cooldowns) => {
         return message.reply('This command is Owner only!')
       }
     }
+    console.log("Hello");
     // user permissions handler
-  if (!message.member.permissions.has(command.userPerms || [])) {
-    if(command.userPermError === null || command.userPermError === undefined) {
-      return message.reply(`You need  \`${command.userPerms}\` permissions to use this comand!`);
-    } else {
-      return message.reply(command.userPermError)
+    if (!message.member.permissions.has(command.userPerms || [])) {
+      if(command.userPermError === null || command.userPermError === undefined) {
+        return message.reply(`You need  \`${command.userPerms}\` permission(s) to use this comand!`);
+      } else {
+        return message.reply(command.userPermError)
+      }
     }
-  }
-
-
 
   // bot permissions handler
-  if (!message.guild.me.permissions.has(command.botPerms || [])) {
-  if(command.botPermError === null || command.botPermError === undefined) {
-    return message.reply(
-      `Ups :/  I need \`${command.botPerms}\` premission|s to run this command correctly`
-    );
- } else {
-    return message.reply(command.botPermError)
-  }
+  if (!message.guild.members.me.permissions.has(command.botPerms || [])) {
+  if (command.botPermError === null || command.botPermError === undefined) {
+      return message.reply(
+        `Oops :/  I need \`${command.botPerms}\` permission(s) to run this command correctly`
+      );
+  } else {
+      return message.reply(command.botPermError)
+    }
   }
       //guildOnly thing
   if(command.guildOnly === true) {
@@ -96,11 +88,6 @@ module.exports = async (message, cooldowns) => {
           return message.reply(command.expectedArgs)
           
         }
-
-
-
-
-  
 
   // cooldowns
   if (!cooldowns.has(command.name)) {
@@ -128,13 +115,13 @@ module.exports = async (message, cooldowns) => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
   try {
-    command.run(client, message, args, p, cooldowns);
+    command.run(client, message, args, cooldowns);
   } catch (error) {
     console.error(error);
-    let embed2000 = new MessageEmbed()
+    let ILoveYou3000 = new EmbedBuilder()
       .setDescription("There was an error executing that command.")
-      .setColor("BLUE");
-    message.channel.send({ embeds: [embed2000] }).catch(console.error);
+      .setColor("Blue");
+    message.channel.send({ embeds: [ILoveYou000] }).catch(console.error);
   }
 };
 /* 

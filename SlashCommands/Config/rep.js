@@ -1,58 +1,58 @@
 const rep = require("../../database/guildData/userRep")
-const { EmbedBuilder } = require("discord.js");
+const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
 	name: "rep",
 	description: "Change a user's rep points count",
-	userPerms: ["ADMINISTRATOR"],
+	userPerms: ["Administrator"],
 	options: [
 		{
 			name: "add",
 			description: "Adds a rep to a user",
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			options: [
 				{
 					name: "user",
 					description: "The user to add a rep to",
-					type: "USER",
-					required: true
+					required: true,
+					type: ApplicationCommandOptionType.User,
 				},
 				{
 					name: "amount",
 					description: "The amount of rep to add",
-					type: "NUMBER",
-					required: true
+					required: true,
+					type: ApplicationCommandOptionType.Number,
 				},
 				{
 					name: "type",
 					description: "The type of rep to add (General or Trade)",
-					type: "STRING",
-					required: true
+					required: true,
+					type: ApplicationCommandOptionType.String,
 				},
 			],
 		},
 		{
 			name: "remove",
 			description: "Removes a rep from a user",
-			type: "SUB_COMMAND",
+			type: ApplicationCommandOptionType.Subcommand,
 			options: [
 				{
 					name: "user",
 					description: "The user to remove a rep from",
-					type: "USER",
-					required: true
+					required: true,
+					type: ApplicationCommandOptionType.User,
 				},
 				{
 					name: "amount",
 					description: "The amount of rep to remove",
-					type: "NUMBER",
-					required: true
+					required: true,
+					type: ApplicationCommandOptionType.Number,
 				},
 				{
 					name: "type",
 					description: "The type of rep to remove (General or Trade)",
-					type: "STRING",
-					required: true
+					required: true,
+					type: ApplicationCommandOptionType.String,
 				},
 			],
 		},

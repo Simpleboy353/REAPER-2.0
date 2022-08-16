@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js')
 
 module.exports = {
     name: "activity",
@@ -7,57 +7,57 @@ module.exports = {
         {
           name: "youtube",
           description: "Watch Youtube on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
         {
           name: "chess",
           description: "Play chess on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
         {
           name: "awkword",
           description: "Play Awkword.io on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
         {
           name: "doodlecrew",
           description: "Play Doodle Crew on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
          {
           name: "fishington",
           description: "Play Fishington.io on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
          {
           name: "lettertile",
           description: "Play Lettertile.io on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
          {
           name: "poker",
           description: "Play Poker.io on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
          {
           name: "spellcast",
           description: "Play Spellcast.io on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
         {
           name: "checkers",
           description: "Play Checkers.io on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
         {
           name: "puttparty",
           description: "Play Puttparty on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         },
         {
           name: "wordsnack",
           description: "Play Wordsnack on Discord!",
-          type: 'SUB_COMMAND'
+          type: ApplicationCommandOptionType.Subcommand
         }
 
       ],
@@ -76,7 +76,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Youtube Together")
             .setDescription(`[Click Here](${invite.code}) to access Youtube Together!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("RED")
+            .setColor("Red")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -92,7 +92,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Awkword.io")
             .setDescription(`[Click Here](${invite.code}) to play Awkword.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -108,7 +108,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Chess.io")
             .setDescription(`[Click Here](${invite.code}) to play Chess.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -124,7 +124,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Betrayal.io")
             .setDescription(`[Click Here](${invite.code}) to play Betrayal.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -140,7 +140,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Doodle Crew")
             .setDescription(`[Click Here](${invite.code}) to play Doodle Crew!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -157,7 +157,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Fishington.io")
             .setDescription(`[Click Here](${invite.code}) to play Fishington.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -173,7 +173,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Lettertile.io")
             .setDescription(`[Click Here](${invite.code}) to play Lettertile.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -190,7 +190,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Poker.io")
             .setDescription(`[Click Here](${invite.code}) to play Poker.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -206,7 +206,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Spellcast.io")
             .setDescription(`[Click Here](${invite.code}) to play Spellcast.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -222,7 +222,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Checkers")
             .setDescription(`[Click Here](${invite.code}) to play Checkers!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -238,7 +238,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Puttparty")
             .setDescription(`[Click Here](${invite.code}) to play Puttparty!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });
@@ -254,7 +254,7 @@ module.exports = {
             let embed = new EmbedBuilder()
             .setTitle("Wordsnack")
             .setDescription(`[Click Here](${invite.code}) to play Wordsnack!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
-            .setColor("GREEN")
+            .setColor("Green")
             .setFooter(`Requested By: ${interaction.member.user.username}`)
             
             return interaction.reply({ embeds: [embed] });

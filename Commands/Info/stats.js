@@ -10,7 +10,7 @@ const readdir = promisify(require("fs").readdir);
 module.exports = {
   name: "stats",
   descriptiom: "Get Inifnity's Stats",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args, level) => {
     // eslint-disable-line no-unused-vars
     try {
@@ -29,46 +29,44 @@ module.exports = {
           .setDescription("Infinity Bot's Stats:")
           .setTimestamp()
           .setThumbnail(bicon)
-          .setColor("RANDOM")
+          .setColor("Random")
           .setFooter(
             `Requested by ${message.author.username}#${message.author.discriminator}`,
             message.author.displayAvatarURL
           )
-          .addField(
-            ":floppy_disk: Memory usage",
-            `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(
+          .addFields([
+            {
+            name: ":floppy_disk: Memory usage",
+            value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(
               os.totalmem() /
               1024 /
               1024
-            ).toFixed(2)} MB`,
-            true
-          )
-          .addField(":minidisc: CPU usage", `\`${percent.toFixed(2)}%\``, true)
-          .addField(
-            "CPU",
-            `\`\`\`md\n${os.cpus().map((i) => `${i.model}`)[0]}\`\`\``,
-            true
-          )
-          .addField(":computer: System", `\`${os.arch()}\``, true)
-          .addField(":desktop: Platform", `\`\`${os.platform()}\`\``, true)
-          .addField("👥 Users", `${client.users.cache.size}`, true)
-          .addField("Servers", `${client.guilds.cache.size}`, true)
-          .addField("Channels", `${client.channels.cache.size}`, true)
-          .addField("Commands Count", "``143``", true)
-          .addField("Library", `\`Discord.js\``, true)
-          .addField("Library Version", `v${version}`, true)
-          .addField(":book: Node Version", `${process.version}`, true)
-          .addField(
-            ":stopwatch: Uptime & Ping",
-            `${duration} / ${Math.round(client.ws.ping)}ms`,
-            true
-          )
+            ).toFixed(2)} MB`
+            },
+          { name: ":minidisc: CPU usage", value: `\`${percent.toFixed(2)}%\`` },
+          {
+            name: "CPU",
+            value: `\`\`\`md\n${os.cpus().map((i) => `${i.model}`)[0]}\`\`\``,
+          },
+          { name: ":computer: System", value: `\`${os.arch()}\`` },
+          { name: ":desktop: Platform", value: `\`\`${os.platform()}\`\`` },
+          { name: "👥 Users", value: `${client.users.cache.size}` },
+          { name: "Servers", value:`${client.guilds.cache.size}` },
+          { name: "Channels", value: `${client.channels.cache.size}` },
+          { name: "Commands Count", value: `${client.commands.size}` },
+          { name: "Library", value: `\`Discord.js\`` },
+          { name: "Library Version", value: `v${version}` },
+          { name: ":book: Node Version", value: `${process.version}` },
+          {
+            name: ":stopwatch: Uptime & Ping",
+            value: `${duration} / ${Math.round(client.ws.ping)}ms`
+          },
           //.addField(":stopwatch: Server uptime", `${prettyMs(oss.sysUptime())}`, true)
-          .addField(
-            ":calendar_spiral: Created On",
-            client.user.createdAt,
-            true
-          );
+          {
+            name: ":calendar_spiral: Created On",
+            value: client.user.createdAt,
+          }
+        ]);
         message.channel.send({ embeds: [RynEmb] });
       });
     } catch (err) {

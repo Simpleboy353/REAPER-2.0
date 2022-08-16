@@ -10,7 +10,7 @@ module.exports = {
 
     let embed1 = new discord.EmbedBuilder()
     .setDescription("Looks like the bot is slow.")
-    .setColor("RANDOM")
+    .setColor("Random")
 
     await interaction.reply({
         embeds: [embed1]
@@ -21,7 +21,7 @@ module.exports = {
           .setTitle("Ping!")
           .addField("API Latency", `${Math.round(client.ws.ping)}ms`, true)
           .addField("Message Latency", `${end - start}ms`, true)
-          .setColor("RANDOM");
+          .setColor("Random");
 
        interaction.editReply({ embeds: [embed] }).catch((e) => interaction.followUp(e));
   },

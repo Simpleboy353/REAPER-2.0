@@ -3,8 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "softban",
   description: "Soft Ban a User",
-  userPerms: ["BAN_MEMBERS"],
-  botPerms: ["EMBED_LINKS", "BAN_MEMBERS", "MANAGE_MESSAGES"],
+  userPerms: ["BanMembers"],
+  botPerms: ["EmbedLinks", "BanMembers", "ManageMessages"],
   run: async (client, message, args) => {
     message.delete();
 
@@ -39,11 +39,13 @@ module.exports = {
 
     let embed = new Discord.EmbedBuilder()
       .setThumbnail(banMember.user.displayAvatarURL())
-      .setColor("RANDOM")
-      .addField("Moderation:", "SOFT BAN")
-      .addField("Banned:", banMember.user.username)
-      .addField("Moderator:", message.author.username)
-      .addField("Reason:", reason)
+      .setColor("Random")
+      .addFields([
+        { name: "Moderation:", value: "SOFT BAN" },
+        { name: "Banned:", value: banMember.user.username },
+        { name: "Moderator:", value: message.author.username },
+        { name: "Reason:", value: reason }
+      ])
       .setTimestamp();
 
     message.channel.send({ embeds: [embed] });

@@ -6,7 +6,7 @@ module.exports = {
   category: "NSFW",
   description: "Sends milf pics",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     try {
       //command
@@ -27,7 +27,7 @@ module.exports = {
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
             .setFooter(`Gimme Milf... oops I mean Milk`)
-            .setColor("RANDOM");
+            .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })
         .catch(console.error);

@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "weather",
   description: "Shows Weather for the provided place",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const name = args.join(" ");
     const place = args.join("-");
@@ -18,7 +18,7 @@ module.exports = {
       .setTitle(`${name}'s Weather for Next 3 days`)
       .setImage(link)
       .setFooter("Credits to Wttr.in")
-      .setColor("RANDOM");
+      .setColor("Random");
     message.channel.send({ embeds: [embed] });
   },
 };

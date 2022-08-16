@@ -6,7 +6,7 @@ module.exports = {
   category: "NSFW",
   description: "Sends pussy pics",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     try {
       //command
@@ -27,7 +27,7 @@ module.exports = {
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
             .setFooter(`Where is My Pussy Cat?`)
-            .setColor("RANDOM");
+            .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })
         .catch(console.error);

@@ -4,7 +4,7 @@ const urban = require("urban");
 module.exports = {
   name: "urban",
   description: "Find meanings from the urban dictionary",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     if (!message.channel.nsfw) {
       return message.channel.send(
@@ -23,8 +23,10 @@ module.exports = {
           .setTitle(json.word)
           .setColor("3498db")
           .setDescription(json.definition || "No definition!")
-          .addField("Upvotes", json.thumbs_up, true)
-          .addField("Downvotes", json.thumbs_down, true)
+          .addFields([
+            { name: "Upvotes", value: json.thumbs_up },
+            { name: "Downvotes", value: json.thumbs_down },
+          ])
           .setFooter("Source: Urban Dictionary, Author: " + json.author);
 
         message.channel.send({ embeds: [embed] });

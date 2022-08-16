@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "hug",
   description: "just hug someone",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     var member = message.mentions.members.first();
     var images = [

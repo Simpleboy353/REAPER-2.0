@@ -1,4 +1,4 @@
-const Discord = module.require("discord.js");
+const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
   name: "kill",
@@ -7,8 +7,8 @@ module.exports = {
         {
             name: "enemy",
             description: "the enemy",
-            type: "MENTIONABLE",
-            required: true
+            required: true,
+            type: ApplicationCommandOptionType.Mentionable,
         }
     ],
   run: async (client, interaction, args) => {

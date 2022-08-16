@@ -5,8 +5,6 @@ module.exports = async(interaction, client) => {
     let msg = await interaction.channel.messages.fetch(interaction.message.id)
     if (interaction.values[0] === "autorole") {
 
-        await interaction.deferUpdate()
-
         const data = await autoroleData.findOne({
             GuildID: interaction.guild.id
         })

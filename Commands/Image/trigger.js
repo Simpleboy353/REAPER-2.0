@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "trigger",
   description: "Put the Triggered Overlay pic over avatars!",
-  botPerms: ["ATTTACH_FILES"],
+  botPerms: ["AttachFiles"],
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
     if (!user) {

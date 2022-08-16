@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "nitro",
   description: "Fake a nitro gift",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     var links = [
       `https://discord.gift/Hejs82hejdi9`,
@@ -20,7 +20,7 @@ module.exports = {
       .setTitle("Here is your Nitro")
       .setDescription(links[Math.floor(Math.random() * links.length)])
       .setImage(images[Math.floor(Math.random() * images.length)])
-      .setColor("RANDOM");
+      .setColor("Random");
     message.channel.send({ embeds: [embed] });
   },
 };

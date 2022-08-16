@@ -5,7 +5,7 @@ const OWNER_ID = require("../../config.json").OWNER_ID;
 module.exports = {
   name: "eval",
   description: "Run a whole fuckin' code with this!",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     //Eval Command(Not to be made public btw!)
     if (message.author.id != OWNER_ID) {
@@ -24,7 +24,7 @@ module.exports = {
         .setAuthor("Eval", message.author.avatarURL())
         .addField("Input", `\`\`\`${code}\`\`\``)
         .addField("Output", `\`\`\`${evaled}\`\`\``)
-        .setColor("GREEN");
+        .setColor("Green");
 
       message.channel.send({ embeds: [embed] });
     } catch (err) {

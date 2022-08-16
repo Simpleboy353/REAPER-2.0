@@ -3,8 +3,8 @@ const prefixModel = require("../../database/guildData/leavechannel");
 module.exports = {
   name: "leavechannel",
   description: "Change the goodbye channel per server!",
-  userPerms: ["MANAGE_CHANNELS"],
-  botPerms: ["MANAGE_CHANNELS"],
+  userPerms: ["ManageChannels"],
+  botPerms: ["ManageChannels"],
   run: async (client, message, args) => {
     if (!args[0]) {
       return message.channel.send("`Usage: =leavechannel <#channel|off>`");

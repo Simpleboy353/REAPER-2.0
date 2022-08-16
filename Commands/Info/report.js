@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "report",
   description: "Report a bug",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const reportchannel = client.channels.cache.get("747699213814464522");
     const report = args.join(" ");
@@ -19,7 +19,7 @@ module.exports = {
       .setTitle("New Bug Report")
       .setDescription(`${report} \n\nBy: ${message.author.tag}`)
       .setFooter(`User ID: ${message.author.id}`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     reportchannel.send({embeds: [embed]});
   },

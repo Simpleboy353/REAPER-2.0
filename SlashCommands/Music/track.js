@@ -1,4 +1,5 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js')
+const { joinVoiceChannel } = require("@discordjs/voice")
 const { QueueRepeatMode } = require('discord-player');
 const { waitForDebugger } = require('inspector');
 
@@ -11,79 +12,79 @@ module.exports = {
         {
             name: "clearqueue",
             description: "Deltes the music queue an leave the voice channel!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
         },
         {
             name: "play",
             description: "Plays a song",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "song",
                     description: "Song to play",
-                    type: "STRING",
-                    required: true
+                    required: true,
+                    type: ApplicationCommandOptionType.String,
                 }
             ]
         },
         {
             name: "pause",
             description: "Pauses the current song",
-            type: "SUB_COMMAND"
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: "previoustrack",
             description: "play the previous track again!",
-            type: "SUB_COMMAND"
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: "info",
             description: "Get info for the current or a specific song in the queue!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "index",
                     description: "Index of the song in the queue!",
-                    type: "NUMBER",
                     required: false,
+                    type: ApplicationCommandOptionType.Number,
                 }
             ]
         },
         {
             name: "jump",
             description: "Jump to a specific song in the queue!",
-            type: 'SUB_COMMAND',
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "index",
                     description: "Provide the index number of the song!",
-                    type: "NUMBER",
                     required: true,
+                    type: ApplicationCommandOptionType.Number,
                 }
             ]
         },
         {
             name: "lyrics",
             description: "Get the lyrics for a song!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "query",
                     description: "The song to get the lyrics for!",
-                    type: "STRING",
                     required: true,
+                    type: ApplicationCommandOptionType.String,
                 }
             ]
         },
         {
             name: "loop",
             description: "Loop a song or the whole queue!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "mode",
                     description: "choose a new loop mode to chnage!",
-                    type: 'STRING',
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                     choices: [
                         {
@@ -109,108 +110,108 @@ module.exports = {
         {
             name: "mute",
             description: "Mutes the volume!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
         },
         {
             name: "move",
             description: "Change the position of songs in the queue!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "from",
                     description: "The position to move the song from!",
-                    type: "NUMBER",
-                    required: true
+                    required: true,
+                    type: ApplicationCommandOptionType.Number,
                 },
                 {
                     name: "to",
                     description: "The position to move the song to!",
-                    type: 'NUMBER',
-                    required: true
+                    required: true,
+                    type: ApplicationCommandOptionType.Number,
                 }
             ]
         },
         {
             name: "queue",
             description: "Shows the music queue for your server!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "page",
                     description: "Page number of the queue!",
-                    type: "NUMBER",
                     required: false,
+                    type: ApplicationCommandOptionType.Number,
                 }
             ]
         },
         {
             name: "remove",
             description: "Remove a song from the queue!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "index",
                     description: "Index of the song to remove!",
-                    type: "NUMBER",
                     required: true,
+                    type: ApplicationCommandOptionType.Number,
                 }
             ]
         },
         {
             name: "resume",
             description: "Resume the queue",
-            type: "SUB_COMMAND"
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: "seek",
-            description: "Seek toa  specific postion of the current song!",
-            type: "SUB_COMMAND",
+            description: "Seek to a specific postion of the current song!",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "duration",
                     description: "The duration of the song <mm:ss>",
-                    type: 'STRING',
                     required: true,
+                    type: ApplicationCommandOptionType.String,
                 }
             ]
         },
         {
             name: "shuffle",
             description: "Shuffle the queue!",
-            type: "SUB_COMMAND"
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: "skip",
             description: "Skip the current song in the queue!",
-            type: "SUB_COMMAND"
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: "stop",
             description: "Stop the music and leave the voice channel!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
         },
         {
             name: "volume",
             description: "Change the volume of the music!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "amount",
                     description: "The amount of volume of increase!",
-                    type: "NUMBER",
                     required: true,
+                    type: ApplicationCommandOptionType.Number,
                 }
             ]
         },
         {
             name: "unmute",
             description: "UInmutes the volume!",
-            type: "SUB_COMMAND"
+            type: ApplicationCommandOptionType.Subcommand
         }
     ],
-    userPerms: ["CONNECT", "VIEW_CHANNEL"],
+    userPerms: ["Connect", "ViewChannel"],
     noUserPermsMessage: `You need the \`Connect\` and \`View Channel\` permissions to use these commands!`,
-    botPerms: ["VIEW_CHANNEL", "CONNECT", "SPEAK"],
+    botPerms: ["ViewChannel", "Connect", "Speak"],
     noBotPermsMessage: `I am missing one of the following permissions: \`Connect\`, \`View Channel\`, \`Speak\``,
     run: async(client, interaction, args) => {
 
@@ -237,7 +238,7 @@ module.exports = {
 
     const guildQueue = client.player.getQueue(interaction.guild.id);
 
-    const channel = interaction.member?.voice?.channel;
+    const channel = await interaction.member?.voice?.channel;
 
     if (!channel)
       return client.say.warnMessage(interaction, "You have to join a voice channel first.");
@@ -275,15 +276,13 @@ module.exports = {
     }
 
     try {
-      if (!queue.connection) { 
-        await queue.connect(channel);
+      if (queue.connection) return;
+      else await queue.connect(channel);
       const embed = new EmbedBuilder()
-      .setAuthor("REAPER MUSIC", client.user.displayAvatarURL())
-      .setDescription(`👍 Joined ${queue.connection.channel.toString()} and 📄 bound to ${queue.metadata.channel.toString()}`)
-      .setColor(queue.guild.me.displayColor || "#00FFFF");
+      .setDescription(`👍 Joined ${interaction.member.voice.channel.toString()}`)
+      .setColor(queue.guild.members.me.displayColor || "#00FFFF");
 
       await interaction.editReply({ embeds: [embed]})
-      }
       
     } catch (error) {
       client.logger.error("JOIN", error);

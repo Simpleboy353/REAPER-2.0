@@ -20,7 +20,7 @@ module.exports = async(interaction, client) => {
 
             let channelID;
 
-            const collector = await interaction.channel.createMessageCollector({ filter, time: 60000 })
+            const collector = await interaction.channel.createMessageCollector({ filter, time: 60_000 })
 
             collector.on('collect', async(collected, returnValue) => {
                 channelID = collected.content

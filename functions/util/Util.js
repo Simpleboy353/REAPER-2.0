@@ -62,15 +62,17 @@ async function sendErrorLog(client, error, type) {
 
     const { codeBlock } = require("@discordjs/builders");
 
-    const embed = new DJS.MessageEmbed()
+    const embed = new DJS.EmbedBuilder()
       .setTitle("An error occurred")
-      .addField("Name", name, true)
-      .addField("Code", code.toString(), true)
-      .addField("httpStatus", httpStatus.toString(), true)
-      .addField("Timestamp", client.logger.now, true)
-      .addField("Request data", codeBlock(jsonString?.substr(0, 1020)))
+      .addFields([
+        { name: "Name", value: name },
+        { name: "Code", value: code.toString() },
+        { name: "httpStatus", value: httpStatus.toString() },
+        { name: "Timestamp", value: client.logger.now },
+        { name: "Request data", value: codeBlock(jsonString?.substr(0, 1020)) }
+      ])
       .setDescription(`${codeBlock(stack)}`)
-      .setColor(type === "error" ? "RED" : "ORANGE");
+      .setColor(type === "error" ? "Red" : "Orange");
 
     await hook.send({ embeds: [embed] });
   } catch (e) {
@@ -88,9 +90,9 @@ function havePermissions(resolveable) {
   const ch = "channel" in resolveable ? resolveable.channel : resolveable;
   if (ch instanceof DJS.ThreadChannel || ch instanceof DJS.DMChannel) return true;
   return (
-    ch.permissionsFor(resolveable.guild.me)?.has(DJS.Permissions.FLAGS.VIEW_CHANNEL) &&
-    ch.permissionsFor(resolveable.guild.me)?.has(DJS.Permissions.FLAGS.SEND_MESSAGES) &&
-    ch.permissionsFor(resolveable.guild.me)?.has(DJS.Permissions.FLAGS.EMBED_LINKS)
+    ch.permissionsFor(resolveable.guild.members.me)?.has("ViewChannel") &&
+    ch.permissionsFor(resolveable.guild.members.me)?.has("SendMessages") &&
+    ch.permissionsFor(resolveable.guild.members.me)?.has("EmbedLinks")
   );
 }
 
@@ -190,20 +192,20 @@ function codeContent(string, extension = "") {
  */
 function canModifyQueue(interaction) {
   const memberChannelId = interaction.member.voice.channelId;
-  const clientChannelId = interaction.guild.me.voice.channelId;
+  const clientChannelId = interaction.guild.members.me.voice.channelId;
 
   if (!memberChannelId) {
 
-    const embed1 = new DJS.MessageEmbed()
+    const embed1 = new DJS.EmbedBuilder()
       .setDescription("You need to join a voice channel first!")
-      .setColor("ORANGE");
+      .setColor("Orange");
 
     return interaction.editReply({ ephemeral: true, embeds: [embed1], allowedMentions: { repliedUser: false } }).catch(console.error);
   }
 
   if (memberChannelId !== clientChannelId) {
 
-    const embed2 = new DJS.MessageEmbed()
+    const embed2 = new DJS.EmbedBuilder()
       .setDescription("You must be in the same voice channel as me!")
       .setColor("ORANGE");
 

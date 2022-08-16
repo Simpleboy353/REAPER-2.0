@@ -1,4 +1,4 @@
-const { MessageEmbed, Interaction } = require("discord.js");
+const { EmbedBuilder, Interaction } = require("discord.js");
 
 const { havePermissions } = require("../util/Util");
 
@@ -14,7 +14,7 @@ function baseEmbed(interaction) {
   const avatar = interaction.user?.displayAvatarURL({ dynamic: true });
   const tag = interaction.user?.tag;
 
-  return new MessageEmbed()
+  return new EmbedBuilder()
     .setFooter(tag, avatar)
     .setColor(interaction.guild.me.displayColor || "#00FFFF")
     .setTimestamp();
@@ -29,7 +29,7 @@ function rootEmbed(interaction) {
     throw Error("'interaction' must be passed down as param! (baseEmbed)");
   }
 
-  return new MessageEmbed()
+  return new EmbedBuilder()
     .setColor(interaction.guild.me.displayColor || "#00FFFF");
 }
 
@@ -48,7 +48,7 @@ function infoMessage(interaction, text) {
     throw Error("'text' must be passed down as param! (InfoMessage)");
   }
 
-  const embedI = new MessageEmbed()
+  const embedI = new EmbedBuilder()
     .setDescription(text)
     .setColor(interaction.guild.me.displayColor || "#00FFFF");
 
@@ -69,9 +69,9 @@ function warnMessage(interaction, text) {
     throw Error("'text' must be passed down as param! (WarnMessage)");
   }
 
-  const embedW = new MessageEmbed()
+  const embedW = new EmbedBuilder()
     .setDescription(text)
-    .setColor("ORANGE");
+    .setColor("Orange");
 
   return interaction.editReply({ ephemeral: true, embeds: [embedW], allowedMentions: { repliedUser: false } }).catch(console.error);
 }
@@ -90,9 +90,9 @@ function errorMessage(interaction, text) {
     throw Error("'text' must be passed down as param! (ErrorMessage)");
   }
 
-  const embedE = new MessageEmbed()
+  const embedE = new EmbedBuilder()
     .setDescription(text)
-    .setColor("RED");
+    .setColor("Red");
 
   return interaction.editReply({ ephemeral: true, embeds: [embedE], allowedMentions: { repliedUser: false } }).catch(console.error);
 }
@@ -120,12 +120,12 @@ function queueMessage(client, queue, text, color) {
   if (!client.utils.havePermissions(queue.metadata.channel))
     return queue.metadata.channel.send({ content: `**$text}**` });
 
-  let colour = queue.guild.me.displayColor || "#00FFFF";
+  let colour = queue.guild.members.me.displayColor || "#00FFFF";
   if (color) colour = color;
 
-  const embedQ = new MessageEmbed()
+  const embedQ = new EmbedBuilder()
     .setDescription(text)
-    .setColor(colour);
+    .setColor("Blue");
 
   return queue.metadata.channel.send({ embeds: [embedQ] });
 }

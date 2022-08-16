@@ -7,7 +7,7 @@ module.exports = {
   usage: "trumptweet <message>",
   description:
     "Display's a custom tweet from Donald Trump with the message provided.",
-  botPerms: ["ATTTACH_FILES"],
+  botPerms: ["AttachFiles"],
   run: async (client, message, args) => {
     const tweet = args.join(" ");
     if (!tweet) {

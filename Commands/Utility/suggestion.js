@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "suggestion",
   description: "Anything",
-  botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES", "ADD_REACTIONS"],
+  botPerms: ["EmbedLinks", "ManageMessages", "AddReactions"],
   run: async (client, message, args) => {
     const msg = args.join(" ");
     message.delete();
@@ -26,7 +26,7 @@ module.exports = {
       .setTitle("New Suggestion")
       .setDescription(`${msg}`)
       .setFooter(`Suggested by ${message.author.tag}`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     suggestionchannel
       .send({ embeds: [embed] })

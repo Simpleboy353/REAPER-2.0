@@ -1,30 +1,33 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
     name: 'delete',
     description: "Delete channels or roles in  your server!",
+    userPerms: ["ManageChannels", "ManageRoles"],
     options: [
         {
             name: 'channel',
             description: 'Channel to delete',
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: 'channel',
                     description: 'Channel to delete',
-                    type: "ROLE"
+                    required: true,
+                    type: ApplicationCommandOptionType.Channel
                 }
             ],
         },
         {
             name: 'role',
             description: 'Role to delete',
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: 'role',
                     description: 'Role to delete',
-                    type: "ROLE"
+                    required: true,
+                    type: ApplicationCommandOptionType.Role
                 }
             ]
         }
@@ -56,7 +59,7 @@ module.exports = {
 Name: ${deleteRole.name}
 ID: ${deleteRole.id}
 Deleted By: ${interaction.member.user.username}`)
-            .setColor("RED")
+            .setColor("Red")
 
             return interaction.reply({ embeds: [roleEmbed] })
             } catch (err) {

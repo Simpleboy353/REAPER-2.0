@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "suggest",
   description: "Suggest Features for Infinity",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const avatar = message.author.avatarURL;
     const suggestchannel = client.channels.cache.get("747756561790664764");
@@ -18,7 +18,7 @@ module.exports = {
       .setAuthor(`New Suggestion!`, avatar)
       .setDescription(`${suggestion} \n\nBy: ${message.author.tag}`)
       .setFooter(`ID: ${message.author.id}`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     suggestchannel.send({ embeds: [embed] });
   },

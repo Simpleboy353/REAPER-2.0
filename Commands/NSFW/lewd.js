@@ -19,7 +19,7 @@ module.exports = {
     const image = await nsfw.lewd();
     const embed = new Discord.EmbedBuilder()
     .setTitle(`Lewd`)
-    .setColor("GREEN")
+    .setColor("Green")
     .setImage(image);
     message.channel.send({ embeds: [embed] });
   },

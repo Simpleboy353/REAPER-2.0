@@ -5,8 +5,6 @@ module.exports = async(interaction, client) => {
     let msg = await interaction.channel.messages.fetch(interaction.message.id)
     if (interaction.values[0] === "antilink") {
 
-        await interaction.deferUpdate()
-
         const data = await antilinkData.findOne({
             GuildID: interaction.guild.id
         })

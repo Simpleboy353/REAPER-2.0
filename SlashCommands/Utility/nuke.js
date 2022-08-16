@@ -1,13 +1,16 @@
+const { ApplicationCommandOptionType } = require("discord.js");
+
 module.exports = {
     name: "nuke",
     description: "nuke the channel",
-     botPerms: ["ADMINISTRATOR"],
-    userPerms: ["ADMINISTRATOR"],
+     botPerms: ["Administrator"],
+    userPerms: ["Administrator"],
    options: [
                 {
                     name: 'channel',
                     description: 'channel to nuke',
-                    type: "CHANNEL"
+                    required: true,
+                    type: ApplicationCommandOptionType.Channel
                 }
             ],
              run: async(client, interaction, args) => {

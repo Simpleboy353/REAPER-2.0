@@ -6,8 +6,8 @@ module.exports = {
   name: "tempmute",
   category: "info",
   description: "Returns latency and API ping",
-  userPerms: ["MANAGE_ROLES"],
-  botPerms: ["EMBED_LINKS", "MANAGE_ROLES"],
+  userPerms: ["ManageRoles"],
+  botPerms: ["EmbedLinks", "ManageRoles"],
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
 
@@ -43,16 +43,20 @@ module.exports = {
     const mtembde = new EmbedBuilder()
       .setTitle("Action: Tempmute")
       .setColor("RANDOM")
-      .addField("User:", user)
-      .addField("Reason", reason)
-      .addField("Moderator:", message.member.displayName)
-      .addField("Time", time, true);
+      .addFields([
+        { name: "User:", value: userm },
+        { name: "Reason", value: reason },
+        { name: "Moderator:", value: message.member.displayName },
+        { name: "Time", value: time }
+      ]);
     const mtuembde = new EmbedBuilder()
       .setTitle("YOU HAVE BEEN MUTED!!")
       .setColor("RANDOM")
-      .addField("Reason", reason)
-      .addField("Moderator:", message.member.displayName)
-      .addField("Time", time, true);
+      .addFields([
+        { name: "Reason", value: reason },
+        { name: "Moderator:", value: message.member.displayName },
+        { name: "Time", value: time },
+      ]);
     user.send({ embeds: [mtuembde] });
     message.channel.send({ embeds: [mtembde] });
     user.roles.add(role);

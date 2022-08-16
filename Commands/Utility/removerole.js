@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: "removerole",
   description: "Take roles from users",
-  userPerms: ["MANAGE_ROLES"],
-  botPerms: ["MANAGE_ROLES"],
+  userPerms: ["ManageRoles"],
+  botPerms: ["ManageRoles"],
   run: async (client, message, args) => {
    
     const user = message.mentions.members.first();

@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "pokeimg",
   description: "Get Image of the Mentioned Pokemon",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     const state = "enabled";
     if (state === "disabled") {

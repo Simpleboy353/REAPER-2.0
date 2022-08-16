@@ -19,7 +19,7 @@ module.exports = {
     const image = await nsfw.kitsune();
     const embed = new Discord.EmbedBuilder()
     .setTitle(`Kitsune`)
-    .setColor("GREEN")
+    .setColor("Green")
     .setImage(image);
     message.channel.send({ embeds: [embed] });
   },

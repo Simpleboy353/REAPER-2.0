@@ -17,15 +17,17 @@ run: async (client, message, args) => {
             .setAuthor(`My Anime List search result for ${args}`.split(',').join(' '))
             .setThumbnail(data.picture)
             .setColor('#ffc1cc') //I personally use bubblegum pink!
-            .addField('English Title', data.englishTitle, true)
-            .addField('Japanese Title', data.japaneseTitle, true)
-            .addField('Type', data.type, true)
-            .addField('Episodes', data.episodes, true)
-            .addField('Rating', data.rating, true)
-            .addField('Aired', data.aired, true)
-            .addField('Score', data.score, true)
-            .addField('Score Stats', data.scoreStats, true)
-            .addField('Link', data.url);
+            .addFields([
+              { name: 'English Title', value: data.englishTitle },
+              { name: 'Japanese Title', value: data.japaneseTitle },
+              { name:'Type', value: data.type },
+              { name: 'Episodes', value: data.episodes },
+              { name: 'Rating', value: data.rating },
+              { name: 'Aired', value: data.aired },
+              { name: 'Score', value: data.score },
+              { name: 'Score Stats', value: data.scoreStats },
+              { name: 'Link', value: data.url }
+            ]);
 
             message.channel.send({ embeds: [malEmbed] });
 

@@ -1,13 +1,14 @@
-const { MessageEmbed , ButtonBuilder, ActionRowBuilder} = require("discord.js");
+const { EmbedBuilder , ButtonBuilder, ActionRowBuilder, ButtonStyle} = require("discord.js");
 const { QueueRepeatMode } = require('discord-player')
+const { wait } = require("node:timers/promises")
 
 module.exports = async(queue, track, client) => {
     
   if (!client.utils.havePermissions(queue.metadata.channel)) return;
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
   .setTitle("Now playing")
-  .setColor(queue.guild.me.displayColor || "BLUE")
+  .setColor(queue.guild.members.me.displayColor || "BLUE")
   .setDescription(`[${track.title}](${track.url}) ~ [${track.requestedBy.toString()}]\n${queue.createProgressBar()}`)
   .setImage(`${track.thumbnail}`);
 
@@ -52,11 +53,11 @@ module.exports = async(queue, track, client) => {
   .setEmoji("🔊")
 
   // A row cannot have more than 4 components!
-  const controlRow1 = new MessageActionRow()
-  .addComponents([playPause], [skip], [shuffle], [stop],)
+  const controlRow1 = new ActionRowBuilder()
+  .addComponents([playPause, skip, shuffle, stop])
 
-  const controlRow2 = new MessageActionRow()
-  .addComponents([volumeLess], [repeat], [repeatThis], [volumeMore])
+  const controlRow2 = new ActionRowBuilder()
+  .addComponents([volumeLess, repeat, repeatThis, volumeMore])
 
   await queue.metadata.channel.send({ embeds: [embed], components: [controlRow1, controlRow2] }).then(async(msg)=>{
   
@@ -79,20 +80,29 @@ module.exports = async(queue, track, client) => {
        
   const filter = (user) => !user.bot || user.id === queue.metadata.member.id;
 
-  var collector = await msg.createMessageComponentCollector(filter, {
-    time: track.duration  > 0 ? track.duration * 1000 : 600000
+  const collector = await msg.createMessageComponentCollector(filter, {
+    time: track.duration > 0 ? track.duration * 1000 : 60_000
   });
 
-  collector.on("collect", async(button, user) => {
+  collector.on("collect", async(button) => {
     if (!queue) return;
     if (!track.durationMS) {
       collector.stop();
     }
 
+    if (button.customId == "playPause") {
+      if (!client.utils.canModifyQueue(queue.metadata)) return;
+      if (!queue.connection.paused) {
+        queue.setPaused(true);
+        return queue.metadata.followUp({ content: "Paused the music!", ephemeral: true })
+      } else if (queue.connection.paused) {
+        queue.setPaused(false);
+        return queue.metadata.followUp({ content: "Resumed the music!", ephemeral: true })
+      }
+    }
     switch (button.customId) {
 
-      case "playPause":
-        await button.deferUpdate();
+      /**case "playPause":
         if (!client.utils.canModifyQueue(queue.metadata)) return;
 
         if (!queue.connection.paused) {
@@ -102,10 +112,10 @@ module.exports = async(queue, track, client) => {
           queue.setPaused(false);
           return queue.metadata.followUp({ content: "Resumed the music!", ephemeral: true })
         }
-        break;
+        break;*/
       
       case "skip":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
 
         if (queue.tracks.length < 3 && queue.repeatMode !== 3) {
@@ -118,31 +128,31 @@ module.exports = async(queue, track, client) => {
         break;
 
       case "repeat":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
-        if (!queue.repeatMode) {
+        if (!queue.repeatMode || queue.repeatMode !== QueueRepeatMode.QUEUE) {
           queue.setRepeatMode(QueueRepeatMode.QUEUE)
           queue.metadata.followUp({ content: "Loop mode has been enabled!", ephemeral: true})
-        } else if (queue.repeatMode) {
+        } else if (queue.repeatMode === QueueRepeatMode.QUEUE) {
           queue.setRepeatMode(QueueRepeatMode.OFF)
           queue.metadata.followUp({ content: "Loop mode has been disabled!", ephemeral: true})
         }
         break;
 
       case "repeatThis":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
-        if (!queue.repeatMode) {
+        if (!queue.repeatMode || queue.repeatMode !== QueueRepeatMode.TRACK) {
           queue.setRepeatMode(QueueRepeatMode.TRACK)
           queue.metadata.followUp({ content: "Repeating current song now!", ephemeral: true})
-        } else if (queue.repeatMode) {
+        } else if (queue.repeatMode === QueueRepeatMode.TRACK) {
           queue.setRepeatMode(QueueRepeatMode.OFF)
           queue.metadata.followUp({ content: "Repeating current song now!", ephemeral: true})
         }
         break;
 
       case "stop":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         queue.stop();
         queue.metadata.followUp({ content: "Stopped the music!", ephemeral: true })
@@ -151,7 +161,7 @@ module.exports = async(queue, track, client) => {
         break;
         
       case "shuffle":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         if (queue.tracks.length < 3) return queue.metadata.followUp({ content: "Need atleast `3` songs in the queue to shuffle!", ephemeral: true})
         queue.shuffle();
@@ -159,7 +169,7 @@ module.exports = async(queue, track, client) => {
         break;
         
       case "volumeLess":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         let vol;
         if (queue.volume === 0) return queue.metadata.followUp({ content: "Volume cannot be lower than 0!", ephemeral: true})
@@ -170,7 +180,7 @@ module.exports = async(queue, track, client) => {
         break;
         
       case "volumeMore":
-        await button.deferUpdate();
+        
         if (!client.utils.canModifyQueue(queue.metadata)) return;
         let volume;
         if (queue.volume === 130) return queue.metadata.followUp({ content: "Volume cannot be higher than 130!", ephemeral: true})

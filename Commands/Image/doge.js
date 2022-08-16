@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "doge",
-    permissions: ["SEND_MESSAGES"],
+    permissions: ["SendMessages"],
     cooldown: 3,
     description: "Image Manipulation Command",
     run: async (client, message, args) => {

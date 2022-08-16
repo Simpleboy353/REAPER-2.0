@@ -4,7 +4,7 @@ const imdb = require("imdb-api");
 module.exports = {
   name: "imdb",
   description: "Get the information about series and movies",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   enabled: false,
   run: async (client, message, args) => {
     const name = args.join(" ");

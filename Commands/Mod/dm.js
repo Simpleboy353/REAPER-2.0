@@ -4,7 +4,7 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "dm",
   description: "Sends DM message to any user.",
-  userPerms: ["MANAGE_GUILD"],
+  userPerms: ["ManageMembers"],
   usage: "dm <@mention> <msg>",
   aliases: ["dme" , "msgme"],
   //botPerms: ["ADMINISTRATOR"],//

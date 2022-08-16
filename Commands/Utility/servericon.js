@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "servericon",
   description: "Displays the Server Icon",
-  botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
+  botPerms: ["EmbedLinks", "ManageMessages"],
   run: async (client, message, args) => {
     const server = message.guild;
     const embed = new Discord.EmbedBuilder()
@@ -16,7 +16,7 @@ module.exports = {
         })})`
       )
       .setImage(server.iconURL({ size: 2048, dynamic: true, format: "png" }))
-      .setColor("RANDOM");
+      .setColor("Random");
     message.channel.send({ embeds: [embed] });
     message.delete();
   },

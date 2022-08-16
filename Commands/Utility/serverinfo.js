@@ -6,7 +6,7 @@ module.exports = {
   category: "utility",
   description: "Shows info about a server",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     //command
     const mention = message.member;
@@ -39,47 +39,45 @@ module.exports = {
       india: "India",
     };
     const serverembed = new Discord.EmbedBuilder()
-      .setAuthor(`${message.guild.name}`, message.guild.iconURL())
       .setThumbnail(servericon)
-      .addField(
-        `General Info`,
-        `Owner: ${message.guild.members.cache.get(message.guild.ownerId)} \nVerification Lvl: \`${
+      .addFields([
+        { name: `General Info`,
+          value: `Owner: ${message.guild.members.cache.get(message.guild.ownerId)} \nVerification Lvl: \`${
           verifLevels[message.guild.verificationLevel]
-        }\``
-      )
-      .addField(
-        `Overview`,
-        `Total Channels: \`${
+        }\`` },
+        { name: `Overview`,
+        value: `Total Channels: \`${
           message.guild.channels.cache.size
         }\` \nText Channels: \`${
-          message.guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size
+          message.guild.channels.cache.filter((c) => c.type === "GuildText").size
         }\` \nVoice Channels: \`${
-          message.guild.channels.cache.filter((c) => c.type === "GUILD_VOICE").size
+          message.guild.channels.cache.filter((c) => c.type === "GuildVoice").size
         }\` \nAFK Channel: ${afk} \nAFK Timeout: \`${
           message.guild.afkTimeout
         } sec\` \nTotal Roles: \`${
           message.guild.roles.cache.size
         }\` \nTotal Emojis: \`${message.guild.emojis.cache.size}\``
-      )
-      .addField(
-        `Member Info`,
-        `Total Members: \`${message.guild.memberCount}\` \nHumans: \`${
+        },
+        {
+        name: `Member Info`,
+        value: `Total Members: \`${message.guild.memberCount}\` \nHumans: \`${
           message.guild.members.cache.filter((member) => !member.user.bot).size
         }\` \nBots: \`${
           message.guild.members.cache.filter((member) => member.user.bot).size
         }\``
-      )
-      .addField(
-        `Misc. Info`,
-        `You Joined on: \n\`${moment(mention.joinedAt).format(
+        },
+        {
+        name: `Misc. Info`,
+        value: `You Joined on: \n\`${moment(mention.joinedAt).format(
           "dddd, MMMM Do YYYY, h:mm:ss A"
         )}\` \nCreated On: \n\`${moment(message.guild.createdAt).format(
           "dddd, MMMM Do YYYY, h:mm:ss A"
         )}\``
-      )
+        },
+      ])
       .setThumbnail(message.guild.iconURL())
       .setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
-      .setColor("RANDOM")
+      .setColor("Random")
       .setTimestamp();
 
     message.channel.send({ embeds: [serverembed] });

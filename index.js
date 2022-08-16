@@ -1,7 +1,7 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
-const { Client, Collection, GatewayIntentBits, MessageEmbed } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, EmbedBuilder } = require("discord.js");
 const { DEFAULT_PREFIX, BOT_TOKEN, ERROR_LOGS_CHANNEL, YT_COOKIE } = require("./config.json");
 const { loadCommands } = require("./handler/loadCommands");
 const { loadEvents } = require("./handler/loadEvents");
@@ -13,7 +13,7 @@ const Enmap = require("enmap");
 
 const client = new Client({
   allowedMentions: { parse: ["users", "roles"] },
-  intents: 32767
+  intents: 47007
 });
 const { checkValid } = require("./functions/validation/checkValid");
 const Embeds = require("./functions/embeds/Embeds");
@@ -57,15 +57,15 @@ checkValid();
 
 // Error Handling
 
-process.on("uncaughtException", (err) => {
+/**process.on("uncaughtException", (err) => {
   console.log("Uncaught Exception: " + err);
 
-  const exceptionembed = new MessageEmbed()
+  const exceptionembed = new EmbedBuilder()
   .setTitle("Uncaught Exception")
   .setDescription(`${err}`)
-  .setColor("RED")
+  .setColor("Red")
   client.channels.cache.get(ERROR_LOGS_CHANNEL).send({ embeds: [exceptionembed] })
-});
+});*/
 
 process.on("unhandledRejection", (reason, promise) => {
   console.log(
@@ -75,11 +75,13 @@ process.on("unhandledRejection", (reason, promise) => {
     reason.message
   );
 
-   const rejectionembed = new MessageEmbed()
+   const rejectionembed = new EmbedBuilder()
   .setTitle("Unhandled Promise Rejection")
-  .addField("Promise", `${promise}`)
-  .addField("Reason", `${reason.message}`)
-  .setColor("RED")
+  .addFields([
+    { name: "Promise", value: `${promise}` },
+    { name: "Reason", value: `${reason.message}` },
+  ])
+  .setColor("Red")
   client.channels.cache.get(ERROR_LOGS_CHANNEL).send({ embeds: [rejectionembed] })
 });
 

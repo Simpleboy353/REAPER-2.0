@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: "announce",
   description: "Make an Announcemnet in your Server",
-  userPerms: ["MANAGE_MESSAGES"],
-  botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
+  userPerms: ["ManageMessages"],
+  botPerms: ["EmbedLinks", "ManageMessages"],
   run: async (client, message, args) => {
     const anchannel = message.mentions.channels.first();
     if (!anchannel) {
@@ -21,14 +21,14 @@ module.exports = {
       .setDescription(args.slice(1).join(" "), {
         allowedMentions: { parse: ["users"] },
       })
-      .setColor("RANDOM")
+      .setColor("Random")
       .setFooter(`Announcement by ${message.author.username}`);
     anchannel.send({ embeds: [embed] });
 
     let anembed = new Discord.EmbedBuilder()
       .setTitle("Done!")
       .setDescription(`Announcement has been sent to ${anchannel}`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     message.channel.send({ embeds: [anembed] });
     message.delete();

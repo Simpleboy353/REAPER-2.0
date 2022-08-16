@@ -19,7 +19,7 @@ module.exports = {
     const image = await nsfw.erokemo();
     const embed = new Discord.EmbedBuilder()
     .setTitle(`Erokemo`)
-    .setColor("GREEN")
+    .setColor("Green")
     .setImage(image);
     message.channel.send({ embeds: [embed] });
   },

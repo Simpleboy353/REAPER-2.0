@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
   name: 'alert',
-  permissions: ["SEND_MESSAGES"],
+  permissions: ["SendMessages"],
   cooldown: 3,
   enabled: false,
   description: 'Get a custom clyde message!',

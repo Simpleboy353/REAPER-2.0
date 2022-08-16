@@ -19,7 +19,7 @@ module.exports = {
     const image = await nsfw.thigh();
     const embed = new Discord.EmbedBuilder()
     .setTitle(`Thigh`)
-    .setColor("GREEN")
+    .setColor("Green")
     .setImage(image);
     message.channel.send({ embeds: [embed] });
   },

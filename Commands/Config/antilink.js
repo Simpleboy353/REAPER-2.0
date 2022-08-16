@@ -3,7 +3,7 @@ const prefixModel = require("../../database/guildData/antilink");
 module.exports = {
   name: "antilink",
   description: "Setup antilink per server!",
-  userPerms: ["MANAGE_GUILD"],
+  userPerms: ["ManageGuild"],
   run: async (client, message, args) => {
     if (!args[0]) {
       return message.channel.send(

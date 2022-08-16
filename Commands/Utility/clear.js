@@ -1,8 +1,8 @@
 module.exports = {
   name: "clear",
   description: "delete the given number of messages",
-  userPerms: ["MANAGE_MESSAGES"],
-  botPerms: ["MANAGE_MESSAGES"],
+  userPerms: ["ManageMessages"],
+  botPerms: ["ManageMessages"],
   run: async (client, message, args) => {
    
     const fetched = message.channel || message.mentions.members.first();

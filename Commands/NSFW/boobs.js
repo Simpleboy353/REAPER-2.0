@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
   name: "boobs",
   description: "Some Boob Pics for you!",
-  botPerms: ["ATTACH_FILES"],
+  botPerms: ["AttachFiles"],
   run: async (client, message, args) => {
     try {
       var errMessage = "This is not an NSFW Channel";

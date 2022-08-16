@@ -3,8 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "delrole",
   description: "Deletes a role",
-  userPerms: ["MANAGE_ROLES"],
-  botPerms: ["EMBED_LINKS", "MANAGE_ROLES"],
+  userPerms: ["ManageRoles"],
+  botPerms: ["EmbedLinks", "ManageRoles"],
   run: async (client, message, args) => {
     const role = message.mentions.roles.first();
    
@@ -15,7 +15,7 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
       .setTitle("Roles Update")
       .setDescription(`${role} role has been deleted`)
-      .setColor("RANDOM");
+      .setColor("Random");
     await message.channel.send({ embeds: [embed] });
   },
 };

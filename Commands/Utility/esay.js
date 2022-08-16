@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "esay",
   description: "Send Messages in embed form",
-  botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
+  botPerms: ["EmbedLinks", "ManageMessages"],
   run: async (client, message, args) => {
     let msg = args.join(" ");
     if (!msg) {
@@ -11,7 +11,7 @@ module.exports = {
     }
     const embed = new Discord.EmbedBuilder()
       .setDescription(`${msg}`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     message.channel.send({ embeds: [embed] });
     message.delete();

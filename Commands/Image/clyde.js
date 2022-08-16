@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 module.exports = {
   name: 'clyde',
   description: 'Get a custom clyde message!',
-  botPerms: ["ATTACH_FILES"],
+  botPerms: ["AttachFiles"],
   run: async(client, message, args) => {
     if (!args[0]) {
     return message.channel.send(`Usage: ${client.prefix}clyde <msg>`)

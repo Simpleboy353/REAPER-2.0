@@ -1,82 +1,86 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js')
 
 module.exports = {
     name: "ban",
     description: "Ban members from your server!",
     subCommands: ["member", "soft", "hack", "remove"],
     category: "Moderation",
-    userPerms: ["BAN_MEMBERS"],
-    botPerms: ["BAN_MEMBERS", "EMBED_LINKS"],
+    userPerms: ["BanMembers"],
+    botPerms: ["BanMembers", "EmbedLinks"],
     options: [
         {
             name: "member",
             description: "The member you want to ban!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "member",
                     description: "The member you want to ban!",
-                    type: "MENTIONABLE",
-                    requured: true
+                    required: true,
+                    type: ApplicationCommandOptionType.Mentionable,
                 },
                 {
                     name: "reason",
                     description: "The reason for the ban!",
-                    type: "STRING",
+                    required: false,
+                    type: ApplicationCommandOptionType.String,
                 }
             ]
         },
         {
             name: "soft",
             description: "Soft ban a member in you server!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "member",
                     description: "The member you want to soft ban!",
-                    type: "MENTIONABLE",
                     required: true,
+                    type: ApplicationCommandOptionType.Mentionable,
                 },
                 {
                     name: "reason",
                     description: "The reason for the soft ban!",
-                    type: "STRING",
+                    required: false,
+                    type: ApplicationCommandOptionType.String,
                 }
             ]
         },
         {
             name: "hack",
             description: "Bans a member who is not in your server!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "id",
                     description: "The ID of the member you want to ban!",
-                    type: "STRING",
-                    required: true
+                    required: true,
+                    type: ApplicationCommandOptionType.String,
                 },
                 {
                     name: "reason",
                     description: "The reason for the ban!",
-                    type: "STRING",
+                    required: false,
+                    type: ApplicationCommandOptionType.String,
                 }
             ]
         },
         {
             name: "remove",
             description: "Removes a ban from a member!",
-            type: "SUB_COMMAND",
+            type: ApplicationCommandOptionType.Subcommand,
             options: [
                 {
                     name: "id",
                     description: "The ID of the member you want to remove a ban from!",
-                    type: "STRING",
-                    required: true
+                    required: true,
+                    type: ApplicationCommandOptionType.String,
                 },
                 {
                     name: "reason",
                     description: "The reason for the ban!",
-                    type: "STRING",
+                    required: false,
+                    type: ApplicationCommandOptionType.String
                 }
             ]
         }
@@ -101,7 +105,7 @@ module.exports = {
         return interaction.reply("I cannot Ban Someone who has higher or same role as me!")
       }
     
-    let banEmbed = new MessageEmbed()
+    let banEmbed = new EmbedBuilder()
     .setTitle("Action : Ban")
     .setDescription(`Banned ${target} (${target.id})\nReason: ${reason}`)
     .setColor("#ff2050")
@@ -135,7 +139,7 @@ module.exports = {
                 return interaction.reply("I cannot Ban Someone who has higher or same role as me!")
             }
             
-            let softBanEmbed = new MessageEmbed()
+            let softBanEmbed = new EmbedBuilder()
             .setTitle("Action : Ban")
             .setDescription(`Banned ${target} (${target.id})\nReason: ${reason}`)
             .setColor("#ff2050")
@@ -167,7 +171,7 @@ module.exports = {
               return interaction("You cannot Ban The Server Owner")
             }
             let targetMember = await targetUser.member
-            let hackBanEmbed = new MessageEmbed()
+            let hackBanEmbed = new EmbedBuilder()
             .setTitle("Action : Ban")
             .setDescription(`Banned ${targetUser} (${target})\nReason: ${reason}`)
             .setColor("#ff2050")
@@ -197,7 +201,7 @@ module.exports = {
               return interaction("You cannot unan The Server Owner")
             }
             let targetMember = await targetUser.member
-            let unBanEmbed = new MessageEmbed()
+            let unBanEmbed = new EmbedBuilder()
             .setTitle("Action : Unban")
             .setDescription(`Unbanned ${targetUser} (${target})\nReason: ${reason}`)
             .setColor("GREEN")

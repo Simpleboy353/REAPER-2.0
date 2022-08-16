@@ -1,4 +1,5 @@
 const chalk = require("chalk");
+const { ActivityType } = require("discord.js")
 const mongoose = require("mongoose");
 var os = require('os-utils');
 const { mongoPass } = require("../../config.json"); 
@@ -12,7 +13,7 @@ let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serv
  client.user.setPresence({ status: "online" });
  setInterval(() => {
    var text = textList[Math.floor(Math.random() * textList.length)];
-  client.user.setActivity(text, { type: "WATCHING"});
+  client.user.setActivity(text, { type: ActivityType.Watching });
 }, 3000);
 
   let allMembers = new Set();
@@ -38,6 +39,7 @@ let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serv
   mongoose
     .connect(mongoPass, {
       useNewUrlParser: true,
+      useFindAndModify: false,
       useUnifiedTopology: true,
     })
     .then(

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "dockofshame",
-    permissions: ["SEND_MESSAGES"],
+    permissions: ["SendMessages"],
     aliases: ['dcofsh', 'dos'],
     cooldown: 3,
     description: "Image Manipulation Command",

@@ -4,13 +4,11 @@ const roleData = require("../../database/guildData/autorole");
 module.exports = {
   name: "autorole",
   description: "Change autorole per server!",
-  permissions: "MANAGE_ROLES",
-  botPermissions: "MANAGE_ROLES",
   args: "Yes",
   usage: "!autorole <Role|off>",
   aliases: ["ar", "joinrole"],
-  userPerms: ["MANAGE_ROLES"],
-  botPerms: ["MANAGE_ROLES"],
+  userPerms: ["ManageRoles"],
+  botPerms: ["ManageRoles"],
 
   run: async (client, message, args) => {
    

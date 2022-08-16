@@ -1,4 +1,5 @@
 const ms = module.require("ms");
+const { ApplicationCommandOptionType } = require("discord.js");
 module.exports = {
   name: "hack",
   description: "heck someone account [J4F]",
@@ -6,7 +7,8 @@ module.exports = {
       {
           name: "user",
           description: "who you want to be hecked",
-          type: 'MENTIONABLE',
+          required: true,
+          type: ApplicationCommandOptionType.Mentionable,
       }
   ],
       run: async (client, interaction, args) => {

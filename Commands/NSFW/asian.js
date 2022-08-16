@@ -6,7 +6,7 @@ module.exports = {
   category: "NSFW",
   description: "asian porn",
   usage: "[command]",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     try {
       //command
@@ -27,7 +27,7 @@ module.exports = {
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
             .setFooter(`Asian porn`)
-            .setColor("RANDOM");
+            .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })
         .catch(console.error);

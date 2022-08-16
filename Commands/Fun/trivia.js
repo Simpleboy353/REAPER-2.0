@@ -23,7 +23,7 @@ module.exports = {
   name: "trivia",
   description: "Test your knowledge!",
   category: "fun",
-  botPerms: ["EMBED_LINKS"],
+  botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
     let q = questions[Math.floor(Math.random() * questions.length)];
     let i = 0;
@@ -35,7 +35,7 @@ module.exports = {
           return `${i} - ${opt}\n`;
         })
       )
-      .setColor(`GREEN`)
+      .setColor(`Green`)
       .setFooter(
         `Reply to this message with the correct question number! You have 15 seconds.`
       );

@@ -3,8 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "nickname",
   description: "Change the Nickname of other Users",
-  userPerms: ["MANAGE_NICKNAMES"],
-  botPerms: ["MANAGE_NICKNAMES"],
+  userPerms: ["ManageNicknames"],
+  botPerms: ["ManageNicknames"],
   run: async (client, message, args) => {
     let mentionMember = message.mentions.members.first();
     let newNickname = args.slice(1).join(" ");

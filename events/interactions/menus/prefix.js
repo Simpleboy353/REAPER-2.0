@@ -18,10 +18,10 @@ module.exports = async(interaction, client)=> {
 
             const filter = (m) => m.author.id === interaction.member.id
 
-            const collector = await interaction.channel.createMessageCollector({ filter, time: 60000 })
+            const collector = await interaction.channel.createMessageCollector({ filter, time: 60_000 })
 
-            collector.on("collect", async(collected, returnValue)=> {
-                let prefix = collected.content
+            collector.on("collect", async(collected)=> {
+                let prefix = await collected.content
 
                 if (prefix.length >= 5) {
                     return msg.edit(`Prefix must be of less than 5 characters!`)
@@ -47,7 +47,7 @@ module.exports = async(interaction, client)=> {
             await msg.edit('Please send the new prefix below!')
             const newFilter = (m) => m.author.id === interaction.member.id
 
-            const newCollector = await interaction.channel.createMessageCollector({ newFilter, time: 60000 })
+            const newCollector = await interaction.channel.createMessageCollector({ newFilter, time: 60_000 })
 
             newCollector.on("collect", async(collected, returnValue)=> {
                 let newPrefix = collected.content

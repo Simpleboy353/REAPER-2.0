@@ -19,7 +19,7 @@ module.exports = {
     const image = await nsfw.pgif();
     const embed = new Discord.EmbedBuilder()
     .setTitle(`Porn Gif`)
-    .setColor("GREEN")
+    .setColor("Green")
     .setImage(image);
     message.channel.send({ embeds: [embed] });
   },

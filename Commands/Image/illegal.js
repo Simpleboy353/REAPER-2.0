@@ -5,7 +5,7 @@ const cooldown = new Set();
 module.exports = {
   name: "illegal",
   description: "Provide a text to Trump for making it illegal",
-  botPerms: ["EMBED_LINKS", "MANAGE_MESSAGES"],
+  botPerms: ["EmbedLinks", "ManageMessages"],
   run: async (client, message, args) => {
     if (cooldown.has(message.author.id)) {
       let cooldownemb = new Discord.EmbedBuilder()
