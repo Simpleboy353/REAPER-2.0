@@ -12,9 +12,9 @@
 ---
 
 ## Requirements
-- Discord.js v13 (`npm install discord.js@latest`)
+- Discord.js v14 (`npm install discord.js@latest`)
 - `applications.commands` scope enabled for your bot in Developer Portal (For Slash Cmds).
-- NodeJS v16.6 or higher
+- NodeJS v16.9.0 or higher
 - Basic knowledge of JS or Discord.JS
 
 ## Have suggestions on what could be added?
@@ -60,10 +60,11 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v7.3.0-stable (Updated Rep System) (Current)           |       Available       |
-| v7.2.0-stable (Rep System)                             |       Available       |
-| v7.1.5-stable (Button controls for music)              |       Available       |
-| v7.1.0-stable (Support for Activities)                 |       Seems okay to me!       |
+| v8.0.0 (V14 Support Added) (Current)                   |         Available        |
+| v7.3.0-stable (Updated Rep System)                     |       Discontinued       |
+| v7.2.0-stable (Rep System)                             |       Discontinued       |
+| v7.1.5-stable (Button controls for music)              |       Discontinued       |
+| v7.1.0-stable (Support for Activities)                 |       Discontinued       |
 | v7.0.0-stable (Music System)                           |       Discontinued       |
 | v6.7.5-alpha (Better Error Logging)                    |       Discontinued       |
 | v6.7.0-beta (Slash Cmds, Thread Events)                |       Discontinued       |
