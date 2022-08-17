@@ -13,7 +13,7 @@ module.exports = async (message, cooldowns) => {
   if (data) {
     var PREFIX = data.Prefix
   } else {
-    PREFIX = "!";
+    PREFIX = DEFAULT_PREFIX;
   }
   client.prefix = PREFIX;
 
