@@ -121,7 +121,7 @@ module.exports = async (message, cooldowns) => {
     let ILoveYou3000 = new EmbedBuilder()
       .setDescription("There was an error executing that command.")
       .setColor("Blue");
-    message.channel.send({ embeds: [ILoveYou000] }).catch(console.error);
+    message.channel.send({ embeds: [ILoveYou3000] }).catch(console.error);
   }
 };
 /* 
