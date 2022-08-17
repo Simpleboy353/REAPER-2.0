@@ -1,6 +1,6 @@
 {
   "name": "reaper-2.0",
-  "version": "v7.3.1-stable",
+  "version": "v8.0.0",
   "description": "An Open Source discord bot with lots of features",
   "main": "index.js",
   "engines": {
