@@ -20,7 +20,7 @@ module.exports = {
       .format(" D [days], H [hrs], m [mins], s [secs]");
 
     let embed = new Discord.EmbedBuilder()
-      .setAuthor("REAPER-,2.0's Info", client.user.avatarURL())
+      .setTitle("REAPER-,2.0's Info")
       .setColor("Random")
       .setDescription(
         `**Bot Name: **Reaper \n**Owner: **[YOUR_NAME_HERE] \n**Total Categories: **8 \n**Total Commands: **${client.commands.size} \n**Users:** ${
@@ -37,7 +37,6 @@ module.exports = {
           value: "**Get your own bot!** **[Here](https://github.com/Simpleboy353/REAPER-2.0)** \n**Need Help? Join our ** **[Support/Development Server](https://infinitybot.tk/support)** **for assistance**"
         }
       ])
-      .setFooter("Regards, Reaper-2.0 Development Team");
     message.channel.send({ embeds: [embed] });
   },
 };

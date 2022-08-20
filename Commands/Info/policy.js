@@ -8,8 +8,7 @@ module.exports = {
     const icon = client.user.avatarURL;
     const embed = new Discord.EmbedBuilder()
       .setTitle("INFINITY BOT PRIVACY POLICY")
-      .setThumbnail(icon)
-      .setDescription("By using the bot you agree to our privacy policy")
+      .setDescription(`By using the bot you agree to our privacy policy\nRequested by: ${message.author}`)
       .addFields([
         {
         name: "**WHAT DATA DO WE STORE?**",
@@ -42,8 +41,6 @@ module.exports = {
     If you have any concerns or queries relating our privacy policy or our bot or if you want your data to be removed, You can contact [๖ۣۜℜⱥjͥƤuͣtͫ#0001](https://discord.com/users/661501985517862972) directy on our [Support Server](https://discord.gg/mqWprFc)!`
         }
       ])
-      .setThumbnail(client.user.avatarURL())
-      .setFooter(`Requested by: ${message.author.username}`)
       .setColor("Green");
 
     return message.channel.send({embeds: [embed]});

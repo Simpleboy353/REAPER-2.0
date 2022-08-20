@@ -342,7 +342,7 @@ module.exports = {
             }
         
             const embed = new EmbedBuilder()
-              .setColor(interaction.guild.me.displayColor || "#00FFFF")
+              .setColor(interaction.guild.members.me.displayColor || "#00FFFF")
               .setTitle(`${song.title}`)
               .setURL(`${song.url}`)
               .setImage(`${song.thumbnail}`);

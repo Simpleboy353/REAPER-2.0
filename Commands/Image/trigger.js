@@ -4,10 +4,11 @@ module.exports = {
   name: "trigger",
   description: "Put the Triggered Overlay pic over avatars!",
   botPerms: ["AttachFiles"],
+  enabled: false,
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
     if (!user) {
-      return message.channel.send("Wasted? Who?");
+      return message.channel.send("Trigger? Who?");
     }
     const avatar = user.user.displayAvatarURL({ size: 2048, format: "png" });
 

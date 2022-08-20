@@ -17,7 +17,7 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
       .setTitle(`${name}`)
       .setImage(link)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     message.channel.send({embeds: [embed]});
   },

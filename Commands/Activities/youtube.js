@@ -14,7 +14,6 @@ module.exports = {
             .setTitle("Youtube Together")
             .setDescription(`[Click Here](${invite.code}) to access Youtube Together!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("Red")
-            .setFooter(`Requested By: ${message.author.tag}`)
             
             return message.channel.send({ embeds: [embed] });
         });

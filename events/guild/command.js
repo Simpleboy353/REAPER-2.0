@@ -33,18 +33,15 @@ module.exports = async (message, cooldowns) => {
     client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 
     //command enaled thing
-    if (command.enabled) {
-      if(command.enabled === false) {
-        return message.reply('This command is disabled!')
-      }
+    if(command.enabled == false) {
+      return message.reply('This command is disabled!')
     }
     // ownerOnly thing
-    if(command.ownerOnly === true) {
-      if(!message.author.id === OWNER_ID) {
+    if(command.ownerOnly == true) {
+      if(!message.author.id == OWNER_ID) {
         return message.reply('This command is Owner only!')
       }
     }
-    console.log("Hello");
     // user permissions handler
     if (!message.member.permissions.has(command.userPerms || [])) {
       if(command.userPermError === null || command.userPermError === undefined) {

@@ -19,9 +19,9 @@ module.exports = {
             "MANAGE_MESSAGES": "Manage Messages",
             "MENTION_EVERYONE": "Mention Everyone"
         }
-        const mention = message.mentions.members.first() || message.member;
+        const mention = message.mentions.members.first();
+        if (!mention) return message.channel.send("Mention someone!")
         const nick = mention.nickname === null ? "None" : mention.nickname;
-        const roles = mention.roles.cache.get === "" ? "None" : mention.roles.cache.get;
         const usericon = mention.user.avatarURL;
         const mentionPermissions = mention.permissions.toArray() === null ? "None" : mention.permissions.toArray();
         const finalPermissions = [];
@@ -50,15 +50,12 @@ module.exports = {
         };
         const userlol = new Discord.EmbedBuilder()
         .setTitle(`User Info`)
-        .setThumbnail(usericon)
         .addFields([
-        { name: `General Info`, value: `Name: \`${mention.user.username}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``},
+        { name: `General Info`, value: `Name: \`${mention.user.username}\` \nID:  \`${mention.id}\` \nTag: \`${mention.user.discriminator}\` \nNickname: \`${nick}\``},
         { name: `Overview`, value: `Badges: \`${flags[mention.user.flags.toArray().join(", ")]}\`\nIs Bot: \`${bot[mention.user.bot]}\``},
         { name: `Server Relating Info`, value: `Roles: <@&${mention._roles.join(">  <@&")}> \nKey Permissions: \`${finalPermissions.join(', ')}\``},
         { name: `Misc Info`, value: `Acc Created on: \n\`${moment(mention.user.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\` \nJoined This Server on: \n\`${moment(mention.joinedAt).format("dddd, MMMM Do YYYY, h:mm:ss A")}\``},
         ])
-        .setThumbnail(mention.user.avatarURL())
-        .setFooter(`ID: ${mention.user.id}`, mention.user.avatarURL())
         .setTimestamp()
         .setColor("Random");
         message.channel.send({ embeds: [userlol] })

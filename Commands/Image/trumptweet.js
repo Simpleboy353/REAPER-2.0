@@ -9,16 +9,19 @@ module.exports = {
     "Display's a custom tweet from Donald Trump with the message provided.",
   botPerms: ["AttachFiles"],
   run: async (client, message, args) => {
-    const tweet = args.join(" ");
+    let tweet = args.join(" ");
     if (!tweet) {
       return message.channel.send("Mr. President Says: `What to tweet ?`");
     }
     if (tweet.length > 68) tweet = tweet.slice(0, 65) + "...";
 
+    const user = message.mentions.members.first();
+
+    if (tweet.includes(user)) {
+      tweet = tweet.replace(user, user.user.username)
+    }
     try {
-      const res = await fetch(
-        "https://nekobot.xyz/api/imagegen?type=trumptweet&text=" + tweet
-      );
+      const res = await fetch("https://nekobot.xyz/api/imagegen?type=trumptweet&text=" + tweet);
       const img = (await res.json()).message;
       message.channel.send({
         files: [{ attachment: img, name: "trumptweet.png" }],

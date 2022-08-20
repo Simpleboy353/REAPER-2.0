@@ -26,7 +26,6 @@ module.exports = {
           let wow = new discord.EmbedBuilder()
             .setDescription(`**` + title + `**`)
             .setImage(amazeme)
-            .setFooter(`Slippery Slut`)
             .setColor("Random");
           message.channel.send({ embeds: [wow] });
         })

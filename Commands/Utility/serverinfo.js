@@ -39,7 +39,6 @@ module.exports = {
       india: "India",
     };
     const serverembed = new Discord.EmbedBuilder()
-      .setThumbnail(servericon)
       .addFields([
         { name: `General Info`,
           value: `Owner: ${message.guild.members.cache.get(message.guild.ownerId)} \nVerification Lvl: \`${
@@ -75,8 +74,6 @@ module.exports = {
         )}\``
         },
       ])
-      .setThumbnail(message.guild.iconURL())
-      .setFooter(`ID: ${message.guild.id}`, message.guild.iconURL())
       .setColor("Random")
       .setTimestamp();
 

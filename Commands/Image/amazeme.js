@@ -19,8 +19,7 @@ module.exports = {
         let wow = new discord.EmbedBuilder()
           .setDescription(`**` + title + `**`)
           .setImage(amazeme)
-          .setFooter(`Credits to r/interestingasfuck`)
-          .setColor("RANDOM");
+          .setColor("Random");
         message.channel.send({ embeds: [wow] });
       })
       .catch(console.error);

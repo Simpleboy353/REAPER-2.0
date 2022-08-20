@@ -25,7 +25,7 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
       .setTitle(`${message.author.username} respects ${user.displayName}`)
       .setImage(`${gif[Math.floor(Math.random() * gif.length)]}`)
-      .setColor("RANDOM");
+      .setColor("Random");
 
     message.channel.send({embeds: [embed]});
   },

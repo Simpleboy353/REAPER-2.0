@@ -5,10 +5,10 @@ module.exports = {
   permissions: ["SendMessages"],
   cooldown: 3,
   enabled: false,
-  description: 'Get a custom clyde message!',
+  description: 'Alert meme',
   async execute(client, message, cmd, args, Discord) {
     if (!args[0]) {
-      return message.channel.send('`Usage: (prefix)clyde <msg>`')
+      return message.channel.send('`Usage: (prefix)alert <msg>`')
     }
     let alertMessage = args.slice(0).join(' ');
     if (alertMessage.length > 65) return message.channel.send('**You Are Not Allowed To Go Over 65 Characters!**');

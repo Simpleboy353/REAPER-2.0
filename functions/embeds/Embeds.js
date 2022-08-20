@@ -16,7 +16,7 @@ function baseEmbed(interaction) {
 
   return new EmbedBuilder()
     .setFooter(tag, avatar)
-    .setColor(interaction.guild.me.displayColor || "#00FFFF")
+    .setColor(interaction.guild.members.me.displayColor || "#00FFFF")
     .setTimestamp();
 }
 
@@ -30,7 +30,7 @@ function rootEmbed(interaction) {
   }
 
   return new EmbedBuilder()
-    .setColor(interaction.guild.me.displayColor || "#00FFFF");
+    .setColor(interaction.guild.members.me.displayColor || "#00FFFF");
 }
 
 
@@ -50,7 +50,7 @@ function infoMessage(interaction, text) {
 
   const embedI = new EmbedBuilder()
     .setDescription(text)
-    .setColor(interaction.guild.me.displayColor || "#00FFFF");
+    .setColor(interaction.guild.members.me.displayColor || "#00FFFF");
 
   return interaction.editReply({ embeds: [embedI], allowedMentions: { repliedUser: false } }).catch(console.error);
 }

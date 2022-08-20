@@ -5,16 +5,15 @@ module.exports = {
   description: "Just for fun command",
   botPerms: ["EMBED_LINKS"],
   run: async (client, message, args) => {
-    let target = message.mentions.members
-      || message.mentions.members.first();
+    let target = message.mentions.users.first();
 
     let rng = Math.floor(Math.random() * 101);
 
     const howgayembed = new Discord.EmbedBuilder()
       .setTitle(`Gay Machine Calculator`)
-      .setDescription(`${target.user.username} is ` + rng + "% Gay🌈")
+      .setDescription(`${target.username} is ` + rng + "% Gay🌈")
       .setColor("Green");
 
-    message.channel.send({ embeds: [howgayembed] });
+    await message.channel.send({ embeds: [howgayembed] });
   },
 };

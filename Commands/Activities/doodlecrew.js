@@ -14,7 +14,6 @@ module.exports = {
             .setTitle("Doodle Crew.io")
             .setDescription(`[Click Here](${invite.code}) to play Doodle Crew.io!\n\`\`\`\nNote: This feature is not availble for mobile users!\`\`\``)
             .setColor("Green")
-            .setFooter(`Requested By: ${message.author.tag}`)
             
             return message.channel.send({ embeds: [embed] });
         });

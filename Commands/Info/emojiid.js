@@ -14,6 +14,6 @@ module.exports = {
         "Couldn't find the Emojis with the provided name. Please make sure the Emoji name is correct"
       );
     }
-    new message.channel.send(`\`\`\`${emoji}\`\`\``);
+    await message.channel.send(`\`\`\`${emoji}\`\`\``);
   },
 };

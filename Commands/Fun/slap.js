@@ -8,13 +8,9 @@ module.exports = {
     if (!member) {
       return message.reply("You need to mention a user");
     }
-  const embed = new Discord.EmbedBuilder()
-    .setTitle(message.author.name + " slapped :raised_back_of_hand: " +
-          member.displayName +
-          ", " +
-          member.displayName +
-          " is now in the hospital! :hospital:")
-      .setColor("Random");
+    const embed = new Discord.EmbedBuilder()
+    .setDescription(message.author.username + " slapped :raised_back_of_hand: " + member.user.username + ", " + member.user.username + " is now in the hospital! :hospital:")
+    .setColor("Random");
     await message.reply({ embeds: [embed] });
   },
 };

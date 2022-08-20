@@ -17,8 +17,7 @@ module.exports = {
     );
     const embed = new Discord.EmbedBuilder()
       .setTitle("New Bug Report")
-      .setDescription(`${report} \n\nBy: ${message.author.tag}`)
-      .setFooter(`User ID: ${message.author.id}`)
+      .setDescription(`${report} \n\nBy: ${message.author.tag}\nUser ID: ${message.author.id}`)
       .setColor("Random");
 
     reportchannel.send({embeds: [embed]});

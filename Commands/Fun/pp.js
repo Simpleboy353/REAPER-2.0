@@ -5,17 +5,16 @@ module.exports = {
   description: "Another fun Command",
   botPerms: ["EmbedLinks"],
   run: async (client, message, args) => {
-    let target = message.mentions.members
-      ? message.mentions.members.first()
-      : message.author;
+    let target = message.mentions.users.first();
 
-    const ppSize = Math.floor(Math.random() * 10);
+    if (!target) return message.channel.send("Mention someone!")
 
-    ppSize = ppSize * "=";
+    var ppSize = Math.floor(Math.random() * 10) * "=";
+
     const ppSizeEmbed = new Discord.EmbedBuilder()
-      .setTitle(`Gay Machine Calculator`)
+      .setTitle(`PP Size Calculator`)
       .setDescription(`${target.username}'s pp: 8` + ppSize + "D")
-      .setColor("BLUE");
+      .setColor("Blue");
 
     message.channel.send({ embeds: [ppSizeEmbed] });
   },

@@ -41,7 +41,6 @@ module.exports = {
             .setTitle("Danbooru:")
             .setImage(image.common.file_url)
             .setColor("#FF0000")
-            .setFooter(`Tags: danbooru ${query}`)
             .setURL(image.common.file_url);
           return message.channel.send({ embeds: [embed] });
         }

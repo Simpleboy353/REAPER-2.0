@@ -4,6 +4,7 @@ module.exports = {
   name: "wasted",
   description: "Put the GTA Wasted pic over avatars!",
   botPerms: ["AttachFiles"],
+  enabled: false,
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
     if (!user) {

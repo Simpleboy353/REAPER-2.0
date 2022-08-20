@@ -14,16 +14,18 @@ module.exports = {
 
      let pingEmbed = new discord.EmbedBuilder()
      .setDescription("Looks like the bot is slow.")
-     .setColor("RANDOM")
+     .setColor("Random")
   
   message.channel.send({ embeds: [pingEmbed] }).then(m => {
     
     let end = Date.now();
     
     let embed = new discord.EmbedBuilder()
-    .setAuthor("Ping!", message.author.avatarURL())
-    .addField("API Latency", Math.round(client.ws.ping) + "ms", true)
-    .addField("Message Latency", end - start + "ms", true)
+    .setTitle("Ping!")
+    .addFields([
+      { name: "API Latency", value: Math.round(client.ws.ping) + "ms" },
+      { name: "Message Latency", value: end - start + "ms" }
+    ])
     .setColor("Random");
     m.edit({ embeds: [embed] }).catch(e => message.channel.send(e))
     

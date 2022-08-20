@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const got = require("got"); //MAKE SURE TO INSTALL THE PACKAGE "GOT" ELSE THE CODE WOULD NOT WORK
 
 module.exports = {
-  name: "4k",
+  name: "anal",
   category: "NSFW",
   description: "Sends 4k girl pics",
   usage: "[command]",
@@ -20,7 +20,7 @@ module.exports = {
       }
       got("https://www.reddit.com/r/Asshole/random.json")
         .then((response) => {
-          let conte
+          let content = JSON.parse(response.body);
           nt = JSON.parse(response.body);
           var title = content[0].data.children[0].data.title;
           var amazeme = content[0].data.children[0].data.url;
