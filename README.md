@@ -1,4 +1,7 @@
-![Reaper Logo](https://media.discordapp.net/attachments/853118185330049054/885199802369974292/images_1.jpeg)
+
+
+**<p align="center"> <img src="https://media.discordapp.net/attachments/853118185330049054/885199802369974292/images_1.jpeg" /> </p>**
+
 
 <h1 align="center"> REAPER-2.0  </h1>
 <p align="center">
