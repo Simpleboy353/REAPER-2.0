@@ -1,3 +1,5 @@
+const { EmbedBuilder, ActionRowBuilder, ButtonStyle, MessageActionRow, ButtonBuilder } = require('discord.js');
+
 module.exports = {
 	name: 'football',
 	aliases: [],
@@ -11,61 +13,96 @@ module.exports = {
 		let gameEnded = false;
 		let randomPos = positions[Object.keys(positions)[randomized]];
 
-		const componentsArray = [
-			{
-				type: 1,
-				components: [
-					{
-						type: 2,
-						style: 'SECONDARY',
-						custom_id: 'left',
-						label: 'Left',
-					},
-					{
-						type: 2,
-						style: 'PRIMARY',
-						custom_id: 'middle',
-						label: 'Middle',
-					},
-					{
-						type: 2,
-						style: 'SECONDARY',
-						custom_id: 'right',
-						label: 'Right',
-					},
-				],
-			},
-		];
-
-		const msg = await message.channel.send({
-			content: randomPos,
-			components: componentsArray,
+		const goal = await message.reply({
+			content: positions.randomPos,
+			components: [
+				action = new ActionRowBuilder()
+					.addComponents(
+						new ButtonBuilder()
+							.setCustomId('left')
+							.setLabel('Left')
+							.setStyle(ButtonStyle.Secondary),
+						new ButtonBuilder()
+							.setCustomId('middle')
+							.setLabel('middle')
+							.setStyle(ButtonStyle.Primary),
+						new ButtonBuilder()
+							.setCustomId('right')
+							.setLabel('right')
+							.setStyle(ButtonStyle.Secondary),
+					)
+			],
 		});
+
 		function update() {
 			randomized = Math.floor(Math.random() * Object.keys(positions).length);
 			randomPos = positions[Object.keys(positions)[randomized]];
 
-			msg.edit({
+			goal.edit({
 				content: randomPos,
-				components: componentsArray,
 			});
 		}
 		setInterval(() => {
-			if(gameEnded == false) return update();
+			if(gameEnded === false) return update();
 		}, 1000);
 
-		const filter = button => {
-			return button.user.id === message.author.id;
-		};
-		const button = await msg.awaitMessageComponent({ filter: filter, componentType: 'BUTTON', max: 1 });
-
-		if(button.customId !== Object.keys(positions)[randomized]) {
-			gameEnded = true;
-			return button.reply({ content: 'You won!' });
-		}
-		else {
-			gameEnded = true;
-			return button.reply({ content: 'You lose...' });
-		}
+		client.on('interactionCreate', async (interaction) => {
+			if (interaction.isButton()) {
+				if (interaction.customId !== Object.keys(positions)[randomized]) {
+					gameEnded = true;
+					goal.edit({
+						content: positions.ended1,
+						components: [
+							action = new ActionRowBuilder()
+								.addComponents(
+									new ButtonBuilder()
+										.setCustomId('left')
+										.setLabel('Left')
+										.setStyle(ButtonStyle.Secondary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('middle')
+										.setLabel('middle')
+										.setStyle(ButtonStyle.Primary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('right')
+										.setLabel('right')
+										.setStyle(ButtonStyle.Secondary)
+										.setDisabled(true),
+								)
+						],
+					});
+					await message.channel.send({ content: 'You won!' });
+				}
+				else {
+					gameEnded = true;
+					goal.edit({
+						content: positions.ended1,
+						components: [
+							action = new ActionRowBuilder()
+								.addComponents(
+									new ButtonBuilder()
+										.setCustomId('left')
+										.setLabel('Left')
+										.setStyle(ButtonStyle.Secondary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('middle')
+										.setLabel('middle')
+										.setStyle(ButtonStyle.Primary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('right')
+										.setLabel('right')
+										.setStyle(ButtonStyle.Secondary)
+										.setDisabled(true),
+								)
+						],
+					});
+					return message.channel.send({ content: 'You lose...' });
+				}
+			}
+		});
 	},
 };
