@@ -1,3 +1,5 @@
+const { EmbedBuilder, ActionRowBuilder, ButtonStyle, MessageActionRow, ButtonBuilder } = require('discord.js');
+
 module.exports = {
 	name: 'gunfight',
   description: "First one to shoot wins!",
@@ -13,86 +15,125 @@ module.exports = {
 			ended2: '_ _     :levitate: :skull_crossbones:      **STOP!**        :point_left: :levitate:',
 		};
 
-		const componentsArray = [
-			{
-				type: 1,
-				components: [
-					{
-						type: 2,
-						label: 'Shoot!',
-						custom_id: 'shoot1',
-						style: 'PRIMARY',
-						disabled: true,
-					},
-					{
-						type: 2,
-						label: '\u200b',
-						custom_id: 'id lol useless',
-						style: 'SECONDARY',
-						disabled: true,
-					},
-					{
-						type: 2,
-						label: 'Shoot!',
-						custom_id: 'shoot2',
-						style: 'DANGER',
-						disabled: true,
-					},
-				],
-			},
-		];
-
-		const msg = await message.channel.send({
+		const duel = await message.reply({
 			content: positions.three,
-			components: componentsArray,
+			components: [
+				action = new ActionRowBuilder()
+				.addComponents(
+					new ButtonBuilder()
+						.setCustomId('shoot1')
+						.setLabel('shoot!')
+						.setStyle(ButtonStyle.Primary)
+						.setDisabled(true),
+					new ButtonBuilder()
+						.setCustomId('doesnt Matter')
+						.setLabel('\u200b')
+						.setStyle(ButtonStyle.Secondary)
+						.setDisabled(true),
+					new ButtonBuilder()
+						.setCustomId('shoot2')
+						.setLabel('shoot!')
+						.setStyle(ButtonStyle.Danger)
+						.setDisabled(true),
+				)
+			],
 		});
+
 
 		function countdown() {
 			setTimeout(() => {
-				msg.edit({
+				duel.edit({
 					content: positions.two,
-					components: componentsArray,
 				});
 			}, 1000);
 			setTimeout(() => {
-				msg.edit({
+				duel.edit({
 					content: positions.one,
-					components: componentsArray,
 				});
 			}, 2000);
 			setTimeout(() => {
-				componentsArray[0].components[0].disabled = false;
-				componentsArray[0].components[2].disabled = false;
-				msg.edit({
+				duel.edit({
 					content: positions.go,
-					components: componentsArray,
+					components: [
+						action = new ActionRowBuilder()
+							.addComponents(
+								new ButtonBuilder()
+									.setCustomId('shoot1')
+									.setLabel('shoot!')
+									.setStyle(ButtonStyle.Primary)
+									.setDisabled(false),
+								new ButtonBuilder()
+									.setCustomId('doesnt Matter')
+									.setLabel('\u200b')
+									.setStyle(ButtonStyle.Secondary)
+									.setDisabled(false),
+								new ButtonBuilder()
+									.setCustomId('shoot2')
+									.setLabel('shoot!')
+									.setStyle(ButtonStyle.Danger)
+									.setDisabled(false),
+							)
+					],
 				});
 			}, 3000);
 		}
 		countdown();
 
-		const filter = button => {
-			return button.user.id == message.author.id || button.user.id == opponent.id;
-		};
-
-		const button = await msg.awaitMessageComponent({ filter: filter, componentType: 'BUTTON', max: 1 });
-
-		componentsArray[0].components[0].disabled = true;
-		componentsArray[0].components[2].disabled = true;
-
-		if(button.customId === 'shoot1' && button.user.id == message.author.id) {
-			msg.edit({
-				content: positions.ended1,
-				components: componentsArray,
-			});
-			return button.reply({ content: `<@${message.author.id}> won!` });
-		}
-		else if(button.customId === 'shoot2' && button.user.id == opponent.id) {
-			msg.edit({
-				content: positions.ended1,
-				components: componentsArray,
-			});
-			return button.reply({ content: `<@${opponent.id}> won!` });
-		}
-	},
+		client.on('interactionCreate', async (interaction) => {
+			if (interaction.isButton()) {
+				if (interaction.customId === 'shoot1' && interaction.member.id === message.author.id) {
+					duel.edit({
+						content: positions.ended1,
+						components: [
+							action = new ActionRowBuilder()
+								.addComponents(
+									new ButtonBuilder()
+										.setCustomId('shoot1')
+										.setLabel('shoot!')
+										.setStyle(ButtonStyle.Primary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('doesnt Matter')
+										.setLabel('\u200b')
+										.setStyle(ButtonStyle.Secondary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('shoot2')
+										.setLabel('shoot!')
+										.setStyle(ButtonStyle.Danger)
+										.setDisabled(true),
+								)
+						],
+					});
+					await message.channel.send(`<@${message.author.id}> won!`);
+				}
+				if (interaction.customId === 'shoot2' && interaction.member.id === opponent.id) {
+					duel.edit({
+						content: positions.ended2,
+						components: [
+							action = new ActionRowBuilder()
+								.addComponents(
+									new ButtonBuilder()
+										.setCustomId('shoot1')
+										.setLabel('shoot!')
+										.setStyle(ButtonStyle.Primary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('doesnt Matter')
+										.setLabel('\u200b')
+										.setStyle(ButtonStyle.Secondary)
+										.setDisabled(true),
+									new ButtonBuilder()
+										.setCustomId('shoot2')
+										.setLabel('shoot!')
+										.setStyle(ButtonStyle.Danger)
+										.setDisabled(true),
+								)
+						],
+					});
+					await message.channel.send(`<@${opponent.id}> won!`);
+				}
+			}
+		});
+	}
 };
