@@ -4,7 +4,7 @@ module.exports = {
   name: "fact",
   description: "Sends a random fact",
   run: async (client, message, args) => {
-    var fact = [
+    var facts = [
       "The world’s oldest wooden wheel has been around for more than 5,000 years.",
       "Though less common than earthquakes, the moon actually has moonquakes, too. That's right. Moonquakes. Pretty much everyone is interested in space, so this is always a good fact to pull out.",
       "You actually lose a large percentage of your taste buds while on an airplane. This might explain a lot about those less-than-stellar in-flight meals, or why you find yourself craving the saltiest foods while in the sky.",
@@ -110,6 +110,6 @@ module.exports = {
       "Alfred Hitchcock was scared of... eggs. Let's all be thankful he didn't create a horror film about eggs.",
       "Umbrellas were once only used by women. They've also been around in some form since 500 BC",
     ];
-    await message.channel.send(jokes[Math.floor(Math.random() * jokes.length)]);
+    await message.channel.send(facts[Math.floor(Math.random() * facts.length)]);
   },
 };
