@@ -28,22 +28,15 @@ module.exports = {
             try {
                 message.channel.send('No muted role.. making one..!')
                 let muterole = await message.guild.roles.create({
-                    data: {
-                        name: 'Muted',
-                        permissions: [],
-                    }
+                    name: 'Muted',
                 });
-                message.guild.channels.cache.filter(c => c.type === 'text').forEach(async (channel, id) => {
-                    await channel.createOverwrite(muterole, {
-                        SEND_MESSAGES: false,
-                        ADD_REACTIONS: false
-                    })
+                message.guild.channels.cache.forEach(async (channel) => {
+                    await channel.permissionOverwrites.create(muterole, { SendMessages: false, AddReactions: false});
                 });
-                message.channel.send(
-                    new EmbedBuilder()
+                const embed = new EmbedBuilder()
                     .setDescription('Muted role has sucessfully been created')
                     .setColor("Green")
-                )
+                await message.channel.send({ embeds: [embed] });
             } catch (error) {
                 console.log(error)
             }
