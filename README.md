@@ -10,9 +10,9 @@
 <a href="https://github.com/Simpleboy353/REAPER-2.0/network"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/Simpleboy353/REAPER-2.0?style=for-the-badge"></a>
 <a href="https://infinitybot.tk/support"><img alt="Support Server" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a>
 </p>
-<h3 align="center">An Multi-purpose Discord bot with many features!</h3>
+<h3 align="center">A Multi-purpose Discord bot with many features!</h3>
 
----
+
 
 ## Requirements
 - Discord.js v14 (`npm install discord.js@latest`)
