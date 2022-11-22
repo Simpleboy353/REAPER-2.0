@@ -52,7 +52,6 @@
     "moment-duration-format": "^2.3.2",
     "mongoose": "^5.10.7",
     "ms": "^2.1.2",
-    "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
     "node-superfetch": "^0.2.0",
     "os": "^0.1.1",
@@ -68,7 +67,6 @@
     "twemoji-parser": "^13.0.0",
     "urban": "^0.3.2",
     "util": "^0.12.3",
-    "ytdl-core": "^4.11.0"
   },
   "devDependencies": {
     "node": "16.13.0"
