@@ -101,6 +101,8 @@ module.exports = {
 
 			let member = await interaction.guild.members.cache.find(user => user.id === idData.Suggester);
 
+			if (!member.permissions.has("ManageServer")) return interaction.followUp("Missing Permissions");
+
 			let suggester = await member.user.tag;
 
 			if (!suggester) suggester = "Unknown User";
@@ -138,6 +140,8 @@ module.exports = {
 			if (!messageData) return interaction.followUp("Couldn't find the suggestion to deny!")
 
 			let user = await interaction.guild.members.cache.find(user => user.id === messageData.Suggester);
+
+			if (!user.permissions.has("ManageServer")) return interaction.followUp("Missing Permissions");
 
 			let smaker = await user.user.tag;
 
