@@ -61,6 +61,7 @@ function loadEvents(client) {
   client.on("interactionCreate", (m) => menuEvents("roleUpdates")(m, client));
   client.on("interactionCreate", (m) => menuEvents("serverUpdates")(m, client));
   client.on("interactionCreate", (m) => menuEvents("voiceStateUpdates")(m, client));
+  client.on("interactionCreate", (m) => menuEvents("suggestions")(m, client));
 
   // warnings and errors
   client.on("warn", (info) => console.log(info));

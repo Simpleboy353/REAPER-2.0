@@ -59,6 +59,11 @@ module.exports = {
                         label: "Rep System",
                         description: "Enable or Disable Rep System!",
                         value: "rep",
+                    },
+                    {
+                        label: "Suggestion System",
+                        description: "Enanble or Disable Suggestion System",
+                        value: "suggestions"
                     }
                 ])
             )

@@ -8,7 +8,7 @@
 <a href="https://github.com/Simpleboy353/REAPER-2.0/blob/main/LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/Simpleboy353/REAPER-2.0?style=for-the-badge"></a>
 <a href="https://github.com/Simpleboy353/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/Simpleboy353/REAPER-2.0?style=for-the-badge"></a> 
 <a href="https://github.com/Simpleboy353/REAPER-2.0/network"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/Simpleboy353/REAPER-2.0?style=for-the-badge"></a>
-<a href="https://infinitybot.tk/support"><img alt="Support Server" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a>
+<a href="https://discord.gg/PCFedSNnqp"><img alt="Support Server" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a>
 </p>
 <h3 align="center">A Multi-purpose Discord bot with many features!</h3>
 
@@ -38,6 +38,7 @@
 | Welcomer             |     ✅       |
 | Logging              |     ✅       |
 | Menu(s)              |     ✅       |
+| Suggestion System    |     ✅       |
 | Slash Commands       |     ✅       |
 | Rep System           |     ✅       |
 
@@ -64,7 +65,8 @@
 
 |              REAPER Versions                           | Support Status |
 | ------------------------------------------------------ | -------------- |
-| v8.0.0 (V14 Support Added) (Current)                   |         Available        |
+| v8.1.0-beta (Suggestion System) (Current)              |         Available        |
+| v8.0.0 (V14 Support Added)                             |         Available        |
 | v7.3.0-stable (Updated Rep System)                     |       Discontinued       |
 | v7.2.0-stable (Rep System)                             |       Discontinued       |
 | v7.1.5-stable (Button controls for music)              |       Discontinued       |
@@ -128,7 +130,7 @@
 
 ## Contributing
 - **Before contributing to this repo, make sure to read [CONTRIBUTIONS.md](https://github.com/Simpleboy353/REAPER-2.0/blob/master/CONTRIBUTIONS.md)**
-- **Join our [Support & Development Server](https://infinitybot.tk/support)**
+- **Join our [Support & Development Server](https://discord.gg/PCFedSNnqp)**
 - **Join our [Community server](https://discord.gg/yMfyeNR2DT)**
 - **Invite my bot to your Server, [Here](https://infinitybot.tk/invite)**
 
