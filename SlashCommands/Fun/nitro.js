@@ -1,16 +1,9 @@
 const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
-  name: "8ball",
+  name: "nitro",
   description: "Tells you a fortune",
-  options: [
-      {
-          name: "question",
-          description: "The question you want to ask the magic 8ball",
-          required: true,
-          type: ApplicationCommandOptionType.String,
-      }
-  ],
+  options: null,
   run: async (client, interaction, args) => {
      var links = [
       `https://discord.gift/Hejs82hejdi9`,
