@@ -20,6 +20,5 @@ module.exports = {
     .setDescription(interaction.author.username + " slapped :raised_back_of_hand: " + member.user.username + ", " + member.user.username + " is now in the hospital! :hospital:")
     .setColor("Random");
     await interaction.reply({ embeds: [embed] });
-    );
   },
 };
