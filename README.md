@@ -12,7 +12,8 @@
 </p>
 <h3 align="center">A Multi-purpose Discord bot with many features!</h3>
 
-<h3>[Buy me a coffee](https://www.buymeacoffee.com/simpleboy353)</h3>
+## Buy me a coffee
+- [Click here!](https://www.buymeacoffee.com/simpleboy353)
 
 
 
