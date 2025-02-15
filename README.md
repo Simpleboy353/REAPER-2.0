@@ -4,6 +4,7 @@
 
 
 <h1 align="center"> REAPER-2.0  </h1>
+<h2 align="center"> This repository is no longer being maintained. Will work on new updates soon.</h2>
 <p align="center">
 <a href="https://github.com/Simpleboy353/REAPER-2.0/blob/main/LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/Simpleboy353/REAPER-2.0?style=for-the-badge" height="40" width="180"></a>
 <a href="https://www.buymeacoffee.com/simpleboy353" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="40" width="200"></a>
