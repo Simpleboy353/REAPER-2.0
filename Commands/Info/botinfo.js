@@ -1,11 +1,16 @@
 /**
-* READ THIS BEFORE YOU CHANGE THE CONTENT OF THIS COMMAND!
-* You are not allowed to change lines about this repo in this command.
-* You can change bot name and owner name, but not the source of this bot.
-* You are also not allowed to remove the credits from the footer to the orginal owner from this bot.
-* If you want to change the description, you will have to add the line that: "[YOUR BOT NAME] is an modified instance of Reaper-2.0 bot made by Simpleboy353.
-* These points are not optional, but remarks from the dev team of Reaper-2.0.
-*/
+ * ABOUT THIS COMMAND
+ *
+ * This command displays information about the bot, its origins, and its contributors.
+ *
+ * [Your Bot Name] is a modified instance of the Reaper-2.0 bot originally created by Simpleboy353.
+ * Source: https://github.com/Simpleboy353/Reaper-2.0
+ *
+ * While not legally required under the GPL-3.0 license, we kindly ask that credit to the original developer
+ * (Simpleboy353) be preserved in forks or modified versions as a courtesy to the project's origins.
+ *
+ * This comment is informational only and does not impose any restrictions beyond those in the GPL-3.0 license.
+ */
 
 const Discord = require("discord.js");
 const moment = require("moment");
