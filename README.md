@@ -4,7 +4,7 @@
 
 
 <h1 align="center"> REAPER-2.0  </h1>
-<h2 align="center"> This repository is no longer being maintained. Will work on new updates soon.</h2>
+<h2 align="center">We are working on the new version of the bot and have some major changes planned. Lots of commands like activities, info, and configuration will be removed/changed. Expecting to release the new version by end of october/early november this year. Till then, please be aware that the bot is not expected to work. For any information or queries, you can contact me on discord (Server link below).</h2>
 <p align="center">
 <a href="https://github.com/Simpleboy353/REAPER-2.0/blob/main/LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/Simpleboy353/REAPER-2.0?style=for-the-badge" height="40" width="180"></a>
 <a href="https://www.buymeacoffee.com/simpleboy353" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="40" width="200"></a>
