@@ -1,50 +1,49 @@
-REAPER-2.0 - Proprietary License Agreement
-Copyright © 2025 Simpleboy353. All Rights Reserved.
+REAPER-2.0 - Enhanced Attribution License
+Copyright © 2025 Simpleboy353
 
-1. Ownership
-   The REAPER-2.0 source code, features, structure, and all associated
-   files ("the Software") are the exclusive property of the Author,
-   Simpleboy353. This project is protected under copyright law and
-   international treaties. Nothing in this license transfers ownership.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated files (the "Software"), to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies of the Software,
+subject to the following conditions:
 
-2. Public Use via Discord
-   Members of the public may only use REAPER-2.0 through its official,
-   publicly hosted Discord instance managed by the Author. This license
-   does not grant permission to download, run, or host the bot yourself
-   unless expressly authorized in writing by the Author.
+1. Attribution Requirement
+   - All copies or substantial portions of the Software, whether modified or unmodified,
+     must include clear and visible credit to the original author:
+        "Created by Simpleboy353"
+   - This credit must appear in:
+        • Bot descriptions or help commands (for public deployments)
+        • Documentation
+        • Any promotional or public-facing materials
 
-3. Restrictions
-   Without explicit prior written permission from the Author, you may
-   NOT:
-      - Copy, reproduce, or redistribute any part of the Software.
-      - Modify, alter, or create derivative works based on the Software.
-      - Host, run, or deploy the Software in any form.
-      - Sell, license, rent, or commercially exploit the Software.
+2. Name Changes
+   - You may change the name of the Software or its public deployment.
+   - If renamed, you must still clearly state in the documentation or public description
+     that it is "Based on REAPER-2.0 by Simpleboy353" or similar wording.
 
-4. Attribution Requirement
-   If written permission is granted to use or host REAPER-2.0, visible and
-   unaltered credit must be included in any deployment:
-      "Created by Simpleboy353"
-   This credit must be visible to end users, such as in bot descriptions,
-   help commands, or documentation.
+3. Redistribution of Source Code
+   - You may redistribute the Software in source or compiled form, provided that:
+        • This license text is included in full
+        • The attribution statement is retained without modification
 
-5. Contributions
-   Any contributions submitted to the REAPER-2.0 project (e.g., code,
-   bug fixes, new features) automatically become the property of the
-   Author unless otherwise agreed upon in writing.
+4. Derivative Works
+   - If you modify the Software, you must:
+        • Clearly document the changes made
+        • Still give attribution to the original author
+        • Not remove or hide the original author’s name from the source code headers
 
-6. Warranty Disclaimer
-   The Software is provided "AS IS" without any warranties of any kind,
-   express or implied, including but not limited to merchantability,
-   fitness for a particular purpose, or noninfringement. The Author
-   shall not be held liable for any damages, losses, or claims arising
-   from the use or inability to use the Software.
+5. No Misrepresentation
+   - You may not falsely claim authorship of the original work or imply
+     endorsement by the original author without express written permission.
+
+6. Disclaimer of Warranty
+   - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL
+     THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+     OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE,
+     ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+     OTHER DEALINGS IN THE SOFTWARE.
 
 7. Enforcement
-   Unauthorized use, reproduction, modification, hosting, or distribution
-   of the Software constitutes copyright infringement and may result in
-   legal action, DMCA takedowns, and claims for damages under applicable
-   laws.
-
-Contact for Permissions:
-   GitHub: https://github.com/Simpleboy353
+   - Failure to comply with the attribution requirements may result in legal action,
+     DMCA takedown requests, and/or revocation of usage rights under this license.
