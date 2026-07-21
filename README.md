@@ -1,5 +1,30 @@
 <h1 align="center"> REAPER-2.0  </h1>
-<h2 align="center">We are working on the new version of the bot and have some major changes planned. Lots of commands like activities, info, and configuration will be removed/changed. Expecting to release the new version by end of this year(2026). Till then, please be aware that the bot is not expected to work. For any information or queries, you can contact me on discord (Server link below).</h2>
+
+## Development Notice
+
+🚧 **REAPER is currently undergoing a major rewrite.**
+
+A new version of the bot is currently in development with significant architectural and feature changes planned.
+
+The upcoming release will include:
+- A redesigned command system
+- Updated Discord.js implementation
+- Improved music functionality
+- A cleaner and more maintainable codebase
+- Changes to existing commands and features
+
+Some existing features, including certain activity, information, and configuration commands, will be removed, replaced, or redesigned.
+
+⚠️ **Important:**  
+The current version of REAPER is not expected to function correctly during this transition period due to major dependency and API changes.
+
+The new version is planned for release by the end of **2026**.
+
+Until then, this repository will remain available for reference, but active development is focused on REAPER 2.0.
+
+For questions, suggestions, or development updates, you can contact me through Discord:
+[Discord Server Link]
+
 <p align="center">
 <a href="https://github.com/Simpleboy353/REAPER-2.0/blob/main/LICENSE.md"><img alt="GitHub License" src="https://img.shields.io/github/license/Simpleboy353/REAPER-2.0?style=for-the-badge" height="40" width="180"></a>
 <a href="https://www.buymeacoffee.com/simpleboy353" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="40" width="200"></a>
